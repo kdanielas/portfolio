@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin UI Redesign | Daniela.</title>
+  <meta name="description" content="Case study: Improving Efficiency in a Customer Support Operations Tool.">
+  <link rel="stylesheet" href="css/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" rel="stylesheet" />
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32.png">
+
+</head>
+
+<body>
+  <button class="hamburger" id="hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="mobile-overlay" id="mobile-overlay"></div>
+  <nav class="mobile-menu" id="mobile-menu">
+    <div>
+      <div class="sidebar-logo"><a href="index.html">Daniela.</a></div>
+      <div class="sidebar-nav">
+        <a href="index.html" class="nav-item" data-i18n="nav_welcome">Welcome!</a>
+        <div class="nav-subitems">
+          <span class="nav-category" data-i18n="nav_case_studies">CASE STUDIES</span>
+          <a href="case-study-1.html" class="nav-subitem" data-i18n="nav_cs1">Reimagining Digital Investing with
+            AI-Powered Guidance</a>
+          <a href="case-study-2.html" class="nav-subitem active" data-i18n="nav_cs2">Improving Efficiency in a Customer
+            Support Operations Tool</a>
+          <a href="case-study-3.html" class="nav-subitem" data-i18n="nav_cs3">Optimizing Restaurant Operations with a
+            Reservation Management System</a>
+        </div>
+        <a href="contact.html" class="nav-item" data-i18n="nav_contact">Contact</a>
+      </div>
+    </div>
+    <div class="lang-switcher">
+      <button class="lang-btn active" data-lang="en">EN</button>
+      <span class="lang-divider">/</span>
+      <button class="lang-btn" data-lang="es">ES</button>
+    </div>
+  </nav>
+
+  <div class="page-wrapper">
+    <!-- Sidebar -->
+    <nav class="sidebar">
+      <div class="sidebar-logo"><a href="index.html">Daniela.</a></div>
+      <div class="sidebar-nav">
+        <a href="index.html" class="nav-item" data-i18n="nav_welcome">Welcome!</a>
+        <div class="nav-subitems">
+          <span class="nav-category" data-i18n="nav_case_studies">CASE STUDIES</span>
+          <a href="case-study-1.html" class="nav-subitem" data-i18n="nav_cs1">Reimagining Digital Investing with
+            AI-Powered Guidance</a>
+          <a href="case-study-2.html" class="nav-subitem active" data-i18n="nav_cs2">Improving Efficiency in a Customer
+            Support Operations Tool</a>
+          <a href="case-study-3.html" class="nav-subitem" data-i18n="nav_cs3">Optimizing Restaurant Operations with a
+            Reservation Management System</a>
+        </div>
+        <a href="contact.html" class="nav-item" data-i18n="nav_contact">Contact</a>
+      </div>
+      <div class="lang-switcher">
+        <button class="lang-btn active" data-lang="en">EN</button>
+        <span class="lang-divider">/</span>
+        <button class="lang-btn" data-lang="es">ES</button>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+      <!-- HERO -->
+      <section class="cs-hero">
+        <div class="gradient-ellipse"
+          style="background: radial-gradient(circle, rgba(200, 230, 170, 0.2) 0%, rgba(249, 250, 251, 0) 70%); top: 89px; right: -100px;">
+        </div>
+        <div class="cs-hero-content">
+          <div class="cs-hero-title-col">
+            <div>
+              <p class="cs-label" data-i18n="cs2_label">Case study</p>
+              <h1 class="cs-title" data-i18n="cs2_title">Improving Efficiency in a Customer Support Operations Tool</h1>
+            </div>
+            <p class="cs-desc" data-i18n="cs2_desc_p1">This project focused on redesigning a large-scale admin dashboard
+              used by internal support teams to manage customer inquiries, escalations, and service operations.</p>
+            <p class="cs-desc" data-i18n="cs2_desc_p2">As a UX Designer, I led the end-to-end redesign, identifying key
+              pain points in agent workflows, simplifying complex navigation, and introducing new features to reduce
+              resolution time.</p>
+          </div>
+          <div class="cs-hero-role-col">
+            <p class="role-title" data-i18n="cs2_role_title">My Rol</p>
+            <div class="role-tags">
+              <span class="tag-role" data-i18n="cs2_role1">End-to-end design</span>
+              <span class="tag-role" data-i18n="cs2_role2">UI Design</span>
+              <span class="tag-role" data-i18n="cs2_role3">Interaction Design</span>
+              <span class="tag-role" data-i18n="cs2_role4">Collaboration with product and engineering</span>
+            </div>
+          </div>
+        </div>
+        <!--div class="cs-scroll-indicator">
+          <p data-i18n="cs1_scroll">Scroll down to see the project</p>
+          <div class="cs-scroll-pill"></div>
+        </div-->
+        <!--div class="cs-scroll-arrow-indicator">
+          <span class="material-symbols-rounded">
+            south
+          </span>
+        </div-->
+      </section>
+
+      <!-- THE CHALLENGE -->
+      <section class="cs-card-section">
+        <div class="col-1">
+          <h2 class="heading-h2 section-title" data-i18n="cs2_challenge_title">The Challenge</h2>
+          <div class="section-content">
+            <p class="text-body" data-i18n="cs2_challenge_p1">The Admin UI tool was originally developed in 2018 to
+              support customer service and engineering teams. However, since its launch, no data had been collected on
+              its usage or effectiveness.</p>
+
+            <p class="text-body text-bold" data-i18n="cs2_challenge_bold">By 2024, key questions emerged:</p>
+
+            <ul>
+              <li data-i18n="cs2_challenge_li1">Is the tool still useful?</li>
+              <li data-i18n="cs2_challenge_li2">Are users relying on it daily?</li>
+              <li data-i18n="cs2_challenge_li3">Where are the inefficiencies?</li>
+              <li data-i18n="cs2_challenge_li4">Should it be improved or deprecated?</li>
+
+            </ul>
+          </div>
+        </div>
+        <div class="col-2">
+          <div class="purple-card">
+            <p class="card-label" data-i18n="cs2_challenge_card_label">The core tension</p>
+            <p class="card-text" data-i18n="cs2_challenge_card_text">How might we reduce resolution time while improving
+              the quality of support interactions?</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- FRAMING THE OPPORTUNITY -->
+      <section class="cs-card-section">
+        <div class="col-1">
+          <h2 class="heading-h2 section-title" data-i18n="cs2_opportunity_title">Framing the Opportunity</h2>
+          <div class="section-content">
+            <p class="text-body text-bold" data-i18n="cs2_opportunity_p1">We identified three key opportunity areas:</p>
+            <ul>
+              <li data-i18n="cs2_opportunity_li1">Streamline navigation to reduce clicks and context-switching</li>
+              <li data-i18n="cs2_opportunity_li2">Surface relevant customer data proactively</li>
+              <li data-i18n="cs2_opportunity_li3">Create consistent interaction patterns across all modules</li>
+            </ul>
+            <p class="text-body text-bold" data-i18n="cs2_opportunity_p2">We identified three key opportunity areas:</p>
+            <ul>
+              <li data-i18n="cs2_opportunity_li4">Streamline navigation to reduce clicks and context-switching</li>
+              <li data-i18n="cs2_opportunity_li5">Surface relevant customer data proactively</li>
+              <li data-i18n="cs2_opportunity_li6">Create consistent interaction patterns across all modules</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-2">
+          <div class="purple-card">
+            <p class="card-label" data-i18n="cs2_opportunity_card_label">Our guiding principle</p>
+            <p class="card-text" data-i18n="cs2_opportunity_card_text">Every click should bring the agent closer to
+              resolution.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- APPROACH -->
+      <section class="cs-card-section">
+        <div class="col-1">
+          <h2 class="heading-h2 section-title" data-i18n="cs2_approach_title">Approach</h2>
+          <div class="section-content">
+            <p class="text-body" data-i18n="cs2_approach_p1">We combined quantitative and qualitative research:</p>
+            <p class="text-body text-bold" data-i18n="cs2_approach_p2">📊 Surveys</p>
+            <ul>
+              <li data-i18n="cs2_approach_li1">To validate whether users actively used the tool</li>
+              <li data-i18n="cs2_approach_li2"> To identify strengths and weaknesses</li>
+              <li data-i18n="cs2_approach_li3"> To understand perceived value</li>
+            </ul>
+            <p class="text-body text-bold" data-i18n="cs2_approach_p text-bold">🎤 User Interviews</p>
+            <ul>
+              <li data-i18n="cs2_approach_li4">To deep dive into workflows</li>
+              <li data-i18n="cs2_approach_li5">To identify pain points and inefficiencies</li>
+              <li data-i18n="cs2_approach_li6"> To understand how users navigate the platform</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-2">
+          <div class="purple-card">
+            <p class="card-label" data-i18n="cs2_approach_card_label">💡 Key learning</p>
+            <p class="card-text" data-i18n="cs2_approach_card_text">Each design decision was validated with real users
+              to ensure we were solving the right problems.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- USERS -->
+      <section class="cs-users-section">
+        <div class="title">
+          <h2 class="heading-h2" data-i18n="cs2_users_title">Users</h2>
+          <p class="text-body" data-i18n="cs2_users_subtitle">We identified two primary user profiles:</p>
+        </div>
+        <div class="users-grid">
+          <div class="user-group">
+            <div class="user-header">
+              <div class="user-avatar">🧑‍💻</div>
+              <div>
+                <p class="user-name" data-i18n="cs2_user1_name">Customer Support Team</p>
+              </div>
+            </div>
+            <ul>
+              <li data-i18n="cs2_user1_li1">Daily users of the Admin UI</li>
+              <li data-i18n="cs2_user1_li2">Handle customer queries and onboarding issues</li>
+              <li data-i18n="cs2_user1_li3">Frequently search for payments and investigate errors</li>
+            </ul>
+            <div></br>
+              <p class="text-bold" data-i18n="cs2_user1_p1">Customer Support Team</p>
+            </div></br>
+            <ul>
+              <li data-i18n="cs2_user1_li4">Fast access to payment data</li>
+              <li data-i18n="cs2_user1_li5">Clear visibility of relevant information</li>
+              <li data-i18n="cs2_user1_li6">Efficient navigation</li>
+            </ul>
+          </div>
+          <div class="user-group">
+            <div class="user-header">
+              <div class="user-avatar">👩‍🔧</div>
+              <div>
+                <p class="user-name" data-i18n="cs2_user2_name">Tier 2 Specialists</p>
+              </div>
+            </div>
+            <ul>
+              <li data-i18n="cs2_user2_li1">Daily users of the Admin UI</li>
+              <li data-i18n="cs2_user2_li2">Handle customer queries and onboarding issues</li>
+              <li data-i18n="cs2_user2_li3">Frequently search for payments and investigate errors</li>
+            </ul>
+            <div></br>
+              <p class="text-bold" data-i18n="cs2_user2_p1">Customer Support Team</p>
+            </div></br>
+            <ul>
+              <li data-i18n="cs2_user2_li4">Fast access to payment data</li>
+              <li data-i18n="cs2_user2_li5">Clear visibility of relevant information</li>
+              <li data-i18n="cs2_user2_li6">Efficient navigation</li>
+            </ul>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- KEY PROBLEMS -->
+      <section class="cs-problems">
+        <h2 class="heading-h2" data-i18n="cs2_problems_title">Key Problems Identified</h2>
+        <ul>
+          <li><span class="problem-key" data-i18n="cs2_problem1_key">Navigation complexity →</span><span
+              data-i18n="cs2_problem1_text"> Too many steps to reach key actions</span></li>
+          <li><span class="problem-key" data-i18n="cs2_problem2_key">Information overload →</span><span
+              data-i18n="cs2_problem2_text"> Irrelevant data cluttering the workspace</span></li>
+          <li><span class="problem-key" data-i18n="cs2_problem3_key">Inconsistent patterns →</span><span
+              data-i18n="cs2_problem3_text"> Different modules, different experiences</span></li>
+          <li><span class="problem-key" data-i18n="cs2_problem4_key">Limited context →</span><span
+              data-i18n="cs2_problem4_text"> Missing customer history during interactions</span></li>
+          <li><span class="problem-key" data-i18n="cs2_problem5_key">Limited context →</span><span
+              data-i18n="cs2_problem5_text"> Missing customer history during interactions</span></li>
+        </ul>
+      </section>
+
+      <!-- DESIGN NEEDS -->
+      <section class="cs-problems">
+        <h2 class="heading-h2" data-i18n="cs2_designneeds_title">Key Problems Identified</h2>
+        <ul>
+          <li data-i18n="cs2_designneeds_li1">Daily users of the Admin UI</li>
+          <li data-i18n="cs2_designneeds_li2">Handle customer queries and onboarding issues</li>
+          <li data-i18n="cs2_designneeds_li3">Frequently search for payments and investigate errors</li>
+          <li data-i18n="cs2_designneeds_li4">Frequently search for payments and investigate errors</li>
+          <li data-i18n="cs2_designneeds_li5">Frequently search for payments and investigate errors</li>
+
+        </ul>
+      </section>
+
+      <!-- THE SOLUTION -->
+      <section class="cs-section">
+        <div style="max-width: 665px;">
+          <h2 class="heading-h2" style="margin-bottom: 32px;" data-i18n="cs2_solution_title">The Solution</h2>
+          <p class="text-body" data-i18n="cs2_solution_p1">We redesigned the admin tool with a unified architecture that
+            brings relevant information to the surface.</p>
+        </div>
+        <!--div style="margin-top: 64px;">
+          <p class="cs-label" style="text-align: left; margin-bottom: 16px;" data-i18n="cs2_shift_label">The Core Shift
+          </p>
+          <div class="cs-shift">
+            <div class="shift-box">
+              <p class="shift-label">From</p>
+              <p class="shift-value" data-i18n="cs2_shift_from">Feature-centered navigation</p>
+            </div>
+            <div class="shift-arrow">→</div>
+            <div class="shift-box">
+              <p class="shift-label">To</p>
+              <p class="shift-value" data-i18n="cs2_shift_to">Resolution-centered workflows</p>
+            </div>
+          </div>
+        </div-->
+      </section>
+
+      <!-- CORE FEATURES TITLE -->
+      <div class="cs-feature-title">
+        <h2 class="heading-h2" data-i18n="cs2_core_features">Core Improvements</h2>
+        <div class="highlight-bar" style="width: 303px;"></div>
+      </div>
+
+      <!-- FEATURE 1 -->
+      <section class="cs-feature-section">
+        <div class="feature-text">
+          <h3 class="heading-h3" data-i18n="cs2_feature1_title">Optimized Layout & Space</h3>
+          <ul>
+            <li data-i18n="cs2_feature1_li1">Eliminates context-switching</li>
+            <li data-i18n="cs2_feature1_li2">Speeds up issue identification</li>
+          </ul>
+
+          <p class="text-body insight-key" data-i18n="cs2_feature1_bold">Why it matters:</p>
+
+        </div>
+        <div class="feature-image">
+          <img src="assets/images/case2-1.svg" alt="Navigation sidebar design">
+
+        </div>
+      </section>
+
+      <!-- FEATURE 2 -->
+      <section class="cs-feature-section" style="flex-direction: row-reverse;">
+        <div class="feature-text">
+          <h3 class="heading-h3" data-i18n="cs2_feature2_title">Smart Routing</h3>
+          <ul>
+            <li data-i18n="cs2_feature2_li1">Reduces manual triage</li>
+            <li data-i18n="cs2_feature2_li2">Ensures issues reach the right person faster</li>
+          </ul>
+
+
+          <p class="text-body insight-key" data-i18n="cs2_feature2_bold">Why it matters:</p>
+
+        </div>
+        <div class="feature-image">
+          <img src="assets/images/case2-2.svg" alt="Data table with filters">
+        </div>
+      </section>
+
+      <!-- ADDITIONAL IMAGES -->
+      <section class="cs-full-section-image">
+        <img src="assets/images/case2-3.svg" alt="Column management interface">
+      </section>
+
+      <!-- FEATURE 3 -->
+      <section class="cs-feature-section">
+        <div class="feature-text">
+          <h3 class="heading-h3" data-i18n="cs2_feature3_title">Contextual Action Bar</h3>
+          <ul>
+            <li data-i18n="cs2_feature3_li1">Reduces navigation steps</li>
+            <li data-i18n="cs2_feature3_li2">Shows only relevant options</li>
+            <li data-i18n="cs2_feature3_li3">Shows only relevant options</li>
+
+          </ul>
+
+          <p class="text-body insight-key" data-i18n="cs2_feature3_bold">Why it matters:</p>
+
+        </div>
+        <div class="feature-image">
+          <img src="assets/images/case2-4.svg" alt="Data table with filters">
+        </div>
+      </section>
+
+      <!-- FEATURE 4 -->
+      <section class="cs-feature-section" style="flex-direction: row-reverse;">
+        <div class="feature-text">
+          <h3 class="heading-h3" data-i18n="cs2_feature4_title">Agent Dashboard</h3>
+          <ul>
+            <li data-i18n="cs2_feature4_li1">Keeps agents focused</li>
+            <li data-i18n="cs2_feature4_li2">Provides performance visibility</li>
+            <li data-i18n="cs2_feature4_li3">Provides performance visibility</li>
+            <li data-i18n="cs2_feature4_li4">Provides performance visibility</li>
+          </ul>
+
+          <p class="text-body  insight-key" data-i18n="cs2_feature4_bold">Why it matters:</p>
+        </div>
+        <div class="feature-image">
+          <img src="assets/images/case2-5.svg" alt="Data table with filters">
+        </div>
+      </section>
+
+      <!-- FEATURE 5 -->
+      <section class="cs-feature-section">
+        <div class="feature-text">
+          <h3 class="heading-h3" data-i18n="cs2_feature5_title">Contextual Action Bar</h3>
+
+          <ul>
+            <li data-i18n="cs2_feature5_li1">Reduces navigation steps</li>
+            <li data-i18n="cs2_feature5_li2">Shows only relevant options</li>
+          </ul>
+
+          <p class="text-body  insight-key" data-i18n="cs2_feature5_bold">Why it matters:</p>
+
+        </div>
+        <div class="feature-image">
+          <img src="assets/images/case2-6.svg" alt="Data table with filters">
+        </div>
+      </section>
+
+      <!-- FEATURE 6 -->
+      <section class="cs-feature-section" style="flex-direction: row-reverse;">
+        <div class="feature-text">
+          <h3 class="heading-h3" data-i18n="cs2_feature6_title">Agent Dashboard</h3>
+
+          <ul>
+            <li data-i18n="cs2_feature6_li1">Keeps agents focused</li>
+          </ul>
+          <p class="text-body  insight-key" data-i18n="cs2_feature6_bold">Why it matters:</p>
+
+        </div>
+        <div class="feature-image">
+          <img src="assets/images/case2-7.svg" alt="Data table with filters">
+        </div>
+      </section>
+
+      <!-- OUTCOMES -->
+      <section class="cs-outcomes">
+        <div class="outcomes-text">
+          <h2 class="heading-h2" data-i18n="cs2_outcomes_title">Outcomes</h2>
+          <ul>
+            <li class=" text-bold" data-i18n="cs2_outcomes_li1_bold">Established a clear, unified vision for AI-powered
+              digital
+              advice</li>
+            <p data-i18n="cs2_outcomes_li1">Established a clear, unified vision for AI-powered digital advice</p>
+            <br>
+            <li class=" text-bold" data-i18n="cs2_outcomes_li2_bold">Aligned stakeholders around a cohesive
+              experience strategy
+            </li>
+            <p data-i18n="cs2_outcomes_li2">Aligned stakeholders around a cohesive experience strategy</p>
+            <br>
+            <li class=" text-bold" data-i18n="cs2_outcomes_li3_bold">Defined a realistic MVP and phased
+              roadmap </li>
+            <p data-i18n="cs2_outcomes_li3">Aligned stakeholders around a cohesive experience strategy</p>
+            <br>
+            <li class=" text-bold" data-i18n="cs2_outcomes_li4_bold">Produced high-fidelity prototypes to
+              communicate complex
+              ideas
+            </li>
+            <p data-i18n="cs2_outcomes_li4">Aligned stakeholders around a cohesive experience strategy</p>
+            <br>
+            <li class=" text-bold" data-i18n="cs2_outcomes_li5_bold">Created reusable patterns for AI-assisted
+              decision-making
+            </li>
+            <p data-i18n="cs2_outcomes_li5">Aligned stakeholders around a cohesive experience strategy</p>
+
+          </ul>
+
+        </div>
+        <div class="outcomes-image">
+          <img src="assets/images/case2-8.svg" alt="Portfolio preview web application">
+        </div>
+      </section>
+
+      <!-- KEY TAKEAWAYS -->
+      <section class="cs-takeaways">
+        <h2 class="heading-h2" data-i18n="cs2_takeaways_title">Key Takeaways</h2>
+
+        <div class="cs-takeaways-cols">
+          <div class="cs-takeaways-col">
+            <h4 class="heading-h4" data-i18n="cs2_takeaways_title1">Guidance is most effective when it respects user
+              autonomy</h4>
+          </div>
+          <div class="cs-takeaways-col">
+            <h4 class="heading-h4" data-i18n="cs2_takeaways_title2">Guidance is most effective when it respects user
+              autonomy</h4>
+
+          </div>
+          <div class="cs-takeaways-col">
+            <h4 class="heading-h4" data-i18n="cs2_takeaways_title3">Guidance is most effective when it respects user
+              autonomy</h4>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- CLOSING -->
+      <section class="cs-closing">
+        <h2 class="heading-h2" data-i18n="cs1_closing_title">Closing Thought</h2>
+        <div class="closing-text">
+          <p data-i18n="cs2_closing_p1">Designing internal tools is about empowering teams to perform at their best.</p>
+          <p data-i18n="cs2_closing_p2">The goal isn’t to make decisions for users, but to help them make better ones.
+          </p>
+        </div>
+      </section>
+
+      <!-- Footer Nav -->
+      <div class="footer-nav">
+        <a href="case-study-1.html" class="footer-nav-item">
+          <div class="arrow-footer">
+            <span class="material-symbols-rounded">
+              arrow_back_ios
+            </span>
+          </div>
+          <span class="footer-link-text" data-i18n="footer_prev_cs2">Reimagining Digital Investing with AI-Powered
+            Guidance</span>
+        </a>
+        <a href="case-study-3.html" class="footer-nav-item footer-nav-right">
+          <div class="arrow-footer">
+            <span class="material-symbols-rounded">
+              arrow_forward_ios
+            </span>
+          </div>
+          <span class="footer-link-text" data-i18n="footer_next_cs3">Optimizing Restaurant Operations with a Reservation
+            Management System</span>
+        </a>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/translations.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>

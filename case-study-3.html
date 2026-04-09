@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cover Reservations | Daniela.</title>
+  <meta name="description" content="Case study: Optimizing Restaurant Operations with a Reservation Management System.">
+  <link rel="stylesheet" href="css/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" rel="stylesheet" />
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32.png">
+
+</head>
+
+<body>
+  <button class="hamburger" id="hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="mobile-overlay" id="mobile-overlay"></div>
+  <nav class="mobile-menu" id="mobile-menu">
+    <div>
+      <div class="sidebar-logo"><a href="index.html">Daniela.</a></div>
+      <div class="sidebar-nav">
+        <a href="index.html" class="nav-item" data-i18n="nav_welcome">Welcome!</a>
+        <div class="nav-subitems">
+          <span class="nav-category" data-i18n="nav_case_studies">CASE STUDIES</span>
+          <a href="case-study-1.html" class="nav-subitem" data-i18n="nav_cs1">Reimagining Digital Investing with
+            AI-Powered Guidance</a>
+          <a href="case-study-2.html" class="nav-subitem" data-i18n="nav_cs2">Improving Efficiency in a Customer Support
+            Operations Tool</a>
+          <a href="case-study-3.html" class="nav-subitem active" data-i18n="nav_cs3">Optimizing Restaurant Operations
+            with a Reservation Management System</a>
+        </div>
+        <a href="contact.html" class="nav-item" data-i18n="nav_contact">Contact</a>
+      </div>
+    </div>
+    <div class="lang-switcher">
+      <button class="lang-btn active" data-lang="en">EN</button>
+      <span class="lang-divider">/</span>
+      <button class="lang-btn" data-lang="es">ES</button>
+    </div>
+  </nav>
+
+  <div class="page-wrapper">
+    <!-- Sidebar -->
+    <nav class="sidebar">
+      <div class="sidebar-logo"><a href="index.html">Daniela.</a></div>
+      <div class="sidebar-nav">
+        <a href="index.html" class="nav-item" data-i18n="nav_welcome">Welcome!</a>
+        <div class="nav-subitems">
+          <span class="nav-category" data-i18n="nav_case_studies">CASE STUDIES</span>
+          <a href="case-study-1.html" class="nav-subitem" data-i18n="nav_cs1">Reimagining Digital Investing with
+            AI-Powered Guidance</a>
+          <a href="case-study-2.html" class="nav-subitem" data-i18n="nav_cs2">Improving Efficiency in a Customer Support
+            Operations Tool</a>
+          <a href="case-study-3.html" class="nav-subitem active" data-i18n="nav_cs3">Optimizing Restaurant Operations
+            with a Reservation Management System</a>
+        </div>
+        <a href="contact.html" class="nav-item" data-i18n="nav_contact">Contact</a>
+      </div>
+      <div class="lang-switcher">
+        <button class="lang-btn active" data-lang="en">EN</button>
+        <span class="lang-divider">/</span>
+        <button class="lang-btn" data-lang="es">ES</button>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- HERO -->
+      <section class="cs-hero">
+        <div class="gradient-ellipse"
+          style="background: radial-gradient(circle, rgba(200, 230, 170, 0.2) 0%, rgba(249, 250, 251, 0) 70%); top: 89px; right: -100px;">
+        </div>
+        <div class="cs-hero-content">
+          <div class="cs-hero-title-col">
+            <div>
+              <p class="cs-label" data-i18n="cs3_label">Case study</p>
+              <h1 class="cs-title" data-i18n="cs3_title">Optimizing Restaurant Operations with a Reservation Management
+                System</h1>
+            </div>
+            <p class="cs-desc" data-i18n="cs3_desc_p1">This project involved designing a reservation and table
+              management system for restaurant operators, focusing on reducing no-shows, improving floor efficiency, and
+              streamlining the guest experience.</p>
+            <p class="cs-desc" data-i18n="cs3_desc_p2">As a UX Designer, I worked closely with restaurant managers and
+              hosts to understand operational challenges and design a system that adapts to the fast-paced hospitality
+              environment.</p>
+          </div>
+          <div class="cs-hero-role-col">
+            <p class="role-title" data-i18n="cs3_role_title">My Rol</p>
+            <div class="role-tags">
+              <span class="tag-role" data-i18n="cs3_role1">UX Research</span>
+              <span class="tag-role" data-i18n="cs3_role2">UI Design</span>
+              <span class="tag-role" data-i18n="cs3_role3">Interaction Design</span>
+              <span class="tag-role" data-i18n="cs3_role4">Interaction Design</span>
+
+            </div>
+          </div>
+        </div>
+        <!--div class="cs-scroll-indicator">
+          <p data-i18n="cs1_scroll">Scroll down to see the project</p>
+          <div class="cs-scroll-pill"></div>
+        </div-->
+        <!--div class="cs-scroll-arrow-indicator">
+          <span class="material-symbols-rounded">
+            south
+          </span>
+        </div-->
+      </section>
+
+      <!-- THE CHALLENGE -->
+      <section class="cs-card-section">
+        <div class="col-1">
+          <h2 class="heading-h2 section-title" data-i18n="cs3_challenge_title">The Challenge</h2>
+          <div class="section-content">
+            <p class="text-body" data-i18n="cs3_challenge_p1">Restaurant teams were managing reservations through
+              fragmented tools—paper books, spreadsheets, and basic phone systems. This created:</p>
+            <p class="text-body" data-i18n="cs3_challenge_p2">Restaurant teams were managing reservations through
+              fragmented tools—paper books, spreadsheets, and basic phone systems. This created:</p>
+            <ul>
+              <li data-i18n="cs3_challenge_li1">High no-show rates with no automated follow-up</li>
+              <li data-i18n="cs3_challenge_li2">Poor table utilization during peak hours</li>
+              <li data-i18n="cs3_challenge_li3">Communication gaps between front-of-house and kitchen staff</li>
+              <li data-i18n="cs3_challenge_li4">Communication gaps between front-of-house and kitchen staff</li>
+
+            </ul>
+          </div>
+        </div>
+        <div class="col-2">
+          <div class="purple-card">
+            <p class="card-label" data-i18n="cs3_challenge_card_label">The core tension</p>
+            <p class="card-text" data-i18n="cs3_challenge_card_text">How might we reduce no-shows and improve table
+              efficiency without adding complexity for the host team?</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- FRAMING THE OPPORTUNITY -->
+      <section class="cs-card-section">
+        <div class="col-1">
+          <h2 class="heading-h2 section-title" data-i18n="cs3_opportunity_title">Framing the Opportunity</h2>
+          <div class="section-content">
+            <p class="text-body" data-i18n="cs3_opportunity_p1">We identified key opportunities through research:</p>
+            <ul>
+              <li data-i18n="cs3_opportunity_li1">Automate guest confirmations to reduce no-shows</li>
+              <li data-i18n="cs3_opportunity_li2">Visualize floor plans in real-time for better table management</li>
+              <li data-i18n="cs3_opportunity_li3">Simplify the reservation flow for faster booking</li>
+            </ul>
+            <br>
+            <p class="text-body text-bold" data-i18n="cs3_opportunity_p2">We identified key opportunities through
+              research:</p>
+            <p class="text-body" data-i18n="cs3_opportunity_p3">We identified key opportunities through research:</p>
+          </div>
+        </div>
+        <div class="col-2">
+          <div class="purple-card">
+            <p class="card-label" data-i18n="cs3_opportunity_card_label">Our guiding principle</p>
+            <p class="card-text" data-i18n="cs3_opportunity_card_text">Speed and simplicity for the host, transparency
+              for the manager.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- APPROACH -->
+      <section class="cs-card-section cs3-approach">
+        <div class="col-1">
+          <h2 class="heading-h2 section-title" data-i18n="cs3_approach_title">Approach</h2>
+
+          <div class="section-content">
+
+            <p class="text-body" data-i18n="cs3_approach_p1">We focused on understanding real workflows and system
+              behavior:</p>
+            <br>
+            <h4 class="heading-h4" data-i18n="cs3_approach_title2">System & Workflow Mapping </h4>
+
+            <p class="text-body" data-i18n="cs3_approach_p2">We began by mapping the main functionalities of the
+              software to better understand the core interactions. This helped us identify friction points and
+              prioritize improvements.</p>
+          </div>
+          </br>
+        </div>
+      </section>
+
+      <div class="cs-full-image">
+        <img src="assets/images/case3-1.svg" alt="Reservation user flow diagram">
+      </div>
+      <!-- APPROACH -->
+      <section class="cs-card-section">
+        <div class="col">
+          <p class="text-body text-bold" data-i18n="cs3_approach_p3">We combined field research with rapid prototyping:
+          </p>
+          <br>
+          <ul>
+            <li data-i18n="cs3_approach_li1"> Restaurant staff (hosts, managers)</li>
+            <li data-i18n="cs3_approach_li2"> Observed how they manage reservations and tables</li>
+            <li data-i18n="cs3_approach_li3"> Identified pain points during peak hours</li>
+          </ul>
+
+        </div>
+
+        <div class="col">
+          <p class="text-body text-bold" data-i18n="cs3_approach_p4">We combined field research with rapid prototyping:
+          </p>
+          <br>
+          <ul>
+            <li data-i18n="cs3_approach_li4"> Restaurant staff (hosts, managers)</li>
+            <li data-i18n="cs3_approach_li5"> Observed how they manage reservations and tables</li>
+          </ul>
+        </div>
+
+        <div class="col">
+          <p class="text-body text-bold" data-i18n="cs3_approach_p5">We combined field research with rapid prototyping:
+          </p>
+          <br>
+          <ul>
+            <li data-i18n="cs3_approach_li6"> Observed how they manage reservations and tables</li>
+            <li data-i18n="cs3_approach_li7"> Identified pain points during peak hours</li>
+          </ul>
+        </div>
+
+      </section>
+
+      <!-- USERS -->
+      <section class="cs-users-section">
+        <div class="title">
+          <h2 class="heading-h2" data-i18n="cs3_users_title">Users</h2>
+          <p class="text-body" data-i18n="cs3_users_subtitle">We identified two primary user profiles:</p>
+        </div>
+        <div class="users-grid">
+          <div class="user-group">
+            <div class="user-header">
+              <div class="user-avatar">🧑‍🍳</div>
+              <div>
+                <p class="user-name" data-i18n="cs3_user1_name">Restaurant Hosts</p>
+              </div>
+            </div>
+            <ul>
+              <li data-i18n="cs3_user1_li1">Manage walk-ins and reservations simultaneously</li>
+              <li data-i18n="cs3_user1_li2">Need fast, one-glance visibility of table status</li>
+              <li data-i18n="cs3_user1_li3">Often work under time pressure</li>
+            </ul>
+            <br>
+            <p class="text-bold" data-i18n="cs3_user1_p1">Restaurant Hosts</p>
+            <br>
+
+            <ul>
+              <li data-i18n="cs3_user1_li4">Manage walk-ins and reservations simultaneously</li>
+              <li data-i18n="cs3_user1_li5">Need fast, one-glance visibility of table status</li>
+              <li data-i18n="cs3_user1_li6">Often work under time pressure</li>
+            </ul>
+          </div>
+          <div class="user-group">
+            <div class="user-header">
+              <div class="user-avatar">👨‍💼</div>
+              <div>
+                <p class="user-name" data-i18n="cs3_user2_name">Restaurant Managers</p>
+              </div>
+            </div>
+            <ul>
+              <li data-i18n="cs3_user2_li1">Track occupancy and revenue patterns</li>
+              <li data-i18n="cs3_user2_li2">Need reporting and analytics</li>
+              <li data-i18n="cs3_user2_li3">Make decisions about staffing and capacity</li>
+            </ul>
+            <br>
+            <p class="text-bold" data-i18n="cs3_user1_p1">Restaurant Hosts</p>
+            <br>
+
+            <ul>
+              <li data-i18n="cs3_user2_li4">Manage walk-ins and reservations simultaneously</li>
+              <li data-i18n="cs3_user2_li5">Need fast, one-glance visibility of table status</li>
+              <li data-i18n="cs3_user2_li6">Often work under time pressure</li>
+            </ul>
+          </div>
+          <div class="user-group">
+            <div class="user-header">
+              <div class="user-avatar">👨‍💼</div>
+              <div>
+                <p class="user-name" data-i18n="cs3_user2_name">Restaurant Managers</p>
+              </div>
+            </div>
+            <ul>
+              <li data-i18n="cs3_user3_li1">Track occupancy and revenue patterns</li>
+              <li data-i18n="cs3_user3_li2">Need reporting and analytics</li>
+            </ul>
+            <br>
+            <p class="text-bold" data-i18n="cs3_user1_p1">Restaurant Hosts</p>
+            <br>
+
+            <ul>
+              <li data-i18n="cs3_user3_li3">Manage walk-ins and reservations simultaneously</li>
+              <li data-i18n="cs3_user3_li4">Need fast, one-glance visibility of table status</li>
+              <li data-i18n="cs3_user3_li5">Often work under time pressure</li>
+            </ul>
+          </div>
+        </div>
+        <!--div class="cs-shared-insight">
+          <p class="text-body">
+            <span class="insight-key" data-i18n="cs3_users_shared">Shared need</span><br>
+            <span data-i18n="cs3_users_shared_text">A system that works with the pace of service, not against it.</span>
+          </p>
+        </div-->
+      </section>
+
+      <!-- KEY PROBLEMS -->
+      <section class="cs-problems">
+        <h2 class="heading-h2" data-i18n="cs3_problems_title">Key Problems Identified</h2>
+        <ul>
+          <li><span class="problem-key" data-i18n="cs3_problem1_key">No-show management →</span><span
+              data-i18n="cs3_problem1_text"> No automated reminders or follow-ups</span></li>
+          <li><span class="problem-key" data-i18n="cs3_problem2_key">Floor visibility →</span><span
+              data-i18n="cs3_problem2_text"> No real-time view of table status</span></li>
+          <li><span class="problem-key" data-i18n="cs3_problem3_key">Booking friction →</span><span
+              data-i18n="cs3_problem3_text"> Too many steps to create a reservation</span></li>
+          <li><span class="problem-key" data-i18n="cs3_problem4_key">Data gaps →</span><span
+              data-i18n="cs3_problem4_text">
+              No insights on patterns or trends</span></li>
+          <li><span class="problem-key" data-i18n="cs3_problem5_key">Data gaps →</span><span
+              data-i18n="cs3_problem5_text">
+              No insights on patterns or trends</span></li>
+        </ul>
+      </section>
+
+      <!-- THE DESIGN NEEDS -->
+      <section class="cs-card-section">
+        <div class="col-1">
+          <h2 class="heading-h2 section-title" data-i18n="cs3_designneeds_title">The Challenge</h2>
+          <div class="section-content">
+            <ul>
+              <li data-i18n="cs3_designneeds_li1">High no-show rates with no automated follow-up</li>
+              <li data-i18n="cs3_designneeds_li2">Poor table utilization during peak hours</li>
+              <li data-i18n="cs3_designneeds_li3">Communication gaps between front-of-house and kitchen staff</li>
+              <li data-i18n="cs3_designneeds_li4">Communication gaps between front-of-house and kitchen staff</li>
+              <li data-i18n="cs3_designneeds_li5">Communication gaps between front-of-house and kitchen staff</li>
+
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- THE SOLUTION -->
+      <section class="cs-section">
+        <div style="max-width: 665px;">
+          <h2 class="heading-h2" style="margin-bottom: 32px;" data-i18n="cs3_solution_title">The Solution</h2>
+          <p class="text-body" data-i18n="cs3_solution_p1">We designed a unified reservation system with real-time floor
+            management and automated guest communications.</p>
+        </div>
+      </section>
+
+      <!-- CORE FEATURES TITLE -->
+      <div class="cs-feature-title">
+        <h2 class="heading-h2" data-i18n="cs3_core_features">Core Features</h2>
+        <div class="highlight-bar" style="width: 243px;"></div>
+      </div>
+
+      <!-- FEATURE 1 -->
+      <section class="cs-feature-section">
+        <div class="feature-text">
+          <h3 class="heading-h3" data-i18n="cs3_feature1_title">Smart Floor Plan</h3>
+
+          <ul>
+            <li data-i18n="cs3_feature1_li1">Instant visibility of availability</li>
+            <li data-i18n="cs3_feature1_li2">Reduces hosting errors</li>
+          </ul>
+          <p class="text-body insight-key" data-i18n="cs3_feature1_bold">Confirmation, reminder, and waitlist
+            notifications via SMS
+            and email.</p>
+        </div>
+        <div class="feature-image">
+          <img src="assets/images/case3-2.svg" alt="Smart Floor Plan">
+        </div>
+      </section>
+
+      <!-- FEATURE 2 -->
+      <section class="cs-feature-section" style="flex-direction: row-reverse;">
+        <div class="feature-text">
+          <h3 class="heading-h3" data-i18n="cs3_feature2_title">Automated Guest Communication</h3>
+          <ul>
+            <li data-i18n="cs3_feature2_li1">Reduces no-shows by up to 30%</li>
+            <li data-i18n="cs3_feature2_li2">Improves guest experience</li>
+          </ul>
+          <p class="text-body insight-key" data-i18n="cs3_feature2_bold">Why it matters:</p>
+        </div>
+        <div class="feature-image">
+          <img src="assets/images/case3-3.svg" alt="Automated Guest Communication">
+        </div>
+      </section>
+
+      <!-- FEATURE 3 -->
+      <section class="cs-feature-section">
+        <div class="feature-text">
+          <h3 class="heading-h3" data-i18n="cs3_feature3_title">Quick Reservation Flow</h3>
+          <ul>
+            <li data-i18n="cs3_feature3_li1">Fewer steps to book</li>
+            <li data-i18n="cs3_feature3_li2">Works for phone, walk-in, and online bookings</li>
+          </ul>
+          <br>
+          <p class="text-body insight-key" data-i18n="cs3_feature3_bold">Why it matters:</p>
+
+        </div>
+        <div class="feature-image">
+          <img src="assets/images/case3-4.svg" alt="Reservation row detail">
+        </div>
+      </section>
+
+      <!-- FEATURE 4 -->
+      <section class="cs-feature-section" style="flex-direction: row-reverse;">
+        <div class="feature-text">
+          <h3 class="heading-h3" data-i18n="cs3_feature4_title">Analytics Dashboard</h3>
+          <ul>
+            <li data-i18n="cs3_feature4_li1">Data-driven staffing decisions</li>
+            <li data-i18n="cs3_feature4_li2">Identifies patterns for optimization</li>
+            <li data-i18n="cs3_feature4_li3">Identifies patterns for optimization</li>
+
+          </ul>
+          <p class="text-body insight-key" data-i18n="cs3_feature4_bold">👉 Faster decision-making and reduced errors
+          </p>
+        </div>
+        <div class="feature-image">
+          <img src="assets/images/case3-5.svg" alt="Analytics Dashboard">
+        </div>
+      </section>
+
+      <!-- FEATURE 5 -->
+      <section class="cs-feature-section" style="flex-direction: row-reverse;">
+        <div class="feature-text">
+          <h3 class="heading-h3" data-i18n="cs3_feature5_title">Automated Guest Communication</h3>
+          <ul>
+            <li data-i18n="cs3_feature5_li1">Reduces no-shows by up to 30%</li>
+            <li data-i18n="cs3_feature5_li2">Improves guest experience</li>
+          </ul>
+          <p class="text-body insight-key" data-i18n="cs3_feature5_bold">Why it matters:</p>
+        </div>
+        <div class="feature-image">
+          <img src="assets/images/case3-6.svg" alt="Automated Guest Communication">
+        </div>
+      </section>
+
+      <!-- FEATURE 6 -->
+      <section class="cs-feature-section">
+        <div class="feature-text">
+          <h3 class="heading-h3" data-i18n="cs3_feature6_title">Quick Reservation Flow</h3>
+          <ul>
+            <li data-i18n="cs3_feature6_li1">Fewer steps to book</li>
+            <li data-i18n="cs3_feature6_li2">Works for phone, walk-in, and online bookings</li>
+          </ul>
+          <p class="text-body insight-key" data-i18n="cs3_feature6_bold">Why it matters:</p>
+
+        </div>
+        <div class="feature-image">
+          <img src="assets/images/case3-7.svg" alt="Design system specifications">
+
+        </div>
+      </section>
+
+      <!-- FEATURE 7 -->
+      <section class="cs-feature-section" style="flex-direction: row-reverse;">
+        <div class="feature-text">
+          <h3 class="heading-h3" data-i18n="cs3_feature7_title">Analytics Dashboard</h3>
+          <ul>
+            <li data-i18n="cs3_feature7_li1">Data-driven staffing decisions</li>
+            <li data-i18n="cs3_feature7_li2">Identifies patterns for optimization</li>
+          </ul>
+
+          <p class="text-body insight-key" data-i18n="cs3_feature7_bold">Why it matters:</p>
+        </div>
+        <div class="feature-image">
+          <img src="assets/images/case3-8.svg" alt="Table component states">
+        </div>
+      </section>
+
+      <!-- OUTCOMES -->
+      <section class="cs-outcomes">
+        <div class="outcomes-text">
+          <h2 class="heading-h2" data-i18n="cs3_outcomes_title">Outcomes</h2>
+
+          <ul>
+            <li class=" text-bold" data-i18n="cs3_outcomes_li1_bold">Established a clear, unified vision for AI-powered
+              digital
+              advice</li>
+            <p data-i18n="cs3_outcomes_li1">Established a clear, unified vision for AI-powered digital advice</p>
+            <br>
+            <li class=" text-bold" data-i18n="cs3_outcomes_li2_bold">Aligned stakeholders around a cohesive
+              experience strategy
+            </li>
+            <p data-i18n="cs3_outcomes_li2">Aligned stakeholders around a cohesive experience strategy</p>
+            <br>
+            <li class=" text-bold" data-i18n="cs3_outcomes_li3_bold">Defined a realistic MVP and phased
+              roadmap </li>
+            <p data-i18n="cs3_outcomes_li3">Aligned stakeholders around a cohesive experience strategy</p>
+            <br>
+            <li class=" text-bold" data-i18n="cs3_outcomes_li4_bold">Produced high-fidelity prototypes to
+              communicate complex
+              ideas
+            </li>
+            <p data-i18n="cs3_outcomes_li4">Aligned stakeholders around a cohesive experience strategy</p>
+            <br>
+            <li class=" text-bold" data-i18n="cs3_outcomes_li5_bold">Created reusable patterns for AI-assisted
+              decision-making
+            </li>
+            <p data-i18n="cs3_outcomes_li5">Aligned stakeholders around a cohesive experience strategy</p>
+
+          </ul>
+
+        </div>
+        <div class="outcomes-image">
+          <img src="assets/images/case3-9.svg" alt="Analytics Dashboard">
+        </div>
+      </section>
+
+      <!-- KEY TAKEAWAYS -->
+      <section class="cs-takeaways">
+        <h2 class="heading-h2" data-i18n="cs3_takeaways_title">Key Takeaways</h2>
+
+        <div class="cs-takeaways-cols">
+          <div class="cs-takeaways-col">
+            <h4 class="heading-h4" data-i18n="cs3_takeaway1">Guidance is most effective when it respects user
+              autonomy</h4>
+          </div>
+          <div class="cs-takeaways-col">
+            <h4 class="heading-h4" data-i18n="cs3_takeaway2">Guidance is most effective when it respects user
+              autonomy</h4>
+          </div>
+          <div class="cs-takeaways-col">
+            <h4 class="heading-h4" data-i18n="cs3_takeaway3">Guidance is most effective when it respects user
+              autonomy</h4>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- WHAT IMPROVE what NEXT -->
+      <section class="cs-whatnext">
+        <h2 class="heading-h2" data-i18n="cs3_whatnext_title">What I’d Improve Next</h2>
+        <ul>
+          <li data-i18n="cs3_whatnext_li1">Personalize guidance based on behavior over time.</li>
+          <li data-i18n="cs3_whatnext_li2">Validate with real users in live trading environments.</li>
+          <li data-i18n="cs3_whatnext_li3">Further reduce cognitive load in high-stress moments.</li>
+        </ul>
+      </section>
+
+      <!-- CLOSING -->
+      <section class="cs-closing">
+        <h2 class="heading-h2" data-i18n="cs3_closing_title">Closing Thought</h2>
+        <div class="closing-text">
+
+          <p data-i18n="cs3_closing_p1">Designing for financial decision-making isn’t just about usability—it’s about
+            responsibility.</p>
+          <p data-i18n="cs3_closing_p2">The goal isn’t to make decisions for users, but to help them make better ones.
+          </p>
+        </div>
+      </section>
+
+      <!-- Footer Nav -->
+      <div class="footer-nav">
+        <a href="case-study-2.html" class="footer-nav-item">
+          <div class="arrow-footer">
+            <span class="material-symbols-rounded">
+              arrow_back_ios
+            </span>
+          </div>
+          <span class="footer-link-text" data-i18n="footer_prev_cs3">Improving Efficiency in a Customer Support
+            Operations Tool</span>
+        </a>
+        <a href="contact.html" class="footer-nav-item footer-nav-right">
+          <div class="arrow-footer">
+            <span class="material-symbols-rounded">
+              arrow_forward_ios
+            </span>
+          </div>
+          <span class="footer-link-text" data-i18n="footer_next_contact">Contact</span>
+        </a>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/translations.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>
