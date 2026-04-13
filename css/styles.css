@@ -39,7 +39,7 @@ body {
 
 a {
   text-decoration: none;
-  color: inherit;
+  color: var(--purple);
 }
 
 ul {
@@ -888,14 +888,15 @@ img {
   align-items: center;
   justify-content: center;
   border: 1.5px solid var(--purple);
-  border-style: outset;
   border-radius: 40px;
   color: var(--purple);
   margin: inherit;
+  background-color: rgba(92, 100, 255, 0);
+  transition: 0.3s;
 }
 
-.footer-nav:hover .arrow-footer {
-  background: var(--purple);
+.footer-nav a:hover .arrow-footer {
+  background: rgba(92, 100, 255, 1);
   color: var(--light);
 }
 
@@ -946,13 +947,13 @@ img {
 }
 
 .gradient-ellipse-1 {
-  background: radial-gradient(circle, rgba(233, 254, 163, 0.25) 0%, rgba(249, 250, 251, 0) 70%);
+  background: radial-gradient(circle, rgba(233, 254, 163, 0.3) 0%, rgba(249, 250, 251, 0.1) 70%);
   top: 0;
   right: -100px;
 }
 
 .gradient-ellipse-2 {
-  background: radial-gradient(circle, rgba(200, 230, 170, 0.2) 0%, rgba(249, 250, 251, 0) 70%);
+  background: radial-gradient(circle, rgba(200, 230, 170, 0.3) 0%, rgba(249, 250, 251, 0.1) 70%);
   top: -30px;
   right: 100px;
 }
@@ -1071,7 +1072,7 @@ img {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+  /*overflow: hidden;*/
   align-items: end;
   justify-content: end;
 }

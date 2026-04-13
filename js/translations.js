@@ -27,17 +27,21 @@ const translations = {
     contact_linkedin_label: "💼 LinkedIn: ",
     contact_linkedin: "www.linkedin.com/in/kelly-daniela-sanchez-rojas",
     contact_location_label: "🌍 Location: ",
-    contact_location: "Tenerife",
+    contact_location: "Tenerife, Spain",
 
     // Case Study 1 - BMO
     cs1_label: "Case study",
     cs1_title: "Reimagining Digital Investing with AI-Powered Guidance",
     cs1_desc_p1: "This project explored a new model for self-directed investing by integrating AI-powered guidance into critical decision moments across the investing journey.",
-    cs1_desc_p2: "As a UX Designer within a team of three, I contributed to the end-to-end experience design, focusing on balancing user autonomy with contextual, intelligent support.",
+    cs1_desc_p2: "I was part of a three-person design team, working alongside a Lead Designer and one other UX Designer. While the Lead drove the conceptual direction and stakeholder workshops, my role focused on design execution — translating vision into user flows, wireframes, high-fidelity mockups, and prototypes. The features highlighted in this case study are the ones I personally owned and developed. and this.",
     cs1_role_title: "My Rol",
-    cs1_role1: "User experience aligned with objectives",
-    cs1_role2: "Interaction Design",
-    cs1_role3: "Experience Architecture",
+    cs1_role1: "Wireframing",
+    cs1_role2: "User flows",
+    cs1_role3: "High-Fidelity UIs",
+    cs1_role4: "Prototyping",
+    cs1_role5: "Concept Exploration",
+    cs1_role6: "AI-Powered Experiences",
+
     cs1_scroll: "Scroll down to see the project",
 
     cs1_challenge_title: "The Challenge",
@@ -71,7 +75,7 @@ const translations = {
     cs1_approach_card_text: "We worked iteratively, using lightweight prototypes and storytelling artifacts to align stakeholders and refine direction.",
 
     cs1_users_title: "Users",
-    cs1_users_subtitle: "We identified two behavioral extremes:",
+    cs1_users_subtitle: "We started from two user profiles defined by the client. From there, I identified the shared needs and key tensions that guided the design decisions.",
     cs1_user1_name: "Baby boomers generation",
     cs1_user1_li1: "Lower confidence in digital tools",
     cs1_user1_li2: "Higher risk aversion",
@@ -83,15 +87,17 @@ const translations = {
     cs1_user2_li3: "More prone to overconfidence and impulsive trades",
     cs1_users_shared: "👉 Shared need:",
     cs1_users_shared_text: "Understanding the consequences of their actions before committing.",
+
     cs1_problems_title: "Key Problems Identified",
     cs1_problem1_key: "Discoverability →",
-    cs1_problem1_text: " Users don't know what tools are available",
+    cs1_problem1_text: "Users don't know what tools are available",
     cs1_problem2_key: "Understanding risk →",
     cs1_problem2_text: " Difficulty interpreting financial impact",
     cs1_problem3_key: "Emotional decision-making →",
-    cs1_problem3_text: " Fear and greed drive behavior",
+    cs1_problem3_text: "Fear and greed drive behavior",
     cs1_problem4_key: "Trust in AI →",
-    cs1_problem4_text: " Skepticism toward automated recommendations",
+    cs1_problem4_text: "Skepticism toward automated recommendations",
+
     cs1_solution_title: "The Solution",
     cs1_solution_p1: "We designed a hybrid AI guidance system embedded across the investing journey.",
     cs1_solution_p2: "Instead of a single feature, the solution works as a layer of intelligence that adapts to user context.",
@@ -149,7 +155,7 @@ const translations = {
     cs1_outcomes_li5: "Created reusable patterns for AI-assisted decision-making",
 
     cs1_takeaways_title: "Key Takeaways",
-    cs1_takeaways_p1: "This project reinforced several important lessons:",
+    cs1_takeaways_p1: "Guidance is most effective when it respects user autonomy",
     cs1_takeaways_title2: "Guidance is most effective when it respects user autonomy",
     cs1_takeaways_p2: "Users don’t need more tools — they need help using them",
     cs1_takeaways_title3: "AI works best when embedded, not centralized",
@@ -185,20 +191,22 @@ const translations = {
     cs2_challenge_li2: "Are users relying on it daily?",
     cs2_challenge_li3: "Where are the inefficiencies?",
     cs2_challenge_li4: "Should it be improved or deprecated?",
+
     cs2_challenge_card_label: "The main challenge",
     cs2_challenge_card_text: "Understanding real user behavior and identifying how to make their workflows faster and more efficient.",
 
     cs2_opportunity_title: "Framing the Opportunity",
     cs2_opportunity_p1: "We identified three key opportunity areas:",
+
     cs2_opportunity_li1: "The tool is critical for daily operations",
     cs2_opportunity_li2: "Users rely heavily on it to resolve customer issues",
     cs2_opportunity_li3: " However, key workflows are slow and inefficient",
     cs2_opportunity_p2: "Key insights:",
     cs2_opportunity_li4: "Users take too long to locate specific payments",
     cs2_opportunity_li5: "Important data is not easily visible at a glance",
-    cs2_opportunity_li6: " Navigation and data structures create friction",
+    cs2_opportunity_li6: "Navigation and data structures create friction",
     cs2_opportunity_card_label: "Opportunity",
-    cs2_opportunity_card_text: " Improve speed, clarity, and accessibility without disrupting existing workflows.",
+    cs2_opportunity_card_text: "Improve speed, clarity, and accessibility without disrupting existing workflows.",
 
     cs2_approach_title: "Approach",
     cs2_approach_p1: "We combined quantitative and qualitative research:",
@@ -218,8 +226,8 @@ const translations = {
     cs2_users_subtitle: "We identified two primary user profiles:",
     cs2_user1_name: "Customer Support Team",
     cs2_user1_li1: "Daily users of the Admin UI",
-    cs2_user1_li2: " Handle customer queries and onboarding issues",
-    cs2_user1_li3: " Frequently search for payments and investigate errors",
+    cs2_user1_li2: "Handle customer queries and onboarding issues",
+    cs2_user1_li3: "Frequently search for payments and investigate errors",
     cs2_user1_p1: "Needs:",
     cs2_user1_li4: " Fast access to payment data",
     cs2_user1_li5: "Clear visibility of relevant information",
@@ -239,7 +247,7 @@ const translations = {
 
     cs2_problems_title: "Key Problems Identified",
     cs2_problem1_key: "Slow payment search →",
-    cs2_problem1_text: " Finding a payment takes too long",
+    cs2_problem1_text: "Finding a payment takes too long",
     cs2_problem2_key: "Low data visibility →",
     cs2_problem2_text: " Important fields are hard to identify",
     cs2_problem3_key: "Inefficient tables →",
@@ -314,6 +322,7 @@ const translations = {
     cs2_takeaways_title2: "Efficiency gains come from reducing friction, not adding features",
     cs2_takeaways_title3: "Visibility of information is critical in high-pressure workflows",
 
+    cs2_closing_title: "Closing Thought",
     cs2_closing_p1: "Designing internal tools is about empowering teams to perform at their best.",
     cs2_closing_p2: "By improving clarity, speed, and usability, we transformed a tool users had adapted to into one that truly supports their work.",
 
@@ -324,9 +333,9 @@ const translations = {
     cs3_desc_p2: "The goal was to streamline operations, reduce friction for staff, and improve real-time decision-making in high-pressure environments.",
     cs3_role_title: "My Rol",
     cs3_role1: "UX Research",
-    cs3_role2: "UI Design and system creation",
-    cs3_role3: "Information architecture and interaction design",
-    cs3_role4: "Collaboration with product and stakeholders",
+    cs3_role2: "System Design creation",
+    cs3_role3: "Interaction Design",
+    cs3_role4: "Collaboration with stakeholders",
 
     cs3_scroll: "Scroll down to see the project",
 
@@ -334,12 +343,11 @@ const translations = {
     cs3_challenge_p1: "Restaurant staff operate in fast-paced, high-pressure environments where time and clarity are critical.",
     cs3_challenge_p2: "However, the existing system presented several challenges:",
     cs3_challenge_li1: "Complex and dense interfaces",
-    cs3_challenge_li2: " Difficulty managing reservations in real time",
+    cs3_challenge_li2: "Difficulty managing reservations in real time",
     cs3_challenge_li3: "Limited visibility of table status and service flow",
     cs3_challenge_li4: "Inefficient navigation between key actions",
     cs3_challenge_card_label: "The main challenge",
     cs3_challenge_card_text: "How might we simplify operations and improve speed without disrupting critical workflows?",
-
 
     cs3_opportunity_title: "Framing the Opportunity",
     cs3_opportunity_p1: "Through research, we identified that:",
@@ -357,9 +365,9 @@ const translations = {
     cs3_approach_title2: "System & Workflow Mapping",
     cs3_approach_p2: "We began by mapping the main functionalities of the software to better understand the core interactions. This helped us identify friction points and prioritize improvements.",
     cs3_approach_p3: "🎤 User Interviews",
-    cs3_approach_li1: " Restaurant staff (hosts, managers)",
-    cs3_approach_li2: " Observed how they manage reservations and tables",
-    cs3_approach_li3: " Identified pain points during peak hours",
+    cs3_approach_li1: "Restaurant staff (hosts, managers)",
+    cs3_approach_li2: "Observed how they manage reservations and tables",
+    cs3_approach_li3: "Identified pain points during peak hours",
     cs3_approach_p4: "🔍 Workflow Analysis",
     cs3_approach_li4: "Mapped reservation and seating flows",
     cs3_approach_li5: "Identified bottlenecks and inefficiencies",
@@ -434,7 +442,6 @@ const translations = {
 
     cs3_feature3_title: "Information Hierarchy",
     cs3_feature3_p1: "A streamlined booking process optimized for speed.",
-
     cs3_feature3_li1: "Prioritized key data (time, guests, table status)",
     cs3_feature3_li2: " Reduced visual noise",
     cs3_feature3_bold: "👉 Lower cognitive load",
@@ -460,12 +467,6 @@ const translations = {
     cs3_feature7_li2: "Clear separation of sections and actions",
     cs3_feature7_bold: "👉 Faster scanning and decision-making",
 
-
-    cs3_takeaways_title: "Key Takeaways",
-    cs3_takeaway1: "Speed and clarity are critical in operational tools",
-    cs3_takeaway2: "Visual systems outperform text-heavy interfaces",
-    cs3_takeaway3: "Reducing friction has a direct impact on performance",
-
     cs3_outcomes_title: "Outcomes",
     cs3_outcomes_li1_bold: "⚡ Faster service management",
     cs3_outcomes_li1: "Staff can manage reservations more efficiently",
@@ -477,6 +478,11 @@ const translations = {
     cs3_outcomes_li4: "Better visibility prevents mistakes",
     cs3_outcomes_li5_bold: "✨ Improved staff experience",
     cs3_outcomes_li5: "More confidence during high-pressure situations",
+
+    cs3_takeaways_title: "Key Takeaways",
+    cs3_takeaway1: "Speed and clarity are critical in operational tools",
+    cs3_takeaway2: "Visual systems outperform text-heavy interfaces",
+    cs3_takeaway3: "Reducing friction has a direct impact on performance",
 
     cs3_whatnext_title: "What I’d Improve Next",
     cs3_whatnext_li1: "Add predictive features (e.g., table optimization)",
@@ -530,11 +536,14 @@ const translations = {
     cs1_label: "Caso de estudio",
     cs1_title: "Redefiniendo la inversión digital con guía impulsada por IA",
     cs1_desc_p1: "Este proyecto exploró un nuevo modelo de inversión autónoma mediante la integración de guía impulsada por IA en momentos clave del proceso de inversión.",
-    cs1_desc_p2: "Como UX Designer dentro de un equipo de tres personas, contribuí al diseño de la experiencia end-to-end, enfocándome en equilibrar la autonomía del usuario con soporte contextual e inteligente.",
+    cs1_desc_p2: "Formé parte de un equipo de diseño de tres personas, trabajando junto a un Lead Designer y otra UX Designer. Mientras el Lead impulsaba la dirección conceptual y los talleres con stakeholders, mi rol se centró en la ejecución del diseño — traduciendo la visión en flujos de usuario, wireframes, mockups de alta fidelidad y prototipos. Las funcionalidades destacadas en este caso de estudio son las que desarrollé y lideré de forma independiente.",
     cs1_role_title: "Mi rol",
-    cs1_role1: "Experiencia de usuario alineada con los objetivos",
-    cs1_role2: "Diseño de interacción",
-    cs1_role3: "Arquitectura de la experiencia",
+    cs1_role1: "Wireframing",
+    cs1_role2: "User flows",
+    cs1_role3: "UI de Alta Fidelidad",
+    cs1_role4: "Prototipado",
+    cs1_role5: "Exploración de Concepto",
+    cs1_role6: "AI-Powered Experiencias Impulsadas por IA",
     cs1_scroll: "Desliza hacia abajo para ver el proyecto",
 
     cs1_challenge_title: "El desafío",
@@ -568,7 +577,7 @@ const translations = {
     cs1_approach_card_text: "Trabajamos de forma iterativa, utilizando prototipos ligeros y storytelling para alinear a los stakeholders y refinar la dirección.",
 
     cs1_users_title: "Usuarios",
-    cs1_users_subtitle: "Identificamos dos extremos de comportamiento:",
+    cs1_users_subtitle: "Partimos de dos perfiles de usuario definidos por el cliente. A partir de ellos, identifiqué las necesidades compartidas y las tensiones clave que guiaron las decisiones de diseño.",
 
     cs1_user1_name: "Generación baby boomer",
     cs1_user1_li1: "Menor confianza en herramientas digitales",
