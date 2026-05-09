@@ -115,7 +115,7 @@ img {
   padding: 12px 0;
   font-family: 'Gabarito', sans-serif;
   font-weight: 400;
-  font-size: 18px;
+  font-size: 16px;
   color: var(--grey);
   letter-spacing: 1.8px;
   cursor: pointer;
@@ -181,7 +181,7 @@ img {
 
 .lang-btn {
   font-family: 'Gabarito', sans-serif;
-  font-size: 18px;
+  font-size: 16px;
   letter-spacing: 0.36px;
   padding: 4px 12px;
   cursor: pointer;
@@ -214,7 +214,7 @@ img {
 .heading-hero {
   font-family: 'Lato', sans-serif;
   font-weight: 700;
-  font-size: 64px;
+  font-size: 56px;
   color: var(--text-dark);
   letter-spacing: 1.28px;
   line-height: normal;
@@ -268,7 +268,7 @@ img {
 .text-body {
   font-family: 'Lato', sans-serif;
   font-weight: 400;
-  font-size: 18px;
+  font-size: 16px;
   color: var(--black);
   letter-spacing: 0.36px;
   line-height: 28px;
@@ -293,7 +293,7 @@ img {
   border-radius: 34px;
   font-family: 'Lato', sans-serif;
   font-weight: 500;
-  font-size: 18px;
+  font-size: 16px;
   color: var(--text-dark);
   letter-spacing: 0.72px;
   white-space: nowrap;
@@ -354,7 +354,7 @@ img {
 .purple-card .card-label {
   font-family: 'Lato', sans-serif;
   font-weight: 700;
-  font-size: 18px;
+  font-size: 16px;
   color: #e6fba1;
   letter-spacing: 0.36px;
   line-height: normal;
@@ -419,7 +419,7 @@ img {
 .cs-hero-title-col .cs-desc {
   font-family: 'Lato', sans-serif;
   font-weight: 400;
-  font-size: 18px;
+  font-size: 16px;
   color: #162440;
   letter-spacing: 0.36px;
   line-height: 28px;
@@ -536,7 +536,7 @@ img {
 
 
 .cs-card-section .section-content ul li {
-  font-size: 18px;
+  font-size: 16px;
   line-height: 28px;
   letter-spacing: 0.36px;
   color: var(--black);
@@ -596,7 +596,7 @@ img {
 .user-group .user-subtitle {
   font-family: 'Lato', sans-serif;
   font-weight: 400;
-  font-size: 18px;
+  font-size: 16px;
   color: var(--purple);
   letter-spacing: 0.36px;
 }
@@ -628,7 +628,7 @@ img {
 }
 
 .cs-problems ul li {
-  font-size: 18px;
+  font-size: 16px;
   line-height: 28px;
   letter-spacing: 0.36px;
   color: var(--black);
@@ -683,7 +683,7 @@ img {
 }
 
 .cs-feature-section .feature-text ul li {
-  font-size: 18px;
+  font-size: 16px;
   line-height: 28px;
   color: var(--black);
   letter-spacing: 0.36px;
@@ -727,7 +727,7 @@ img {
 }
 
 .cs-shift .shift-box .shift-value {
-  font-size: 18px;
+  font-size: 16px;
   color: var(--black);
   letter-spacing: 0.36px;
   line-height: 28px;
@@ -747,7 +747,7 @@ img {
 .cs-shift-v2 .shift-v2-label {
   font-family: 'Gabarito', sans-serif;
   font-weight: 600;
-  font-size: 18px;
+  font-size: 16px;
   color: var(--purple);
   letter-spacing: 0.36px;
   margin-bottom: 24px;
@@ -773,7 +773,7 @@ img {
 .cs-shift-v2 .shift-v2-prefix {
   font-family: 'Lato', sans-serif;
   font-weight: 700;
-  font-size: 18px;
+  font-size: 16px;
   color: var(--purple);
   letter-spacing: 0.36px;
   flex-shrink: 0;
@@ -782,7 +782,7 @@ img {
 .cs-shift-v2 .shift-v2-value {
   font-family: 'Lato', sans-serif;
   font-weight: 400;
-  font-size: 18px;
+  font-size: 16px;
   color: var(--black);
   letter-spacing: 0.36px;
   line-height: 28px;
@@ -839,7 +839,7 @@ img {
 }
 
 .cs-roadmap .roadmap-phase ul li {
-  font-size: 18px;
+  font-size: 16px;
   line-height: 28px;
   letter-spacing: 0.36px;
   color: var(--black);
@@ -885,7 +885,7 @@ img {
 }
 
 .cs-outcomes .outcomes-text ul li {
-  font-size: 18px;
+  font-size: 16px;
   line-height: 28px;
   color: var(--black);
   letter-spacing: 0.36px;
@@ -919,7 +919,7 @@ img {
 }
 
 .cs-takeaways ul li {
-  font-size: 18px;
+  font-size: 16px;
   line-height: 28px;
   color: var(--black);
   letter-spacing: 0.36px;
@@ -954,7 +954,7 @@ img {
 }
 
 .cs-whatnext ul li {
-  font-size: 18px;
+  font-size: 16px;
   line-height: 28px;
   color: var(--black);
   letter-spacing: 0.36px;
@@ -981,7 +981,7 @@ img {
 }
 
 .cs-closing p {
-  font-size: 18px;
+  font-size: 16px;
   line-height: 28px;
   color: var(--black);
   letter-spacing: 0.36px;
@@ -1343,7 +1343,7 @@ img {
 
 .mobile-menu .nav-item {
   padding: 14px 0;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .mobile-menu .nav-category {
@@ -1608,7 +1608,7 @@ img {
   }
 
   .text-xl {
-    font-size: 18px;
+    font-size: 16px;
     line-height: 28px;
   }
 
@@ -1635,7 +1635,7 @@ img {
 
   /* Buttons – full width on phone */
   .btn-primary {
-    font-size: 18px;
+    font-size: 16px;
     padding: 14px 24px;
     width: 100%;
     justify-content: center;
@@ -1669,7 +1669,7 @@ img {
   }
 
   .cs-hero-title-col .cs-label {
-    font-size: 18px;
+    font-size: 16px;
   }
 
   .cs-hero-title-col .cs-title {
@@ -1687,7 +1687,7 @@ img {
   }
 
   .cs-hero-role-col .role-title {
-    font-size: 18px;
+    font-size: 16px;
   }
 
   .cs-hero-role-col .role-tags {
@@ -1736,7 +1736,7 @@ img {
   }
 
   .purple-card .card-text {
-    font-size: 18px;
+    font-size: 16px;
   }
 
   /* Users section */
