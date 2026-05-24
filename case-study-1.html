@@ -13,6 +13,32 @@
 </head>
 
 <body>
+  <!-- TOP NAV -->
+  <nav class="top-nav" id="top-nav">
+    <div class="top-nav-inner">
+      <!-- Logo -->
+      <a href="index.html" class="top-nav-logo">D.</a>
+
+      <!-- Center: Case study links -->
+      <div class="top-nav-links">
+        <a href="case-study-1.html" class="top-nav-link active" data-i18n="nav_link_cs1">01 — Investing</a>
+        <a href="case-study-2.html" class="top-nav-link" data-i18n="nav_link_cs2">02 — Support</a>
+        <a href="case-study-3.html" class="top-nav-link" data-i18n="nav_link_cs3">03 — Hospitality</a>
+      </div>
+
+      <!-- Right: Language + Contact -->
+      <div class="top-nav-right">
+        <div class="top-nav-lang">
+          <button class="lang-btn active" data-lang="en">EN</button>
+          <span class="lang-divider">/</span>
+          <button class="lang-btn" data-lang="es">ES</button>
+        </div>
+        <a href="contact.html" class="top-nav-contact" data-i18n="nav_link_contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile hamburger -->
   <button class="hamburger" id="hamburger" aria-label="Open menu">
     <span></span><span></span><span></span>
   </button>
@@ -21,17 +47,16 @@
     <div>
       <div class="sidebar-logo"><a href="index.html">Daniela.</a></div>
       <div class="sidebar-nav">
-        <a href="index.html" class="nav-item" data-i18n="nav_welcome">Welcome!</a>
-        <div class="nav-subitems">
-          <span class="nav-category" data-i18n="nav_case_studies">CASE STUDIES</span>
-          <a href="case-study-1.html" class="nav-subitem active" data-i18n="nav_cs1">Reimagining Digital Investing with
-            AI-Powered Guidance</a>
-          <a href="case-study-2.html" class="nav-subitem" data-i18n="nav_cs2">Improving Efficiency in a Customer Support
-            Operations Tool</a>
-          <a href="case-study-3.html" class="nav-subitem" data-i18n="nav_cs3">Optimizing Restaurant Operations with a
-            Reservation Management System</a>
-        </div>
-        <a href="contact.html" class="nav-item" data-i18n="nav_contact">Contact</a>
+        <a href="case-study-1.html" class="top-nav-link active" style="padding:14px 0;font-size:13px;display:block;"
+          data-i18n="nav_link_cs1">01
+          — Investing</a>
+        <a href="case-study-2.html" class="top-nav-link" style="padding:14px 0;font-size:13px;display:block;"
+          data-i18n="nav_link_cs2">02 —
+          Support</a>
+        <a href="case-study-3.html" class="top-nav-link" style="padding:14px 0;font-size:13px;display:block;"
+          data-i18n="nav_link_cs3">03 —
+          Hospitality</a>
+        <a href="contact.html" class="nav-item" style="margin-top:8px;" data-i18n="nav_link_contact">Contact</a>
       </div>
     </div>
     <div class="lang-switcher">
@@ -42,60 +67,45 @@
   </nav>
 
   <div class="page-wrapper">
-    <!-- Sidebar -->
-    <nav class="sidebar">
-      <div class="sidebar-logo"><a href="index.html">Daniela.</a></div>
-      <div class="sidebar-nav">
-        <a href="index.html" class="nav-item" data-i18n="nav_welcome">Welcome!</a>
-        <div class="nav-subitems">
-          <span class="nav-category" data-i18n="nav_case_studies">CASE STUDIES</span>
-          <a href="case-study-1.html" class="nav-subitem active" data-i18n="nav_cs1">Reimagining Digital Investing with
-            AI-Powered Guidance</a>
-          <a href="case-study-2.html" class="nav-subitem" data-i18n="nav_cs2">Improving Efficiency in a Customer Support
-            Operations Tool</a>
-          <a href="case-study-3.html" class="nav-subitem" data-i18n="nav_cs3">Optimizing Restaurant Operations with a
-            Reservation Management System</a>
-        </div>
-        <a href="contact.html" class="nav-item" data-i18n="nav_contact">Contact</a>
-      </div>
-      <div class="lang-switcher">
-        <button class="lang-btn active" data-lang="en">EN</button>
-        <span class="lang-divider">/</span>
-        <button class="lang-btn" data-lang="es">ES</button>
-      </div>
-    </nav>
-
     <!-- Main Content -->
     <main class="main-content">
+
       <!-- HERO -->
       <section class="cs-hero">
-        <div class="gradient-ellipse"
-          style="background: radial-gradient(circle, rgba(200, 230, 170, 0.2) 0%, rgba(249, 250, 251, 0) 70%); top: 89px; right: -100px;">
-        </div>
+        <!-- Gradient ellipses -->
+        <div class="gradient-ellipse gradient-ellipse-1"></div>
+        <div class="gradient-ellipse gradient-ellipse-2"></div>
         <div class="cs-hero-content">
-          <div class="cs-hero-title-col">
-            <div>
+          <!-- Left: label + title + description -->
+          <div class="cs-hero-title-col" style="flex: 1;">
+            <div class="cs-label-row">
+              <span class="cs-label-line"></span>
               <p class="cs-label" data-i18n="cs1_label">Case study</p>
-              <h1 class="cs-title" data-i18n="cs1_title">Reimagining Digital Investing with AI-Powered Guidance</h1>
             </div>
-            <p class="cs-desc" data-i18n="cs1_desc_p1">Self-directed investing platforms give users powerful tools, but
-              little guidance when it matters most. This project reimagined the investing experience by embedding
+            <h1 class="cs-title" data-i18n="cs1_title">Reimagining Digital Investing with AI-Powered Guidance</h1>
+
+            <p class="cs-desc" data-i18n="cs1_desc_p1">Self-directed investing platforms give users powerful tools,
+              but little guidance when it matters most. This project reimagined the investing experience by embedding
               AI-powered guidance directly into key decision moments, helping users move from uncertainty to confident
               action.</p>
-            <p class="cs-desc" data-i18n="cs1_desc_p2">My role focused on owning the end-to-end design of key features,
-              translating the vision into user flows, wireframes, and high-fidelity prototypes. I drove decisions around
-              interaction patterns, information hierarchy, and how guidance is integrated into critical user moments.
-            </p>
+            <p class="cs-desc" data-i18n="cs1_desc_p2">My role focused on owning the end-to-end design of key
+              features, translating the vision into user flows, wireframes, and high-fidelity prototypes. I drove
+              decisions around interaction patterns, information hierarchy, and how guidance is integrated into
+              critical user moments.</p>
           </div>
-          <div class="cs-hero-role-col">
-            <p class="role-title" data-i18n="cs1_role_title">My Role</p>
-            <div class="role-tags">
-              <span class="tag-role" data-i18n="cs1_role1">Wireframing</span>
-              <span class="tag-role" data-i18n="cs1_role2">User flows</span>
-              <span class="tag-role" data-i18n="cs1_role3">High-Fidelity UIs</span>
-              <span class="tag-role" data-i18n="cs1_role4">Prototyping</span>
-              <span class="tag-role" data-i18n="cs1_role5">Concept Exploration</span>
-              <span class="tag-role" data-i18n="cs1_role6">AI-Powered Experiences</span>
+          <!-- Right: meta col -->
+          <div class="cs-hero-meta-col">
+            <div class="cs-hero-meta-section">
+              <p class="cs-hero-meta-label" data-i18n="role">My Role</p>
+              <ul class="cs-hero-meta-list">
+                <li data-i18n="cs1_role1">Wireframing</li>
+                <li data-i18n="cs1_role2">User flows</li>
+                <li data-i18n="cs1_role3">High-Fidelity UI</li>
+              </ul>
+            </div>
+            <div class="cs-hero-meta-section">
+              <p data-i18n="team" class="cs-hero-meta-label">Team</p>
+              <p data-i18n="cs1_team1" class="cs-hero-meta-text">Lead designer, UX designer and me (UX Designer)</p>
             </div>
           </div>
         </div>
@@ -103,106 +113,100 @@
       </section>
 
       <!-- THE CHALLENGE -->
-      <section class="cs-card-section">
-        <div class="col-1">
-          <h2 class="heading-h2 section-title" data-i18n="cs1_challenge_title">The Challenge</h2>
-          <div class="section-content">
-            <p class="text-body text-bold" data-i18n="cs1_challenge_p1">Self-directed investing platforms give users
-              control—but
-              also expose them to risk, uncertainty, and cognitive overload.</p>
-            <p class="text-body" data-i18n="cs1_challenge_bold"> Through early discovery and domain research,
-              we identified a set of recurring friction points:</p>
-            <ul>
-              <li data-i18n="cs1_challenge_li1">* Portfolio changes feel opaque and difficult to interpret</li>
-              <li data-i18n="cs1_challenge_li2">* Trade decisions lack clarity (risk, diversification, tax implications)
-              </li>
-              <li data-i18n="cs1_challenge_li3">* Educational content exists but is disconnected from real decisions
-              </li>
-              <li data-i18n="cs1_challenge_li4">* Emerging investors expect intuitive, guided experiences - not just
-                tools
-              </li>
-            </ul>
-          </div>
+      <section class="cs-split-section bg-alt">
+        <div class="split-left">
+          <span class="split-num-label" data-i18n="section_label_challenge">01 — The Challenge</span>
+          <h2 class="heading-h2" data-i18n="cs1_challenge_card_text">How might we help users make better financial
+            decisions without taking control away from them?</h2>
         </div>
-        <div class="col-2">
-          <div class="purple-card">
-            <p class="card-label" data-i18n="cs1_challenge_card_label">The core tension</p>
-            <p class="card-text" data-i18n="cs1_challenge_card_text">How might we help users make better financial
-              decisions without taking control away from them?</p>
+        <div class="split-right">
+          <div class="section-content">
+            <p class="text-body" data-i18n="cs1_challenge_p1">Self-directed investing platforms give users control—but
+              also expose them to risk, uncertainty, and cognitive overload. Through early discovery and domain
+              research, we
+              identified a set of recurring friction points:</p>
+
+            <div class="cs-activity-list-wrap">
+              <div class="cs-activity-item"><span class="cs-activity-icon"></span><span
+                  data-i18n="cs1_challenge_li1">Portfolio changes feel opaque and difficult to interpret</span></div>
+              <div class="cs-activity-item"><span class="cs-activity-icon"></span><span
+                  data-i18n="cs1_challenge_li2">Trade decisions lack clarity (risk, diversification, tax
+                  implications)</span></div>
+              <div class="cs-activity-item"><span class="cs-activity-icon"></span><span
+                  data-i18n="cs1_challenge_li3">Educational content exists but is disconnected from real
+                  decisions</span></div>
+              <div class="cs-activity-item"><span class="cs-activity-icon"></span><span
+                  data-i18n="cs1_challenge_li4">Emerging investors expect intuitive, guided experiences — not just
+                  tools</span></div>
+            </div>
           </div>
         </div>
       </section>
 
+
       <!-- FRAMING THE OPPORTUNITY -->
-      <section class="cs-card-section">
-        <div class="col-1">
-          <h2 class="heading-h2 section-title" data-i18n="cs1_opportunity_title">Framing the Opportunity</h2>
+      <section class="cs-split-section bg-default">
+        <div class="split-left">
+          <span class="split-num-label" data-i18n="section_label_opportunity">02 — Framing the Opportunity</span>
+          <h2 class="heading-h2 heading-twotone">
+            <span class="dark" data-i18n="cs1_opportunity_card_text1b">Users don't want automation.</span>
+            <span class="accent" data-i18n="cs1_opportunity_card_text1c">They want confidence.</span>
+          </h2>
+        </div>
+        <div class="split-right">
           <div class="section-content">
             <p class="text-body" data-i18n="cs1_opportunity_p1">We reframed the platform from a toolset to a guidance
               system. Instead of replacing decision-making, we focused on:</p>
-
-            <ul>
-              <li data-i18n="cs1_opportunity_li1">Supporting users with contextual insights</li>
-              <li data-i18n="cs1_opportunity_li2">Increasing awareness of consequences</li>
-              <li data-i18n="cs1_opportunity_li3">Preserving autonomy at every step</li>
-            </ul>
-            <p class="text-body text-bold insight-key" data-i18n="cs1_opportunity_p2">Guide, don't dictate.</p>
-
-          </div>
-        </div>
-        <div class="col-2">
-          <div class="purple-card">
-            <div style="margin-bottom: 24px;">
-              <p class="card-label" data-i18n="cs1_opportunity_card_text1a">Key insight
-              </p>
-              <p class="card-text" data-i18n="cs1_opportunity_card_text1b">Users don’t want automation.
-              </p>
-              <p class="card-text" data-i18n="cs1_opportunity_card_text1c">They want confidence.</p>
+            <div class="cs-activity-list-wrap" style="margin-top:12px;">
+              <div class="cs-activity-item"><span class="cs-activity-icon"></span><span
+                  data-i18n="cs1_opportunity_li1">Supporting users with contextual insights</span></div>
+              <div class="cs-activity-item"><span class="cs-activity-icon"></span><span
+                  data-i18n="cs1_opportunity_li2">Increasing awareness of consequences</span></div>
+              <div class="cs-activity-item"><span class="cs-activity-icon"></span><span
+                  data-i18n="cs1_opportunity_li3">Preserving autonomy at every step</span></div>
             </div>
           </div>
         </div>
       </section>
 
       <!-- APPROACH -->
-      <section class="cs-card-section">
-        <div class="col-1">
-          <h2 class="heading-h2 section-title" data-i18n="cs1_approach_title">Approach</h2>
-
-          <div class="section-content">
-            <p class="text-body" data-i18n="cs1_approach_p1">This engagement balanced product definition with rapid
-              experience design.</p>
-            <p class="text-body text-bold" data-i18n="cs1_approach_bold">Key activities included:</p>
-
-            <ul>
-              <li data-i18n="cs1_approach_li1">Collaborative workshops to align on vision and scope</li>
-              <li data-i18n="cs1_approach_li2">Journey mapping across onboarding, portfolio, and trading flows</li>
-              <li data-i18n="cs1_approach_li3">Rapid white-boarding and concept iteration</li>
-              <li data-i18n="cs1_approach_li4">AI prototyping to explore conversational and contextual interactions</li>
-              <li data-i18n="cs1_approach_li5">Development of experience principles to guide decisions</li>
-            </ul>
-
-            <p class="text-body text-bold insight-key" data-i18n="cs1_approach_p2">We focused on translating abstract AI
-              concepts
-              into clear,
-              actionable user
-              interactions that could be understood in high-stakes moments.</p>
-
-          </div>
+      <section class="cs-split-section bg-alt">
+        <div class="split-left">
+          <span class="split-num-label" data-i18n="section_label_approach">03 — Approach</span>
+          <h2 class="heading-h2" data-i18n="cs1_approach_card_text">We worked iteratively, using lightweight prototypes
+            and storytelling artifacts to align stakeholders and refine direction.</h2>
         </div>
-        <div class="col-2">
-          <div class="purple-card">
-            <p class="card-text" data-i18n="cs1_approach_card_text">We worked iteratively, using lightweight prototypes
-              and storytelling artifacts to align stakeholders and refine direction.</p>
+        <div class="split-right">
+          <div class="section-content">
+            <div class="cs-activity-list-wrap">
+              <p class="cs-activity-list-label" data-i18n="key_activities_label">Key Activities Included:</p>
+              <div class="cs-activity-item"><span class="cs-activity-icon"></span><span
+                  data-i18n="cs1_approach_li1">Collaborative workshops to align on vision and scope</span></div>
+              <div class="cs-activity-item"><span class="cs-activity-icon"></span><span
+                  data-i18n="cs1_approach_li2">Journey mapping across onboarding, portfolio, and trading flows</span>
+              </div>
+              <div class="cs-activity-item"><span class="cs-activity-icon"></span><span
+                  data-i18n="cs1_approach_li3">Rapid white-boarding and concept iteration</span></div>
+              <div class="cs-activity-item"><span class="cs-activity-icon"></span><span data-i18n="cs1_approach_li4">AI
+                  prototyping to explore conversational and contextual interactions</span></div>
+              <div class="cs-activity-item"><span class="cs-activity-icon"></span><span
+                  data-i18n="cs1_approach_li5">Development of experience principles to guide decisions</span></div>
+            </div>
+            <p class="text-body text-bold insight-key" data-i18n="cs1_approach_p2">We focused on translating abstract AI
+              concepts into clear, actionable user interactions that could be understood in high-stakes moments.</p>
           </div>
+
         </div>
       </section>
 
       <!-- USERS -->
-      <section class="cs-users-section">
+      <section class="cs-users-section bg-default" style="border-bottom: 1px solid rgba(107,114,128,0.2);">
         <div style="max-width: 665px;">
-          <h2 class="heading-h2 section-title" style="margin-bottom: 32px;" data-i18n="cs1_users_title">Users</h2>
-          <p class="text-body" data-i18n="cs1_users_subtitle">We started from two user profiles defined by the client.
-            From there, I identified the shared needs and key tensions that guided the design decisions.</p>
+          <span class="split-num-label" data-i18n="cs1_users_label">04 — Users</span>
+
+          <p class="text-body" data-i18n="cs1_users_subtitle">We started
+            from two user profiles defined by the client. From there, I identified the shared needs and key tensions
+            that guided the design decisions.</p>
         </div>
         <div class="section-content">
 
@@ -236,171 +240,208 @@
             </div>
           </div>
         </div>
-        <div class="cs-shared-insight">
-          <p class="text-body">
-            <span class="insight-key" data-i18n="cs1_users_shared">Shared need</span><br>
-            <span data-i18n="cs1_users_shared_text">Understanding the consequences of their actions before
-              committing.</span>
-          </p>
+        <div class="insight-card">
+          <span class="insight-label" data-i18n="cs1_users_shared">Shared need:</span>
+          <span class="insight-body" data-i18n="cs1_users_shared_text">Understanding the consequences of their actions
+            before committing.</span>
         </div>
       </section>
 
       <!-- THE SOLUTION -->
-      <section class="cs-section">
-        <div style="max-width: 665px;">
-          <h2 class="heading-h2" style="margin-bottom: 32px;" data-i18n="cs1_solution_title">The Solution</h2>
-          <p class="text-body" data-i18n="cs1_solution_p1">We designed a hybrid AI guidance system embedded across the
-            investing journey.</p>
+      <section class="cs-solution-wrapper" id="solution" aria-label="The Solution">
 
-          <p class="text-body" data-i18n="cs1_solution_p2">Instead of a single feature, the solution works as a layer of
-            intelligence that adapts to user context.</p>
-        </div>
-        <div class="cs-shift-v2">
-          <p class="shift-v2-label" data-i18n="cs1_shift_label">The Core Shift</p>
-          <div class="shift-v2-items">
-            <div class="shift-v2-item">
-              <span class="shift-v2-prefix" data-i18n="cs1_shift_from">From:</span>
-              <span class="shift-v2-value" data-i18n="cs1_shift_from_text">Transaction-first investing</span>
-            </div>
-            <div class="shift-v2-arrow">
-              <span class="material-symbols-rounded">arrow_forward</span>
-            </div>
-            <div class="shift-v2-item">
-              <span class="shift-v2-prefix" data-i18n="cs1_shift_to">To:</span>
-              <span class=" shift-v2-value" data-i18n="cs1_shift_to_text">Guided, confidence-building
-                decision-making</span>
-            </div>
+        <!-- Solution intro: full-width header row -->
+        <div class="cs-solution-header">
+          <div class="cs-solution-header-left">
+            <span class="split-num-label" data-i18n="cs1_solution_label">05 — THE SOLUTION</span>
+            <h2 class="heading-h2">
+              <span data-i18n="cs1_solution_title">From transaction-first investing</span>
+              <span class="heading-h2 solution-title-accent" data-i18n="cs1_solution_title2">To Guided,
+                confidence-building decision-making</span>
+            </h2>
+            <p class="text-body" data-i18n="cs1_solution_p1">We designed a hybrid AI guidance system embedded across the
+              investing journey.</p>
+            <p class="text-body" data-i18n="cs1_solution_p2">Instead of a single feature, the solution works as a layer
+              of intelligence that adapts to user context.</p>
+          </div>
+          <div class="feature-image cs-solution-header-img">
+            <img src="assets/images/case1-8.png"
+              alt="Embedded AI assistant interface showing contextual guidance across the investing platform">
           </div>
         </div>
-      </section>
 
-      <!-- CORE FEATURES TITLE -->
+        <!-- Solution body: sticky sidebar + scrollable features -->
+        <div class="cs-solution-body">
 
-      <!-- FEATURE 5: Embedded AI Assistant -->
-      <section class="cs-feature-section">
-        <div class="feature-text">
-          <h3 class="heading-h3" data-i18n="cs1_feature5_title">Embedded AI Assistant</h3>
-          <p class="text-body text-bold insight-key" data-i18n="cs1_feature5_bold">Goal: Make guidance always available,
-            but never intrusive.
-          </p>
+          <!-- Sticky sidebar nav -->
+          <aside class="cs-solution-sidebar" aria-label="Solution navigation">
+            <p class="cs-solution-sidebar-label" data-i18n="solution_sidebar_label">The Solution</p>
+            <nav class="cs-solution-nav">
+              <a href="#sol-embedded-ai" class="cs-sol-link active" data-target="sol-embedded-ai">
+                <span class="cs-sol-link-num">01</span>
+                <span class="cs-sol-link-text" data-i18n="cs1_sol_nav1">Embedded AI</span>
+              </a>
+              <a href="#sol-intelligence" class="cs-sol-link" data-target="sol-intelligence">
+                <span class="cs-sol-link-num">02</span>
+                <span class="cs-sol-link-text" data-i18n="cs1_sol_nav2">Intelligence</span>
+              </a>
+              <a href="#sol-simulation" class="cs-sol-link" data-target="sol-simulation">
+                <span class="cs-sol-link-num">03</span>
+                <span class="cs-sol-link-text" data-i18n="cs1_sol_nav3">Simulation</span>
+              </a>
+              <a href="#sol-exploration" class="cs-sol-link" data-target="sol-exploration">
+                <span class="cs-sol-link-num">04</span>
+                <span class="cs-sol-link-text" data-i18n="cs1_sol_nav4">Exploration</span>
+              </a>
+            </nav>
+          </aside>
 
-          <p class="text-body" data-i18n="cs1_feature5_p1">Instead of isolating AI in a chatbot, we embedded
-            it throughout the experience:</p>
+          <!-- Features column -->
+          <div class="cs-solution-features">
 
-          <ul>
-            <li data-i18n="cs1_feature5_li1"> Explains decisions in plain language</li>
-            <li data-i18n="cs1_feature5_li2"> Answers contextual questions</li>
-            <li data-i18n="cs1_feature5_li3"> Builds trust through transparency</li>
-          </ul>
+            <!-- 01 Embedded AI Assistant -->
+            <div class="cs-sol-feature" id="sol-embedded-ai">
+              <div class="cs-sol-feature-inner">
+                <div class="cs-sol-feature-text">
+                  <span class="feature-section-label">01</span>
+                  <h3 class="heading-h3" data-i18n="cs1_feature5_title">Embedded AI Assistant</h3>
+                  <p class="cs-goal-text" data-i18n="cs1_feature5_bold">Goal: Make guidance always available, but never
+                    intrusive.</p>
+                  <div class="cs-activity-list-wrap" style="margin-top:16px;">
+                    <div class="cs-activity-item"><span class="cs-activity-icon"></span><span
+                        data-i18n="cs1_feature5_li1">Explains decisions in plain language</span></div>
+                    <div class="cs-activity-item"><span class="cs-activity-icon"></span><span
+                        data-i18n="cs1_feature5_li2">Answers contextual questions</span></div>
+                    <div class="cs-activity-item"><span class="cs-activity-icon"></span><span
+                        data-i18n="cs1_feature5_li3">Builds trust through transparency</span></div>
+                  </div>
+                  <p class="text-body" style="margin-top:20px;" data-i18n="cs1_feature5_p1">Instead of isolating AI in a
+                    chatbot, we embedded it throughout the experience</p>
+                </div>
+                <div class="cs-sol-feature-image">
+                  <img src="assets/images/case1-5.svg"
+                    alt="Embedded AI assistant interface showing contextual prompts and plain-language explanations within the investing platform">
+                </div>
+              </div>
+            </div>
 
-          <p class="text-body text-bold" data-i18n="cs1_feature5_p2">This creates a hybrid model:</p>
+            <!-- 02 Pre-Trade Intelligence -->
+            <div class="cs-sol-feature" id="sol-intelligence">
+              <div class="cs-sol-feature-inner cs-sol-feature-inner--reverse">
+                <div class="cs-sol-feature-text">
+                  <span class="feature-section-label">02</span>
+                  <h3 class="heading-h3" data-i18n="cs1_feature3_title">Pre-Trade Intelligence</h3>
+                  <p class="cs-goal-text" data-i18n="cs1_feature3_p1">Goal: Help users act with confidence</p>
+                  <p class="text-body" style="margin-top:12px;" data-i18n="cs1_feature3_p2">Executing a trade is one of
+                    the highest-stakes moments in the experience. We designed a pre-trade layer that surfaces:</p>
+                  <div class="cs-activity-list-wrap" style="margin-top:12px;">
+                    <div class="cs-activity-item"><span class="cs-activity-icon"></span><span
+                        data-i18n="cs1_feature3_li1">Trade impact summaries (risk, diversification)</span></div>
+                    <div class="cs-activity-item"><span class="cs-activity-icon"></span><span
+                        data-i18n="cs1_feature3_li2">Scenario-based insights (what changes if I proceed?)</span></div>
+                    <div class="cs-activity-item"><span class="cs-activity-icon"></span><span
+                        data-i18n="cs1_feature3_li3">Contextual explanations tailored to the user's portfolio</span>
+                    </div>
+                  </div>
+                  <div class="insight-card-blue" style="margin-top:16px;">
+                    <em><span data-i18n="cs1_feature3_li4">"How will this affect my portfolio balance?"</span></em><br>
+                    <em><span data-i18n="cs1_feature3_li5">"What should I consider before making this
+                        trade?"</span></em>
+                  </div>
+                </div>
+                <div class="cs-sol-feature-image">
+                  <img src="assets/images/case1-3.svg"
+                    alt="Pre-trade intelligence screen displaying trade impact summaries, risk analysis, and scenario-based insights before executing a trade">
+                </div>
+              </div>
+            </div>
 
-          <ul>
-            <li data-i18n="cs1_feature5_li4">* Proactive guidance when needed</li>
-            <li data-i18n="cs1_feature5_li5">* On-demand support when requested</li>
-          </ul>
-        </div>
-        <div class="feature-image">
-          <img src="assets/images/case1-5.svg" alt="AI-powered question prompts">
-        </div>
-      </section>
+            <!-- 03 Learn by Doing (Safe Simulation) -->
+            <div class="cs-sol-feature" id="sol-simulation">
+              <div class="cs-sol-feature-inner">
+                <div class="cs-sol-feature-text">
+                  <span class="feature-section-label">03</span>
+                  <h3 class="heading-h3" data-i18n="cs1_feature1_title">Learn by Doing</h3>
+                  <p class="cs-goal-text" data-i18n="cs1_feature1_title2">Goal: Create a safe environment for
+                    experimentation.</p>
+                  <p class="text-body" style="margin-top:12px;" data-i18n="cs1_feature1_p1">A safe environment where
+                    users can simulate strategies without real risk.</p>
+                  <div class="cs-activity-list-wrap" style="margin-top:16px;">
+                    <p class="cs-activity-list-label" data-i18n="cs1_feature1_bold">Why it matters:</p>
+                    <div class="cs-activity-item"><span class="cs-activity-icon"></span><span
+                        data-i18n="cs1_feature1_li1">Reduces fear of making mistakes</span></div>
+                    <div class="cs-activity-item"><span class="cs-activity-icon"></span><span
+                        data-i18n="cs1_feature1_li2">Encourages exploration and learning</span></div>
+                  </div>
+                </div>
+                <div class="cs-sol-feature-image">
+                  <img src="assets/images/case1-1.svg"
+                    alt="Sandbox portfolio simulation interface where users can practice investment strategies without real financial risk">
+                </div>
+              </div>
+            </div>
 
-      <!-- FEATURE 3: Impact Awareness Before Trades -->
-      <section class="cs-feature-section">
-        <div class="feature-text">
-          <h3 class="heading-h3" data-i18n="cs1_feature3_title">Pre-Trade Intelligence</h3>
-          <p class="text-body text-bold insight-key" data-i18n="cs1_feature3_p1">Goal: Help users act with confidence
-          </p>
-          <p class="text-body" data-i18n="cs1_feature3_p2">Executing a trade is one of the highest-stakes moments in the
-            experience.
-            We designed a pre-trade layer that surfaces:
-          </p>
-          <ul>
-            <li data-i18n="cs1_feature3_li1">Trade impact summaries (risk, diversification)</li>
-            <li data-i18n="cs1_feature3_li2">Scenario-based insights (what changes if I proceed?)</li>
-            <li data-i18n="cs1_feature3_li3">Contextual explanations tailored to the user’s portfolio</li>
+            <!-- 04 Scenario Exploration -->
+            <div class="cs-sol-feature" id="sol-exploration">
+              <div class="cs-sol-feature-inner cs-sol-feature-inner--reverse">
+                <div class="cs-sol-feature-text">
+                  <span class="feature-section-label">04</span>
+                  <h3 class="heading-h3" data-i18n="cs1_feature2_title">Scenario Exploration</h3>
+                  <h3 class="heading-h3" style="color: var(--blue);" data-i18n="cs1_feature2_title2">What If?</h3>
+                  <p class="cs-goal-text" data-i18n="cs1_sol_feature4_goal">Goal: Help users explore "What If" outcomes
+                    before
+                    committing.</p>
+                  <div class="cs-activity-list-wrap" style="margin-top:16px;">
+                    <p class="cs-activity-list-label" data-i18n="cs1_feature2_bold">Design Decision:</p>
+                    <div class="cs-activity-item"><span class="cs-activity-icon"></span><span
+                        data-i18n="cs1_feature2_p1">A tool that lets users explore outcomes before committing.</span>
+                    </div>
+                  </div>
+                  <div class="insight-card-blue" style="margin-top:20px;">
+                    <span class="insight-label" data-i18n="cs1_feature2_p2">Impact:</span> <em><span
+                        data-i18n="cs1_feature2_p3bold">Users shift from reactive to proactive thinking</span></em>
+                  </div>
+                </div>
+                <div class="cs-sol-feature-image">
+                  <img src="assets/images/case1-2.png"
+                    alt="What-If scenario exploration tool showing projected portfolio outcomes based on different investment decisions">
+                </div>
+              </div>
+            </div>
 
-          </ul>
-
-          <p class="text-body" data-i18n="cs1_feature3_bold">Users can also ask questions like:</p>
-          <ul>
-            <li class="text-body text-bold" data-i18n="cs1_feature3_li4">“How will this affect my portfolio
-              balance?”</li>
-            <li class="text-body text-bold" data-i18n="cs1_feature3_li5">“What should I consider before
-              making this trade?”</li>
-          </ul>
-          <p class="text-body text-bold insight-key" data-i18n="cs1_feature3_p3">This shifts trading from a leap of
-            faith to an
-            informed decision.</p>
-
-        </div>
-        <div class="feature-image">
-          <img src="assets/images/case1-3.svg" alt="What-If Simulator mockup">
-        </div>
-      </section>
-
-      <!-- FEATURE 1: Sandbox Portfolio -->
-      <section class="cs-feature-section">
-        <div class="feature-text">
-          <h3 class="heading-h3" data-i18n="cs1_feature1_title">Learn by Doing (Safe Simulation)</h3>
-          <p class="text-body" data-i18n="cs1_feature1_p1">A safe environment where users can simulate strategies
-            without real risk.</p>
-          <p class="text-body text-bold" data-i18n="cs1_feature1_bold">Why it matters:</p>
-          <ul>
-            <li data-i18n="cs1_feature1_li1">Reduces fear of making mistakes</li>
-            <li data-i18n="cs1_feature1_li2">Encourages exploration and learning</li>
-          </ul>
-        </div>
-        <div class="feature-image">
-          <img src="assets/images/case1-1.svg" alt="Sandbox Portfolio mockup">
-        </div>
-      </section>
-
-      <!-- FEATURE 2: What-If Scenario Simulator -->
-      <section class="cs-feature-section" style="flex-direction: row-reverse;">
-        <div class="feature-text">
-          <h3 class="heading-h3" data-i18n="cs1_feature2_title">Scenario Exploration (“What If?”)</h3>
-          <p class="text-body" data-i18n="cs1_feature2_p1">A tool that lets users explore outcomes before committing.
-          </p>
-          <p class="text-body text-bold" data-i18n="cs1_feature2_bold">Design decision:</p>
-          <ul>
-            <li data-i18n="cs1_feature2_li1">We prioritized visual clarity over technical complexity to make scenarios
-              understandable.</li>
-          </ul>
-          <p class="text-body text-bold" data-i18n="cs1_feature2_p2">Impact:</p>
-          <p class="text-body text-bold insight-key " data-i18n="cs1_feature2_p3bold">👉 Users shift from reactive to
-            proactive thinking</p>
-
-        </div>
-        <div class="feature-image">
-          <img src="assets/images/case1-2.png" alt="AI Financial Guide mockup">
-        </div>
+          </div><!-- /cs-solution-features -->
+        </div><!-- /cs-solution-body -->
       </section>
 
       <!-- MVP DEFINITION & ROADMAP -->
-      <section class="cs-roadmap">
+      <section class="cs-roadmap bg-alt" style="border-bottom: 1px solid rgba(107,114,128,0.2);">
         <div class="roadmap-header">
-          <h2 class="heading-h2" data-i18n="cs1_roadmap_title">MVP Definition & Roadmap</h2>
+          <span class="split-num-label" data-i18n="cs1_roadmap_label">06 — Roadmap & Mpd definition</span>
           <p class="text-body" data-i18n="cs1_roadmap_intro">To bring the vision to life, we defined a phased approach
-            focused on delivering value at key moments in the investing journey — rather than launching a fully
-            comprehensive AI system all at once.</p>
+            focused on
+            delivering value at key moments in the investing journey — rather than launching a fully comprehensive AI
+            system all at once.</p>
         </div>
 
         <div class="roadmap-phases">
           <!-- Phase 1 -->
           <div class="roadmap-phase">
-            <p class="phase-label" data-i18n="cs1_roadmap_phase1_label">PHASE 1</p>
+            <p class="phase-label" data-i18n="cs1_roadmap_phase1_label">PHASE — 1</p>
             <h3 class="heading-h4" data-i18n="cs1_roadmap_phase1_title">Guided Foundations</h3>
-            <p class="text-body phase-focus"><span class="phase-focus-label"
-                data-i18n="cs1_roadmap_phase1_focus_label">Focus:</span> <span
-                data-i18n="cs1_roadmap_phase1_focus">Build confidence in core user journeys.</span></p>
-            <p class="text-body text-bold" data-i18n="cs1_roadmap_phase1_features_label">Key Features:</p>
-            <ul>
-              <li data-i18n="cs1_roadmap_phase1_li1">Portfolio health overview (asset allocation, diversification, risk,
-                ratings).</li>
-              <li data-i18n="cs1_roadmap_phase1_li2">Plain-language explanations of portfolio performance.</li>
-              <li data-i18n="cs1_roadmap_phase1_li3">Contextual prompts introducing AI-assisted guidance.</li>
-            </ul>
+            <p class="text-body phase-focus phase-focus-text" data-i18n="cs1_roadmap_phase1_focus">Focus: Build
+              confidence in core user journeys.</p>
+
+            <div class="cs-activity-list-wrap" style="margin-top:16px;">
+              <p class="cs-activity-list-label" data-i18n="cs1_roadmap_phase1_features_label">Key Features:</p>
+
+              <div class="cs-activity-item"><span class="cs-activity-icon"></span><span
+                  data-i18n="cs1_roadmap_phase1_li1">Portfolio health overview (asset allocation, diversification, risk,
+                  ratings).</span></div>
+              <div class="cs-activity-item"><span class="cs-activity-icon"></span><span
+                  data-i18n="cs1_roadmap_phase1_li2">Plain-language explanations of portfolio performance.</span></div>
+              <div class="cs-activity-item"><span class="cs-activity-icon"></span><span
+                  data-i18n="cs1_roadmap_phase1_li3">Contextual prompts introducing AI-assisted guidance.</span></div>
+            </div>
             <p class="text-body phase-outcome"><span class="phase-outcome-label"
                 data-i18n="cs1_roadmap_phase1_outcome_label">Outcome:</span> <span
                 data-i18n="cs1_roadmap_phase1_outcome">Users gain a clear understanding of their portfolio and what to
@@ -409,20 +450,27 @@
 
           <!-- Phase 2 -->
           <div class="roadmap-phase">
-            <p class="phase-label" data-i18n="cs1_roadmap_phase2_label">PHASE 2</p>
+            <p class="phase-label" data-i18n="cs1_roadmap_phase2_label">PHASE — 2</p>
             <h3 class="heading-h4" data-i18n="cs1_roadmap_phase2_title">Decision Support</h3>
-            <p class="text-body phase-focus"><span class="phase-focus-label"
-                data-i18n="cs1_roadmap_phase2_focus_label">Focus:</span> <span
-                data-i18n="cs1_roadmap_phase2_focus">Support high-stakes moments.</span></p>
-            <p class="text-body text-bold" data-i18n="cs1_roadmap_phase2_features_label">Key Features:</p>
-            <ul>
-              <li data-i18n="cs1_roadmap_phase2_li1">Pre-trade insights (impact on risk, diversification, alignment to
-                goals).</li>
-              <li data-i18n="cs1_roadmap_phase2_li2">Scenario exploration ("what happens if I make this change?").</li>
-              <li data-i18n="cs1_roadmap_phase2_li3">AI-assisted explanations tied to user intent and portfolio context.
-              </li>
-              <li data-i18n="cs1_roadmap_phase2_li4">Guided flows for making portfolio adjustments.</li>
-            </ul>
+            <p class="text-body phase-focus phase-focus-text" data-i18n="cs1_roadmap_phase2_focus">Focus: Support
+              high-stakes moments.</p>
+
+            <div class="cs-activity-list-wrap" style="margin-top:16px;">
+              <p class="cs-activity-list-label" data-i18n="cs1_roadmap_phase1_features_label">Key Features:</p>
+
+              <div class="cs-activity-item"><span class="cs-activity-icon"></span><span
+                  data-i18n="cs1_roadmap_phase2_li1">Pre-trade insights (impact on risk, diversification, alignment to
+                  goals).</span></div>
+              <div class="cs-activity-item"><span class="cs-activity-icon"></span><span
+                  data-i18n="cs1_roadmap_phase2_li2">Scenario exploration ("what happens if I make this
+                  change?").</span></div>
+              <div class="cs-activity-item"><span class="cs-activity-icon"></span><span
+                  data-i18n="cs1_roadmap_phase2_li3">AI-assisted explanations tied to user intent and portfolio
+                  context.</span></div>
+              <div class="cs-activity-item"><span class="cs-activity-icon"></span><span
+                  data-i18n="cs1_roadmap_phase2_li4">Guided flows for making portfolio adjustments.</span></div>
+            </div>
+
             <p class="text-body phase-outcome"><span class="phase-outcome-label"
                 data-i18n="cs1_roadmap_phase2_outcome_label">Outcome:</span> <span
                 data-i18n="cs1_roadmap_phase2_outcome">Users move from uncertainty to informed action with greater
@@ -431,18 +479,30 @@
 
           <!-- Phase 3 -->
           <div class="roadmap-phase">
-            <p class="phase-label" data-i18n="cs1_roadmap_phase3_label">PHASE 3</p>
+            <p class="phase-label" data-i18n="cs1_roadmap_phase3_label">PHASE — 3</p>
             <h3 class="heading-h4" data-i18n="cs1_roadmap_phase3_title">Proactive & Personalized Guidance</h3>
-            <p class="text-body phase-focus"><span class="phase-focus-label"
-                data-i18n="cs1_roadmap_phase3_focus_label">Focus:</span> <span
-                data-i18n="cs1_roadmap_phase3_focus">Anticipate user needs over time.</span></p>
-            <p class="text-body text-bold" data-i18n="cs1_roadmap_phase3_features_label">Key Features:</p>
-            <ul>
-              <li data-i18n="cs1_roadmap_phase3_li1">Intelligent alerts tied to portfolio health and market events.</li>
-              <li data-i18n="cs1_roadmap_phase3_li2">Personalized recommendations based on goals and behavior.</li>
-              <li data-i18n="cs1_roadmap_phase3_li3">Ongoing learning and education embedded in the experience.</li>
-              <li data-i18n="cs1_roadmap_phase3_li4">A more adaptive AI assistant that evolves with the user.</li>
-            </ul>
+
+            <p class="text-body phase-focus phase-focus-text" data-i18n="cs1_roadmap_phase3_focus">Focus: Anticipate
+              user needs over time.</p>
+
+            <div class="cs-activity-list-wrap" style="margin-top:16px;">
+              <p class="cs-activity-list-label" data-i18n="cs1_roadmap_phase1_features_label">Key Features:</p>
+
+              <div class="cs-activity-item"><span class="cs-activity-icon"></span><span
+                  data-i18n="cs1_roadmap_phase3_li1">Intelligent alerts tied to portfolio health and market
+                  events.</span></div>
+              <div class="cs-activity-item"><span class="cs-activity-icon"></span><span
+                  data-i18n="cs1_roadmap_phase3_li2">Personalized recommendations based on goals and behavior.</span>
+              </div>
+              <div class="cs-activity-item"><span class="cs-activity-icon"></span><span
+                  data-i18n="cs1_roadmap_phase3_li3">Ongoing learning and education embedded in the experience.</span>
+              </div>
+              <div class="cs-activity-item"><span class="cs-activity-icon"></span><span
+                  data-i18n="cs1_roadmap_phase3_li4">A more adaptive AI assistant that evolves with the user.</span>
+              </div>
+            </div>
+
+
             <p class="text-body phase-outcome"><span class="phase-outcome-label"
                 data-i18n="cs1_roadmap_phase3_outcome_label">Outcome:</span> <span
                 data-i18n="cs1_roadmap_phase3_outcome">The platform shifts from reactive toolset to proactive financial
@@ -460,71 +520,87 @@
       <!-- OUTCOMES -->
       <section class="cs-outcomes">
         <div class="outcomes-text">
-          <h2 class="heading-h2" data-i18n="cs1_outcomes_title">Outcomes</h2>
+          <span class="split-num-label" data-i18n="cs1_outcomes_label">07 — Outcomes</span>
 
-          <p class="text-body" data-i18n="cs1_outcomes_p1">While the work was exploratory and forward-looking, it
-            delivered meaningful impact:
-          </p>
+          <h2 class="heading-h2" data-i18n="cs1_outcomes_title">Turning AI Vision into Actionable Product Direction</h2>
 
           <ul>
-            <li data-i18n="cs1_outcomes_li1">* Translated a complex AI vision into tangible product experiences</li>
-            <li data-i18n="cs1_outcomes_li2">* Enabled stakeholders to align on a clear direction for AI-assisted
-              investing</li>
-            <li data-i18n="cs1_outcomes_li3">* Defined a realistic MVP and phased roadmap</li>
-            <li data-i18n="cs1_outcomes_li4">* Created high-fidelity prototypes to validate and communicate high-stakes
-              interactions</li>
-            <li data-i18n="cs1_outcomes_li5">* Established reusable patterns for AI-assisted decision-making</li>
+            <li><span class="outcome-check"></span><span data-i18n="cs1_outcomes_li1">Translated a complex AI vision
+                into tangible product experiences</span></li>
+            <li><span class="outcome-check"></span><span data-i18n="cs1_outcomes_li2">Enabled stakeholders to align on a
+                clear direction for AI-assisted investing</span></li>
+            <li><span class="outcome-check"></span><span data-i18n="cs1_outcomes_li3">Defined a realistic MVP and phased
+                roadmap</span></li>
+            <li><span class="outcome-check"></span><span data-i18n="cs1_outcomes_li4">Created high-fidelity prototypes
+                to validate and communicate high-stakes interactions</span></li>
+            <li><span class="outcome-check"></span><span data-i18n="cs1_outcomes_li5">Established reusable patterns for
+                AI-assisted decision-making</span></li>
           </ul>
-
         </div>
         <div class="outcomes-image">
-          <img src="assets/images/case1-7.svg" alt="Portfolio preview web application">
+          <img src="assets/images/case1-7.svg"
+            alt="Final high-fidelity mockup of the AI-guided digital investing dashboard showing portfolio overview and guidance features">
         </div>
       </section>
 
-      <!-- KEY TAKEAWAYS -->
       <section class="cs-takeaways">
-        <h2 class="heading-h2" data-i18n="cs1_takeaways_title">Key Takeaways</h2>
-
-        <div class="cs-takeaways-cols">
-          <div class="cs-takeaways-col">
-            <h4 class="heading-h4" data-i18n="cs1_takeaways_title2">Guidance is most effective when it respects user
-              autonomy</h4>
-            <p class="text-body" data-i18n="cs1_takeaways_p2">Users don’t need more tools — they need help using them
-            </p>
+        <span class="split-num-label" data-i18n="cs1_takeaways_title">07 — Key Takeaways</span>
+        <div class="cs-takeaways-cards">
+          <div class="takeaway-card">
+            <span class="takeaway-card-num">01</span>
+            <h3 class="heading-h3" data-i18n="cs1_takeaways_title2">Guidance is most effective when it respects
+              user autonomy</h3>
+            <p class="takeaway-body" data-i18n="cs1_takeaways_p2">Users don't need more tools — they need help using
+              them</p>
           </div>
-          <div class="cs-takeaways-col">
-            <h4 class="heading-h4" data-i18n="cs1_takeaways_title3">AI works best when embedded, not centralized</h4>
-            <p class="text-body" data-i18n="cs1_takeaways_p3">Context matters more than capability
-            </p>
+          <div class="takeaway-card">
+            <span class="takeaway-card-num">02</span>
+            <h3 class="heading-h3" data-i18n="cs1_takeaways_title3">AI works best when embedded, not centralized
+            </h3>
+            <p class="takeaway-body" data-i18n="cs1_takeaways_p3">Context matters more than capability</p>
           </div>
-          <div class="cs-takeaways-col">
-            <h4 class="heading-h4" data-i18n="cs1_takeaways_title4">Confidence is a design outcome</h4>
-            <p class="text-body" data-i18n="cs1_takeaways_p4">Helping users feel confident is just as important as
+          <div class="takeaway-card">
+            <span class="takeaway-card-num">03</span>
+            <h3 class="heading-h3" data-i18n="cs1_takeaways_title4">Confidence is a design outcome</h3>
+            <p class="takeaway-body" data-i18n="cs1_takeaways_p4">Helping users feel confident is just as important as
               functionality</p>
           </div>
         </div>
       </section>
 
       <!-- WHAT IMPROVE what NEXT -->
-      <section class="cs-whatnext">
-        <h2 class="heading-h2" data-i18n="cs1_whatnext_title">What I’d Improve Next</h2>
-        <ul>
-          <li data-i18n="cs1_whatnext_li1">Personalize guidance based on behavior over time.</li>
-          <li data-i18n="cs1_whatnext_li2">Validate with real users in live trading environments.</li>
-          <li data-i18n="cs1_whatnext_li3">Further reduce cognitive load in high-stress moments.</li>
-        </ul>
+      <section class="cs-whatnext  bg-alt">
+        <div class="cs-whatnext-left">
+          <span class="split-num-label" data-i18n="cs1_whatnext_label">09 — What I'd Improve Next</span>
+          <p class="whatnext-title" data-i18n="cs1_whatnext_heading">Always room to grow</p>
+        </div>
+        <div class="cs-whatnext-right">
+          <div class="whatnext-pill">
+            <span class="whatnext-pill-arrow"> <span class="material-symbols-rounded">east</span>
+            </span>
+            <span data-i18n="">Personalize guidance based on behavior over time</span>
+          </div>
+          <div class="whatnext-pill">
+            <span class="whatnext-pill-arrow"> <span class="material-symbols-rounded">east</span>
+            </span>
+            <span data-i18n="cs1_whatnext_li2">Validate with real users in live trading environments</span>
+          </div>
+          <div class="whatnext-pill">
+            <span class="whatnext-pill-arrow"> <span class="material-symbols-rounded">east</span>
+            </span>
+            <span data-i18n="cs1_whatnext_li3">Further reduce cognitive load in high-stress moments</span>
+          </div>
+        </div>
       </section>
 
       <!-- CLOSING -->
-      <section class="cs-closing">
-        <h2 class="heading-h2" data-i18n="cs1_closing_title">Closing Thought</h2>
-        <div class="closing-text">
-
-          <p data-i18n="cs1_closing_p1">Designing for financial decision-making isn’t just about usability—it’s about
-            responsibility.</p>
-          <p data-i18n="cs1_closing_p2">The goal isn’t to make decisions for users, but to help them make better ones.
-          </p>
+      <section class="cs-closing bg-default">
+        <div class="cs-closing-dark">
+          <span class="closing-label" data-i18n="cs1_closing_title">Closing Thought</span>
+          <p class="closing-title" data-i18n="cs1_closing_p1">Designing for financial decision-making isn’t just about
+            usability—it’s about responsibility.</p>
+          <p class="closing-subtitle" data-i18n="cs1_closing_p2">The goal isn’t to make decisions for users, but to help
+            them make better ones.</p>
         </div>
       </section>
 
@@ -532,18 +608,19 @@
       <div class="footer-nav">
         <div class="footer-nav-item" style="visibility: hidden;"></div>
         <a href="case-study-2.html" class="footer-nav-item footer-nav-right">
-
-          <div class="arrow-footer">
-            <span class="material-symbols-rounded">
-              arrow_forward_ios
-            </span>
-          </div>
           <span class="footer-link-text" data-i18n="footer_next_cs2">Improving Efficiency in a Customer Support
             Operations Tool</span>
+          <div class="arrow-footer">
+            <span class="material-symbols-rounded">
+              arrow_forward
+            </span>
+          </div>
         </a>
       </div>
+
     </main>
   </div>
+
 
   <script src="js/translations.js"></script>
   <script src="js/main.js"></script>

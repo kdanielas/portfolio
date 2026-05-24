@@ -8,10 +8,35 @@
   <meta name="description" content="Get in touch with Daniela - UX/UI Designer based in Tenerife.">
   <link rel="stylesheet" href="css/styles.css">
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32.png">
-
 </head>
 
 <body>
+  <!-- TOP NAV -->
+  <nav class="top-nav" id="top-nav">
+    <div class="top-nav-inner">
+      <!-- Logo -->
+      <a href="index.html" class="top-nav-logo">D.</a>
+
+      <!-- Center: Case study links -->
+      <div class="top-nav-links">
+        <a href="case-study-1.html" class="top-nav-link" data-i18n="nav_link_cs1">01 — Investing</a>
+        <a href="case-study-2.html" class="top-nav-link" data-i18n="nav_link_cs2">02 — Support</a>
+        <a href="case-study-3.html" class="top-nav-link" data-i18n="nav_link_cs3">03 — Hospitality</a>
+      </div>
+
+      <!-- Right: Language + Contact -->
+      <div class="top-nav-right">
+        <div class="top-nav-lang">
+          <button class="lang-btn active" data-lang="en">EN</button>
+          <span class="lang-divider">/</span>
+          <button class="lang-btn" data-lang="es">ES</button>
+        </div>
+        <a href="contact.html" class="top-nav-contact" data-i18n="nav_link_contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile hamburger -->
   <button class="hamburger" id="hamburger" aria-label="Open menu">
     <span></span><span></span><span></span>
   </button>
@@ -20,17 +45,10 @@
     <div>
       <div class="sidebar-logo"><a href="index.html">Daniela.</a></div>
       <div class="sidebar-nav">
-        <a href="index.html" class="nav-item" data-i18n="nav_welcome">Welcome!</a>
-        <div class="nav-subitems">
-          <span class="nav-category" data-i18n="nav_case_studies">CASE STUDIES</span>
-          <a href="case-study-1.html" class="nav-subitem" data-i18n="nav_cs1">Reimagining Digital Investing with
-            AI-Powered Guidance</a>
-          <a href="case-study-2.html" class="nav-subitem" data-i18n="nav_cs2">Improving Efficiency in a Customer Support
-            Operations Tool</a>
-          <a href="case-study-3.html" class="nav-subitem" data-i18n="nav_cs3">Optimizing Restaurant Operations with a
-            Reservation Management System</a>
-        </div>
-        <a href="contact.html" class="nav-item active" data-i18n="nav_contact">Contact</a>
+        <a href="case-study-1.html" class="top-nav-link" style="padding:14px 0;font-size:13px;display:block;" data-i18n="nav_link_cs1">01 — Investing</a>
+        <a href="case-study-2.html" class="top-nav-link" style="padding:14px 0;font-size:13px;display:block;" data-i18n="nav_link_cs2">02 — Support</a>
+        <a href="case-study-3.html" class="top-nav-link" style="padding:14px 0;font-size:13px;display:block;" data-i18n="nav_link_cs3">03 — Hospitality</a>
+        <a href="contact.html" class="nav-item" style="margin-top:8px;" data-i18n="nav_link_contact">Contact</a>
       </div>
     </div>
     <div class="lang-switcher">
@@ -41,78 +59,88 @@
   </nav>
 
   <div class="page-wrapper">
-    <!-- Sidebar -->
-    <nav class="sidebar">
-      <div class="sidebar-logo"><a href="index.html">Daniela.</a></div>
-      <div class="sidebar-nav">
-        <a href="index.html" class="nav-item" data-i18n="nav_welcome">Welcome!</a>
-        <div class="nav-subitems">
-          <span class="nav-category" data-i18n="nav_case_studies">CASE STUDIES</span>
-          <a href="case-study-1.html" class="nav-subitem" data-i18n="nav_cs1">Reimagining Digital Investing with
-            AI-Powered Guidance</a>
-          <a href="case-study-2.html" class="nav-subitem" data-i18n="nav_cs2">Improving Efficiency in a Customer Support
-            Operations Tool</a>
-          <a href="case-study-3.html" class="nav-subitem" data-i18n="nav_cs3">Optimizing Restaurant Operations with a
-            Reservation Management System</a>
-        </div>
-        <a href="contact.html" class="nav-item active" data-i18n="nav_contact">Contact</a>
-      </div>
-      <div class="lang-switcher">
-        <button class="lang-btn active" data-lang="en">EN</button>
-        <span class="lang-divider">/</span>
-        <button class="lang-btn" data-lang="es">ES</button>
-      </div>
-    </nav>
-
-    <!-- Main Content -->
     <main class="main-content">
-      <!-- Gradient ellipses -->
 
-      <div class="contact-page">
-        <div class="gradient-ellipse gradient-ellipse-1"></div>
-        <div class="gradient-ellipse gradient-ellipse-2"></div>
+      <div class="contact-page-v2">
+        <!-- Ambient glow orbs -->
+        <div class="contact-glow contact-glow-1"></div>
+        <div class="contact-glow contact-glow-2"></div>
 
-        <div class="contact-content">
-          <div class="contact-photo">
-            <img src="assets/images/contact-1.png" alt="Daniela portrait">
-          </div>
+        <!-- Two-column layout -->
+        <div class="contact-two-col">
 
-          <div class="contact-info-block">
-            <div class="contact-title-block">
-              <h1 class="heading-h1" data-i18n="contact_title">Say Hello 👋</h1>
+          <!-- LEFT: Hierarchy block -->
+          <div class="contact-left">
+            <div class="contact-eyebrow-row">
+              <span class="contact-eyebrow-line"></span>
+              <span class="contact-eyebrow" data-i18n="contact_label">Let's connect</span>
             </div>
-            <p class="text-xl" data-i18n="contact_intro">I'd love to hear from you! Whether you have a question, a
-              project idea, or just want to say hello, feel free to reach out.</p>
+
+            <h1 class="contact-big-heading" data-i18n="contact_title">Say Hello 👋</h1>
+
+            <p class="contact-intro-text" data-i18n="contact_intro">I'd love to hear from you! Whether you have a
+              question, a project idea, or just want to say hello, feel free to reach out.</p>
+
+            <div class="contact-availability">
+              <span class="contact-availability-dot"></span>
+              <span class="contact-availability-text" data-i18n="contact_availability">Currently open to new
+                opportunities.</span>
+            </div>
           </div>
 
-          <div class="contact-details">
-            <p class="text-body">
-              <span class="text-bold" data-i18n="contact_email_label">📧 Email: </span>
-              <span>
-                <a href="mailto:daniela.sanchez.rojas.4@gmail.com" target="_blank"
-                  data-i18n="contact_email">daniela.sanchez.rojas.4@gmail.com</a></span>
-            </p>
-            <p class="text-body">
-              <span class="text-bold" data-i18n="contact_linkedin_label">💼 LinkedIn: </span>
-              <span>
-                <a href="https://www.linkedin.com/in/kelly-daniela-sanchez-rojas/?locale=en" target="_blank"
-                  data-i18n="contact_linkedin">www.linkedin.com/in/kelly-daniela-sanchez-rojas</a>
-              </span>
-            </p>
-            <p class="text-body">
-              <span class="text-bold" data-i18n="contact_location_label">🌍 Location: </span>
-              <span>
-                <a data-i18n="contact_location" target="_blank"
-                  href="https://www.google.com/search?q=tenerife+spain&sca_esv=d690ffcb785891a9&rlz=1C5CHFA_enES1157ES1157&sxsrf=ANbL-n7AlD5_4JTQtCd1s08pUq3v3DEYlQ%3A1776067714788&ei=gqTcad7mL66HhbIPivek6A0&biw=1470&bih=835&ved=0ahUKEwjer_Lpr-qTAxWuQ0EAHYo7Cd0Q4dUDCBE&uact=5&oq=tenerife+spain&gs_lp=Egxnd3Mtd2l6LXNlcnAiDnRlbmVyaWZlIHNwYWluMgoQABhHGNYEGLADMgoQABhHGNYEGLADMgoQABhHGNYEGLADMgoQABhHGNYEGLADMgoQABhHGNYEGLADMgoQABhHGNYEGLADMgoQABhHGNYEGLADMgoQABhHGNYEGLADMg0QABiABBiKBRhDGLADMg0QLhiABBiKBRhDGLADMg0QABiABBiKBRhDGLADMg0QABiABBiKBRhDGLADMg4QABjkAhjWBBiwA9gBATIOEAAY5AIY1gQYsAPYAQEyDhAAGOQCGNYEGLAD2AEBMhcQLhjcBhi4BhjaBhjYAhjIAxiwA9gBATIXEC4Y2AIYuAYY2gYY3AYYyAMYsAPYAQEyFxAuGNwGGLgGGNoGGNgCGMgDGLAD2AEBMhcQLhjYAhi4BhjaBhjcBhjIAxiwA9gBAUjiBVAAWABwAXgBkAEAmAEAoAEAqgEAuAEDyAEAmAIBoAILmAMAiAYBkAYTugYGCAEQARgJkgcBMaAHALIHALgHAMIHAzMtMcgHCIAIAQ&sclient=gws-wiz-serp">
-                  Tenerife
-                </a>
-              </span>
-            </p>
+          <!-- RIGHT: Profile card -->
+          <div class="contact-right">
+            <div class="contact-card">
+
+              <!-- Photo + name header -->
+              <div class="contact-card-header">
+                <div class="contact-card-photo">
+                  <img src="assets/images/contact-1.png"
+                    alt="Portrait photo of Daniela Sanchez Rojas, UX and product designer">
+                </div>
+                <div class="contact-card-name-block">
+                  <span class="contact-card-name">Daniela Sánchez</span>
+                  <span class="contact-card-role">UX / Product Designer</span>
+                </div>
+              </div>
+
+              <!-- Soft divider -->
+              <div class="contact-card-divider"></div>
+
+              <!-- Info rows -->
+              <div class="contact-card-rows">
+
+                <div class="contact-card-row">
+                  <span class="contact-card-row-label" data-i18n="contact_email_label">Email</span>
+                  <span class="contact-card-row-value">
+                    <a href="mailto:daniela.sanchez.rojas.4@gmail.com"
+                      data-i18n="contact_email">daniela.sanchez.rojas.4@gmail.com</a>
+                  </span>
+                </div>
+
+                <div class="contact-card-row">
+                  <span class="contact-card-row-label" data-i18n="contact_linkedin_label">LinkedIn</span>
+                  <span class="contact-card-row-value">
+                    <a href="https://www.linkedin.com/in/kelly-daniela-sanchez-rojas/?locale=en" target="_blank"
+                      data-i18n="contact_linkedin">kelly-daniela-sanchez-rojas</a>
+                  </span>
+                </div>
+
+                <div class="contact-card-row">
+                  <span class="contact-card-row-label" data-i18n="contact_location_label">Location</span>
+                  <span class="contact-card-row-value">
+                    <a target="_blank" href="https://www.google.com/search?q=tenerife+spain"
+                      data-i18n="contact_location">Tenerife, Spain</a>
+                  </span>
+                </div>
+
+              </div>
+            </div>
           </div>
+
         </div>
-
-
       </div>
+
     </main>
   </div>
 

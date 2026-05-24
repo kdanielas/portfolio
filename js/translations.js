@@ -3,30 +3,43 @@ const translations = {
     // Sidebar
     nav_welcome: "Welcome!",
     nav_case_studies: "CASE STUDIES",
-    nav_cs1: "Reimagining Digital Investing with AI-Powered Guidance",
-    nav_cs2: "Improving Efficiency in a Customer Support Operations Tool",
-    nav_cs3: "Optimizing Restaurant Operations with a Reservation Management System",
+    nav_cs1: "01 — INVESTING",
+    nav_cs2: "02 — SUPPORT",
+    nav_cs3: "03 — RESTAURANT",
     nav_contact: "Contact",
+    team: "Team",
+    role: "My Role",
+
 
     // Welcome page
     welcome_greeting: "Hi, I'm Daniela",
     welcome_hero: "I design digital experiences driven by strategy and user needs.",
-    welcome_tag1: "User Experience 🔍",
-    welcome_tag2: "Product Design ✏️",
-    welcome_tag3: "UI Design ✨",
-    welcome_tag4: "Prototype 🛠️",
-    welcome_tag5: "Design Systems 📐",
-    welcome_cta_text: "Take a look at some of my favorite projects.",
+    welcome_skills: "SKILLS",
+    welcome_skill1_title: "Product",
+    welcome_skill1: "Figma, Design Systems, Wireframing, Prototyping, Information Architecture, Accessibility",
+    welcome_skill2_title: "Research",
+    welcome_skill2: "User Interviews, Usability Testing, Journey Mapping, Sitemaps, User Flows",
+    welcome_skill3_title: "Technical",
+    welcome_skill3: "HTML, CSS, JavaScript",
+    welcome_skill4_title: "AI",
+    welcome_skill4: "ChatGPT, Claude, Lovable",
+
+    welcome_lenguages: "LENGUAGES",
+    welcome_lenguage1: "Spanish - Native",
+    welcome_lenguage2: "English - Professional",
+    welcome_cta_text: "Product Designer with 5+ years shaping complex B2B and fintech products — from AI-powered investment tools to operational dashboards used under real-time pressure. Bridging business strategy, user needs, and technical feasibility through close collaboration with PMs and engineers.",
     welcome_btn: "See My Projects",
 
     // Contact page
+    contact_label: "Let's connect",
     contact_title: "Say Hello 👋",
     contact_intro: "I'd love to hear from you! Whether you have a question, a project idea, or just want to say hello, feel free to reach out.",
-    contact_email_label: "📧 Email: ",
+    contact_availability: "Currently open to new opportunities.",
+    contact_email_label: "Email",
     contact_email: "daniela.sanchez.rojas.4@gmail.com",
-    contact_linkedin_label: "💼 LinkedIn: ",
-    contact_linkedin: "www.linkedin.com/in/kelly-daniela-sanchez-rojas",
-    contact_location_label: "🌍 Location: ",
+    contact_linkedin_label: "LinkedIn",
+    contact_linkedin: "kelly-daniela-sanchez-rojas",
+    contact_location_label: "Location",
     contact_location: "Tenerife, Spain",
 
     // Case Study 1 - BMO
@@ -36,17 +49,17 @@ const translations = {
     cs1_desc_p2: "My role focused on owning the end-to-end design of key features, translating the vision into user flows, wireframes, and high-fidelity prototypes. I drove decisions around interaction patterns, information hierarchy, and how guidance is integrated into critical user moments.",
     cs1_role_title: "My Role",
     cs1_role1: "Wireframing",
-    cs1_role2: "User flows",
-    cs1_role3: "High-Fidelity UIs",
-    cs1_role4: "Prototyping",
-    cs1_role5: "Concept Exploration",
-    cs1_role6: "AI-Powered Experiences",
+    cs1_role2: "User Flows",
+    cs1_role3: "High-Fidelity UI",
+
+    cs1_team: "Team",
+    cs1_team1: "Lead designer, UX designer and me (UX Designer)",
+
 
     cs1_scroll: "Scroll down to see the project",
 
     cs1_challenge_title: "The Challenge",
-    cs1_challenge_p1: "Self-directed investing platforms give users control—but also expose them to risk, uncertainty and cognitive overload.",
-    cs1_challenge_bold: "Through early discovery and domain research, we identified a set of recurring friction points:",
+    cs1_challenge_p1: "Self-directed investing platforms give users control—but also expose them to risk, uncertainty and cognitive overload. Through early discovery and domain research, we identified a set of recurring friction points:",
     cs1_challenge_li1: "Portfolio changes feel opaque and difficult to interpret",
     cs1_challenge_li2: "Trade decisions lack clarity (risk, diversification, tax implications)",
     cs1_challenge_li3: "Educational content exists but is disconnected from real decisions",
@@ -54,7 +67,7 @@ const translations = {
     cs1_challenge_card_label: "The core tension",
     cs1_challenge_card_text: "How might we help users make better financial decisions without taking control away from them?",
 
-    cs1_opportunity_title: "Framing the Opportunity",
+    cs1_opportunity_title: "02 — Framing the Opportunity",
     cs1_opportunity_p1: "We reframed the platform from a toolset to a guidance system. Instead of replacing decision-making, we focused on:",
     cs1_opportunity_li1: "Supporting users with contextual insights",
     cs1_opportunity_li2: "Increasing awareness of consequences",
@@ -65,8 +78,7 @@ const translations = {
     cs1_opportunity_card_text1c: "They want confidence.",
 
     cs1_approach_title: "Approach",
-    cs1_approach_p1: "This engagement balanced product definition with rapid experience design.",
-    cs1_approach_bold: "Key activities included:",
+    cs1_approach_p1: "This engagement balanced product definition with rapid experience design. Key activities included:",
     cs1_approach_li1: "Workshops to align on vision and scope",
     cs1_approach_li2: "Journey mapping across onboarding, portfolio, and trading",
     cs1_approach_li3: "Rapid concept exploration and iteration",
@@ -75,7 +87,8 @@ const translations = {
     cs1_approach_p2: "We focused on translating abstract AI concepts into clear, actionable user interactions that could be understood in high-stakes moments.",
     cs1_approach_card_text: "We worked iteratively, using lightweight prototypes and storytelling artifacts to align stakeholders and refine direction.",
 
-    cs1_users_title: "Users",
+    cs1_users_label: "04 — Users",
+    cs1_users_title: "Two profiles, one need",
     cs1_users_subtitle: "We started from two user profiles defined by the client. From there, I identified the shared needs and key tensions that guided the design decisions.",
     cs1_user1_name: "Less digitally confident investors",
     cs1_user1_li1: "Lower confidence in digital tools",
@@ -86,27 +99,37 @@ const translations = {
     cs1_user2_li1: "Comfortable with autonomy",
     cs1_user2_li2: "Faster decision-making",
     cs1_user2_li3: "More prone to overconfidence and impulsive trades",
-    cs1_users_shared: "👉 Shared need:",
+    cs1_users_shared: "Shared need:",
     cs1_users_shared_text: "Understanding the consequences of their actions before committing.",
 
-    cs1_solution_title: "The Solution",
+    cs1_solution_title: "04 — The Solution",
+    cs1_solution_title: "From transaction-first investing",
+    cs1_solution_title2: " to guided, confidence- building decision- making",
     cs1_solution_p1: "We designed a hybrid AI guidance system embedded across the investing journey.",
     cs1_solution_p2: "Instead of a single feature, the solution works as a layer of intelligence that adapts to user context.",
+    cs1_solution_label: "05 — The Solution",
+    cs1_sol_nav1: "Embedded AI",
+    cs1_sol_nav2: "Intelligence",
+    cs1_sol_nav3: "Simulation",
+    cs1_sol_nav4: "Exploration",
 
     cs1_shift_label: "The Core Shift",
     cs1_shift_from: "From:",
     cs1_shift_from_text: "Transaction-first investing",
     cs1_shift_to: "To:",
     cs1_shift_to_text: "Guided, confidence-building decision-making",
-    cs1_feature1_title: "Learn by Doing (Safe Simulation)",
+    cs1_feature1_title: "Learn by Doing",
+    cs1_feature1_title2: "Safe Simulation",
     cs1_feature1_p1: "A safe environment where users can simulate strategies without real risk.",
     cs1_feature1_bold: "Why it matters:",
     cs1_feature1_li1: "Reduces fear of making mistakes",
     cs1_feature1_li2: "Encourages exploration and learning",
 
-    cs1_feature2_title: "Scenario Exploration (“What If?”)",
+    cs1_feature2_title: "Scenario Exploration",
+    cs1_feature2_title2: "What If",
+
     cs1_feature2_p1: "A tool that lets users explore outcomes before committing.",
-    cs1_feature2_bold: "Design decision:",
+    cs1_feature2_bold: "Why it matters:",
     cs1_feature2_li1: "We prioritized visual clarity over technical complexity to make scenarios understandable.",
     cs1_feature2_p2: "Impact:",
     cs1_feature2_p3bold: "👉 Users shift from reactive to proactive thinking",
@@ -124,30 +147,27 @@ const translations = {
 
     cs1_feature5_title: "Embedded AI Assistant",
     cs1_feature5_bold: "Goal: Make guidance always available, but never intrusive.",
-    cs1_feature5_p1: "Instead of isolating AI in a chatbot, we embedded it throughout the experience:",
+    cs1_feature5_p1: "Instead of isolating AI in a chatbot, we embedded it throughout the experience.",
     cs1_feature5_li1: "Contextual prompts appear at key decision points",
     cs1_feature5_li2: "Users can ask questions in natural language",
     cs1_feature5_li3: "The system suggests next steps based on user context",
-    cs1_feature5_p2: "This creates a hybrid model:",
-    cs1_feature5_li4: "Proactive guidance when needed",
-    cs1_feature5_li5: "On-demand support when requested",
 
-    cs1_roadmap_title: "MVP Definition & Roadmap",
+    cs1_roadmap_label: "06 — Roadmap & MVP Definition",
     cs1_roadmap_intro: "To bring the vision to life, we defined a phased approach focused on delivering value at key moments in the investing journey — rather than launching a fully comprehensive AI system all at once.",
-    cs1_roadmap_phase1_label: "PHASE 1",
+    cs1_roadmap_phase1_label: "PHASE — 1",
     cs1_roadmap_phase1_title: "Understanding Your Portfolio",
     cs1_roadmap_phase1_focus_label: "Focus:",
-    cs1_roadmap_phase1_focus: "Build confidence in core user journeys.",
+    cs1_roadmap_phase1_focus: "Focus: Build confidence in core user journeys.",
     cs1_roadmap_phase1_features_label: "Key Features:",
     cs1_roadmap_phase1_li1: "Portfolio health overview (asset allocation, diversification, risk, ratings).",
     cs1_roadmap_phase1_li2: "Plain-language explanations of portfolio performance.",
     cs1_roadmap_phase1_li3: "Contextual prompts introducing AI-assisted guidance.",
     cs1_roadmap_phase1_outcome_label: "Outcome:",
     cs1_roadmap_phase1_outcome: "Users gain a clear understanding of their portfolio and what to do next—without feeling overwhelmed.",
-    cs1_roadmap_phase2_label: "PHASE 2",
+    cs1_roadmap_phase2_label: "PHASE — 2",
     cs1_roadmap_phase2_title: "Making Decisions with Guidance",
     cs1_roadmap_phase2_focus_label: "Focus:",
-    cs1_roadmap_phase2_focus: "Support high-stakes moments.",
+    cs1_roadmap_phase2_focus: "Focus: Support high-stakes moments.",
     cs1_roadmap_phase2_features_label: "Key Features:",
     cs1_roadmap_phase2_li1: "Pre-trade insights (impact on risk, diversification, alignment to goals).",
     cs1_roadmap_phase2_li2: "Scenario exploration (\"what happens if I make this change?\").",
@@ -155,10 +175,10 @@ const translations = {
     cs1_roadmap_phase2_li4: "Guided flows for making portfolio adjustments.",
     cs1_roadmap_phase2_outcome_label: "Outcome:",
     cs1_roadmap_phase2_outcome: "Users move from uncertainty to informed action with greater confidence.",
-    cs1_roadmap_phase3_label: "PHASE 3",
+    cs1_roadmap_phase3_label: "PHASE — 3",
     cs1_roadmap_phase3_title: "Anticipation & Personalization",
     cs1_roadmap_phase3_focus_label: "Focus:",
-    cs1_roadmap_phase3_focus: "Anticipate user needs over time.",
+    cs1_roadmap_phase3_focus: "Focus: Anticipate user needs over time.",
     cs1_roadmap_phase3_features_label: "Key Features:",
     cs1_roadmap_phase3_li1: "Intelligent alerts tied to portfolio health and market events.",
     cs1_roadmap_phase3_li2: "Personalized recommendations based on goals and behavior.",
@@ -175,7 +195,9 @@ const translations = {
     cs1_feature6_li3: "Deeper AI explanations",
     cs1_feature6_bold: "This avoids the “one-size-fits-all” problem.",
 
-    cs1_outcomes_title: "Outcomes",
+    cs1_outcomes_label: "07 — Outcomes",
+    cs1_outcomes_title: "Turning AI Vision into Actionable Product Direction",
+
     cs1_outcomes_p1: "While the work was exploratory and forward-looking, it delivered meaningful impact:",
     cs1_outcomes_li1: "Translated a complex AI vision into tangible product experiences",
     cs1_outcomes_li2: "Enabled stakeholders to align on a clear direction for AI-assisted investing",
@@ -183,7 +205,7 @@ const translations = {
     cs1_outcomes_li4: "Created high-fidelity prototypes to validate and communicate high-stakes interactions",
     cs1_outcomes_li5: "Established reusable patterns for AI-assisted decision-making",
 
-    cs1_takeaways_title: "Key Takeaways",
+    cs1_takeaways_title: "08 — Key Takeaways",
     cs1_takeaways_title2: "Guidance is most effective when it respects user autonomy",
     cs1_takeaways_p2: "Users don’t need more tools — they need help using them",
     cs1_takeaways_title3: "AI works best when embedded, not centralized",
@@ -223,8 +245,8 @@ const translations = {
     cs2_challenge_card_label: "The main challenge",
     cs2_challenge_card_text: "Understanding real user behavior and identifying how to make their workflows faster and more efficient.",
 
-    cs2_opportunity_title: "Framing the Opportunity",
-    cs2_opportunity_p1: "We identified three key opportunity areas:",
+    cs2_opportunity_title: "02 — Framing the Opportunity",
+    cs2_opportunity_p1: "Three key opportunities",
 
     cs2_opportunity_li1: "The tool is critical for daily operations",
     cs2_opportunity_li2: "Users rely heavily on it to resolve customer issues",
@@ -236,7 +258,7 @@ const translations = {
     cs2_opportunity_card_label: "Opportunity",
     cs2_opportunity_card_text: "Improve speed, clarity, and accessibility without disrupting existing workflows.",
 
-    cs2_approach_title: "Approach",
+    cs2_approach_title: "03 — Approach",
     cs2_approach_p1: "We combined quantitative and qualitative research:",
     cs2_approach_p2: "📊 Surveys",
     cs2_approach_li1: " To validate whether users actively used the tool",
@@ -250,7 +272,9 @@ const translations = {
     cs2_approach_card_text: "Users had adapted to the tool—but not because it was efficient, rather because they had no alternative.",
 
 
-    cs2_users_title: "Users",
+    cs2_users_label: "04 — Users",
+    cs2_users_title: "Two profiles, one need",
+
     cs2_users_subtitle: "We identified two primary user profiles:",
     cs2_user1_name: "Customer Support Team",
     cs2_user1_li1: "Daily users of the Admin UI",
@@ -270,20 +294,29 @@ const translations = {
     cs2_user2_li5: "Minimal navigation friction",
     cs2_user2_li6: "Clear error visibility",
 
-    cs2_problems_title: "Key Problems Identified",
-    cs2_problem1_key: "Slow payment search →",
+    cs2_problems_label: "05 — The Problem",
+    cs2_problems_title: "Poor visibility and navigation slowed information access.",
+    cs2_problem1_key: "Slow payment search",
     cs2_problem1_text: "Finding a payment takes too long",
-    cs2_problem2_key: "Low data visibility →",
+    cs2_problem2_key: "Low data visibility",
     cs2_problem2_text: " Important fields are hard to identify",
-    cs2_problem3_key: "Inefficient tables →",
+    cs2_problem3_key: "Inefficient tables",
     cs2_problem3_text: " Poor structure and readability",
-    cs2_problem4_key: "Limited context →",
+    cs2_problem4_key: "Limited context",
     cs2_problem4_text: " Hard to narrow down results quickly",
-    cs2_problem5_key: "Navigation friction →",
+    cs2_problem5_key: "Navigation friction",
     cs2_problem5_text: " Users lose context when exploring data",
 
-    cs2_solution_title: "The Solution",
+    cs2_solution_label: "06 — The Solution",
+    cs2_solution_title: "We redesigned key workflows focusing on speed, clarity, and flexibility, while keeping the experience familiar to users.",
     cs2_solution_p1: "Solutions were designed to improve efficiency without requiring major engineering changes or disrupting existing workflows. We redesigned key workflows focusing on speed, clarity, and flexibility, while keeping the experience familiar to users.",
+
+    cs2_sol_nav1: "Filtration",
+    cs2_sol_nav2: "Optimization",
+    cs2_sol_nav3: "customization",
+    cs2_sol_nav4: "Prioritization",
+    cs2_sol_nav5: "Navigation",
+
 
     cs2_feature1_title: "Advanced Search & Filtering",
     cs2_feature1_p1: "Search was consistently identified as the biggest pain point across all interviews. Users often searched with incomplete information, making the process inefficient.",
@@ -317,10 +350,11 @@ const translations = {
     cs2_feature5_li1: "Enabled opening payment details without losing the list view",
     cs2_feature5_bold: "Impact: Improved workflow continuity and reduced repetitive navigation.",
 
-    cs2_roadmap_title: "MVP Definition & Roadmap",
+    cs2_roadmap_label: "07 — MVP Definition & Roadmap",
+    cs2_roadmap_title: "Instead of redesigning the entire system, we focused on reducing task time and improving efficiency while maintaining a familiar experience.",
     cs2_roadmap_intro: "To ensure we delivered value quickly while minimizing disruption to existing workflows, we structured the project into three phases, progressively moving from validation to execution.",
 
-    cs2_roadmap_phase1_label: "PHASE 1",
+    cs2_roadmap_phase1_label: "PHASE — 1",
     cs2_roadmap_phase1_title: "Validation & Discovery",
     cs2_roadmap_phase1_focus: "We first needed to understand whether the tool was still relevant and worth investing in.",
     cs2_roadmap_phase1_li1: "Is the platform actively used?",
@@ -330,7 +364,7 @@ const translations = {
     cs2_roadmap_phase1_outcome_label: "Outcome:",
     cs2_roadmap_phase1_outcome: "The tool was critical to daily operations, but significant usability issues were slowing users down. This validated the need for improvement rather than deprecation.",
 
-    cs2_roadmap_phase2_label: "PHASE 2",
+    cs2_roadmap_phase2_label: "PHASE — 2",
     cs2_roadmap_phase2_title: "Problem Framing & Prioritization",
     cs2_roadmap_phase2_focus: "With clear evidence of value, we focused on identifying where improvements would have the highest impact.",
     cs2_roadmap_phase2_li1: "What tasks are most critical for users?",
@@ -343,7 +377,7 @@ const translations = {
     cs2_roadmap_phase2_outcome_label: "Outcome:",
     cs2_roadmap_phase2_outcome: "We defined a focused scope centered on speed, visibility, and navigation efficiency—targeting the highest-impact pain points first.",
 
-    cs2_roadmap_phase3_label: "PHASE 3",
+    cs2_roadmap_phase3_label: "PHASE — 3",
     cs2_roadmap_phase3_title: "Solution Design & Iteration",
     cs2_roadmap_phase3_focus: "We translated insights into solutions, prioritizing based on impact vs. effort.",
     cs2_roadmap_phase3_li1: "Quick wins (e.g., improved table readability, better hierarchy)",
@@ -354,25 +388,25 @@ const translations = {
 
     cs2_roadmap_framing_insight: "Impact Strategy: Rather than redesigning the entire system at once, we focused on: Reducing time-to-task for critical workflows, Maintaining familiarity to avoid retraining and Incrementally improving efficiency.",
 
-    cs2_outcomes_title: "Outcomes",
-    cs2_outcomes_p1: "The redesign focused on improving speed, clarity, and workflow continuity across customer support and engineering teams.",
-    cs2_outcomes_li1_bold: "⏱️ Faster task completion",
+    cs2_outcomes_label: "05 — Outcomes",
+    cs2_outcomes_title: "Improved speed, clarity, and workflow efficiency across key user tasks.",
+    cs2_outcomes_li1_bold: "Faster task completion",
     cs2_outcomes_li1: "Advanced filters significantly reduced search time",
-    cs2_outcomes_li2_bold: "⚡ Increased operational efficiency",
+    cs2_outcomes_li2_bold: "Increased operational efficiency",
     cs2_outcomes_li2: "Improved layout and customizable data views reduced unnecessary navigation, allowing users to complete tasks with fewer steps.",
-    cs2_outcomes_li3_bold: "🧭 Simplified Navigation",
+    cs2_outcomes_li3_bold: "Simplified Navigation",
     cs2_outcomes_li3: "Maintaining context while navigating between payments eliminated repetitive actions and improved investigation flow",
-    cs2_outcomes_li4_bold: "❌ Reduced errors",
+    cs2_outcomes_li4_bold: "Reduced errors",
     cs2_outcomes_li4: "Clearer data hierarchy and visual cues improved accuracy when identifying payment issues.",
-    cs2_outcomes_li5_bold: "🤝 Reduced dependency on engineers",
+    cs2_outcomes_li5_bold: "Reduced dependency on engineers",
     cs2_outcomes_li5: "Customer support agents were able to resolve more issues independently, decreasing the need for escalations.",
 
-    cs2_takeaways_title: "Key Takeaways",
+    cs2_takeaways_label: "06 — Key Takeaways",
     cs2_takeaways_title1: "Improved operational efficiency and reduced friction in a high-pressure system",
     cs2_takeaways_title2: "Efficiency gains come from reducing friction, not adding features",
     cs2_takeaways_title3: "Clear visibility of information is critical in high-pressure workflows",
 
-    cs2_whatnext_title: "What I’d Improve Next",
+    cs2_whatnext_label: "07 — What I’d Improve Next",
     cs2_whatnext_li1: "Introduce proactive alerts for failed or delayed payments",
     cs2_whatnext_li2: "Continue optimizing workflows based on usage data and analytics",
     cs2_whatnext_li3: "Explore automation opportunities to reduce manual investigation",
@@ -388,16 +422,16 @@ const translations = {
     cs3_desc_p1: "This project focused on improving the usability and efficiency of a restaurant management platform used to handle reservations, table allocation, and service flow.",
     cs3_desc_p2: "The goal was to streamline operations, reduce friction for staff, and improve real-time decision-making in high-pressure environments.",
     cs3_role_title: "My Role",
-    cs3_role1: "User Experience 🔍",
+    cs3_role1: "User Experience",
     cs3_role2: "System Design creation",
     cs3_role3: "Interaction Design",
     cs3_role4: "Collaboration with stakeholders",
-
+    cs3_team: "Developers and UX Designer (Me)",
     cs3_scroll: "Scroll down to see the project",
 
-    cs3_challenge_title: "The Challenge",
+    cs3_challenge_title: "01 — The Challenge",
     cs3_challenge_p1: "Restaurant staff operate in fast-paced, high-pressure environments where time and clarity are critical.",
-    cs3_challenge_p2: "However, the existing system presented several challenges:",
+    cs3_challenge_p2: "CHALLENGES",
     cs3_challenge_li1: "Complex and dense interfaces",
     cs3_challenge_li2: "Difficulty managing reservations in real time",
     cs3_challenge_li3: "Limited visibility of table status and service flow",
@@ -405,8 +439,10 @@ const translations = {
     cs3_challenge_card_label: "The main challenge",
     cs3_challenge_card_text: "How might we simplify operations and improve speed without disrupting critical workflows?",
 
-    cs3_opportunity_title: "Framing the Opportunity",
-    cs3_opportunity_p1: "Through research, we identified that:",
+    cs3_opportunity_label: "02 — Framing the Opportunity",
+    cs3_opportunity_title: "In high-pressure environments, clarity and speed matter more than feature richness.",
+
+    cs3_opportunity_p1: "Research Findings",
 
     cs3_opportunity_li1: "Staff rely heavily on the system during service hours",
     cs3_opportunity_li2: "Most interactions need to be fast, intuitive, and low-effort",
@@ -431,7 +467,7 @@ const translations = {
     cs3_approach_li6: " Rapid prototyping",
     cs3_approach_li7: "Continuous refinement based on feedback",
 
-    cs3_users_title: "Users",
+    cs3_users_title: "04 — Users",
     cs3_users_subtitle: "We identified two primary user profiles:",
     cs3_user1_name: "Restaurant Hosts",
     cs3_user1_li1: "Manage walk-ins and reservations simultaneously",
@@ -462,16 +498,23 @@ const translations = {
     cs3_users_shared: "Shared need",
     cs3_users_shared_text: "A system that works with the pace of service, not against it.",
 
-    cs3_problems_title: "Key Problems Identified",
-    cs3_problem1_key: "Slow interactions →",
+    cs3_sol_nav1: "UI Simplification",
+    cs3_sol_nav2: "Reservation Flow",
+    cs3_sol_nav3: "Information Hierarchy",
+    cs3_sol_nav4: "Real-Time Updates",
+    cs3_sol_nav5: "Design System",
+    cs3_sol_nav6: "Data Clarity",
+
+    cs3_problems_title: "Operational Complexity Created User Frustration",
+    cs3_problem1_key: "Slow interactions",
     cs3_problem1_text: "Too many steps for simple actions",
-    cs3_problem2_key: "High cognitive load →",
+    cs3_problem2_key: "High cognitive load",
     cs3_problem2_text: "Overwhelming amount of information",
-    cs3_problem3_key: "Low visibility →",
+    cs3_problem3_key: "Low visibility",
     cs3_problem3_text: "Hard to understand table status at a glance",
-    cs3_problem4_key: "Inefficient flows →",
+    cs3_problem4_key: "Inefficient flows",
     cs3_problem4_text: "Switching between views slows users down",
-    cs3_problem5_key: "Error-prone actions →",
+    cs3_problem5_key: "Error-prone actions",
     cs3_problem5_text: "Mismanagement of reservations",
 
     cs3_designneeds_title: "Design Needs",
@@ -481,12 +524,12 @@ const translations = {
     cs3_designneeds_li4: "Create clear visual hierarchy",
     cs3_designneeds_li5: "Support fast decision-making under pressure",
 
-    cs3_solution_title: "The Solution",
+    cs3_solution_title: "06 — The Solution",
     cs3_solution_p1: "We redesigned the platform focusing on clarity, speed, and visual management of space and time.",
 
     cs3_core_features: "Core Features",
 
-    cs3_feature1_title: "Visual Table Management",
+    cs3_feature1_title: "Simplify and declutter the interface",
     cs3_feature1_li1: "Redesigned table layout using clear visual blocks",
     cs3_feature1_li2: "Status-based color coding",
     cs3_feature1_bold: "👉 Users can instantly understand availability and occupancy",
@@ -519,7 +562,8 @@ const translations = {
     cs3_feature7_li2: "Clear separation of sections and actions",
     cs3_feature7_bold: "👉 Faster scanning and decision-making",
 
-    cs3_outcomes_title: "Outcomes",
+    cs3_outcomes_title: "07 — Outcomes",
+    cs3_outcomes_title: "Improved Operational Efficiency & Staff Experience",
     cs3_outcomes_li1_bold: "⚡ Faster service management",
     cs3_outcomes_li1: "Staff can manage reservations more efficiently",
     cs3_outcomes_li2_bold: " 🧠 Reduced cognitive load",
@@ -531,7 +575,7 @@ const translations = {
     cs3_outcomes_li5_bold: "✨ Improved staff experience",
     cs3_outcomes_li5: "More confidence during high-pressure situations",
 
-    cs3_takeaways_title: "Key Takeaways",
+    cs3_takeaways_title: "08 — Key Takeaways",
     cs3_takeaway1: "Speed and clarity are critical in operational tools",
     cs3_takeaway2: "Visual systems outperform text-heavy interfaces",
     cs3_takeaway3: "Reducing friction has a direct impact on performance",
@@ -545,13 +589,100 @@ const translations = {
     cs3_closing_p1: "Designing for operational environments means designing for stress.",
     cs3_closing_p2: "By simplifying interactions and improving visibility, we enable users to stay in control—even in the busiest moments.",
     // Footer nav
-    footer_prev_cs1: "Reimagining Digital Investing with AI-Powered Guidance",
-    footer_next_cs2: "Improving Efficiency in a Customer Support Operations Tool",
-    footer_prev_cs2: "Reimagining Digital Investing with AI-Powered Guidance",
-    footer_next_cs3: "Optimizing Restaurant Operations with a Reservation Management System",
-    footer_prev_cs3: "Improving Efficiency in a Customer Support Operations Tool",
+    footer_prev_cs1: "01 — Investing",
+    footer_next_cs2: "02 — Support",
+    footer_prev_cs2: "01 — Investing",
+    footer_next_cs3: "03 — Hospitality",
+    footer_prev_cs3: "02 — Support",
     footer_next_contact: "Contact",
-    footer_prev_contact: "Optimizing Restaurant Operations with a Reservation Management System",
+    footer_prev_contact: "03 — Hospitality",
+
+    // Shared nav link labels
+    nav_link_cs1: "01 — Investing",
+    nav_link_cs2: "02 — Support",
+    nav_link_cs3: "03 — Hospitality",
+    nav_link_contact: "Contact",
+
+    // Shared UI labels
+    solution_sidebar_label: "The Solution",
+    closing_thought_label: "Closing Thought",
+    always_room_to_grow: "Always room to grow",
+    key_activities_label: "Key Activities Included:",
+
+    // Approach method labels (shared across pages)
+    approach_surveys_label: "📊 Surveys",
+    approach_interviews_label: "🎤 User Interviews",
+    approach_workflow_label: "🔍 Workflow Analysis",
+    approach_iterative_label: "✏️ Iterative Design",
+
+    // Section number labels
+    section_label_challenge: "01 — The Challenge",
+    section_label_opportunity: "02 — Framing the Opportunity",
+    section_label_approach: "03 — Approach",
+
+    // Welcome page hero
+    welcome_label: "HI, I AM DANIELA :)",
+    welcome_hero_h1: "I design digital experiences driven by ",
+    welcome_hero_h12: "strategy and human needs.",
+
+
+    // CS2 hero team
+    cs2_team1: "Product Manager, Engineering team and UX Designer(Me)",
+
+    // CS1 specific hardcoded labels
+    cs1_whatnext_label: "09 — What I'd Improve Next",
+    cs1_whatnext_heading: "Always room to grow",
+    cs1_sol_feature4_goal: "Goal: Help users explore \"What If\" outcomes before committing.",
+
+    // CS2 takeaway cards
+    cs2_takeaway1_title: "Research uncovers hidden value",
+    cs2_takeaway1_body: "Without data on usage, tools become stagnant. Research revealed the tool's importance and guided focused improvements.",
+    cs2_takeaway2_title: "Users adapt, but that's not enough",
+    cs2_takeaway2_body: "Workarounds are not solutions. Designing for efficiency means reducing effort, not just enabling tasks.",
+    cs2_takeaway3_title: "Internal tools deserve design attention",
+    cs2_takeaway3_body: "Improving internal tools directly impacts team performance, morale, and the quality of service delivered to customers.",
+
+    // CS2 whatnext heading
+    cs2_whatnext_heading: "Always room to grow",
+
+    // CS3 feature titles used in HTML
+    cs3_feature2_title: "Optimized Layout & Space",
+
+    // CS3 takeaway cards
+    cs3_takeaway1_title: "Context shapes design",
+    cs3_takeaway1_body: "High-pressure environments demand clarity above all else. Every design decision must reduce cognitive load, not add to it.",
+    cs3_takeaway2_title: "Speed is a feature",
+    cs3_takeaway2_body: "In service environments, time saved per interaction compounds across hundreds of daily tasks. Efficiency is not a nice-to-have.",
+    cs3_takeaway3_title: "Stakeholder collaboration drives accuracy",
+    cs3_takeaway3_body: "Working closely with restaurant stakeholders ensured the design reflected real workflows rather than assumed ones.",
+
+    // CS3 whatnext
+    cs3_whatnext_label: "08 — What I'd Improve Next",
+    cs3_whatnext_heading: "Always room to grow",
+    cs3_whatnext_li1: "Conduct usability testing with live restaurant staff",
+    cs3_whatnext_li2: "Explore mobile-first adaptations for front-of-house staff",
+    cs3_whatnext_li3: "Integrate real-time analytics for managers to track service flow",
+
+    // CS3 outcomes (different from existing keys — these are the actual HTML content)
+    cs3_outcomes_li1: "Faster table management and reservation handling",
+    cs3_outcomes_li2: "Reduced errors and improved data visibility",
+    cs3_outcomes_li3: "Staff adapted quickly to the new system with minimal training",
+    cs3_outcomes_li4: "Improved real-time visibility of table status and service flow",
+
+    // CS3 closing (different from existing — these match actual HTML)
+    cs3_closing_p1_alt: "Great restaurant experiences start behind the scenes — with tools that let staff focus on people, not processes.",
+    cs3_closing_p2_alt: "Designing for operational environments taught me that clarity and speed are not just design goals — they are business imperatives.",
+
+    // CS2 outcomes (different from existing — these match actual HTML)
+    cs2_outcomes_li1_alt: "Faster search and retrieval of payment information",
+    cs2_outcomes_li2_alt: "Improved data visibility reducing support resolution time",
+    cs2_outcomes_li3_alt: "Streamlined navigation reducing user friction",
+    cs2_outcomes_li4_alt: "Greater team confidence in using the tool daily",
+    cs2_outcomes_title_alt: "Improved Speed, Visibility, and Workflow Efficiency",
+
+    // CS2 whatnext (different from existing — these match actual HTML)
+    cs2_whatnext_li2_alt: "Continue optimizing workflow speed through usability testing",
+    cs2_whatnext_li3_alt: "Explore role-based views to reduce information overload",
   },
 
   es: {
@@ -562,27 +693,50 @@ const translations = {
     nav_cs2: "Optimizando la eficiencia en las operaciones de soporte al cliente",
     nav_cs3: "Optimización de operaciones en restaurantes con un sistema de reservas",
     nav_contact: "Contacto",
+    team: "Equipo",
+    role: "Mi Rol",
+
 
     // Welcome page
     welcome_greeting: "Hola, soy Daniela",
-    welcome_hero: "Diseño experiencias digitales con sentido, combinando investigación y creatividad.",
+    welcome_hero: "Diseño experiencias digitales que conectan estrategia, negocio y necesidades humanas.",
     welcome_tag1: "Investigación UX 🔍",
     welcome_tag2: "Diseño de producto ✏️",
     welcome_tag3: "Diseño UI ✨",
     welcome_tag4: "Prototipado 🛠️",
     welcome_tag5: "Sistemas de diseño 📐",
-    welcome_cta_text: "Te invito a ver algunos de mis proyectos favoritos.",
+    welcome_skills: "HABILIDADES",
+
+    welcome_skill1_title: "Producto",
+    welcome_skill1: "Sistemas de diseño, Wireframing, Prototipado, Arquitectura de la información, Accesibilidad",
+
+    welcome_skill2_title: "Investigación",
+    welcome_skill2: "Entrevistas a usuarios, Pruebas de usabilidad, Journey Mapping, Sitemaps, Flujos de usuario",
+
+    welcome_skill3_title: "Técnico",
+    welcome_skill3: "Figma, HTML, CSS, JavaScript",
+
+    welcome_skill4_title: "IA",
+    welcome_skill4: "ChatGPT, Claude, Lovable",
+
+    welcome_lenguages: "IDIOMAS",
+    welcome_lenguage1: "Español - Nativo",
+    welcome_lenguage2: "Inglés - Profesional",
+    welcome_cta_text: "Soy Product Designer con más de 5 años de experiencia creando productos complejos B2B y fintech, desde herramientas de inversión con IA hasta dashboards operativos para entornos de alta presión. Conecto estrategia, necesidades de usuario y viabilidad técnica trabajando de cerca con PMs e ingenieros.",
     welcome_btn: "Ver proyectos",
 
     // Contact page
+    contact_label: "Hablemos",
     contact_title: "Hablemos 👋",
     contact_intro: "Me encantaría saber de ti. Si tienes alguna pregunta, una idea de proyecto o simplemente quieres saludar, no dudes en escribirme.",
-    contact_email_label: "📧 Email: ",
+    contact_availability: "Disponible para nuevas oportunidades.",
+    contact_email_label: "Email",
     contact_email: "daniela.sanchez.rojas.4@gmail.com",
-    contact_linkedin_label: "💼 LinkedIn: ",
-    contact_linkedin: "www.linkedin.com/in/kelly-daniela-sanchez-rojas",
-    contact_location_label: "🌍 Ubicación: ",
-    contact_location: "Tenerife",
+    contact_linkedin_label: "LinkedIn",
+    contact_linkedin: "kelly-daniela-sanchez-rojas",
+    contact_location_label: "Ubicación",
+    contact_location: "Tenerife, España",
+    cs3_team: "Desarrolladores y Diseñadora UX (Yo)",
 
     // Case Study 1 - BMO
     cs1_label: "Caso de estudio",
@@ -596,6 +750,8 @@ const translations = {
     cs1_role4: "Prototipado",
     cs1_role5: "Exploración de Concepto",
     cs1_role6: "AI-Powered Experiencias Impulsadas por IA",
+    cs1_team: "Equipo",
+    cs1_team1: "Diseñador principal, diseñador UX y yo (Diseñadora UX)",
     cs1_scroll: "Desliza hacia abajo para ver el proyecto",
 
     cs1_challenge_title: "El desafío",
@@ -630,6 +786,7 @@ const translations = {
     cs1_approach_p2: "Mi foco fue traducir conceptos abstractos de IA en interacciones claras y accionables, especialmente en momentos de alta presión para el usuario.",
     cs1_approach_card_text: "Trabajamos de forma iterativa, utilizando prototipos ligeros y storytelling para alinear a los stakeholders y refinar la dirección.",
 
+    cs1_users_label: "04 — Usuarios",
     cs1_users_title: "Usuarios",
     cs1_users_subtitle: "Partimos de dos perfiles definidos por el cliente y, a partir de ellos, identifiqué necesidades y tensiones comunes.",
 
@@ -646,10 +803,16 @@ const translations = {
     cs1_users_shared: "👉 Necesidad compartida:",
     cs1_users_shared_text: "Entender las consecuencias de sus acciones antes de tomar una decisión.",
 
-    cs1_solution_title: "La solución",
+    cs1_solution_title: "De la inversión centrada en transacciones",
+    cs1_solution_title2: " a una toma de decisiones guiada que genera confianza",
+    cs1_solution_label: "05 — La solución",
     cs1_solution_p1: "Diseñamos un sistema híbrido de acompañamiento con IA integrado a lo largo de toda la experiencia de inversión.",
     cs1_solution_p2: "No es una funcionalidad aislada, sino un sistema inteligente de acompañamiento que se adapta al contexto del usuario y actúa en los momentos clave.",
-
+    cs1_solution_label: "04 — La Solución",
+    cs1_sol_nav1: "IA Integrada",
+    cs1_sol_nav2: "Inteligencia",
+    cs1_sol_nav3: "Simulación",
+    cs1_sol_nav4: "Exploración",
     cs1_shift_label: "Cambio clave",
     cs1_shift_from: "De:",
     cs1_shift_from_text: "Inversión centrada en transacciones",
@@ -659,17 +822,19 @@ const translations = {
     cs1_core_features: "Funcionalidades clave",
 
     cs1_feature1_title: "Aprende haciendo (Simulación sin riesgo)",
+    cs1_feature1_title2: "Simulación sin riesgo",
     cs1_feature1_p1: "Un entorno donde los usuarios pueden probar estrategias sin usar dinero real.",
     cs1_feature1_bold: "Por qué es importante:",
     cs1_feature1_li1: "Reduce el miedo a cometer errores",
     cs1_feature1_li2: "Fomenta la exploración y el aprendizaje",
 
-    cs1_feature2_title: "Simulador de escenarios (What-if)",
+    cs1_feature2_title: "Simulador de escenarios",
+    cs1_feature2_title2: "¿Y si...?",
     cs1_feature2_p1: "Una herramienta que permite explorar resultados antes de tomar decisiones.",
-    cs1_feature2_bold: "Decisión de diseño:",
+    cs1_feature2_bold: "Por qué es importante:",
     cs1_feature2_li1: "Priorizamos claridad visual sobre complejidad técnica para hacer los escenarios comprensibles.",
     cs1_feature2_p2: "Impacto:",
-    cs1_feature2_p3bold: "👉 Los usuarios pasan de un enfoque reactivo a uno proactivo",
+    cs1_feature2_p3bold: "Los usuarios pasan de un enfoque reactivo a uno proactivo",
 
     cs1_feature3_title: "Conciencia del impacto antes de invertir",
     cs1_feature3_p1: "Objetivo: ayudar a los usuarios a actuar con confianza",
@@ -692,22 +857,23 @@ const translations = {
     cs1_feature5_li4: "Orientación proactiva cuando es necesaria",
     cs1_feature5_li5: "Soporte bajo demanda cuando el usuario lo solicita",
 
+    cs1_roadmap_label: "06 — Definición del MVP y Roadmap",
     cs1_roadmap_title: "Definición del MVP y Roadmap",
     cs1_roadmap_intro: "Para llevar la visión a la realidad, definimos un enfoque por fases centrado en aportar valor en momentos clave de la experiencia de inversión, en lugar de lanzar un sistema de IA completo desde el inicio.",
-    cs1_roadmap_phase1_label: "FASE 1",
+    cs1_roadmap_phase1_label: "FASE — 1",
     cs1_roadmap_phase1_title: "Entender tu cartera",
     cs1_roadmap_phase1_focus_label: "Enfoque:",
-    cs1_roadmap_phase1_focus: "Generar confianza en los flujos principales del usuario.",
+    cs1_roadmap_phase1_focus: "Enfoque: Generar confianza en los flujos principales del usuario.",
     cs1_roadmap_phase1_features_label: "Funcionalidades clave:",
     cs1_roadmap_phase1_li1: "Visión general del estado de la cartera (asignación de activos, diversificación, riesgo, calificaciones)",
     cs1_roadmap_phase1_li2: "Explicaciones del rendimiento de la cartera en lenguaje claro.",
     cs1_roadmap_phase1_li3: "Indicaciones contextuales que introducen la guía asistida por la IA.",
     cs1_roadmap_phase1_outcome_label: "Resultado:",
     cs1_roadmap_phase1_outcome: "Los usuarios comprenden su cartera y saben qué hacer a continuación, sin sentirse abrumados.",
-    cs1_roadmap_phase2_label: "FASE 2",
+    cs1_roadmap_phase2_label: "FASE — 2",
     cs1_roadmap_phase2_title: "Decidir con acompañamiento",
     cs1_roadmap_phase2_focus_label: "Enfoque:",
-    cs1_roadmap_phase2_focus: "acompañar momentos de alto impacto",
+    cs1_roadmap_phase2_focus: "Enfoque: acompañar momentos de alto impacto",
     cs1_roadmap_phase2_features_label: "Funcionalidades clave:",
     cs1_roadmap_phase2_li1: "Insights antes de la inversión (impacto en riesgo, diversificación y alineación con objetivos)",
     cs1_roadmap_phase2_li2: "Exploración de escenarios (\"¿qué pasa si hago este cambio?\").",
@@ -715,10 +881,10 @@ const translations = {
     cs1_roadmap_phase2_li4: "Flujos guiados para realizar ajustes en la cartera",
     cs1_roadmap_phase2_outcome_label: "Resultado:",
     cs1_roadmap_phase2_outcome: "Los usuarios pasan de la incertidumbre a la acción informada con mayor confianza.",
-    cs1_roadmap_phase3_label: "FASE 3",
+    cs1_roadmap_phase3_label: "FASE — 3",
     cs1_roadmap_phase3_title: "Anticipación y personalización",
     cs1_roadmap_phase3_focus_label: "Enfoque:",
-    cs1_roadmap_phase3_focus: "Anticipar las necesidades del usuario a lo largo del tiempo.",
+    cs1_roadmap_phase3_focus: "Enfoque: Anticipar las necesidades del usuario a largo plazo.",
     cs1_roadmap_phase3_features_label: "Funcionalidades clave:",
     cs1_roadmap_phase3_li1: "Alertas inteligentes basadas en la salud de la cartera y eventos del mercado.",
     cs1_roadmap_phase3_li2: "Recomendaciones personalizadas según objetivos y comportamiento.",
@@ -728,7 +894,17 @@ const translations = {
     cs1_roadmap_phase3_outcome: "La plataforma evoluciona de una herramienta reactiva a un acompañante financiero proactivo.",
     cs1_roadmap_framing_insight: "Más que una funcionalidad aislada, la IA se plantea como un sistema de orientación que evoluciona progresivamente: comienza explicando, pasa a apoyar decisiones y termina ofreciendo recomendaciones personalizadas y proactivas.",
 
-    cs1_outcomes_title: "Resultados",
+    cs1_feature6_title: "Modelo de orientación híbrido",
+    cs1_feature6_p1: "Los usuarios pueden elegir cuánta orientación desean:",
+    cs1_feature6_li1: "Insights pasivos",
+    cs1_feature6_li2: "Sugerencias contextuales",
+    cs1_feature6_li3: "Explicaciones de IA más detalladas",
+    cs1_feature6_bold: "Esto evita el problema de \"talla única\".",
+
+    cs1_outcomes_label: "07 — Resultados",
+    cs1_outcomes_title: "Mejoras en velocidad, visibilidad y eficiencia del flujo de trabajo",
+    cs1_outcomes_title: "Transformando una visión de IA en una dirección de producto accionable.",
+
     cs1_outcomes_p1: "Aunque el proyecto tuvo un carácter exploratorio y conceptual, generó un impacto significativo:",
     cs1_outcomes_li1: "Tradujo una visión compleja de IA en experiencias de producto concretas",
     cs1_outcomes_li2: "Contribuyó a alinear a los stakeholders hacia una visión clara de la inversión asistida por IA",
@@ -736,7 +912,7 @@ const translations = {
     cs1_outcomes_li4: "Desarrolló prototipos de alta fidelidad para validar y comunicar interacciones de alto impacto",
     cs1_outcomes_li5: "Estableció patrones reutilizables para la toma de decisiones asistida por IA",
 
-    cs1_takeaways_title: "Áreas de oportunidad",
+    cs1_takeaways_title: "08 — Aprendizajes clave",
     cs1_takeaways_p1: "Este proyecto reforzó varios aprendizajes importantes:",
     cs1_takeaways_title2: "La experiencia es más efectiva cuando respeta la autonomía del usuario",
     cs1_takeaways_p2: "Los usuarios no necesitan más herramientas, sino ayuda para utilizarlas mejor",
@@ -766,7 +942,7 @@ const translations = {
     cs2_role4: "Colaboración con producto e ingeniería",
     cs2_scroll: "Desliza hacia abajo para ver el proyecto",
 
-    cs2_challenge_title: "El desafío",
+    cs2_challenge_title: "01 — El desafío",
     cs2_challenge_p1: "La herramienta Admin UI fue desarrollada originalmente en 2018 para dar soporte a los equipos de atención al cliente y de ingeniería. Sin embargo, desde su lanzamiento no se había recopilado información sobre su uso ni sobre su efectividad.",
     cs2_challenge_bold: "Para 2024, surgieron preguntas clave:",
     cs2_challenge_li1: "¿Sigue siendo útil la herramienta?",
@@ -776,8 +952,8 @@ const translations = {
     cs2_challenge_card_label: "El desafío principal",
     cs2_challenge_card_text: "Comprender el comportamiento real de los usuarios e identificar cómo hacer sus flujos de trabajo más rápidos y eficientes.",
 
-    cs2_opportunity_title: "Áreas de oportunidad",
-    cs2_opportunity_p1: "Identificamos tres áreas clave de oportunidad:",
+    cs2_opportunity_title: "02 — Oportunidades de mejora",
+    cs2_opportunity_p1: "Tres oportunidades clave",
     cs2_opportunity_li1: "La herramienta es crítica para las operaciones diarias",
     cs2_opportunity_li2: "Los usuarios dependen de ella para resolver incidencias de clientes",
     cs2_opportunity_li3: "Sin embargo, los flujos clave son lentos e ineficientes",
@@ -788,7 +964,7 @@ const translations = {
     cs2_opportunity_card_label: "Oportunidad",
     cs2_opportunity_card_text: "Mejorar la velocidad, claridad y accesibilidad sin interrumpir los flujos existentes.",
 
-    cs2_approach_title: "Enfoque",
+    cs2_approach_title: "03 — Enfoque",
     cs2_approach_p1: "Combinamos investigación cuantitativa y cualitativa:",
     cs2_approach_p2: "📊 Encuestas",
     cs2_approach_li1: "Validar si los usuarios utilizaban activamente la herramienta",
@@ -801,6 +977,7 @@ const translations = {
     cs2_approach_card_label: "💡 Aprendizaje clave",
     cs2_approach_card_text: "Los usuarios se habían adaptado a la herramienta, pero no porque fuera eficiente, sino porque no tenían una alternativa.",
 
+    cs2_users_label: "04 — Usuarios",
     cs2_users_title: "Usuarios",
     cs2_users_subtitle: "Identificamos dos perfiles principales de usuario:",
 
@@ -822,21 +999,28 @@ const translations = {
     cs2_user2_li5: "Mínima fricción en la navegación",
     cs2_user2_li6: "Clara visibilidad de errores",
 
-    cs2_problems_title: "Problemas clave identificados",
-    cs2_problem1_key: "Búsqueda de pagos lenta →",
+    cs2_problems_label: "05 — Principales problemas identificados",
+    cs2_problems_title: "La baja visibilidad y la navegación deficiente ralentizaban el acceso a la información.",
+    cs2_problem1_key: "Búsqueda lenta de pagos",
     cs2_problem1_text: "Encontrar un pago toma demasiado tiempo",
-    cs2_problem2_key: "Baja visibilidad de datos →",
+    cs2_problem2_key: "Baja visibilidad de datos",
     cs2_problem2_text: "Los campos importantes son difíciles de identificar",
-    cs2_problem3_key: "Tablas ineficientes →",
+    cs2_problem3_key: "Tablas ineficientes",
     cs2_problem3_text: "Estructura y legibilidad deficientes",
-    cs2_problem4_key: "Falta de contexto →",
+    cs2_problem4_key: "Falta de contexto",
     cs2_problem4_text: "Difícil acotar resultados rápidamente",
-    cs2_problem5_key: "Fricción en la navegación →",
+    cs2_problem5_key: "Fricción en la navegación",
     cs2_problem5_text: " Los usuarios pierden el contexto al explorar la información",
 
-    cs2_solution_title: "La solución",
-    cs2_solution_p1: "Las soluciones se diseñaron para mejorar la eficiencia sin requerir grandes cambios de ingeniería ni interrumpir los flujos de trabajo existentes. Rediseñamos los flujos clave priorizando velocidad, claridad y flexibilidad, manteniendo una experiencia familiar para los usuarios.",
+    cs2_solution_label: "06 — La Propuesta",
+    cs2_solution_title: "Las soluciones mejoraron la eficiencia priorizando velocidad, claridad y flexibilidad, sin alterar los flujos existentes.",
+    cs2_solution_p1: "Las soluciones fueron diseñadas para mejorar la eficiencia sin requerir cambios importantes de ingeniería ni interrumpir los flujos existentes. Rediseñamos los flujos clave priorizando velocidad, claridad y flexibilidad, manteniendo una experiencia familiar para los usuarios.",
     cs2_solution_p2: "El nuevo sistema organiza los flujos en torno a la resolución, no a las funcionalidades.",
+    cs2_sol_nav1: "Filtrado",
+    cs2_sol_nav2: "Optimización",
+    cs2_sol_nav3: "Personalización",
+    cs2_sol_nav4: "Priorización",
+    cs2_sol_nav5: "Navegación",
 
     cs2_feature1_title: "Búsqueda avanzada y filtrado",
     cs2_feature1_p1: "La búsqueda fue identificada como el principal punto de fricción en todas las entrevistas. Los usuarios solían buscar con información incompleta, lo que hacía el proceso ineficiente.",
@@ -872,11 +1056,11 @@ const translations = {
     cs2_feature5_li1: "Permitimos abrir el detalle de pagos sin perder la vista de lista",
     cs2_feature5_bold: "Impacto:Se mejoró la continuidad del flujo de trabajo y se redujo la navegación repetitiva.",
 
+    cs2_roadmap_label: "07 — Definición del MVP y roadmap",
+    cs2_roadmap_title: "En lugar de rediseñar todo el sistema, nos centramos en reducir el tiempo de tarea y mejorar la eficiencia manteniendo una experiencia familiar.",
+    cs2_roadmap_intro: "En lugar de rediseñar todo el sistema, nos enfocamos en reducir tiempos, mantener una experiencia familiar y mejorar la eficiencia progresivamente.",
 
-    cs2_roadmap_title: "Definición del MVP y roadmap",
-    cs2_roadmap_intro: "Para asegurar una entrega de valor rápida y minimizar la disrupción en los flujos de trabajo existentes, estructuramos el proyecto en tres fases, avanzando progresivamente desde la validación hasta la ejecución.",
-
-    cs2_roadmap_phase1_label: "FASE 1",
+    cs2_roadmap_phase1_label: "FASE — 1",
     cs2_roadmap_phase1_title: "Validación y descubrimiento",
     cs2_roadmap_phase1_focus: "Primero necesitábamos entender si la herramienta seguía siendo relevante y merecía inversión.",
     cs2_roadmap_phase1_li1: "¿Se utiliza activamente la plataforma?",
@@ -886,7 +1070,7 @@ const translations = {
     cs2_roadmap_phase1_outcome_label: "Resultado:",
     cs2_roadmap_phase1_outcome: "La herramienta era crítica para las operaciones diarias, pero presentaba importantes problemas de usabilidad que ralentizaban a los usuarios. Esto confirmó la necesidad de mejorarla en lugar de eliminarla.",
 
-    cs2_roadmap_phase2_label: "FASE 2",
+    cs2_roadmap_phase2_label: "FASE — 2",
     cs2_roadmap_phase2_title: "Definición del problema y priorización",
     cs2_roadmap_phase2_focus: "Con evidencia clara de su valor, nos centramos en identificar dónde las mejoras tendrían mayor impacto.",
     cs2_roadmap_phase2_li1: "¿Qué tareas son más críticas para los usuarios?",
@@ -899,7 +1083,7 @@ const translations = {
     cs2_roadmap_phase2_outcome_label: "Resultado:",
     cs2_roadmap_phase2_outcome: "Definimos un alcance enfocado en velocidad, visibilidad y eficiencia en la navegación, abordando primero los puntos de mayor impacto.",
 
-    cs2_roadmap_phase3_label: "FASE 3",
+    cs2_roadmap_phase3_label: "FASE — 3",
     cs2_roadmap_phase3_title: "Diseño de soluciones e iteración",
     cs2_roadmap_phase3_focus: "Tradujimos los insights en soluciones, priorizadas según impacto vs. esfuerzo.",
     cs2_roadmap_phase3_li1: "Quick wins (mejora de legibilidad de tablas, jerarquía visual)",
@@ -910,7 +1094,8 @@ const translations = {
 
     cs2_roadmap_framing_insight: "En lugar de rediseñar todo el sistema de una vez, nos centramos en: Reducir el tiempo necesario para completar tareas clave, mantener una experiencia familiar para evitar reentrenamiento y mejorar la eficiencia de forma progresiva",
 
-    cs2_outcomes_title: "Resultados",
+    cs2_outcomes_label: "08 — Resultados",
+    cs2_outcomes_title: "Mejora en la velocidad, claridad y eficiencia de los flujos de trabajo en tareas clave.",
     cs2_outcomes_li1_bold: "⏱️ Tareas completadas más rápido",
     cs2_outcomes_li1: "Los filtros avanzados redujeron significativamente el tiempo de búsqueda.",
     cs2_outcomes_li2_bold: "⚡ Mayor eficiencia operativa",
@@ -922,11 +1107,13 @@ const translations = {
     cs2_outcomes_li5_bold: "🤝 Menor dependencia de ingeniería",
     cs2_outcomes_li5: "El equipo de soporte pudo resolver más incidencias de forma autónoma, reduciendo la necesidad de escalar casos.",
 
+    cs2_takeaways_label: "06 — Aprendizajes clave",
     cs2_takeaways_title: "Aprendizajes clave",
     cs2_takeaways_title1: "Reducir la dependencia de ingeniería mejora la eficiencia operativa",
     cs2_takeaways_title2: "Las mejoras en eficiencia provienen de reducir la fricción, no de añadir funcionalidades",
     cs2_takeaways_title3: "La visibilidad de la información es clave en flujos de trabajo exigentes",
 
+    cs2_whatnext_label: "07 — Qué mejoraría después",
     cs2_whatnext_title: "Qué mejoraría después",
     cs2_whatnext_li1: "Introducir alertas proactivas para pagos fallidos o retrasados",
     cs2_whatnext_li2: "Seguir optimizando los flujos de trabajo basándose en datos de uso y analítica",
@@ -944,13 +1131,14 @@ const translations = {
     cs3_desc_p2: "El objetivo fue optimizar las operaciones, reducir la fricción para el personal y mejorar la toma de decisiones en tiempo real en entornos de alta presión.",
     cs3_role_title: "Mi rol",
     cs3_role1: "Investigación UX",
-    cs3_role2: "Diseño UI y creación del sistema",
+    cs3_role2: "Creación del sistema de diseño",
     cs3_role3: "Arquitectura de la información y diseño de interacción",
     cs3_role4: "Colaboración con producto y stakeholders",
+    cs3_scroll: "Desliza hacia abajo para ver el proyecto",
 
-    cs3_challenge_title: "El desafío",
+    cs3_challenge_title: "01 — El desafío",
     cs3_challenge_p1: "El personal de los restaurantes trabaja en entornos de ritmo acelerado y alta presión, donde el tiempo y la claridad son críticos.",
-    cs3_challenge_p2: "Sin embargo, el sistema existente presentaba varios desafíos:",
+    cs3_challenge_p2: "DESAFÍOS",
     cs3_challenge_li1: "Interfaces complejas y densas",
     cs3_challenge_li2: "Dificultad para gestionar reservas en tiempo real",
     cs3_challenge_li3: "Visibilidad limitada del estado de las mesas y del flujo de servicio",
@@ -959,8 +1147,9 @@ const translations = {
     cs3_challenge_card_text: "¿Cómo podríamos simplificar las operaciones y mejorar la velocidad sin interrumpir los flujos de trabajo críticos?",
 
 
-    cs3_opportunity_title: "Definiendo la oportunidad",
-    cs3_opportunity_p1: "A través de la investigación, identificamos que:",
+    cs3_opportunity_label: "02 — Oportunidades de mejora",
+    cs3_opportunity_title: "En entornos de alta presión, la claridad y la velocidad importan más que la cantidad de funciones.",
+    cs3_opportunity_p1: "RESULTADOS DE LA INVESTIGACIÓN",
 
     cs3_opportunity_li1: "El personal depende en gran medida del sistema durante el horario de servicio",
     cs3_opportunity_li2: "La mayoría de las interacciones deben ser rápidas, intuitivas y de bajo esfuerzo",
@@ -987,7 +1176,7 @@ const translations = {
     cs3_approach_li7: "Refinamiento continuo basado en feedback",
 
 
-    cs3_users_title: "Usuarios",
+    cs3_users_title: "04 — Usuarios",
     cs3_users_subtitle: "Identificamos tres perfiles principales de usuario:",
 
     cs3_user1_name: "Hosts de restaurante",
@@ -1019,19 +1208,30 @@ const translations = {
     cs3_users_shared: "Necesidad compartida:",
     cs3_users_shared_text: "Un sistema que se adapte al ritmo del servicio, no que lo obstaculice.",
 
+    cs3_sol_nav1: "Simplificación de UI",
+    cs3_sol_nav2: "Flujo de reservas",
+    cs3_sol_nav3: "Jerarquía de información",
+    cs3_sol_nav4: "Actualizaciones en tiempo real",
+    cs3_sol_nav5: "Sistema de diseño",
+    cs3_sol_nav6: "Claridad de datos",
 
-    cs3_problems_title: "Problemas clave identificados",
-    cs3_problem1_key: "Interacciones lentas →",
+    cs3_problems_label: "05 — Principales problemas identificados",
+    cs3_problems_title: "La complejidad operativa generaba frustración en los usuarios.",
+    cs3_problem1_key: "Interacciones lentas",
     cs3_problem1_text: "Demasiados pasos para acciones simples",
-    cs3_problem2_key: "Alta carga cognitiva →",
+    cs3_problem2_key: "Alta carga cognitiva",
     cs3_problem2_text: "Cantidad abrumadora de información",
-    cs3_problem3_key: "Baja visibilidad →",
+    cs3_problem3_key: "Baja visibilidad",
     cs3_problem3_text: "Difícil entender el estado de las mesas de un vistazo",
-    cs3_problem4_key: "Flujos ineficientes →",
+    cs3_problem4_key: "Flujos ineficientes",
     cs3_problem4_text: "Cambiar entre vistas ralentiza a los usuarios",
-    cs3_problem5_key: "Acciones propensas a errores →",
+    cs3_problem5_key: "Acciones propensas a errores",
     cs3_problem5_text: "Riesgo de mala gestión de reservas",
 
+    cs3_solution_title: "06 — La Propuesta",
+    cs3_solution_p1: "Rediseñamos la plataforma enfocándonos en la claridad, la velocidad y la gestión visual del espacio y el tiempo.",
+
+    cs3_core_features: "Funcionalidades clave",
 
     cs3_designneeds_title: "Necesidades de diseño",
     cs3_designneeds_li1: "Simplificar y depurar la interfaz",
@@ -1040,14 +1240,7 @@ const translations = {
     cs3_designneeds_li4: "Crear una jerarquía visual clara",
     cs3_designneeds_li5: "Facilitar la toma de decisiones rápida bajo presión",
 
-
-    cs3_solution_title: "La solución",
-    cs3_solution_p1: "Rediseñamos la plataforma enfocándonos en la claridad, la velocidad y la gestión visual del espacio y el tiempo.",
-
-
-    cs3_core_features: "Funcionalidades clave",
-
-    cs3_feature1_title: "Gestión visual de mesas",
+    cs3_feature1_title: "Simplificar y depurar la interfaz",
     cs3_feature1_li1: "Rediseño del layout de mesas usando bloques visuales claros",
     cs3_feature1_li2: "Codificación por colores basada en el estado",
     cs3_feature1_bold: "👉 Los usuarios pueden entender al instante la disponibilidad y ocupación",
@@ -1081,13 +1274,14 @@ const translations = {
     cs3_feature7_bold: "👉 Escaneo y toma de decisiones más rápida",
 
 
-    cs3_takeaways_title: "Aprendizajes clave",
+    cs3_takeaways_title: "08 — Aprendizajes clave",
     cs3_takeaway1: "La velocidad y la claridad son críticas en herramientas operativas",
     cs3_takeaway2: "Los sistemas visuales superan a las interfaces cargadas de texto",
     cs3_takeaway3: "Reducir fricción impacta directamente en el rendimiento",
 
 
-    cs3_outcomes_title: "Resultados",
+    cs3_outcomes_label: "07 — Resultados",
+    cs3_outcomes_title: "Mayor eficiencia operativa y mejor experiencia del personal",
     cs3_outcomes_li1_bold: "⚡ Gestión más rápida del servicio",
     cs3_outcomes_li1: "El personal puede gestionar reservas de forma más eficiente",
     cs3_outcomes_li2_bold: "🧠 Menor carga cognitiva",
@@ -1108,12 +1302,97 @@ const translations = {
     cs3_closing_p1: "Diseñar para entornos operativos significa diseñar para el estrés.",
     cs3_closing_p2: "Al simplificar las interacciones y mejorar la visibilidad, permitimos que los usuarios mantengan el control, incluso en los momentos más intensos.",
     // Footer
-    footer_prev_cs1: "Rediseñando la inversión digital con IA",
-    footer_next_cs2: "Optimizando la eficiencia en las operaciones de soporte al cliente",
-    footer_prev_cs2: "Rediseñando la inversión digital con IA",
-    footer_next_cs3: "Optimización de operaciones en restaurantes",
-    footer_prev_cs3: "Mejorando la eficiencia en una herramienta de soporte",
+    footer_prev_cs1: "Fintech",
+    footer_next_cs2: "Soporte al cliente",
+    footer_prev_cs2: "Fintech",
+    footer_next_cs3: "Hostelería",
+    footer_prev_cs3: "Soporte al cliente",
     footer_next_contact: "Contacto",
-    footer_prev_contact: "Optimización de operaciones en restaurantes",
+    footer_prev_contact: "Hostelería",
+
+    // Shared nav link labels
+    nav_link_cs1: "01 — Fintech",
+    nav_link_cs2: "02 — Soporte",
+    nav_link_cs3: "03 — Hostelería",
+    nav_link_contact: "Contacto",
+
+    // Shared UI labels
+    solution_sidebar_label: "La Propuesta",
+    closing_thought_label: "Reflexión final",
+    always_room_to_grow: "Siempre hay margen de mejora",
+    key_activities_label: "Actividades clave:",
+
+    // Approach method labels (shared across pages)
+    approach_surveys_label: "📊 Encuestas",
+    approach_interviews_label: "🎤 Entrevistas a usuarios",
+    approach_workflow_label: "🔍 Análisis de flujos de trabajo",
+    approach_iterative_label: "✏️ Diseño iterativo",
+
+    // Section number labels
+    section_label_challenge: "01 — El desafío",
+    section_label_opportunity: "02 — Oportunidades de mejora",
+    section_label_approach: "03 — Enfoque",
+
+    // Welcome page hero
+    welcome_label: "HOLA, SOY DANIELA :)",
+    welcome_hero_h1: "Diseño experiencias digitales que conectan estrategia, negocio y necesidades humanas.",
+
+    // CS2 hero team
+    cs2_team1: "Product Manager, Equipo de ingeniería y Diseñadora UX (Yo)",
+
+    // CS1 specific hardcoded labels
+    cs1_whatnext_label: "09 — Qué mejoraría a continuación",
+    cs1_whatnext_heading: "Siempre hay margen de mejora",
+    cs1_sol_feature4_goal: "Objetivo: Ayudar a los usuarios a explorar los resultados del \"¿Y si...?\" antes de decidir.",
+
+    // CS2 takeaway cards
+    cs2_takeaway1_title: "La investigación revela valor oculto",
+    cs2_takeaway1_body: "Sin datos de uso, las herramientas se estancan. La investigación reveló la importancia de la herramienta y orientó las mejoras.",
+    cs2_takeaway2_title: "Los usuarios se adaptan, pero eso no es suficiente",
+    cs2_takeaway2_body: "Las soluciones alternativas no son soluciones reales. Diseñar para la eficiencia significa reducir el esfuerzo, no solo habilitar tareas.",
+    cs2_takeaway3_title: "Las herramientas internas merecen atención de diseño",
+    cs2_takeaway3_body: "Mejorar las herramientas internas impacta directamente en el rendimiento del equipo, la motivación y la calidad del servicio.",
+
+    // CS2 whatnext heading
+    cs2_whatnext_heading: "Siempre hay margen de mejora",
+
+    // CS3 feature titles used in HTML
+    cs3_feature2_title: "Layout y espacio optimizados",
+
+    // CS3 takeaway cards
+    cs3_takeaway1_title: "El contexto determina el diseño",
+    cs3_takeaway1_body: "Los entornos de alta presión exigen claridad ante todo. Cada decisión de diseño debe reducir la carga cognitiva, no aumentarla.",
+    cs3_takeaway2_title: "La velocidad es una funcionalidad",
+    cs3_takeaway2_body: "En entornos de servicio, el tiempo ahorrado en cada interacción se multiplica a lo largo de cientos de tareas diarias. La eficiencia no es un extra.",
+    cs3_takeaway3_title: "La colaboración con stakeholders garantiza la precisión",
+    cs3_takeaway3_body: "Trabajar estrechamente con los stakeholders del restaurante aseguró que el diseño reflejara flujos de trabajo reales, no supuestos.",
+
+    // CS3 whatnext
+    cs3_whatnext_label: "08 — Qué mejoraría a continuación",
+    cs3_whatnext_heading: "Siempre hay margen de mejora",
+    cs3_whatnext_li1: "Realizar pruebas de usabilidad con personal real de restaurantes",
+    cs3_whatnext_li2: "Explorar adaptaciones mobile-first para el personal de sala",
+    cs3_whatnext_li3: "Integrar analítica en tiempo real para que los managers puedan monitorear el flujo de servicio",
+
+    // CS3 outcomes (matching actual HTML)
+    cs3_outcomes_li1: "Gestión de mesas y reservas más rápida",
+    cs3_outcomes_li2: "Reducción de errores y mejora de la visibilidad de datos",
+    cs3_outcomes_li3: "El personal se adaptó rápidamente al nuevo sistema con mínima formación",
+    cs3_outcomes_li4: "Mejor visibilidad en tiempo real del estado de las mesas y el flujo de servicio",
+
+    // CS3 closing (matching actual HTML)
+    cs3_closing_p1_alt: "Las grandes experiencias en restaurantes comienzan entre bastidores, con herramientas que permiten al personal centrarse en las personas, no en los procesos.",
+    cs3_closing_p2_alt: "Diseñar para entornos operativos me enseñó que la claridad y la velocidad no son solo objetivos de diseño, sino imperativos del negocio.",
+
+    // CS2 outcomes (matching actual HTML)
+    cs2_outcomes_li1_alt: "Búsqueda y recuperación de información de pagos más rápida",
+    cs2_outcomes_li2_alt: "Mayor visibilidad de datos que reduce el tiempo de resolución del soporte",
+    cs2_outcomes_li3_alt: "Navegación simplificada que reduce la fricción del usuario",
+    cs2_outcomes_li4_alt: "Mayor confianza del equipo en el uso diario de la herramienta",
+    cs2_outcomes_title_alt: "Resultados",
+
+    // CS2 whatnext (matching actual HTML)
+    cs2_whatnext_li2_alt: "Seguir optimizando la velocidad de los flujos de trabajo mediante pruebas de usabilidad",
+    cs2_whatnext_li3_alt: "Explorar vistas basadas en roles para reducir la sobrecarga de información",
   },
 };
