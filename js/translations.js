@@ -623,7 +623,7 @@ const translations = {
     // Welcome page hero
     welcome_label: "HI, I AM DANIELA :)",
     welcome_hero_h1: "I design digital experiences driven by ",
-    welcome_hero_h12: "strategy and human needs.",
+    welcome_hero_h12: "strategy, business and human needs.",
 
 
     // CS2 hero team
@@ -1335,7 +1335,9 @@ const translations = {
 
     // Welcome page hero
     welcome_label: "HOLA, SOY DANIELA :)",
-    welcome_hero_h1: "Diseño experiencias digitales que conectan estrategia, negocio y necesidades humanas.",
+    welcome_hero_h1: "Diseño experiencias digitales que conectan ",
+    welcome_hero_h12: "estrategia, negocio y necesidades humanas.",
+
 
     // CS2 hero team
     cs2_team1: "Product Manager, Equipo de ingeniería y Diseñadora UX (Yo)",
