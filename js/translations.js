@@ -810,7 +810,7 @@ const translations = {
     cs1_solution_p2: "No es una funcionalidad aislada, sino un sistema inteligente de acompañamiento que se adapta al contexto del usuario y actúa en los momentos clave.",
     cs1_solution_label: "04 — La Solución",
     cs1_sol_nav1: "IA Integrada",
-    cs1_sol_nav2: "Inteligencia",
+    cs1_sol_nav2: "Prevención",
     cs1_sol_nav3: "Simulación",
     cs1_sol_nav4: "Exploración",
     cs1_shift_label: "Cambio clave",
@@ -849,7 +849,7 @@ const translations = {
 
     cs1_feature5_title: "Asistente de IA integrado",
     cs1_feature5_bold: "Objetivo: ofrecer orientación siempre disponible, sin resultar intrusiva",
-    cs1_feature5_p1: "En lugar de aislar la IA en un chatbot, la integramos a lo largo de toda la experiencia:",
+    cs1_feature5_p1: "En lugar de aislar la IA en un chatbot, la integramos a lo largo de toda la experiencia.",
     cs1_feature5_li1: "Sugerencias contextuales que aparecen en momentos clave de decisión",
     cs1_feature5_li2: "Posibilidad de hacer preguntas en lenguaje natural",
     cs1_feature5_li3: "Recomendaciones de próximos pasos según el contexto del usuario",
@@ -1303,10 +1303,10 @@ const translations = {
     cs3_closing_p2: "Al simplificar las interacciones y mejorar la visibilidad, permitimos que los usuarios mantengan el control, incluso en los momentos más intensos.",
     // Footer
     footer_prev_cs1: "Fintech",
-    footer_next_cs2: "Soporte al cliente",
+    footer_next_cs2: "Soporte",
     footer_prev_cs2: "Fintech",
     footer_next_cs3: "Hostelería",
-    footer_prev_cs3: "Soporte al cliente",
+    footer_prev_cs3: "Soporte",
     footer_next_contact: "Contacto",
     footer_prev_contact: "Hostelería",
 

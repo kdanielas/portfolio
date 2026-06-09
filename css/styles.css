@@ -16,6 +16,11 @@
   --topnav-height: 64px;
   --content-max: 1120px;
 
+  /* Premium easing tokens */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-back: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
   /* Responsive horizontal padding — content stays constrained, backgrounds stay full-width */
   --h-pad: 24px;
 }
@@ -141,7 +146,7 @@ img {
   text-decoration: none;
   padding: 4px 0;
   position: relative;
-  transition: color 0.22s ease;
+  transition: color 0.3s var(--ease-smooth);
   white-space: nowrap;
 }
 
@@ -149,11 +154,11 @@ img {
   content: '';
   position: absolute;
   bottom: -2px;
-  left: 0;
+  left: 50%;
   width: 0;
   height: 1px;
   background: var(--blue);
-  transition: width 0.25s ease;
+  transition: width 0.35s var(--ease-out-expo), left 0.35s var(--ease-out-expo);
 }
 
 .top-nav-link:hover {
@@ -162,6 +167,7 @@ img {
 
 .top-nav-link:hover::after {
   width: 100%;
+  left: 0;
 }
 
 .top-nav-link.active {
@@ -228,14 +234,17 @@ img {
   padding: 9px 20px;
   cursor: pointer;
   text-decoration: none;
-  transition: background 0.22s ease, transform 0.18s ease;
+  transition: background 0.3s var(--ease-smooth),
+    transform 0.4s var(--ease-out-back),
+    box-shadow 0.3s var(--ease-smooth);
   display: inline-block;
   white-space: nowrap;
 }
 
 .top-nav-contact:hover {
   background: #1c1f27;
-  transform: translateY(-1px);
+  transform: scale(1.03);
+  box-shadow: 0 4px 20px rgba(16, 18, 23, 0.2);
   color: var(--light);
 }
 
@@ -515,7 +524,15 @@ img {
   font-size: 15px;
   color: #fff;
   letter-spacing: 0.3px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: box-shadow 0.4s var(--ease-smooth);
+}
+
+.btn-primary .material-symbols-rounded {
+  transition: transform 0.35s var(--ease-out-expo);
+}
+
+.btn-primary:hover .material-symbols-rounded {
+  transform: translateX(4px);
 }
 
 .btn-primary.btn-dark {
@@ -524,13 +541,11 @@ img {
 }
 
 .btn-primary.btn-dark:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(16, 18, 23, 0.25);
+  box-shadow: 0 8px 28px rgba(16, 18, 23, 0.28);
 }
 
 .btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(3, 122, 245, 0.3);
+  box-shadow: 0 8px 28px rgba(36, 87, 255, 0.3);
 }
 
 .btn-primary svg {
@@ -645,7 +660,7 @@ img {
 
 .skill-title {
   flex-shrink: 0;
-  width: 72px;
+  width: 82px;
   font-weight: 400;
   color: var(--black);
 }
@@ -1552,6 +1567,7 @@ img {
   border-radius: 50%;
   pointer-events: none;
   z-index: 0;
+  will-change: transform;
 }
 
 .gradient-ellipse-1 {
@@ -3938,5 +3954,236 @@ img {
 
   .cs-sol-feature {
     padding: 48px 0;
+  }
+}
+
+/* ============================================================
+   PREMIUM SCROLL REVEAL SYSTEM
+   ============================================================ */
+
+/* Base reveal state — elements start hidden and shifted down */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.8s var(--ease-out-expo),
+              transform 0.8s var(--ease-out-expo);
+}
+
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Variant: scale-up reveal (cards, images) */
+[data-reveal="scale"] {
+  transform: translateY(24px) scale(0.97);
+}
+
+[data-reveal="scale"].is-visible {
+  transform: translateY(0) scale(1);
+}
+
+/* Variant: fade-only (text blocks, no vertical shift) */
+[data-reveal="fade"] {
+  transform: none;
+}
+
+[data-reveal="fade"].is-visible {
+  transform: none;
+}
+
+/* Variant: slide-from-left */
+[data-reveal="left"] {
+  transform: translateX(-28px);
+}
+
+[data-reveal="left"].is-visible {
+  transform: translateX(0);
+}
+
+/* ============================================================
+   ENHANCED HOVER MICRO-INTERACTIONS
+   ============================================================ */
+
+/* Takeaway cards — lift + shadow */
+.takeaway-card {
+  transition: transform 0.4s var(--ease-out-expo),
+              box-shadow 0.4s var(--ease-smooth);
+}
+
+.takeaway-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(16, 18, 23, 0.07);
+}
+
+/* User group cards — lift + shadow */
+.user-group {
+  transition: transform 0.4s var(--ease-out-expo),
+              box-shadow 0.4s var(--ease-smooth),
+              border-color 0.3s ease;
+}
+
+.user-group:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(16, 18, 23, 0.06);
+  border-color: rgba(36, 87, 255, 0.15);
+}
+
+/* Roadmap phase cards — lift + shadow */
+.roadmap-phase {
+  transition: transform 0.4s var(--ease-out-expo),
+              box-shadow 0.4s var(--ease-smooth),
+              border-color 0.3s ease;
+}
+
+.roadmap-phase:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(16, 18, 23, 0.06);
+  border-color: rgba(36, 87, 255, 0.15);
+}
+
+/* Insight cards — subtle glow */
+.insight-card {
+  transition: box-shadow 0.35s var(--ease-smooth);
+}
+
+.insight-card:hover {
+  box-shadow: 0 4px 16px rgba(36, 87, 255, 0.08);
+}
+
+/* Contact card — refined lift */
+.contact-card {
+  transition: box-shadow 0.5s var(--ease-out-expo),
+              transform 0.5s var(--ease-out-expo);
+}
+
+.contact-card:hover {
+  box-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.04),
+    0 12px 36px rgba(0, 0, 0, 0.08),
+    0 32px 64px rgba(0, 0, 0, 0.04);
+  transform: translateY(-4px);
+}
+
+/* Whatnext pills — subtle lift */
+.whatnext-pill {
+  transition: transform 0.35s var(--ease-out-expo),
+              background-color 0.3s ease;
+}
+
+.whatnext-pill:hover {
+  transform: translateX(6px);
+}
+
+.whatnext-pill:hover .whatnext-pill-arrow {
+  transform: scale(1.08);
+}
+
+.whatnext-pill-arrow {
+  transition: transform 0.35s var(--ease-out-back);
+}
+
+/* Problem item — subtle highlight */
+.problem-item {
+  transition: background 0.3s ease;
+}
+
+.problem-item:hover {
+  background: rgba(36, 87, 255, 0.02);
+}
+
+/* Footer nav — refined hover */
+.arrow-footer {
+  transition: background 0.35s var(--ease-out-expo),
+              color 0.35s ease,
+              transform 0.35s var(--ease-out-back);
+}
+
+.footer-nav a:hover .arrow-footer {
+  background: var(--blue);
+  color: var(--light);
+  transform: scale(1.05);
+}
+
+/* Solution sidebar link — refined border wipe */
+.cs-sol-link {
+  transition: border-color 0.3s var(--ease-out-expo),
+              color 0.3s var(--ease-smooth);
+}
+
+/* Activity icon — subtle pulse on hover */
+.cs-activity-item {
+  transition: transform 0.3s var(--ease-out-expo);
+}
+
+.cs-activity-item:hover {
+  transform: translateX(4px);
+}
+
+.cs-activity-icon {
+  transition: transform 0.35s var(--ease-out-back),
+              border-color 0.3s ease;
+}
+
+.cs-activity-item:hover .cs-activity-icon {
+  transform: scale(1.1);
+  border-color: var(--blue);
+}
+
+/* Outcome check — subtle scale */
+.outcome-check {
+  transition: transform 0.3s var(--ease-out-back);
+}
+
+.cs-outcomes .outcomes-text ul li:hover .outcome-check {
+  transform: scale(1.12);
+}
+
+/* Logo — subtle hover */
+.top-nav-logo {
+  transition: opacity 0.3s ease;
+}
+
+.top-nav-logo:hover {
+  opacity: 0.7;
+}
+
+/* Lang buttons — smooth transition */
+.top-nav-lang .lang-btn {
+  transition: color 0.3s var(--ease-smooth),
+              transform 0.25s var(--ease-out-back);
+}
+
+.top-nav-lang .lang-btn:hover {
+  transform: scale(1.05);
+}
+
+/* ============================================================
+   ACCESSIBILITY: REDUCED MOTION
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .gradient-ellipse,
+  .contact-glow {
+    animation: none !important;
+    transform: none !important;
+  }
+
+  .takeaway-card,
+  .user-group,
+  .roadmap-phase,
+  .whatnext-pill,
+  .problem-item,
+  .cs-activity-item,
+  .btn-primary,
+  .top-nav-contact,
+  .contact-card,
+  .arrow-footer {
+    transition: none !important;
   }
 }
