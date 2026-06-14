@@ -47,45 +47,9 @@
     revealEls.forEach(el => observer.observe(el));
   }
 
-  // ─── 2. Scroll-Linked Parallax on Gradient Ellipses ───────────
-  function initParallax() {
-    const ellipse1 = document.querySelector('.gradient-ellipse-1');
-    const ellipse2 = document.querySelector('.gradient-ellipse-2');
-    if (!ellipse1 && !ellipse2) return;
-    if (prefersReducedMotion) return;
-
-    let ticking = false;
-
-    window.addEventListener('scroll', () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          const scrollY = window.scrollY;
-
-          if (ellipse1) {
-            const y1 = scrollY * 0.08;
-            const x1 = Math.sin(scrollY * 0.002) * 12;
-            ellipse1.style.transform = `translate(${x1}px, ${y1}px)`;
-          }
-
-          if (ellipse2) {
-            const y2 = scrollY * -0.05;
-            const x2 = Math.cos(scrollY * 0.0015) * 8;
-            ellipse2.style.transform = `translate(${x2}px, ${y2}px)`;
-          }
-
-          ticking = false;
-        });
-        ticking = true;
-      }
-    }, { passive: true });
-  }
-
-  // ─── 3. Idle Floating Animation for Decorative Elements ───────
-  function initIdleFloat() {
-    // Gather all gradient ellipses and contact glow orbs
-    const floaters = document.querySelectorAll(
-      '.gradient-ellipse, .contact-glow'
-    );
+  // ─── 2. Unified Background Motion (Parallax + Idle Float) ─────
+  function initBackgroundMotion() {
+    const floaters = document.querySelectorAll('.gradient-ellipse, .contact-glow');
     if (!floaters.length) return;
     if (prefersReducedMotion) return;
 
@@ -93,32 +57,70 @@
     const hasContactPage = document.querySelector('.contact-page');
     if (hasContactPage) return;
 
+    let scrollY = window.scrollY;
+    let ticking = false;
+
+    // Track scroll position
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          scrollY = window.scrollY;
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }, { passive: true });
+
     let t = 0;
-    const state = Array.from(floaters).map((el, i) => ({
-      el,
-      cx: 0, cy: 0, cr: 0,
-      // Each element gets unique frequencies for organic motion
-      freqX: 0.3 + i * 0.15,
-      freqY: 0.25 + i * 0.12,
-      freqR: 0.18 + i * 0.08,
-      ampX: 12 + i * 5,
-      ampY: 10 + i * 4,
-      ampR: 2 + i * 0.5
-    }));
+    const state = Array.from(floaters).map((el, i) => {
+      // Determine parallax multipliers based on element class
+      let scrollMultY = 0;
+      let scrollMultX = 0;
+      if (el.classList.contains('gradient-ellipse-1')) {
+        scrollMultY = 0.25;
+        scrollMultX = 0.08;
+      } else if (el.classList.contains('gradient-ellipse-2')) {
+        scrollMultY = -0.20;
+        scrollMultX = -0.06;
+      }
+
+      return {
+        el,
+        cx: 0, cy: 0, cr: 0, cs: 1,
+        // Frequencies for organic motion
+        freqX: 0.2 + i * 0.1,
+        freqY: 0.15 + i * 0.08,
+        freqR: 0.1 + i * 0.05,
+        // Doubled amplitudes to restore the dynamic feeling now that they are separated
+        ampX: 80 + i * 40,
+        ampY: 60 + i * 30,
+        ampR: 10 + i * 5,
+        scrollMultY,
+        scrollMultX
+      };
+    });
 
     function animate() {
-      t += 0.006;
+      t += 0.005;
 
       state.forEach(s => {
-        const targetX = Math.sin(t * s.freqX) * s.ampX + Math.sin(t * s.freqX * 1.7) * (s.ampX * 0.3);
-        const targetY = Math.cos(t * s.freqY) * s.ampY + Math.cos(t * s.freqY * 1.5) * (s.ampY * 0.25);
-        const targetR = Math.sin(t * s.freqR) * s.ampR;
+        // Calculate idle float targets
+        const floatX = Math.sin(t * s.freqX) * s.ampX + Math.sin(t * s.freqX * 1.7) * (s.ampX * 0.3);
+        const floatY = Math.cos(t * s.freqY) * s.ampY + Math.cos(t * s.freqY * 1.5) * (s.ampY * 0.25);
+        const floatR = Math.sin(t * s.freqR) * s.ampR;
+        const floatS = 1 + Math.sin(t * (s.freqR * 0.8)) * 0.04; // Gentle scale between 0.96 and 1.04
 
-        s.cx = lerp(s.cx, targetX, 0.03);
-        s.cy = lerp(s.cy, targetY, 0.03);
-        s.cr = lerp(s.cr, targetR, 0.025);
+        // Add scroll parallax offsets
+        const targetX = floatX + (scrollY * s.scrollMultX);
+        const targetY = floatY + (scrollY * s.scrollMultY);
 
-        s.el.style.transform = `translate(${s.cx}px, ${s.cy}px) rotate(${s.cr}deg)`;
+        // Smoothly interpolate to targets
+        s.cx = lerp(s.cx, targetX, 0.04);
+        s.cy = lerp(s.cy, targetY, 0.04);
+        s.cr = lerp(s.cr, floatR, 0.03);
+        s.cs = lerp(s.cs, floatS, 0.03);
+
+        s.el.style.transform = `translate(${s.cx}px, ${s.cy}px) rotate(${s.cr}deg) scale(${s.cs})`;
       });
 
       requestAnimationFrame(animate);
@@ -196,8 +198,7 @@
   // ─── Initialize ───────────────────────────────────────────────
   document.addEventListener('DOMContentLoaded', () => {
     initScrollReveals();
-    initParallax();
-    initIdleFloat();
+    initBackgroundMotion();
     initMagneticHover();
   });
 })();

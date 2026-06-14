@@ -69,6 +69,22 @@ body {
   min-height: 100vh;
 }
 
+/* Figma Noise Effect Overlay */
+body::after {
+content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 9999;
+    background-image: url(noise.png);
+    background-size: 100px 100px;
+    opacity: 0.1;
+    mix-blend-mode: overlay;
+}
+
 a {
   text-decoration: none;
   color: var(--purple);
@@ -176,6 +192,7 @@ img {
 
 .top-nav-link.active::after {
   width: 100%;
+  left: 0;
 }
 
 /* Right: lang + contact */
@@ -1571,17 +1588,15 @@ img {
 }
 
 .gradient-ellipse-1 {
-  background: radial-gradient(circle, rgba(233, 254, 163, 0.3) 0%, rgba(249, 250, 251, 0.1) 70%);
-  top: 0;
-  right: -100px;
-  mix-blend-mode: hue;
+  background: radial-gradient(circle, rgba(233, 254, 163, 0.7) 0%, rgba(249, 250, 251, 0) 70%);
+  top: -100px;
+  right: -250px;
 }
 
 .gradient-ellipse-2 {
-  background: radial-gradient(circle, rgba(200, 230, 170, 0.3) 0%, rgba(249, 250, 251, 0.1) 70%);
-  top: -30px;
-  right: -80px;
-  mix-blend-mode: hue;
+  background: radial-gradient(circle, rgba(233, 254, 163, 0.6) 0%, rgba(249, 250, 251, 0) 40%);
+  bottom: -150px;
+  left: -250px;
 }
 
 /* ===== PLACEHOLDER IMAGES ===== */
