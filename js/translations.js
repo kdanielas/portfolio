@@ -27,7 +27,7 @@ const translations = {
     welcome_lenguages: "LENGUAGES",
     welcome_lenguage1: "Spanish - Native",
     welcome_lenguage2: "English - Professional",
-    welcome_cta_text: "Product Designer with 5+ years shaping complex B2B and fintech products — from AI-powered investment tools to operational dashboards used under real-time pressure. Bridging business strategy, user needs, and technical feasibility through close collaboration with PMs and engineers.",
+    welcome_cta_text: "Product Designer with 6+ years shaping complex B2B and fintech products — from AI-powered investment tools to operational dashboards used under real-time pressure. Bridging business strategy, user needs, and technical feasibility through close collaboration with PMs and engineers.",
     welcome_btn: "See My Projects",
 
     // Contact page
@@ -48,9 +48,9 @@ const translations = {
     cs1_desc_p1: "Self-directed investing platforms give users powerful tools, but little guidance when it matters most. This project reimagined the investing experience by embedding AI-powered guidance directly into key decision moments, helping users move from uncertainty to confident action.",
     cs1_desc_p2: "My role focused on owning the end-to-end design of key features, translating the vision into user flows, wireframes, and high-fidelity prototypes. I drove decisions around interaction patterns, information hierarchy, and how guidance is integrated into critical user moments.",
     cs1_role_title: "My Role",
-    cs1_role1: "Wireframing",
-    cs1_role2: "User Flows",
-    cs1_role3: "High-Fidelity UI",
+    cs1_role1: "End-to-end Product Designer",
+    cs1_role2: "Owned research, flows, wireframes, prototypes",
+    cs1_role3: "Collaborated with PM + engineers",
 
     cs1_team: "Team",
     cs1_team1: "Lead designer, UX designer and me (UX Designer)",
@@ -724,7 +724,7 @@ const translations = {
     welcome_lenguages: "IDIOMAS",
     welcome_lenguage1: "Español - Nativo",
     welcome_lenguage2: "Inglés - Profesional",
-    welcome_cta_text: "Soy Product Designer con más de 5 años de experiencia creando productos complejos B2B y fintech, desde herramientas de inversión con IA hasta dashboards operativos para entornos de alta presión. Conecto estrategia, necesidades de usuario y viabilidad técnica trabajando de cerca con PMs e ingenieros.",
+    welcome_cta_text: "Soy Product Designer con más de 6 años de experiencia creando productos complejos B2B y fintech, desde herramientas de inversión con IA hasta dashboards operativos para entornos de alta presión. Conecto estrategia, necesidades de usuario y viabilidad técnica trabajando de cerca con PMs e ingenieros.",
     welcome_btn: "Ver proyectos",
 
     // Contact page
