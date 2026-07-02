@@ -24,9 +24,9 @@ const translations = {
     welcome_skill4_title: "AI",
     welcome_skill4: "ChatGPT, Claude, Lovable",
 
-    welcome_lenguages: "LENGUAGES",
-    welcome_lenguage1: "Spanish - Native",
-    welcome_lenguage2: "English - Professional",
+    welcome_languages: "LANGUAGES",
+    welcome_language1: "Spanish - Native",
+    welcome_language2: "English - Professional",
     welcome_cta_text: "Product Designer with 6+ years shaping complex B2B and fintech products — from AI-powered investment tools to operational dashboards used under real-time pressure. Bridging business strategy, user needs, and technical feasibility through close collaboration with PMs and engineers.",
     welcome_btn: "See My Projects",
 
@@ -103,7 +103,6 @@ const translations = {
     cs1_users_shared: "Shared need:",
     cs1_users_shared_text: "Understand what's happening in their portfolio, know what to do next, and feel confident enough to act — without calling an advisor.",
 
-    cs1_solution_title: "04 — The Solution",
     cs1_solution_title: "From transaction-first investing",
     cs1_solution_title2: " to guided, confidence- building decision- making",
     cs1_solution_p1: "Not a chatbot. A guidance layer woven into the moments that matter — embedded in workflows users already know.",
@@ -137,14 +136,14 @@ const translations = {
 
     cs1_feature3_title: "Pre-Trade Intelligence",
     cs1_feature3_p1: "Goal: Help users act with confidence",
-    cs1_feature3_p2: “Executing a trade is the highest-stakes moment in the experience. We designed a layer that surfaces what matters before users commit:”,
-    cs1_feature3_li1: “Trade impact on risk and diversification”,
-    cs1_feature3_li2: “Scenario insights — what changes if I proceed?”,
-    cs1_feature3_li3: “Contextual explanations tied to the user’s portfolio”,
-    cs1_feature3_bold: “Users can ask questions like:”,
-    cs1_feature3_li4: “”How will this affect my portfolio balance?””,
-    cs1_feature3_li5: “”What should I consider before making this trade?””,
-    cs1_feature3_p3: “From a leap of faith to an informed decision.”,
+    cs1_feature3_p2: "Executing a trade is the highest-stakes moment in the experience. We designed a layer that surfaces what matters before users commit:",
+    cs1_feature3_li1: "Trade impact on risk and diversification",
+    cs1_feature3_li2: "Scenario insights — what changes if I proceed?",
+    cs1_feature3_li3: "Contextual explanations tied to the user's portfolio",
+    cs1_feature3_bold: "Users can ask questions like:",
+    cs1_feature3_li4: "\"How will this affect my portfolio balance?\"",
+    cs1_feature3_li5: "\"What should I consider before making this trade?\"",
+    cs1_feature3_p3: "From a leap of faith to an informed decision.",
 
     cs1_feature5_title: "Embedded AI Assistant",
     cs1_feature5_bold: "Goal: Always available, never intrusive.",
@@ -401,7 +400,7 @@ const translations = {
 
     cs2_roadmap_framing_insight: "Impact Strategy: Rather than redesigning the entire system at once, we focused on: Reducing time-to-task for critical workflows, Maintaining familiarity to avoid retraining and Incrementally improving efficiency.",
 
-    cs2_outcomes_label: "05 — Outcomes",
+    cs2_outcomes_label: "08 — Outcomes",
     cs2_outcomes_title: "Improved speed, clarity, and workflow efficiency across key user tasks.",
     cs2_outcomes_li1_bold: "Faster task completion",
     cs2_outcomes_li1: "Advanced filters significantly reduced search time",
@@ -414,12 +413,12 @@ const translations = {
     cs2_outcomes_li5_bold: "Reduced dependency on engineers",
     cs2_outcomes_li5: "Customer support agents were able to resolve more issues independently, decreasing the need for escalations.",
 
-    cs2_takeaways_label: "06 — Key Takeaways",
+    cs2_takeaways_label: "09 — Key Takeaways",
     cs2_takeaways_title1: "Improved operational efficiency and reduced friction in a high-pressure system",
     cs2_takeaways_title2: "Efficiency gains come from reducing friction, not adding features",
     cs2_takeaways_title3: "Clear visibility of information is critical in high-pressure workflows",
 
-    cs2_whatnext_label: "07 — What I’d Improve Next",
+    cs2_whatnext_label: "10 — What I’d Improve Next",
     cs2_whatnext_li1: "Introduce proactive alerts for failed or delayed payments",
     cs2_whatnext_li2: "Continue optimizing workflows based on usage data and analytics",
     cs2_whatnext_li3: "Explore automation opportunities to reduce manual investigation",
@@ -547,7 +546,6 @@ const translations = {
     cs3_feature1_li2: "Status-based color coding",
     cs3_feature1_bold: "👉 Users can instantly understand availability and occupancy",
 
-    cs3_feature2_title: "Streamlined Reservation Flow",
     cs3_feature2_li1: "Streamlined reservation creation and editing",
     cs3_feature2_li2: "Reduced steps required for key actions",
     cs3_feature2_bold: "👉 Faster operations during peak hours",
@@ -575,16 +573,11 @@ const translations = {
     cs3_feature7_li2: "Clear separation of sections and actions",
     cs3_feature7_bold: "👉 Faster scanning and decision-making",
 
-    cs3_outcomes_title: "07 — Outcomes",
     cs3_outcomes_title: "Improved Operational Efficiency & Staff Experience",
     cs3_outcomes_li1_bold: "⚡ Faster service management",
-    cs3_outcomes_li1: "Staff can manage reservations more efficiently",
     cs3_outcomes_li2_bold: " 🧠 Reduced cognitive load",
-    cs3_outcomes_li2: "Cleaner interface improves usability",
     cs3_outcomes_li3_bold: "⏱️ Time savings",
-    cs3_outcomes_li3: "Fewer steps for key workflows",
     cs3_outcomes_li4_bold: "❌ Reduced errors",
-    cs3_outcomes_li4: "Better visibility prevents mistakes",
     cs3_outcomes_li5_bold: "✨ Improved staff experience",
     cs3_outcomes_li5: "More confidence during high-pressure situations",
 
@@ -593,20 +586,16 @@ const translations = {
     cs3_takeaway2: "Visual systems outperform text-heavy interfaces",
     cs3_takeaway3: "Reducing friction has a direct impact on performance",
 
-    cs3_whatnext_title: "What I’d Improve Next",
-    cs3_whatnext_li1: "Add predictive features (e.g., table optimization)",
-    cs3_whatnext_li2: "Integrate analytics for better decision-making",
-    cs3_whatnext_li3: "Further personalize workflows based on restaurant type",
 
     cs3_closing_title: "Closing Thought",
     cs3_closing_p1: "Designing for operational environments means designing for stress.",
     cs3_closing_p2: "By simplifying interactions and improving visibility, we enable users to stay in control—even in the busiest moments.",
     // Footer nav
     footer_prev_cs1: "01 — Investing",
-    footer_next_cs2: "02 — Support",
-    footer_prev_cs2: "01 — Investing",
-    footer_next_cs3: "03 — Hospitality",
-    footer_prev_cs3: "02 — Support",
+    footer_next_cs2: "Improving Efficiency in a Customer Support Operations Tool",
+    footer_prev_cs2: "Reimagining Digital Investing with AI-Powered Guidance",
+    footer_next_cs3: "Optimizing Restaurant Operations with a Reservation Management System",
+    footer_prev_cs3: "Improving Efficiency in a Customer Support Operations Tool",
     footer_next_contact: "Contact",
     footer_prev_contact: "03 — Hospitality",
 
@@ -670,7 +659,7 @@ const translations = {
     cs3_takeaway3_body: "Working closely with restaurant stakeholders ensured the design reflected real workflows rather than assumed ones.",
 
     // CS3 whatnext
-    cs3_whatnext_label: "08 — What I'd Improve Next",
+    cs3_whatnext_label: "09 — What I'd Improve Next",
     cs3_whatnext_heading: "Always room to grow",
     cs3_whatnext_li1: "Conduct usability testing with live restaurant staff",
     cs3_whatnext_li2: "Explore mobile-first adaptations for front-of-house staff",
@@ -732,9 +721,9 @@ const translations = {
     welcome_skill4_title: "IA",
     welcome_skill4: "ChatGPT, Claude, Lovable",
 
-    welcome_lenguages: "IDIOMAS",
-    welcome_lenguage1: "Español - Nativo",
-    welcome_lenguage2: "Inglés - Profesional",
+    welcome_languages: "IDIOMAS",
+    welcome_language1: "Español - Nativo",
+    welcome_language2: "Inglés - Profesional",
     welcome_cta_text: "Soy Product Designer con más de 6 años de experiencia creando productos complejos B2B y fintech, desde herramientas de inversión con IA hasta dashboards operativos para entornos de alta presión. Conecto estrategia, necesidades de usuario y viabilidad técnica trabajando de cerca con PMs e ingenieros.",
     welcome_btn: "Ver proyectos",
 
@@ -822,7 +811,6 @@ const translations = {
     cs1_solution_label: "05 — La solución",
     cs1_solution_p1: "Diseñamos un sistema híbrido de acompañamiento con IA integrado a lo largo de toda la experiencia de inversión.",
     cs1_solution_p2: "No es una funcionalidad aislada, sino un sistema inteligente de acompañamiento que se adapta al contexto del usuario y actúa en los momentos clave.",
-    cs1_solution_label: "04 — La Solución",
     cs1_sol_nav1: "IA Integrada",
     cs1_sol_nav2: "Prevención",
     cs1_sol_nav3: "Simulación",
@@ -916,7 +904,6 @@ const translations = {
     cs1_feature6_bold: "Esto evita el problema de \"talla única\".",
 
     cs1_outcomes_label: "07 — Resultados",
-    cs1_outcomes_title: "Mejoras en velocidad, visibilidad y eficiencia del flujo de trabajo",
     cs1_outcomes_title: "Transformando una visión de IA en una dirección de producto accionable.",
 
     cs1_outcomes_p1: "Aunque el proyecto tuvo un carácter exploratorio y conceptual, generó un impacto significativo:",
@@ -1122,13 +1109,13 @@ const translations = {
     cs2_outcomes_li5_bold: "🤝 Menor dependencia de ingeniería",
     cs2_outcomes_li5: "El equipo de soporte pudo resolver más incidencias de forma autónoma, reduciendo la necesidad de escalar casos.",
 
-    cs2_takeaways_label: "06 — Aprendizajes clave",
+    cs2_takeaways_label: "09 — Aprendizajes clave",
     cs2_takeaways_title: "Aprendizajes clave",
     cs2_takeaways_title1: "Reducir la dependencia de ingeniería mejora la eficiencia operativa",
     cs2_takeaways_title2: "Las mejoras en eficiencia provienen de reducir la fricción, no de añadir funcionalidades",
     cs2_takeaways_title3: "La visibilidad de la información es clave en flujos de trabajo exigentes",
 
-    cs2_whatnext_label: "07 — Qué mejoraría después",
+    cs2_whatnext_label: "10 — Qué mejoraría después",
     cs2_whatnext_title: "Qué mejoraría después",
     cs2_whatnext_li1: "Introducir alertas proactivas para pagos fallidos o retrasados",
     cs2_whatnext_li2: "Seguir optimizando los flujos de trabajo basándose en datos de uso y analítica",
@@ -1260,7 +1247,6 @@ const translations = {
     cs3_feature1_li2: "Codificación por colores basada en el estado",
     cs3_feature1_bold: "👉 Los usuarios pueden entender al instante la disponibilidad y ocupación",
 
-    cs3_feature2_title: "Flujo de reserva simplificado",
     cs3_feature2_li1: "Creación y edición de reservas optimizada",
     cs3_feature2_li2: "Reducción de pasos para acciones clave",
     cs3_feature2_bold: "👉 Operaciones más rápidas durante horas pico",
@@ -1298,20 +1284,13 @@ const translations = {
     cs3_outcomes_label: "07 — Resultados",
     cs3_outcomes_title: "Mayor eficiencia operativa y mejor experiencia del personal",
     cs3_outcomes_li1_bold: "⚡ Gestión más rápida del servicio",
-    cs3_outcomes_li1: "El personal puede gestionar reservas de forma más eficiente",
     cs3_outcomes_li2_bold: "🧠 Menor carga cognitiva",
-    cs3_outcomes_li2: "Una interfaz más limpia mejora la usabilidad",
     cs3_outcomes_li3_bold: "⏱️ Ahorro de tiempo",
-    cs3_outcomes_li3: "Menos pasos en flujos clave",
     cs3_outcomes_li4_bold: "❌ Reducción de errores",
-    cs3_outcomes_li4: "Mayor visibilidad previene errores",
     cs3_outcomes_li5_bold: "✨ Mejor experiencia del staff",
     cs3_outcomes_li5: "Más confianza en situaciones de alta presión",
 
     cs3_whatnext_title: "Qué mejoraría después",
-    cs3_whatnext_li1: "Añadir funciones predictivas (ej: optimización de mesas)",
-    cs3_whatnext_li2: "Integrar analítica para mejorar la toma de decisiones",
-    cs3_whatnext_li3: "Personalizar aún más los flujos según el tipo de restaurante",
 
     cs3_closing_title: "Reflexión final",
     cs3_closing_p1: "Diseñar para entornos operativos significa diseñar para el estrés.",
@@ -1385,7 +1364,7 @@ const translations = {
     cs3_takeaway3_body: "Trabajar estrechamente con los stakeholders del restaurante aseguró que el diseño reflejara flujos de trabajo reales, no supuestos.",
 
     // CS3 whatnext
-    cs3_whatnext_label: "08 — Qué mejoraría a continuación",
+    cs3_whatnext_label: "09 — Qué mejoraría a continuación",
     cs3_whatnext_heading: "Siempre hay margen de mejora",
     cs3_whatnext_li1: "Realizar pruebas de usabilidad con personal real de restaurantes",
     cs3_whatnext_li2: "Explorar adaptaciones mobile-first para el personal de sala",
