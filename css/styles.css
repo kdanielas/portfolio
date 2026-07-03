@@ -1,17 +1,17 @@
 /* ===== IMPORTS ===== */
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap');
 
 /* ===== DESIGN TOKENS ===== */
 :root {
-  --blue: #2457FF;
-  --purple: #2457FF;
-  --black: #101217;
-  --text-dark: #101217;
-  --grey: #6B7280;
-  --light: #F9FAFB;
-  --bg-alt: #F3F5FA;
-  --yellow: #E9FEA3;
-  --gradient-blue: linear-gradient(to right, #2457FF, #1a3fd4);
+  --blue: #6366F1;
+  --purple: #6366F1;
+  --black: #0C0C10;
+  --text-dark: #0C0C10;
+  --grey: #64748B;
+  --light: #F8F7F4;
+  --bg-alt: #EFEDE8;
+  --yellow: #FDE68A;
+  --gradient-blue: linear-gradient(135deg, #6366F1, #4F46E5);
 
   --topnav-height: 64px;
   --content-max: 1120px;
@@ -108,7 +108,10 @@ img {
   left: 0;
   right: 0;
   z-index: 200;
-  background-color: var(--light);
+  background-color: rgba(248, 247, 244, 0.9);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
   height: var(--topnav-height);
   display: flex;
   align-items: center;
@@ -134,11 +137,11 @@ img {
 
 /* Left: Logo */
 .top-nav-logo {
-  font-family: 'Fraunces', serif;
-  font-weight: 700;
-  font-size: 26px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 800;
+  font-size: 24px;
   color: var(--black);
-  letter-spacing: 0.2px;
+  letter-spacing: -0.5px;
   text-decoration: none;
   line-height: 1;
   white-space: nowrap;
@@ -285,11 +288,11 @@ img {
 
 /* ===== SIDEBAR ===== */
 .sidebar-logo {
-  font-family: 'Fraunces', serif;
-  font-weight: 700;
-  font-size: 32px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 800;
+  font-size: 28px;
   color: var(--black);
-  letter-spacing: 0.5px;
+  letter-spacing: -0.5px;
   width: 123px;
   cursor: pointer;
 }
@@ -418,12 +421,12 @@ img {
 
 /* ===== TYPOGRAPHY ===== */
 .heading-hero {
-  font-family: 'Fraunces', serif;
-  font-weight: 700;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 800;
   font-size: 86px;
   color: var(--text-dark);
-  letter-spacing: -2px;
-  line-height: 1.02;
+  letter-spacing: -3px;
+  line-height: 1.0;
 }
 
 .hero-accent {
@@ -432,39 +435,39 @@ img {
 }
 
 .heading-h1 {
-  font-family: 'Fraunces', serif;
-  font-weight: 700;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 800;
   font-size: 48px;
   color: var(--black);
-  letter-spacing: -0.5px;
-  line-height: 1.15;
+  letter-spacing: -1.5px;
+  line-height: 1.1;
 }
 
 .heading-h2 {
-  font-family: 'Fraunces', serif;
-  font-weight: 700;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 800;
   font-size: 48px;
   color: var(--black);
-  letter-spacing: -0.3px;
-  line-height: 1.2;
+  letter-spacing: -1.5px;
+  line-height: 1.1;
 }
 
 .heading-h3 {
-  font-family: 'Fraunces', serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-weight: 700;
   font-size: 36px;
   color: var(--black);
-  letter-spacing: -0.2px;
-  line-height: 1.25;
+  letter-spacing: -0.8px;
+  line-height: 1.2;
 }
 
 .heading-h4 {
-  font-family: 'Fraunces', serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-weight: 700;
   font-size: 22px;
   color: var(--black);
-  letter-spacing: -0.1px;
-  line-height: 1.3;
+  letter-spacing: -0.4px;
+  line-height: 1.25;
 }
 
 .text-xl {
@@ -562,7 +565,7 @@ img {
 }
 
 .btn-primary:hover {
-  box-shadow: 0 8px 28px rgba(36, 87, 255, 0.3);
+  box-shadow: 0 8px 28px rgba(99, 102, 241, 0.3);
 }
 
 .btn-primary svg {
@@ -584,7 +587,7 @@ img {
   font-family: 'Inter', sans-serif;
   font-weight: 600;
   font-size: 11px;
-  color: rgba(233, 254, 163, 0.9);
+  color: rgba(253, 230, 138, 0.9);
   letter-spacing: 1.5px;
   line-height: normal;
   margin-bottom: 16px;
@@ -592,11 +595,11 @@ img {
 }
 
 .purple-card .card-text {
-  font-family: 'Fraunces', serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-weight: 700;
   font-size: 24px;
   color: #FFFFFF;
-  letter-spacing: -0.2px;
+  letter-spacing: -0.6px;
   line-height: 1.3;
 }
 
@@ -731,12 +734,12 @@ img {
 }
 
 .cs-hero-title-col .cs-title {
-  font-family: 'Fraunces', serif;
-  font-weight: 700;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 800;
   font-size: 72px;
   color: var(--blue);
-  letter-spacing: -1px;
-  line-height: 1.08;
+  letter-spacing: -2.5px;
+  line-height: 1.05;
   width: 100%;
   margin-top: 20px;
 }
@@ -820,14 +823,14 @@ img {
 
 .cs-scroll-indicator {
   text-align: center;
-  color: #1041e1;
+  color: #4F46E5;
   font-size: 16px;
   font-family: 'Lato', sans-serif;
   margin-top: 40px auto;
 }
 
 .cs-scroll-arrow-indicator {
-  background: #ebebfd;
+  background: #EDEDFB;
   margin-bottom: 32px;
   border-radius: 50px;
   padding: 16px;
@@ -838,7 +841,7 @@ img {
   width: 49px;
   height: 76px;
   border-radius: 100px;
-  background: rgba(210, 221, 237, 0.5);
+  background: rgba(224, 224, 253, 0.4);
   margin: 16px auto 0;
   position: relative;
 }
@@ -848,7 +851,7 @@ img {
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background: rgba(92, 100, 255, 0.6);
+  background: rgba(99, 102, 241, 0.6);
   position: absolute;
   top: calc(50% - 19px);
   left: 50%;
@@ -949,7 +952,7 @@ img {
 .cs-users-section .user-group {
   flex: 1;
   min-width: 240px;
-  background: #F3F5FA;
+  background: #EFEDE8;
   border: 1px solid rgba(107, 114, 128, 0.15);
   border-radius: 16px;
   padding: 28px;
@@ -969,7 +972,7 @@ img {
   width: 48px;
   height: 48px;
   border-radius: 100px;
-  background-color: #1a2540;
+  background-color: #1D1B4B;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -977,7 +980,7 @@ img {
 }
 
 .user-group .user-name {
-  font-family: 'Fraunces', serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-weight: 700;
   font-size: 20px;
   color: var(--black);
@@ -1091,7 +1094,7 @@ img {
 
 .problem-item:hover .problem-item-arrow {
   transform: translateX(3px);
-  background: #1a46e0;
+  background: #4F46E5;
 }
 
 .problem-item-arrow svg {
@@ -1230,7 +1233,7 @@ img {
 
 .cs-shift-v2 .shift-v2-item {
   flex: 1;
-  background: rgba(36, 87, 255, 0.05);
+  background: rgba(99, 102, 241, 0.05);
   border: 0px;
   border-radius: 16px;
   padding: 16px 20px;
@@ -1286,7 +1289,7 @@ img {
 
 .cs-roadmap .roadmap-phase {
   flex: 1;
-  background: #F9FAFB;
+  background: #F8F7F4;
   border: 1px solid rgba(107, 114, 128, 0.15);
   border-radius: 16px;
   padding: 32px;
@@ -1346,12 +1349,12 @@ img {
 }
 
 .cs-roadmap .roadmap-phase h3.heading-h4 {
-  font-family: 'Fraunces', serif;
-  font-weight: 700;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 800;
   font-size: 28px;
   color: var(--blue);
-  letter-spacing: -0.3px;
-  line-height: 1.2;
+  letter-spacing: -0.8px;
+  line-height: 1.15;
 }
 
 .cs-roadmap .roadmap-phase .phase-label {
@@ -1367,9 +1370,9 @@ img {
 .cs-roadmap .roadmap-insight {
   margin-top: 48px;
   padding: 28px 32px;
-  background-color: rgba(36, 87, 255, 0.06);
+  background-color: rgba(99, 102, 241, 0.06);
   border-radius: 16px;
-  border: 1px solid rgba(36, 87, 255, 0.12);
+  border: 1px solid rgba(99, 102, 241, 0.12);
 }
 
 .cs-roadmap .roadmap-insight p {
@@ -1529,12 +1532,12 @@ img {
   border-radius: 40px;
   color: var(--purple);
   margin: inherit;
-  background-color: rgba(92, 100, 255, 0);
+  background-color: rgba(99, 102, 241, 0);
   transition: 0.3s;
 }
 
 .footer-nav a:hover .arrow-footer {
-  background: rgba(92, 100, 255, 1);
+  background: rgba(99, 102, 241, 1);
   color: var(--light);
 }
 
@@ -1588,13 +1591,13 @@ img {
 }
 
 .gradient-ellipse-1 {
-  background: radial-gradient(circle, rgba(233, 254, 163, 0.7) 0%, rgba(249, 250, 251, 0) 70%);
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.1) 0%, rgba(248, 247, 244, 0) 70%);
   top: -100px;
   right: -250px;
 }
 
 .gradient-ellipse-2 {
-  background: radial-gradient(circle, rgba(233, 254, 163, 0.6) 0%, rgba(249, 250, 251, 0) 40%);
+  background: radial-gradient(circle, rgba(251, 191, 36, 0.12) 0%, rgba(248, 247, 244, 0) 50%);
   bottom: -150px;
   left: -250px;
 }
@@ -1603,7 +1606,7 @@ img {
 .placeholder-img {
   width: 100%;
   height: 400px;
-  background: linear-gradient(135deg, #e8eaff 0%, #f0f4ff 50%, #e8eaff 100%);
+  background: linear-gradient(135deg, #EEE9F8 0%, #F4F2FF 50%, #EEE9F8 100%);
   border-radius: 16px;
   display: flex;
   align-items: center;
@@ -1628,7 +1631,7 @@ img {
 .cs-full-section-image {
   padding: 64px;
   margin: auto;
-  background: #E0E2F0;
+  background: #E8E6F5;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1641,7 +1644,7 @@ img {
 
 /* ===== INSIGHT CARD (reusable: Shared Need, Pre-Trade quotes, roadmap note) ===== */
 .insight-card {
-  background-color: rgba(36, 87, 255, 0.06);
+  background-color: rgba(99, 102, 241, 0.06);
   border-radius: 14px;
   padding: 20px 24px;
   display: flex;
@@ -1669,7 +1672,7 @@ img {
 
 /* Legacy alias */
 .cs-shared-insight {
-  background-color: rgba(36, 87, 255, 0.06);
+  background-color: rgba(99, 102, 241, 0.06);
   border-radius: 14px;
   padding: 20px 24px;
   display: flex;
@@ -1811,19 +1814,19 @@ img {
 .contact-glow-1 {
   width: 640px;
   height: 640px;
-  background: radial-gradient(circle, rgba(209, 242, 140, 0.28) 0%, rgba(249, 250, 251, 0) 70%);
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.1) 0%, rgba(248, 247, 244, 0) 70%);
   top: -80px;
   right: -60px;
-  mix-blend-mode: hue;
+  mix-blend-mode: normal;
 }
 
 .contact-glow-2 {
   width: 480px;
   height: 480px;
-  background: radial-gradient(circle, rgba(185, 232, 120, 0.18) 0%, rgba(249, 250, 251, 0) 70%);
+  background: radial-gradient(circle, rgba(251, 191, 36, 0.12) 0%, rgba(248, 247, 244, 0) 70%);
   bottom: 40px;
   right: 120px;
-  mix-blend-mode: hue;
+  mix-blend-mode: normal;
 }
 
 /* Two-column wrapper */
@@ -1871,12 +1874,12 @@ img {
 }
 
 .contact-big-heading {
-  font-family: 'Fraunces', serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 72px;
-  font-weight: 700;
+  font-weight: 800;
   color: var(--text-dark);
-  line-height: 1.02;
-  letter-spacing: -1.5px;
+  line-height: 1.0;
+  letter-spacing: -2.5px;
   margin-bottom: 28px;
 }
 
@@ -2877,11 +2880,11 @@ img {
 
 /* ===== ALTERNATING BACKGROUNDS ===== */
 .bg-default {
-  background-color: #F9FAFB;
+  background-color: #F8F7F4;
 }
 
 .bg-alt {
-  background-color: #F3F5FA;
+  background-color: #EFEDE8;
 }
 
 /* ===== SPLIT SECTION ===== */
@@ -2987,7 +2990,7 @@ img {
   left: -80px;
   width: 480px;
   height: 480px;
-  background: radial-gradient(circle, rgba(36, 87, 255, 0.18) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.18) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -2998,7 +3001,7 @@ img {
   right: -60px;
   width: 320px;
   height: 320px;
-  background: radial-gradient(circle, rgba(36, 87, 255, 0.08) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.08) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -3006,7 +3009,7 @@ img {
   font-family: 'Inter', sans-serif;
   font-size: 11px;
   font-weight: 600;
-  color: rgba(233, 254, 163, 0.8);
+  color: rgba(253, 230, 138, 0.85);
   letter-spacing: 1.5px;
   text-transform: uppercase;
   margin-bottom: 32px;
@@ -3014,14 +3017,14 @@ img {
 }
 
 .cs-closing-dark .closing-title {
-  font-family: 'Fraunces', serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 44px;
-  font-weight: 700;
+  font-weight: 800;
   color: #FFFFFF;
-  line-height: 1.2;
+  line-height: 1.1;
   margin-bottom: 24px;
   max-width: 680px;
-  letter-spacing: -0.5px;
+  letter-spacing: -1.2px;
 }
 
 .cs-closing-dark .closing-subtitle {
@@ -3077,7 +3080,7 @@ img {
 .takeaway-card h3,
 .takeaway-card .heading-h3,
 .takeaway-card .takeaway-heading {
-  font-family: 'Fraunces', serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 22px;
   font-weight: 700;
   color: #FFFFFF !important;
@@ -3314,7 +3317,7 @@ img {
 }
 
 .cs-whatnext-left .whatnext-title {
-  font-family: 'Fraunces', serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 36px;
   font-weight: 700;
   color: var(--text-dark);
@@ -3396,7 +3399,7 @@ img {
 
 /* ===== IMPACT INSIGHT CARD (light blue bg) ===== */
 .insight-card-blue {
-  background: rgba(36, 87, 255, 0.06);
+  background: rgba(99, 102, 241, 0.06);
   border-radius: 16px;
   padding: 16px 20px;
   margin-top: 20px;
@@ -3456,7 +3459,7 @@ img {
 }
 
 .contact-editorial-left .contact-heading {
-  font-family: 'Fraunces', serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 64px;
   font-weight: 700;
   color: var(--text-dark);
@@ -3643,7 +3646,7 @@ img {
   font-family: 'Inter', sans-serif;
   font-size: 11px;
   font-weight: 600;
-  color: rgba(233, 254, 163, 0.8);
+  color: rgba(253, 230, 138, 0.85);
   letter-spacing: 1.5px;
   text-transform: uppercase;
   margin-bottom: 28px;
@@ -3651,7 +3654,7 @@ img {
 }
 
 .cs-closing-dark .closing-dark-quote {
-  font-family: 'Fraunces', serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 40px;
   font-weight: 700;
   color: #FFFFFF;
@@ -4069,7 +4072,7 @@ img {
 .user-group:hover {
   transform: translateY(-3px);
   box-shadow: 0 8px 24px rgba(16, 18, 23, 0.06);
-  border-color: rgba(36, 87, 255, 0.15);
+  border-color: rgba(99, 102, 241, 0.15);
 }
 
 /* Roadmap phase cards — lift + shadow */
@@ -4082,7 +4085,7 @@ img {
 .roadmap-phase:hover {
   transform: translateY(-3px);
   box-shadow: 0 8px 24px rgba(16, 18, 23, 0.06);
-  border-color: rgba(36, 87, 255, 0.15);
+  border-color: rgba(99, 102, 241, 0.15);
 }
 
 /* Insight cards — subtle glow */
@@ -4091,7 +4094,7 @@ img {
 }
 
 .insight-card:hover {
-  box-shadow: 0 4px 16px rgba(36, 87, 255, 0.08);
+  box-shadow: 0 4px 16px rgba(99, 102, 241, 0.08);
 }
 
 /* Contact card — refined lift */
@@ -4132,7 +4135,7 @@ img {
 }
 
 .problem-item:hover {
-  background: rgba(36, 87, 255, 0.02);
+  background: rgba(99, 102, 241, 0.02);
 }
 
 /* Footer nav — refined hover */
@@ -4252,16 +4255,17 @@ img {
   align-items: center;
   text-decoration: none;
   color: inherit;
-  background-color: #E9EFF7;
-  border-radius: 32px;
+  background-color: #EEE9F8;
+  border-radius: 20px;
   padding: 64px;
-  transition: transform 0.4s var(--ease-out-expo), box-shadow 0.4s var(--ease-smooth);
+  transition: transform 0.45s var(--ease-out-expo), box-shadow 0.45s var(--ease-smooth);
   cursor: pointer;
+  border: 1px solid rgba(99, 102, 241, 0.08);
 }
 
 .case-study-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 16px 40px rgba(16, 18, 23, 0.04);
+  transform: translateY(-6px);
+  box-shadow: 0 20px 60px rgba(99, 102, 241, 0.1), 0 4px 16px rgba(16, 18, 23, 0.05);
 }
 
 .case-study-content {
@@ -4320,7 +4324,7 @@ img {
 }
 
 .cs-text-link:hover {
-  color: #1a3fd4;
+  color: #4F46E5;
 }
 
 .cs-text-link .arrow-icon {
