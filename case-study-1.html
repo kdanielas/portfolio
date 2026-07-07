@@ -277,96 +277,171 @@
 
 <!-- ══════════ 05 SOLUTION ══════════ -->
 <div class="divider"></div>
-<div class="bg">
-<div class="page">
-<div class="s">
-  <div class="slabel" data-i18n="cs1_solution_label">05 — The Solution</div>
-  <h2 class="sh" data-i18n-html="cs1_sol_h2">Not a chatbot. A guidance layer woven into the <span class="blue">moments that matter.</span></h2>
-  <p class="ssub" data-i18n="cs1_solution_p1">Every design decision came back to one question: does this help users understand what's happening and act with confidence?</p>
-  <img src="assets/images/case1-userj.svg" style="border-radius:8px;width: 100%;object-fit:cover;object-position:top;" alt="BMO InvestorLine — user journey map">
+<div class="cs-solution-wrapper">
 
-  <!-- Feature 01 — Portfolio Understanding -->
-  <div style="margin-bottom:40px;padding-bottom:40px;border-bottom:1px solid var(--border);">
-    <div class="feat-n" style="margin-bottom:8px;">01</div>
-    <h3 style="font-family:'Plus Jakarta Sans',sans-serif;font-size:22px;font-weight:700;letter-spacing:-.02em;color:var(--black);margin-bottom:6px;" data-i18n="cs1_feature0_title">Portfolio Understanding</h3>
-    <div class="feat-goal" style="margin-bottom:20px;" data-i18n="cs1_feature0_goal">Turn confusion into clarity.</div>
-    <p style="font-size:14px;color:var(--muted);line-height:1.8;margin-top:16px;" data-i18n="cs1_feature0_p1">Users frequently check their portfolio but struggle to interpret what they see. Raw numbers don't answer the question they're actually asking: "Why did my portfolio move?"</p>
-    <p style="font-size:14px;color:var(--muted);line-height:1.8;margin-top:12px;" data-i18n-html="cs1_feature0_p2">We introduced AI-generated explanations that answer it directly — summarizing performance in plain language, highlighting key drivers like market trends and specific holdings, and letting users drill down at their own pace. Instead of raw data, the platform delivers <strong style="color:var(--black);">narrative insight</strong> — helping users learn while they invest.</p>
-    <p style="font-size:14px;color:var(--muted);line-height:1.8;margin-top:12px;" data-i18n="cs1_feature0_p3">We extended this into benchmarking: users compare their portfolio against a BMO model matched to their risk profile, and immediately see what's different and why. The platform then invites, never instructs: "Would you like to see what applying this model would look like?"</p>
-    <div class="dd" style="margin-top:20px;">
-      <span class="dd-tag" data-i18n="cs1_feature0_why_title">Design decision</span>
-      <p class="dd-body" data-i18n-html="cs1_feature0_why_body">The existing advice panel evaluated portfolios against static thresholds — it could tell you your rating was too low, but not what that meant for <strong>your</strong> goals or risk capacity. The shift: connect portfolio health to who the user is and what they're trying to achieve, not just to preset rules. A narrative before a decision is more valuable than more data.</p>
+  <!-- Section header -->
+  <div class="cs-solution-header">
+    <div class="cs-solution-header-left">
+      <span class="slabel" data-i18n="cs1_solution_label">05 — The Solution</span>
+      <h2 class="sh" data-i18n-html="cs1_sol_h2">Not a chatbot. A guidance layer woven into the <span class="blue">moments that matter.</span></h2>
+      <p class="ssub" data-i18n="cs1_solution_p1">Every design decision came back to one question: does this help users understand what's happening and act with confidence?</p>
     </div>
   </div>
 
-  <!-- Before / After -->
-  <div style="margin-bottom:40px;padding-bottom:40px;border-bottom:1px solid var(--border);">
-    <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:24px;" data-i18n="cs1_ba_title">Before / After — From Threshold Monitoring to Goal-Linked Guidance</div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start;">
-      <div>
-        <div style="font-size:11px;font-weight:700;color:#ef4444;margin-bottom:12px;text-transform:uppercase;letter-spacing:.06em;" data-i18n="cs1_before_label">Before: The advice panel</div>
-        <p style="font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:16px;" data-i18n="cs1_ba_before_p">A dedicated section that flagged when allocations crossed preset thresholds. Same logic for every user regardless of goals, timeline, or risk profile.</p>
-        <img src="assets/images/case1-health-before.jpg" style="padding:32px; width:100%;border-radius:12px;border:1px solid #fecaca;display:block;" alt="Before: Asset Allocation advice panel">
-        <div style="margin-top:12px;padding:10px;background:rgba(239,68,68,.04);border:1px solid rgba(239,68,68,.12);border-radius:6px;">
-          <div style="font-size:10px;color:#ef4444;font-weight:600;margin-bottom:4px;" data-i18n="cs1_ba_before_problem_title">The problem</div>
-          <div style="font-size:11px;color:var(--muted);line-height:1.6;" data-i18n="cs1_ba_before_problem_text">Tells users their allocation is wrong. Doesn't explain what that means for their goals, when it matters, or what the consequence of inaction is.</div>
+  <!-- User journey map — full-width header visual -->
+  <div style="padding:0 40px 40px;">
+    <img src="assets/images/case1-userj.svg" style="border-radius:8px;width:100%;object-fit:cover;object-position:top;" alt="BMO InvestorLine — user journey map">
+  </div>
+
+  <!-- Body: sticky sidebar + scrollable features -->
+  <div class="cs-solution-body">
+
+    <!-- Sticky sidebar nav -->
+    <div class="cs-solution-sidebar">
+      <span class="cs-solution-sidebar-label">Features</span>
+      <nav class="cs-solution-nav">
+        <a class="cs-sol-link active" href="#cs1-f1" data-target="cs1-f1">
+          <span class="cs-sol-link-num">01</span>
+          <span class="cs-sol-link-text">Portfolio Understanding</span>
+        </a>
+        <a class="cs-sol-link" href="#cs1-f2" data-target="cs1-f2">
+          <span class="cs-sol-link-num">02</span>
+          <span class="cs-sol-link-text">AI Assistant</span>
+        </a>
+        <a class="cs-sol-link" href="#cs1-f3" data-target="cs1-f3">
+          <span class="cs-sol-link-num">03</span>
+          <span class="cs-sol-link-text">Pre-Trade</span>
+        </a>
+        <a class="cs-sol-link" href="#cs1-f4" data-target="cs1-f4">
+          <span class="cs-sol-link-num">04</span>
+          <span class="cs-sol-link-text">Learn by Doing</span>
+        </a>
+        <a class="cs-sol-link" href="#cs1-f5" data-target="cs1-f5">
+          <span class="cs-sol-link-num">05</span>
+          <span class="cs-sol-link-text">Scenario Exploration</span>
+        </a>
+      </nav>
+    </div>
+
+    <!-- Scrollable features -->
+    <div class="cs-solution-features">
+
+      <!-- ── Feature 01 ── -->
+      <div class="cs-sol-feature" id="cs1-f1">
+        <div class="cs-sol-feature-inner">
+          <div class="cs-sol-feature-text">
+            <div class="feat-n">01</div>
+            <div class="feat-title" data-i18n="cs1_feature0_title">Portfolio Understanding</div>
+            <p class="ssub" style="margin-top:12px;" data-i18n="cs1_feature0_goal">Turn confusion into clarity.</p>
+            <p style="font-size:13px;color:var(--muted);line-height:1.75;margin-top:14px;" data-i18n="cs1_feature0_p1">Users frequently check their portfolio but struggle to interpret what they see. Raw numbers don't answer the question they're actually asking: "Why did my portfolio move?"</p>
+            <p style="font-size:13px;color:var(--muted);line-height:1.75;margin-top:10px;" data-i18n-html="cs1_feature0_p2">We introduced AI-generated explanations that answer it directly — summarizing performance in plain language, highlighting key drivers like market trends and specific holdings, and letting users drill down at their own pace. Instead of raw data, the platform delivers <strong style="color:var(--black);">narrative insight</strong> — helping users learn while they invest.</p>
+            <p style="font-size:13px;color:var(--muted);line-height:1.75;margin-top:10px;" data-i18n="cs1_feature0_p3">We extended this into benchmarking: users compare their portfolio against a BMO model matched to their risk profile, and immediately see what's different and why. The platform then invites, never instructs.</p>
+            <div class="cs-sol-why">
+              <h4 data-i18n="cs1_feature0_why_title">Design decision</h4>
+              <p data-i18n-html="cs1_feature0_why_body">The existing advice panel evaluated portfolios against static thresholds — it could tell you your rating was too low, but not what that meant for <strong>your</strong> goals or risk capacity. The shift: connect portfolio health to who the user is and what they're trying to achieve, not just to preset rules. A narrative before a decision is more valuable than more data.</p>
+            </div>
+          </div>
+          <div class="cs-sol-feature-image">
+            <img src="assets/images/case1-health-after.jpg" alt="Portfolio health — goal-linked guidance" style="border:1px solid var(--border);">
+          </div>
+        </div>
+        <!-- Before / After — full width inside this feature -->
+        <div style="margin-top:40px;padding-top:32px;border-top:1px solid var(--border);">
+          <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:24px;" data-i18n="cs1_ba_title">Before / After — From Threshold Monitoring to Goal-Linked Guidance</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start;">
+            <div>
+              <div style="font-size:11px;font-weight:700;color:#ef4444;margin-bottom:12px;text-transform:uppercase;letter-spacing:.06em;" data-i18n="cs1_before_label">Before: The advice panel</div>
+              <p style="font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:16px;" data-i18n="cs1_ba_before_p">A dedicated section that flagged when allocations crossed preset thresholds. Same logic for every user regardless of goals, timeline, or risk profile.</p>
+              <img src="assets/images/case1-health-before.jpg" style="padding:32px;width:100%;border-radius:12px;border:1px solid #fecaca;display:block;" alt="Before: Asset Allocation advice panel">
+              <div style="margin-top:12px;padding:10px;background:rgba(239,68,68,.04);border:1px solid rgba(239,68,68,.12);border-radius:6px;">
+                <div style="font-size:10px;color:#ef4444;font-weight:600;margin-bottom:4px;" data-i18n="cs1_ba_before_problem_title">The problem</div>
+                <div style="font-size:11px;color:var(--muted);line-height:1.6;" data-i18n="cs1_ba_before_problem_text">Tells users their allocation is wrong. Doesn't explain what that means for their goals, when it matters, or what the consequence of inaction is.</div>
+              </div>
+            </div>
+            <div>
+              <div style="font-size:11px;font-weight:700;color:var(--blue);margin-bottom:12px;text-transform:uppercase;letter-spacing:.06em;" data-i18n="cs1_ba_after_title">After: Goal-linked guidance</div>
+              <p style="font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:16px;" data-i18n="cs1_ba_after_p">Portfolio health connected to who the user is — their goal, timeline, and risk profile. The platform explains what the gap means, not just that it exists.</p>
+              <img src="assets/images/case1-health-after.jpg" style="padding:32px;width:100%;border-radius:12px;border:1px solid var(--blue-bd);display:block;" alt="After: Portfolio Health redesign">
+              <div style="margin-top:12px;padding:10px;background:var(--blue-bg);border:1px solid var(--blue-bd);border-radius:6px;">
+                <div style="font-size:10px;color:var(--blue);font-weight:600;margin-bottom:4px;" data-i18n="cs1_ba_shift_title">The shift</div>
+                <div style="font-size:11px;color:var(--muted);line-height:1.6;" data-i18n-html="cs1_ba_shift_text">Same data. Different frame. The platform now explains what the gap means for <em>this user's</em> specific goal — and opens a path forward instead of a dead end.</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <div>
-        <div style="font-size:11px;font-weight:700;color:var(--blue);margin-bottom:12px;text-transform:uppercase;letter-spacing:.06em;" data-i18n="cs1_ba_after_title">After: Goal-linked guidance</div>
-        <p style="font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:16px;" data-i18n="cs1_ba_after_p">Portfolio health connected to who the user is — their goal, timeline, and risk profile. The platform explains what the gap means, not just that it exists.</p>
-        <img src="assets/images/case1-health-after.jpg" style="padding:32px; width:100%;border-radius:12px;border:1px solid var(--blue-bd);display:block;" alt="After: Portfolio Health redesign">
-        <div style="margin-top:12px;padding:10px;background:var(--blue-bg);border:1px solid var(--blue-bd);border-radius:6px;">
-          <div style="font-size:10px;color:var(--blue);font-weight:600;margin-bottom:4px;" data-i18n="cs1_ba_shift_title">The shift</div>
-          <div style="font-size:11px;color:var(--muted);line-height:1.6;" data-i18n-html="cs1_ba_shift_text">Same data. Different frame. The platform now explains what the gap means for <em>this user's</em> specific goal — and opens a path forward instead of a dead end.</div>
+
+      <!-- ── Feature 02 ── -->
+      <div class="cs-sol-feature" id="cs1-f2">
+        <div class="cs-sol-feature-inner cs-sol-feature-inner--reverse">
+          <div class="cs-sol-feature-text">
+            <div class="feat-n">02</div>
+            <div class="feat-title" data-i18n="cs1_feature5_title">Embedded AI Assistant</div>
+            <p class="ssub" style="margin-top:12px;" data-i18n="cs1_f2_goal">Always available, never intrusive</p>
+            <p style="font-size:13px;color:var(--muted);line-height:1.75;margin-top:14px;" data-i18n="cs1_f2_p1">In early concepts we designed a dedicated AI hub — a separate screen for guidance. In usability testing, users ignored it. They weren't looking for a separate destination; they expected help to appear exactly where they were making a decision.</p>
+            <p style="font-size:13px;color:var(--muted);line-height:1.75;margin-top:10px;" data-i18n="cs1_f2_p2">So we moved guidance inline. AI became part of the experience itself — explaining decisions in plain language, answering questions in context, surfacing what's most relevant. The reasoning behind every insight is visible, not hidden.</p>
+            <div class="cs-sol-why">
+              <h4 data-i18n="cs1_feature5_why_title">Design decision</h4>
+              <p data-i18n-html="cs1_sol_dd_body">In early concepts we explored a <strong>dedicated AI hub</strong> — a separate screen for guidance. Users ignored it. The insight: guidance needs to live where decisions happen. Moving everything inline, to the exact moment of decision, is what made it feel useful.</p>
+            </div>
+          </div>
+          <div class="cs-sol-feature-image">
+            <img src="assets/images/case1-embed-ai.svg" alt="Embedded AI Assistant — inline guidance" style="border:1px solid var(--border);">
+          </div>
         </div>
       </div>
-    </div>
-  </div>
 
-  <!-- Features 02–05 -->
-  <div class="feat-grid">
-    <div class="card feat">
-      <div class="feat-n">02</div>
-      <div class="feat-title" data-i18n="cs1_feature5_title">Embedded AI Assistant</div>
-      <div class="feat-goal" data-i18n="cs1_f2_goal">Always available, never intrusive</div>
-      <img src="assets/images/case1-embed-ai.svg" style="width:100%;border-radius:8px;margin-bottom:18px;display:block;" alt="Embedded AI Assistant">
-      <p style="font-size:13px;color:var(--muted);line-height:1.7;margin-top:12px;" data-i18n="cs1_f2_p1">In early concepts we designed a dedicated AI hub — a separate screen for guidance. In usability testing, users ignored it. They weren't looking for a separate destination; they expected help to appear exactly where they were making a decision.</p>
-      <p style="font-size:13px;color:var(--muted);line-height:1.7;margin-top:10px;" data-i18n="cs1_f2_p2">So we moved guidance inline. AI became part of the experience itself — explaining decisions in plain language, answering questions in context, surfacing what's most relevant. The reasoning behind every insight is visible, not hidden.</p>
-    </div>
-    <div class="card feat">
-      <div class="feat-n">03</div>
-      <div class="feat-title" data-i18n="cs1_feature3_title">Pre-Trade Intelligence</div>
-      <div class="feat-goal" data-i18n="cs1_f3_goal">Help users act with confidence</div>
-      <img src="assets/images/case1-pretrade.jpg" style="width:100%;border-radius:8px;margin-bottom:18px;display:block;" alt="Pre-Trade Intelligence">
-      <p style="font-size:13px;color:var(--muted);line-height:1.7;margin-top:12px;" data-i18n="cs1_feature3_p1">Executing a trade is the highest-stakes moment — and the moment most platforms abandon the user. The standard flow: ticker, quantity, price. What it doesn't tell you: what this does to your risk, diversification, goals.</p>
-      <p style="font-size:13px;color:var(--muted);line-height:1.7;margin-top:10px;" data-i18n="cs1_f3_p2">We designed one step earlier. Before the user commits, the platform surfaces what matters. They can ask — "How will this affect my balance?" — and get a contextual answer tied to their specific situation.</p>
-    </div>
-    <div class="card feat">
-      <div class="feat-n">04</div>
-      <div class="feat-title" data-i18n="cs1_feature1_title">Learn by Doing</div>
-      <div class="feat-goal" data-i18n="cs1_f4_goal">Build confidence through action, not instruction</div>
-      <img src="assets/images/case1-learnbydoing.jpg" style="width:100%;border-radius:8px;margin-bottom:18px;display:block;" alt="Learn by Doing">
-      <p style="font-size:13px;color:var(--muted);line-height:1.7;margin-top:12px;" data-i18n="cs1_f4_p1">New investors weren't afraid of the platform — they were afraid of themselves. Afraid of making a move that couldn't be undone. The usual response: more education. We tried a different approach.</p>
-      <p style="font-size:13px;color:var(--muted);line-height:1.7;margin-top:10px;" data-i18n="cs1_feature1_p2">The sandbox lets users try a trade, see the exact impact, and decide whether to execute for real. Nothing commits until they say so. Confidence comes from doing, not reading.</p>
-    </div>
-    <div class="card feat">
-      <div class="feat-n">05</div>
-      <div class="feat-title" data-i18n="cs1_feature2_title">Scenario Exploration</div>
-      <div class="feat-goal" data-i18n="cs1_f5_goal">Shift users from reactive to proactive thinking</div>
-      <img src="assets/images/case1-stresstest.jpg" style="width:100%;border-radius:8px;margin-bottom:18px;display:block;" alt="Scenario Exploration">
-      <p style="font-size:13px;color:var(--muted);line-height:1.7;margin-top:12px;" data-i18n="cs1_feature2_p1">Most investment decisions happen reactively — the market moves, the user panics, they act. The What If? tool breaks that pattern by making consequences visible before a decision becomes urgent.</p>
-      <p style="font-size:13px;color:var(--muted);line-height:1.7;margin-top:10px;" data-i18n="cs1_f5_p2">The AI's role isn't to choose. It's to make the user's choices legible. Autonomy only feels real when you can see the road ahead.</p>
-    </div>
-  </div>
+      <!-- ── Feature 03 ── -->
+      <div class="cs-sol-feature" id="cs1-f3">
+        <div class="cs-sol-feature-inner">
+          <div class="cs-sol-feature-text">
+            <div class="feat-n">03</div>
+            <div class="feat-title" data-i18n="cs1_feature3_title">Pre-Trade Intelligence</div>
+            <p class="ssub" style="margin-top:12px;" data-i18n="cs1_f3_goal">Help users act with confidence</p>
+            <p style="font-size:13px;color:var(--muted);line-height:1.75;margin-top:14px;" data-i18n="cs1_feature3_p1">Executing a trade is the highest-stakes moment — and the moment most platforms abandon the user. The standard flow: ticker, quantity, price. What it doesn't tell you: what this does to your risk, diversification, goals.</p>
+            <p style="font-size:13px;color:var(--muted);line-height:1.75;margin-top:10px;" data-i18n="cs1_f3_p2">We designed one step earlier. Before the user commits, the platform surfaces what matters. They can ask — "How will this affect my balance?" — and get a contextual answer tied to their specific situation.</p>
+          </div>
+          <div class="cs-sol-feature-image">
+            <img src="assets/images/case1-pretrade.jpg" alt="Pre-Trade Intelligence — contextual insight before executing" style="border:1px solid var(--border);">
+          </div>
+        </div>
+      </div>
 
-  <div class="dd" style="margin-top:16px;">
-    <span class="dd-tag" data-i18n="cs1_feature5_why_title">Design decision</span>
-    <p class="dd-body" data-i18n-html="cs1_sol_dd_body">In early concepts we explored a <strong>dedicated AI hub</strong> — a separate screen for guidance. Users ignored it. The insight: guidance needs to live where decisions happen. Moving everything inline, to the exact moment of decision, is what made it feel useful.</p>
-  </div>
-</div>
-</div>
-</div>
+      <!-- ── Feature 04 ── -->
+      <div class="cs-sol-feature" id="cs1-f4">
+        <div class="cs-sol-feature-inner cs-sol-feature-inner--reverse">
+          <div class="cs-sol-feature-text">
+            <div class="feat-n">04</div>
+            <div class="feat-title" data-i18n="cs1_feature1_title">Learn by Doing</div>
+            <p class="ssub" style="margin-top:12px;" data-i18n="cs1_f4_goal">Build confidence through action, not instruction</p>
+            <p style="font-size:13px;color:var(--muted);line-height:1.75;margin-top:14px;" data-i18n="cs1_f4_p1">New investors weren't afraid of the platform — they were afraid of themselves. Afraid of making a move that couldn't be undone. The usual response: more education. We tried a different approach.</p>
+            <p style="font-size:13px;color:var(--muted);line-height:1.75;margin-top:10px;" data-i18n="cs1_feature1_p2">The sandbox lets users try a trade, see the exact impact, and decide whether to execute for real. Nothing commits until they say so. Confidence comes from doing, not reading.</p>
+          </div>
+          <div class="cs-sol-feature-image">
+            <img src="assets/images/case1-learnbydoing.jpg" alt="Learn by Doing — sandbox trade simulation" style="border:1px solid var(--border);">
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Feature 05 ── -->
+      <div class="cs-sol-feature" id="cs1-f5">
+        <div class="cs-sol-feature-inner">
+          <div class="cs-sol-feature-text">
+            <div class="feat-n">05</div>
+            <div class="feat-title" data-i18n="cs1_feature2_title">Scenario Exploration</div>
+            <p class="ssub" style="margin-top:12px;" data-i18n="cs1_f5_goal">Shift users from reactive to proactive thinking</p>
+            <p style="font-size:13px;color:var(--muted);line-height:1.75;margin-top:14px;" data-i18n="cs1_feature2_p1">Most investment decisions happen reactively — the market moves, the user panics, they act. The What If? tool breaks that pattern by making consequences visible before a decision becomes urgent.</p>
+            <p style="font-size:13px;color:var(--muted);line-height:1.75;margin-top:10px;" data-i18n="cs1_f5_p2">The AI's role isn't to choose. It's to make the user's choices legible. Autonomy only feels real when you can see the road ahead.</p>
+          </div>
+          <div class="cs-sol-feature-image">
+            <img src="assets/images/case1-stresstest.jpg" alt="Scenario Exploration — What If tool" style="border:1px solid var(--border);">
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /cs-solution-features -->
+  </div><!-- /cs-solution-body -->
+</div><!-- /cs-solution-wrapper -->
 
 <!-- ══════════ 06 ROADMAP ══════════ -->
 <div class="divider"></div>
