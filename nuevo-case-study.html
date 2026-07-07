@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BMO InvestorLine — Case Study</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+
+/* ─── Reset ─── */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', sans-serif;
+  background: #fff;
+  color: #111318;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  line-height: 1;
+}
+
+/* ─── Tokens ─── */
+:root {
+  --blue:      #2457FF;
+  --blue-bg:   rgba(36,87,255,.06);
+  --blue-bd:   rgba(36,87,255,.16);
+  --black:     #111318;
+  --ink:       #1D2023;
+  --muted:     #6B7280;
+  --border:    #E5E7EB;
+  --surface:   #F7F8FA;
+  --yellow:    #E9FEA3;
+  --max:       960px;
+  --px:        48px;
+}
+
+/* ─── Page wrapper ─── */
+.page { max-width: var(--max); margin: 0 auto; padding: 0 var(--px); }
+
+/* ─── NAV ─── */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(255,255,255,.9);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-inner {
+  max-width: var(--max); margin: 0 auto;
+  padding: 0 var(--px); height: 56px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-logo {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 20px; font-weight: 800;
+  letter-spacing: -.03em; color: var(--black);
+}
+.nav-right { display: flex; align-items: center; gap: 24px; }
+.nav-back { font-size: 13px; color: var(--muted); display: flex; align-items: center; gap: 6px; }
+.nav-cta {
+  font-size: 12px; font-weight: 600; letter-spacing: .03em;
+  color: #fff; background: var(--black);
+  padding: 8px 18px; border-radius: 100px;
+}
+
+/* ─── HERO ─── */
+.hero { padding: 80px var(--px) 72px; max-width: var(--max); margin: 0 auto; }
+
+.chips { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 32px; }
+.chip {
+  font-size: 11px; font-weight: 500;
+  letter-spacing: .06em; text-transform: uppercase; color: var(--muted);
+  padding: 5px 14px; border: 1px solid var(--border); border-radius: 100px;
+}
+
+.hero-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 800; font-size: 68px;
+  line-height: 1.04; letter-spacing: -.035em;
+  color: var(--black); max-width: 780px; margin-bottom: 28px;
+}
+.hero-title .blue { color: var(--blue); }
+
+.hero-desc {
+  font-size: 16px; font-weight: 400;
+  line-height: 1.8; color: var(--muted);
+  max-width: 520px; margin-bottom: 48px;
+}
+
+.meta-strip {
+  display: grid; grid-template-columns: repeat(4,1fr);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 20px 0;
+}
+.meta-col { padding-right: 20px; }
+.meta-col + .meta-col { padding-left: 20px; border-left: 1px solid var(--border); }
+.mk { font-size: 10px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 7px; }
+.mv { font-size: 13px; font-weight: 400; color: var(--ink); line-height: 1.5; }
+
+/* Cover placeholder */
+.cover {
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  height: 360px; background: var(--surface);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 6px;
+}
+.cover-hint { font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--border); }
+
+/* ─── Section shell ─── */
+.s { padding: 88px var(--px); max-width: var(--max); margin: 0 auto; }
+.divider { height: 1px; background: var(--border); }
+.bg { background: var(--surface); }
+.bg .s { background: var(--surface); }
+.dark-wrap { background: var(--black); }
+.dark-wrap .s { background: var(--black); }
+
+/* Section label */
+.slabel {
+  font-size: 10px; font-weight: 700;
+  letter-spacing: .14em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 20px;
+  display: flex; align-items: center; gap: 10px;
+}
+.slabel::before { content: ''; width: 16px; height: 1px; background: var(--border); }
+.slabel.light { color: rgba(255,255,255,.3); }
+.slabel.light::before { background: rgba(255,255,255,.15); }
+
+/* Section heading — standalone, full-width */
+.sh {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700; font-size: 40px;
+  line-height: 1.12; letter-spacing: -.025em;
+  color: var(--black); max-width: 640px; margin-bottom: 16px;
+}
+.sh .blue { color: var(--blue); }
+.sh.white { color: #fff; }
+.sh.white .blue { color: var(--yellow); }
+
+/* Section subtext */
+.ssub {
+  font-size: 15px; font-weight: 400;
+  line-height: 1.8; color: var(--muted);
+  max-width: 540px; margin-bottom: 40px;
+}
+
+/* ─── Numbered pain list ─── */
+.pain-list { margin-top: 40px; }
+.pain-item {
+  display: grid; grid-template-columns: 40px 1fr;
+  gap: 0; padding: 18px 0;
+  border-bottom: 1px solid var(--border);
+  align-items: baseline;
+}
+.pain-item:first-child { border-top: 1px solid var(--border); }
+.pn {
+  font-size: 11px; font-weight: 700;
+  color: var(--blue); letter-spacing: .04em;
+}
+.pt { font-size: 15px; font-weight: 400; color: var(--ink); line-height: 1.65; }
+
+/* ─── Pull quote ─── */
+.pull-wrap {
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  background: var(--surface); padding: 72px var(--px);
+}
+.pull-inner { max-width: var(--max); margin: 0 auto; display: flex; gap: 28px; align-items: flex-start; }
+.pull-bar { width: 3px; min-height: 60px; background: var(--blue); border-radius: 2px; flex-shrink: 0; margin-top: 6px; }
+.pull-text {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-style: italic; font-weight: 600;
+  font-size: 26px; line-height: 1.4;
+  letter-spacing: -.015em; color: var(--black);
+  max-width: 620px;
+}
+.pull-text span { color: var(--blue); font-style: normal; }
+
+/* ─── Card ─── */
+.card {
+  background: #fff; border: 1px solid var(--border);
+  border-radius: 12px; padding: 28px;
+}
+.card-dark { background: var(--black); border-radius: 12px; padding: 32px; }
+.card-blue { background: var(--blue-bg); border: 1px solid var(--blue-bd); border-radius: 12px; padding: 24px; }
+
+/* ─── Focus cards (3-col) ─── */
+.grid3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; margin-top: 40px; }
+.fc { padding: 28px; }
+.fc-n { font-size: 11px; font-weight: 700; letter-spacing: .08em; color: var(--blue); margin-bottom: 14px; display: block; }
+.fc-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 17px; font-weight: 700;
+  color: var(--black); line-height: 1.3;
+  letter-spacing: -.01em; margin-bottom: 10px;
+}
+.fc-body { font-size: 13px; font-weight: 400; color: var(--muted); line-height: 1.7; }
+
+/* ─── Approach: steps + card ─── */
+.approach-grid { display: grid; grid-template-columns: 3fr 2fr; gap: 48px; margin-top: 40px; align-items: start; }
+.steps { display: flex; flex-direction: column; }
+.step { display: flex; gap: 14px; padding: 18px 0; border-bottom: 1px solid var(--border); align-items: flex-start; }
+.step:first-child { padding-top: 0; }
+.step:last-child { border-bottom: none; padding-bottom: 0; }
+.step-ico {
+  width: 34px; height: 34px; flex-shrink: 0;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 15px;
+}
+.sn { font-size: 14px; font-weight: 500; color: var(--ink); margin-bottom: 3px; }
+.sd { font-size: 13px; font-weight: 400; color: var(--muted); line-height: 1.55; }
+.callout-tag { font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--yellow); margin-bottom: 14px; display: block; }
+.callout-body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 18px; font-weight: 600;
+  color: #fff; line-height: 1.5; letter-spacing: -.01em;
+}
+
+/* ─── Users: 2-col ─── */
+.users-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 40px; }
+.persona { padding: 28px; }
+.p-init {
+  width: 40px; height: 40px; border-radius: 50%;
+  background: var(--surface); border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 14px; font-weight: 700; color: var(--black);
+  margin-bottom: 16px;
+}
+.p-type { font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--blue); margin-bottom: 4px; }
+.p-name { font-size: 15px; font-weight: 600; color: var(--black); margin-bottom: 4px; }
+.p-sub { font-size: 12px; color: var(--muted); font-style: italic; margin-bottom: 18px; line-height: 1.5; }
+.p-label { font-size: 10px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-top: 16px; margin-bottom: 8px; }
+.dlist { display: flex; flex-direction: column; gap: 8px; }
+.di { font-size: 13px; color: var(--ink); line-height: 1.55; padding-left: 14px; position: relative; }
+.di::before { content: ''; position: absolute; left: 0; top: 8px; width: 4px; height: 4px; border-radius: 50%; background: var(--blue); }
+
+/* Insight row */
+.insight {
+  display: flex; gap: 14px; align-items: flex-start;
+  background: var(--blue-bg); border: 1px solid var(--blue-bd);
+  border-radius: 10px; padding: 18px 22px; margin-top: 14px;
+}
+.ins-tag { font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--blue); white-space: nowrap; padding-top: 2px; flex-shrink: 0; }
+.ins-text { font-size: 14px; color: var(--ink); line-height: 1.7; }
+
+/* Shared need */
+.shared-need {
+  margin-top: 32px; padding-top: 28px;
+  border-top: 1px solid var(--border);
+}
+.sn-label { font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
+.sn-quote {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-style: italic; font-weight: 600;
+  font-size: 20px; line-height: 1.45;
+  letter-spacing: -.01em; color: var(--black); max-width: 580px;
+}
+
+/* ─── Journey ─── */
+.journey {
+  display: grid; grid-template-columns: repeat(5,1fr);
+  border: 1px solid var(--border); border-radius: 12px;
+  overflow: hidden; margin-top: 40px;
+}
+.js {
+  padding: 24px 16px; border-right: 1px solid var(--border);
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+}
+.js:last-child { border-right: none; }
+.je { font-size: 24px; margin-bottom: 10px; }
+.jst { font-size: 9px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+.jl { font-size: 13px; font-weight: 600; color: var(--black); margin-bottom: 8px; line-height: 1.3; }
+.jq { font-size: 11px; color: var(--muted); line-height: 1.55; font-style: italic; }
+
+/* ─── Feature grid 2×2 ─── */
+.feat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 40px; }
+.feat { padding: 28px; }
+.feat-n { font-size: 10px; font-weight: 700; letter-spacing: .1em; color: var(--blue); margin-bottom: 10px; }
+.feat-title { font-size: 15px; font-weight: 600; color: var(--black); margin-bottom: 4px; }
+.feat-goal { font-size: 12px; color: var(--muted); font-style: italic; margin-bottom: 20px; }
+.feat-img {
+  width: 100%; height: 120px;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 8px; display: flex;
+  align-items: center; justify-content: center;
+  font-size: 10px; font-weight: 600;
+  letter-spacing: .08em; text-transform: uppercase;
+  color: var(--border); margin-bottom: 18px;
+}
+
+/* ─── Design decision ─── */
+.dd {
+  display: flex; gap: 20px; align-items: flex-start;
+  background: var(--black); border-radius: 12px;
+  padding: 32px; margin-top: 14px;
+}
+.dd-tag { font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--yellow); white-space: nowrap; flex-shrink: 0; padding-top: 3px; }
+.dd-body { font-size: 14px; color: rgba(255,255,255,.65); line-height: 1.8; }
+.dd-body strong { color: #fff; font-weight: 500; }
+
+/* ─── Roadmap ─── */
+.phase-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; margin-top: 40px; }
+.ph { padding: 28px; }
+.ph-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--border); margin-bottom: 20px; }
+.ph-dot.on { background: var(--blue); }
+.ph-n { font-size: 10px; font-weight: 700; letter-spacing: .1em; color: var(--blue); margin-bottom: 6px; }
+.ph-title { font-size: 15px; font-weight: 600; color: var(--black); margin-bottom: 4px; }
+.ph-focus { font-size: 12px; color: var(--muted); font-style: italic; margin-bottom: 16px; line-height: 1.5; }
+.ph-outcome { font-size: 12px; color: var(--muted); line-height: 1.6; padding-top: 14px; border-top: 1px solid var(--border); margin-top: 14px; }
+.ph-outcome strong { color: var(--black); font-weight: 500; }
+
+/* ─── Metrics ─── */
+.metrics {
+  display: grid; grid-template-columns: repeat(4,1fr);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  margin-top: 48px;
+}
+.metric { padding: 44px 28px; border-right: 1px solid var(--border); text-align: center; }
+.metric:last-child { border-right: none; }
+.m-n {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 56px; font-weight: 800;
+  letter-spacing: -.04em; line-height: 1;
+  color: var(--black); margin-bottom: 10px;
+}
+.m-label { font-size: 12px; color: var(--muted); line-height: 1.55; }
+
+/* ─── Outcome tiles ─── */
+.out-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 36px; }
+.out-tile { display: flex; gap: 12px; align-items: flex-start; padding: 18px; border: 1px solid var(--border); border-radius: 10px; }
+.chk { width: 18px; height: 18px; border-radius: 4px; background: var(--blue-bg); display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; color: var(--blue); flex-shrink: 0; margin-top: 1px; }
+.out-t { font-size: 13px; color: var(--ink); line-height: 1.65; }
+.out-t strong { font-weight: 500; color: var(--black); }
+
+/* ─── Takeaways ─── */
+.tk-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; margin-top: 40px; }
+.tk { padding: 32px 28px; }
+.tk-n {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 60px; font-weight: 800;
+  letter-spacing: -.05em; line-height: 1;
+  color: rgba(36,87,255,.07); margin-bottom: 18px;
+}
+.tk-title { font-size: 15px; font-weight: 600; color: var(--black); margin-bottom: 10px; line-height: 1.4; }
+.tk-body { font-size: 13px; color: var(--muted); line-height: 1.7; }
+
+/* ─── Pills ─── */
+.pills { display: flex; flex-direction: column; gap: 10px; margin-top: 36px; max-width: 560px; }
+.pill { display: flex; align-items: center; gap: 14px; padding: 14px 18px; border: 1px solid var(--border); border-radius: 100px; }
+.pa { width: 24px; height: 24px; background: var(--black); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 11px; flex-shrink: 0; }
+.pt { font-size: 14px; color: var(--ink); line-height: 1.5; }
+
+/* ─── What next: 2-col ─── */
+.next-grid { display: grid; grid-template-columns: 2fr 3fr; gap: 64px; margin-top: 0; align-items: start; }
+
+/* ─── Closing ─── */
+.closing-wrap { background: var(--black); border-top: 1px solid rgba(255,255,255,.06); }
+.closing-sub { font-size: 16px; color: rgba(255,255,255,.4); line-height: 1.75; margin-top: 16px; max-width: 440px; }
+
+/* ─── Footer ─── */
+.footer { border-top: 1px solid var(--border); padding: 28px var(--px); max-width: var(--max); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+.f-link { font-size: 13px; color: var(--muted); display: flex; align-items: center; gap: 10px; }
+.f-logo { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 18px; font-weight: 800; letter-spacing: -.03em; }
+.arr { width: 30px; height: 30px; border-radius: 50%; background: var(--black); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 12px; }
+
+/* Badge */
+.badge { position: fixed; bottom: 20px; right: 20px; z-index: 999; background: var(--black); color: var(--yellow); font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; padding: 8px 14px; border-radius: 100px; }
+
+</style>
+</head>
+<body>
+
+<div class="badge">Mockup Preview</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <span class="nav-logo">D.</span>
+    <div class="nav-right">
+      <a class="nav-back" href="#">← Back to work</a>
+      <a class="nav-cta" href="#">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ══════════ HERO ══════════ -->
+<div class="page">
+<div class="hero">
+  <div class="chips">
+    <span class="chip">Fintech · B2C</span>
+    <span class="chip">UX Strategy</span>
+    <span class="chip">Prototyping</span>
+    <span class="chip">2025–2026</span>
+  </div>
+
+  <h1 class="hero-title">
+    Redesigning Self-Directed Investing<br>
+    with <span class="blue">Guided Decision-Making</span>
+  </h1>
+
+  <p class="hero-desc">
+    BMO InvestorLine gives investors full control — no advisor required. But control without guidance creates friction at the moments that matter most. Over 7 months, I owned Journey 2 (Portfolio Understanding) end-to-end — discovery synthesis, flows, and high-fidelity prototypes — collaborating across all three journeys to keep the experience aligned.
+  </p>
+  <p class="hero-desc" style="margin-top:16px;">
+    Work was divided by journey: UX Designer → Onboarding (J1) · me → Portfolio Understanding (J2) · Lead Designer → Trade (J3). Key J2 concepts were also applied to the empty state — designed for pre-account users to explore the platform before committing.
+  </p>
+
+  <div class="meta-strip">
+    <div class="meta-col"><div class="mk">Role</div><div class="mv">UX Designer<br>Journey 2 — end-to-end</div></div>
+    <div class="meta-col"><div class="mk">Duration</div><div class="mv">5 months<br>Sep 2025 – Apr 2026</div></div>
+    <div class="meta-col"><div class="mk">Team</div><div class="mv">Lead Designer · UX Designer<br>· me (UX Designer)</div></div>
+    <div class="meta-col"><div class="mk">Deliverables</div><div class="mv">Discovery · Flows<br>Prototypes · Handoff</div></div>
+  </div>
+</div>
+</div>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);overflow:hidden;max-height:420px;">
+  <img src="BMO/images case/exports 3/01-Home-Welcome.jpg" style="width:100%;height:420px;object-fit:cover;object-position:top;" alt="BMO InvestorLine — Home">
+  <img src="BMO/images case/exports 3/02-Home-Fund.jpg" style="width:100%;height:420px;object-fit:cover;object-position:top;border-left:1px solid var(--border);" alt="BMO InvestorLine — Fund view">
+</div>
+
+<!-- ══════════ 01 CHALLENGE ══════════ -->
+<div class="divider"></div>
+<div class="page">
+<div class="s">
+  <div class="slabel">01 — The Challenge</div>
+  <h2 class="sh">The real problem wasn't friction. It was <span class="blue">fear.</span></h2>
+  <p class="ssub">Discovery ran two tracks: workshops with stakeholders, and existing research the client shared — interviews with 5 advisors who reported what users told them every time they called for help.</p>
+
+  <div class="card-blue" style="margin-bottom:32px; margin-top:32px;">
+    <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);margin-bottom:12px;">Key research insight</div>
+    <p style="font-size:15px;color:#1D2023;line-height:1.75;">Users weren't calling advisors because they wanted advice. They were calling out of <strong>fear</strong> — afraid to act alone on a platform they didn't understand or trust, afraid of making the wrong financial move. They couldn't find features. They couldn't interpret what they were seeing. When stuck, calling a human was their only option. <em>That's the problem we were actually solving.</em></p>
+  </div>
+
+  <div class="pain-list">
+    <div class="pain-item"><span class="pn">01</span><span class="pt">Portfolio data was fragmented — users couldn't see the full picture</span></div>
+    <div class="pain-item"><span class="pn">02</span><span class="pt">Trades lacked clarity on risk, diversification, and tax impact</span></div>
+    <div class="pain-item"><span class="pn">03</span><span class="pt">Users who completed onboarding didn't know what to do next — the platform handed them control without a map</span></div>
+    <div class="pain-item"><span class="pn">04</span><span class="pt">Educational content existed but was disconnected from real decision moments</span></div>
+    <div class="pain-item"><span class="pn">05</span><span class="pt">Users couldn't tell which insights were actually relevant to their situation</span></div>
+    <div class="pain-item"><span class="pn">06</span><span class="pt">The accumulated friction eroded confidence in trading and portfolio management overall</span></div>
+  </div>
+
+  <div style="margin-top:32px;padding:24px;border-left:3px solid var(--blue);background:var(--blue-bg);border-radius:4px;">
+    <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);margin-bottom:12px;">The existing experience</div>
+    <p style="font-size:14px;color:#1D2023;line-height:1.75;margin-bottom:12px;">The platform had an "advice" section — a panel that monitored preset thresholds and flagged when something crossed the line:</p>
+    <blockquote style="padding:12px 16px;background:rgba(0,0,0,0.04);border-radius:6px;font-style:italic;font-size:14px;color:#1D2023;margin-bottom:12px;">"You have investments with low ratings. Sell investments with a rating of 49 or less."</blockquote>
+    <p style="font-size:13px;color:var(--muted);line-height:1.7;">No context. No connection to who the user was, their goals, or their actual risk capacity. The same alert appeared whether you were a 30-year-old aggressive investor or a 60-year-old retiree. Users saw rules, not reasons.</p>
+  </div>
+</div>
+</div>
+
+<!-- Pull quote -->
+<div class="pull-wrap">
+  <div class="pull-inner">
+    <div class="pull-bar"></div>
+    <p class="pull-text">How might we help users make better financial decisions — <span>without taking control away from them?</span></p>
+  </div>
+</div>
+
+<!-- ══════════ 02 OPPORTUNITY ══════════ -->
+<div class="bg">
+<div class="page">
+<div class="s">
+  <div class="slabel">02 — Framing the Opportunity</div>
+  <h2 class="sh">Users don't want automation. They want <span class="blue">confidence.</span></h2>
+  <p class="ssub">The goal wasn't to build an AI. It was to make the platform feel like it was on the user's side. We started by reframing the platform itself — not as a toolset, but as a guidance system — then focused on three things:</p>
+
+  <div class="grid3">
+    <div class="card fc"><span class="fc-n">01</span><div class="fc-title">Surface the right insight at the right moment</div><div class="fc-body">Contextual guidance woven into the workflow — not buried in a help section</div></div>
+    <div class="card fc"><span class="fc-n">02</span><div class="fc-title">Make consequences visible before users commit</div><div class="fc-body">Show the impact of a decision before they click confirm — not after</div></div>
+    <div class="card fc"><span class="fc-n">03</span><div class="fc-title">Guide without dictating</div><div class="fc-body">Preserve full user autonomy at every step — the system informs, the user decides</div></div>
+  </div>
+
+  <div class="dd" style="margin-top:32px;">
+    <span class="dd-tag">CIRO constraint</span>
+    <p class="dd-body">BMO InvestorLine is a self-directed (order-execution-only) platform. Under CIRO rules, that model exists because the firm doesn't make recommendations — which keeps it exempt from the suitability obligations a full-service advisor carries. <strong>The AI could never tell a user what to do.</strong> The real challenge: surface enough context for a confident decision without ever tipping into advice. Every screen had to guide, never instruct.</p>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- ══════════ 03 APPROACH ══════════ -->
+<div class="divider"></div>
+<div class="page">
+<div class="s">
+  <div class="slabel">03 — Approach</div>
+  <h2 class="sh">Stakeholder alignment was the <span class="blue">hardest part.</span></h2>
+  <p class="ssub">5 months combining research, product definition, and rapid experience design across three journeys.</p>
+
+  <div class="approach-grid">
+    <div class="steps">
+      <div class="step"><div class="step-ico">🗣️</div><div><div class="sn">2-week discovery sprint</div><div class="sd">Workshops + 5 advisor interviews shared by client, reporting user fear and platform distrust</div></div></div>
+      <div class="step"><div class="step-ico">🗺️</div><div><div class="sn">Journey mapping × 3</div><div class="sd">Onboarding, portfolio understanding, trade — found highest-friction decision moments</div></div></div>
+      <div class="step"><div class="step-ico">✏️</div><div><div class="sn">Rapid concept exploration</div><div class="sd">Ideas on paper before committing to pixels — fast iteration across teams</div></div></div>
+      <div class="step"><div class="step-ico">🔬</div><div><div class="sn">Usability testing</div><div class="sd">Validated design direction before going high-fidelity</div></div></div>
+      <div class="step"><div class="step-ico">⚖️</div><div><div class="sn">3 experience principles</div><div class="sd">Kept design decisions consistent across all three journeys</div></div></div>
+    </div>
+    <div class="card-dark">
+      <span class="callout-tag">Key insight from discovery</span>
+      <p class="callout-body">The existing "advice" functionality wasn't advice — it was threshold monitoring. No awareness of who the user was or what they were trying to achieve. <strong style="color:#E9FEA3;">Design foundation for J2: stop monitoring thresholds, start connecting to the person.</strong></p>
+    </div>
+  </div>
+
+  <div style="margin-top:40px;">
+    <div style="font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:20px;display:flex;align-items:center;gap:10px;"><span style="width:16px;height:1px;background:var(--border);display:inline-block;"></span>Designing for trust — 4 tensions every screen had to navigate</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+      <div class="card" style="padding:20px;"><div style="font-size:11px;font-weight:700;color:var(--blue);margin-bottom:8px;">Trust vs. Automation</div><p style="font-size:13px;color:var(--muted);line-height:1.65;">Users needed to feel supported, not overridden. Every AI insight had to preserve their sense of control.</p></div>
+      <div class="card" style="padding:20px;"><div style="font-size:11px;font-weight:700;color:var(--blue);margin-bottom:8px;">Simplicity vs. Accuracy</div><p style="font-size:13px;color:var(--muted);line-height:1.65;">Financial data is complex. We simplified explanations without losing meaning.</p></div>
+      <div class="card" style="padding:20px;"><div style="font-size:11px;font-weight:700;color:var(--blue);margin-bottom:8px;">Timing of Intervention</div><p style="font-size:13px;color:var(--muted);line-height:1.65;">Guidance needed to appear at moments of uncertainty, not constantly — or it would feel intrusive, not helpful.</p></div>
+      <div class="card" style="padding:20px;"><div style="font-size:11px;font-weight:700;color:var(--blue);margin-bottom:8px;">Explainability</div><p style="font-size:13px;color:var(--muted);line-height:1.65;">Every AI-generated insight had to be transparent and grounded in data. Black-box answers break trust in a financial context.</p></div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ══════════ 04 USERS ══════════ -->
+<div class="divider"></div>
+<div class="bg">
+<div class="page">
+<div class="s">
+  <div class="slabel">04 — Users</div>
+  <h2 class="sh">Two profiles. One shared need.</h2>
+  <p class="ssub">BMO defined two audiences. I mapped their shared needs and the tensions between them — they drove every design decision.</p>
+
+  <div class="users-grid">
+    <div class="card persona">
+      <div class="p-init">EW</div>
+      <div class="p-type">Profile 01</div>
+      <div class="p-name">Experienced wealth investors</div>
+      <div class="p-sub">Baby boomers managing significant household assets</div>
+      <div class="p-label">Goals</div>
+      <div class="dlist">
+        <div class="di">Full portfolio visibility and fast access to insights</div>
+        <div class="di">Maintain control — no hand-holding</div>
+        <div class="di">Confidence managing significant assets independently</div>
+      </div>
+      <div class="p-label">Frustrations</div>
+      <div class="dlist">
+        <div class="di">Guidance that feels patronizing or redundant</div>
+        <div class="di">Fragmented data across multiple views</div>
+      </div>
+    </div>
+    <div class="card persona">
+      <div class="p-init">NI</div>
+      <div class="p-type">Profile 02</div>
+      <div class="p-name">Next-gen digital investors</div>
+      <div class="p-sub">Digital natives inheriting or building their own wealth</div>
+      <div class="p-label">Goals</div>
+      <div class="dlist">
+        <div class="di">Intuitive, self-service experience</div>
+        <div class="di">Build confidence without calling an advisor</div>
+        <div class="di">Understand the impact of decisions before making them</div>
+      </div>
+      <div class="p-label">Frustrations</div>
+      <div class="dlist">
+        <div class="di">Fear of making the wrong financial move</div>
+        <div class="di">Guidance buried where it doesn't help</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="insight">
+    <span class="ins-tag">Design tension</span>
+    <span class="ins-text">Advanced users risk being patronized by too much guidance. Newer users get lost without it. The design had to work for both — helpful when needed, invisible when not.</span>
+  </div>
+
+  <div class="shared-need">
+    <div class="sn-label">Shared need</div>
+    <p class="sn-quote">"Understand what's happening in my portfolio, know what to do next, and feel confident enough to act — without calling an advisor."</p>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- ══════════ JOURNEY ══════════ -->
+<div class="divider"></div>
+<div class="page">
+<div class="s">
+  <div class="slabel">User Journey</div>
+  <h2 class="sh">From anxiety to confidence — by design.</h2>
+  <p class="ssub">We mapped the emotional arc to find where trust breaks down and where guidance has the most impact.</p>
+
+  <div class="journey">
+    <div class="js"><div class="je">😰</div><div class="jst">Arriving</div><div class="jl">Lost in data</div><div class="jq">"I see the numbers but not what they mean."</div></div>
+    <div class="js"><div class="je">🤔</div><div class="jst">Exploring</div><div class="jl">Searching</div><div class="jq">"I found an insight but I'm not sure it applies to me."</div></div>
+    <div class="js"><div class="je">😬</div><div class="jst">Deciding</div><div class="jl">High stakes</div><div class="jq">"I want to trade but don't know what happens if I do."</div></div>
+    <div class="js"><div class="je">😌</div><div class="jst">Understanding</div><div class="jl">Clarity</div><div class="jq">"I can see exactly what this does to my portfolio."</div></div>
+    <div class="js"><div class="je">😊</div><div class="jst">Confident</div><div class="jl">In control</div><div class="jq">"I made the decision myself — and I knew why."</div></div>
+  </div>
+</div>
+</div>
+
+<!-- ══════════ 05 SOLUTION ══════════ -->
+<div class="divider"></div>
+<div class="bg">
+<div class="page">
+<div class="s">
+  <div class="slabel">05 — The Solution</div>
+  <h2 class="sh">Not a chatbot. A guidance layer woven into the <span class="blue">moments that matter.</span></h2>
+  <p class="ssub">Every design decision came back to one question: does this help users understand what's happening and act with confidence?</p>
+
+  <!-- Feature 01 — Portfolio Understanding -->
+  <div style="margin-bottom:40px;padding-bottom:40px;border-bottom:1px solid var(--border);">
+    <div class="feat-n" style="margin-bottom:8px;">01</div>
+    <h3 style="font-family:'Plus Jakarta Sans',sans-serif;font-size:22px;font-weight:700;letter-spacing:-.02em;color:var(--black);margin-bottom:6px;">Portfolio Understanding</h3>
+    <div class="feat-goal" style="margin-bottom:20px;">Turn confusion into clarity.</div>
+    <img src="BMO/images case/exports 3/09-Portfolio-Health-after.jpg" style="width:100%;border-radius:8px;margin-bottom:18px;display:block;" alt="Portfolio Health — After">
+    <p style="font-size:14px;color:var(--muted);line-height:1.8;margin-top:16px;">Users frequently check their portfolio but struggle to interpret what they see. Raw numbers don't answer the question they're actually asking: <em>"Why did my portfolio move?"</em></p>
+    <p style="font-size:14px;color:var(--muted);line-height:1.8;margin-top:12px;">We introduced AI-generated explanations that answer it directly — summarizing performance in plain language, highlighting key drivers like market trends and specific holdings, and letting users drill down at their own pace. Instead of raw data, the platform delivers <strong style="color:var(--black);">narrative insight</strong> — helping users learn while they invest.</p>
+    <p style="font-size:14px;color:var(--muted);line-height:1.8;margin-top:12px;">We extended this into benchmarking: users compare their portfolio against a BMO model matched to their risk profile, and immediately see what's different and why. The platform then invites, never instructs: <em>"Would you like to see what applying this model would look like?"</em></p>
+    <div class="dd" style="margin-top:20px;">
+      <span class="dd-tag">Design decision</span>
+      <p class="dd-body">The existing advice panel evaluated portfolios against static thresholds — it could tell you your rating was too low, but not what that meant for <strong>your</strong> goals or risk capacity. The shift: connect portfolio health to who the user is and what they're trying to achieve, not just to preset rules. A narrative before a decision is more valuable than more data.</p>
+    </div>
+  </div>
+
+  <!-- Before / After -->
+  <div style="margin-bottom:40px;padding-bottom:40px;border-bottom:1px solid var(--border);">
+    <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:24px;">Before / After — From Threshold Monitoring to Goal-Linked Guidance</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start;">
+
+      <!-- BEFORE -->
+      <div>
+        <div style="font-size:11px;font-weight:700;color:#ef4444;margin-bottom:12px;text-transform:uppercase;letter-spacing:.06em;">Before: The advice panel</div>
+        <p style="font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:16px;">A dedicated section that flagged when allocations crossed preset thresholds. Same logic for every user regardless of goals, timeline, or risk profile.</p>
+        <img src="BMO/images case/exports 3/10-Asset-Allocation-before.jpg" style="width:100%;border-radius:12px;border:1px solid #fecaca;display:block;" alt="Before: Asset Allocation advice panel">
+        <div style="margin-top:12px;padding:10px;background:rgba(239,68,68,.04);border:1px solid rgba(239,68,68,.12);border-radius:6px;">
+          <div style="font-size:10px;color:#ef4444;font-weight:600;margin-bottom:4px;">The problem</div>
+          <div style="font-size:11px;color:var(--muted);line-height:1.6;">Tells users their allocation is wrong. Doesn't explain what that means for their goals, when it matters, or what the consequence of inaction is.</div>
+        </div>
+      </div>
+
+      <!-- AFTER -->
+      <div>
+        <div style="font-size:11px;font-weight:700;color:var(--blue);margin-bottom:12px;text-transform:uppercase;letter-spacing:.06em;">After: Goal-linked guidance</div>
+        <p style="font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:16px;">Portfolio health connected to who the user is — their goal, timeline, and risk profile. The platform explains what the gap means, not just that it exists.</p>
+        <img src="BMO/images case/exports 3/09-Portfolio-Health-after.jpg" style="width:100%;border-radius:12px;border:1px solid var(--blue-bd);display:block;" alt="After: Portfolio Health redesign">
+        <div style="margin-top:12px;padding:10px;background:var(--blue-bg);border:1px solid var(--blue-bd);border-radius:6px;">
+          <div style="font-size:10px;color:var(--blue);font-weight:600;margin-bottom:4px;">The shift</div>
+          <div style="font-size:11px;color:var(--muted);line-height:1.6;">Same data. Different frame. The platform now explains what the gap means for <em>this user's</em> specific goal — and opens a path forward instead of a dead end.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Features 02–05 -->
+  <div class="feat-grid">
+    <div class="card feat">
+      <div class="feat-n">02</div>
+      <div class="feat-title">Embedded AI Assistant</div>
+      <div class="feat-goal">Always available, never intrusive</div>
+      <img src="BMO/images case/exports 3/03-Mobile-AI-Chat.jpg" style="width:100%;border-radius:8px;margin-bottom:18px;display:block;" alt="Embedded AI Assistant">
+      <p style="font-size:13px;color:var(--muted);line-height:1.7;margin-top:12px;">In early concepts we designed a dedicated AI hub — a separate screen for guidance. In usability testing, users ignored it. They weren't looking for a separate destination; they expected help to appear exactly where they were making a decision.</p>
+      <p style="font-size:13px;color:var(--muted);line-height:1.7;margin-top:10px;">So we moved guidance inline. AI became part of the experience itself — explaining decisions in plain language, answering questions in context, surfacing what's most relevant. The reasoning behind every insight is visible, not hidden.</p>
+    </div>
+    <div class="card feat">
+      <div class="feat-n">03</div>
+      <div class="feat-title">Pre-Trade Intelligence</div>
+      <div class="feat-goal">Help users act with confidence</div>
+      <img src="BMO/images case/exports 3/05-Pretrade-Review.jpg" style="width:100%;border-radius:8px;margin-bottom:18px;display:block;" alt="Pre-Trade Intelligence">
+      <p style="font-size:13px;color:var(--muted);line-height:1.7;margin-top:12px;">Executing a trade is the highest-stakes moment — and the moment most platforms abandon the user. The standard flow: ticker, quantity, price. What it doesn't tell you: what this does to your risk, diversification, goals.</p>
+      <p style="font-size:13px;color:var(--muted);line-height:1.7;margin-top:10px;">We designed one step earlier. Before the user commits, the platform surfaces what matters. They can ask — "How will this affect my balance?" — and get a contextual answer tied to their specific situation.</p>
+    </div>
+    <div class="card feat">
+      <div class="feat-n">04</div>
+      <div class="feat-title">Learn by Doing</div>
+      <div class="feat-goal">Build confidence through action, not instruction</div>
+      <img src="BMO/images case/exports 3/07-Sandbox-Trial.jpg" style="width:100%;border-radius:8px;margin-bottom:18px;display:block;" alt="Learn by Doing">
+      <p style="font-size:13px;color:var(--muted);line-height:1.7;margin-top:12px;">New investors weren't afraid of the platform — they were afraid of themselves. Afraid of making a move that couldn't be undone. The usual response: more education. We tried a different approach.</p>
+      <p style="font-size:13px;color:var(--muted);line-height:1.7;margin-top:10px;">The sandbox lets users try a trade, see the exact impact, and decide whether to execute for real. Nothing commits until they say so. Confidence comes from doing, not reading.</p>
+    </div>
+    <div class="card feat">
+      <div class="feat-n">05</div>
+      <div class="feat-title">Scenario Exploration</div>
+      <div class="feat-goal">Shift users from reactive to proactive thinking</div>
+      <img src="BMO/images case/exports 3/06-Stress-Test.jpg" style="width:100%;border-radius:8px;margin-bottom:18px;display:block;" alt="Scenario Exploration">
+      <p style="font-size:13px;color:var(--muted);line-height:1.7;margin-top:12px;">Most investment decisions happen reactively — the market moves, the user panics, they act. The What If? tool breaks that pattern by making consequences visible before a decision becomes urgent.</p>
+      <p style="font-size:13px;color:var(--muted);line-height:1.7;margin-top:10px;">The AI's role isn't to choose. It's to make the user's choices legible. Autonomy only feels real when you can see the road ahead.</p>
+    </div>
+  </div>
+
+  <div class="dd" style="margin-top:16px;">
+    <span class="dd-tag">Design decision</span>
+    <p class="dd-body">In early concepts we explored a <strong>dedicated AI hub</strong> — a separate screen for guidance. Users ignored it. The insight: guidance needs to live where decisions happen. Moving everything inline, to the exact moment of decision, is what made it feel useful.</p>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- ══════════ 06 ROADMAP ══════════ -->
+<div class="divider"></div>
+<div class="page">
+<div class="s">
+  <div class="slabel">06 — Roadmap & MVP Definition</div>
+  <h2 class="sh">From vision to a phased build.</h2>
+  <p class="ssub">Rather than launching everything at once, we defined a progressive rollout — clarity first, then decision support, then personalization.</p>
+
+  <div class="phase-grid">
+    <div class="card ph"><div class="ph-dot on"></div><div class="ph-n">Phase 01</div><div class="ph-title">Clarity First</div><div class="ph-focus">Give users a clear picture of where they stand</div><div class="dlist"><div class="di">Portfolio health — allocation, diversification, risk</div><div class="di">Plain-language performance explanations</div><div class="di">Contextual prompts introducing guidance</div></div><div class="ph-outcome"><strong>Outcome:</strong> Users understand their portfolio without calling an advisor.</div></div>
+    <div class="card ph"><div class="ph-dot"></div><div class="ph-n">Phase 02</div><div class="ph-title">Decision Support</div><div class="ph-focus">Support high-stakes moments in the flow</div><div class="dlist"><div class="di">Pre-trade insights — risk, diversification, goals</div><div class="di">Scenario exploration — "what happens if I proceed?"</div><div class="di">Guided flows for portfolio adjustments</div></div><div class="ph-outcome"><strong>Outcome:</strong> Users move from uncertainty to informed action.</div></div>
+    <div class="card ph"><div class="ph-dot"></div><div class="ph-n">Phase 03</div><div class="ph-title">Proactive Guidance</div><div class="ph-focus">Anticipate needs and personalize over time</div><div class="dlist"><div class="di">Smart alerts tied to portfolio health and market events</div><div class="di">Personalized recommendations based on behavior</div><div class="di">An assistant that evolves with the user</div></div><div class="ph-outcome"><strong>Outcome:</strong> Platform shifts from reactive tool to proactive partner.</div></div>
+  </div>
+</div>
+</div>
+
+<!-- ══════════ 07 OUTCOMES ══════════ -->
+<div class="divider"></div>
+<div class="bg">
+<div class="page">
+<div class="s">
+  <div class="slabel">07 — Outcomes</div>
+  <h2 class="sh">Three journeys designed. One shipped, <span class="blue">all applied.</span></h2>
+  <p class="ssub">The engagement ended with a pivot: Journey 1 (Onboarding) was selected by the client for development and delivered for implementation. Journeys 2 and 3 weren't shelved — their concepts were applied to the empty state experience, the design for users who haven't yet opened an account.</p>
+
+  <div class="metrics">
+    <div class="metric"><div class="m-n">3</div><div class="m-label">Journeys designed<br>end-to-end</div></div>
+    <div class="metric"><div class="m-n">1</div><div class="m-label">Journey selected<br>for implementation</div></div>
+    <div class="metric"><div class="m-n">5</div><div class="m-label">Features designed<br>end-to-end</div></div>
+    <div class="metric"><div class="m-n">3</div><div class="m-label">Stakeholders aligned<br>across product + eng</div></div>
+  </div>
+
+  <!-- Empty state callout -->
+  <div class="card-blue" style="margin:32px 0;padding:24px 28px;">
+    <div style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--blue);margin-bottom:10px;">The empty state</div>
+    <p style="font-size:14px;color:var(--ink);line-height:1.75;margin:0;">A design for users who haven't yet opened an account — to let them explore the platform before committing. Journey 2 and Journey 3 concepts (portfolio understanding, pre-trade intelligence, scenario exploration) were applied here, giving the experience depth even before a real portfolio exists.</p>
+  </div>
+
+  <div class="out-grid">
+    <div class="out-tile"><div class="chk">✓</div><div class="out-t"><strong>Owned Journey 2 end-to-end</strong> — redesigned how the platform communicates portfolio health, from threshold warnings to goal-linked guidance</div></div>
+    <div class="out-tile"><div class="chk">✓</div><div class="out-t"><strong>Journey 1 selected for implementation</strong> — Onboarding journey delivered to the client and chosen for development</div></div>
+    <div class="out-tile"><div class="chk">✓</div><div class="out-t"><strong>J2 + J3 concepts applied to the empty state</strong> — portfolio understanding and scenario exploration extended to pre-account users</div></div>
+    <div class="out-tile"><div class="chk">✓</div><div class="out-t"><strong>3 stakeholders aligned</strong> across product, engineering, and business on a shared north star</div></div>
+    <div class="out-tile"><div class="chk">✓</div><div class="out-t"><strong>High-fidelity prototypes</strong> for all 3 journeys, tested and iterated with users</div></div>
+    <div class="out-tile"><div class="chk">✓</div><div class="out-t"><strong>Phased roadmap</strong> — from near-term J1 delivery to longer-term personalization</div></div>
+    <div class="out-tile"><div class="chk">✓</div><div class="out-t"><strong>Handoff package</strong> delivered for next-stage implementation</div></div>
+    <div class="out-tile"><div class="chk">✓</div><div class="out-t"><strong>Experience concepts linked to KPIs</strong> — NPS, CSAT, trade volume, and guidance engagement defined as success measures</div></div>
+    <div class="out-tile"><div class="chk">✓</div><div class="out-t"><strong>Reusable design patterns</strong> for guided decision-making that scale across the platform</div></div>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- ══════════ LEARNINGS ══════════ -->
+<div class="divider"></div>
+<div class="page">
+<div class="s">
+  <div class="slabel">Learnings</div>
+  <h2 class="sh">What I took away.</h2>
+
+  <div class="tk-grid">
+    <div class="card tk"><div class="tk-n">01</div><div class="tk-title">Stakeholder alignment is a design problem too</div><div class="tk-body">Prototypes weren't just deliverables — they were the main tool for getting everyone on the same page.</div></div>
+    <div class="card tk"><div class="tk-n">02</div><div class="tk-title">Embed AI, don't centralize it</div><div class="tk-body">A dedicated AI screen gets ignored. Context matters more than capability. Guidance needs to live where decisions happen.</div></div>
+    <div class="card tk"><div class="tk-n">03</div><div class="tk-title">Confidence is a design outcome</div><div class="tk-body">In financial UX, a user who understands what's happening is more valuable than one who has every data point.</div></div>
+  </div>
+</div>
+</div>
+
+<!-- ══════════ WHAT NEXT ══════════ -->
+<div class="divider"></div>
+<div class="bg">
+<div class="page">
+<div class="s">
+  <div class="next-grid">
+    <div>
+      <div class="slabel">What I'd Improve Next</div>
+      <h2 class="sh" style="margin-bottom:0;">Given more time, here's where I'd go.</h2>
+    </div>
+    <div class="pills" style="margin-top:48px;">
+      <div class="pill"><div class="pa">→</div><span class="pt">Run longitudinal studies to measure real impact on confidence and trade behavior</span></div>
+      <div class="pill"><div class="pa">→</div><span class="pt">Add user-controlled guidance levels — research showed people want different amounts of help</span></div>
+      <div class="pill"><div class="pa">→</div><span class="pt">Give the onboarding journey another concept testing round — it needed more time</span></div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- ══════════ CLOSING ══════════ -->
+<div class="closing-wrap">
+<div class="page">
+<div class="s">
+  <div class="slabel light">Closing thought</div>
+  <h2 class="sh white">Designing for financial decisions isn't just about usability — it's about <span class="blue">responsibility.</span></h2>
+  <p class="closing-sub">The goal isn't to make decisions for users, but to help them make better ones.</p>
+</div>
+</div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <span class="f-link"><div class="arr">←</div> Back to work</span>
+  <span class="f-logo">D.</span>
+  <span class="f-link">02 — Customer Support Tool <div class="arr">→</div></span>
+</div>
+
+</body>
+</html>
