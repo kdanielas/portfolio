@@ -4263,17 +4263,18 @@ img {
   align-items: center;
   text-decoration: none;
   color: inherit;
-  background-color: #EEE9F8;
+  background-color: #FFFFFF;
   border-radius: 20px;
   padding: 64px;
   transition: transform 0.45s var(--ease-out-expo), box-shadow 0.45s var(--ease-smooth);
   cursor: pointer;
-  border: 1px solid rgba(99, 102, 241, 0.08);
+  border: 1px solid rgba(16, 18, 23, 0.06);
+  box-shadow: 0 2px 12px rgba(16, 18, 23, 0.03);
 }
 
 .case-study-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 20px 60px rgba(99, 102, 241, 0.1), 0 4px 16px rgba(16, 18, 23, 0.05);
+  box-shadow: 0 20px 60px rgba(16, 18, 23, 0.08), 0 4px 16px rgba(16, 18, 23, 0.04);
 }
 
 .case-study-content {
