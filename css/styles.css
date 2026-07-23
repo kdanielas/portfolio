@@ -4470,6 +4470,7 @@ img {
   .case-study-card {
     grid-template-columns: 1fr;
     gap: 40px;
+    padding: 48px;
   }
   
   .about-section {
@@ -4483,6 +4484,7 @@ img {
 
   .cs-hero-content {
     flex-direction: column;
+    gap: 48px;
   }
   
   .cs-hero-meta-col {
@@ -4498,6 +4500,15 @@ img {
 }
 
 @media (max-width: 768px) {
+  .cs-hero {
+    min-height: auto;
+    padding-top: 64px;
+  }
+  
+  .cs-hero-content {
+    gap: 32px;
+  }
+
   .cs-hero-meta-col {
     flex-direction: column;
   }
@@ -4505,7 +4516,25 @@ img {
   .cs-hero-meta-section {
     flex: 1 1 100%;
   }
+
+  .case-studies-section {
+    padding: 48px var(--h-pad) 64px;
+    gap: 48px;
+  }
+
+  .case-study-card {
+    padding: 32px;
+    gap: 32px;
+  }
   
+  .case-study-content .heading-h2 {
+    font-size: 28px;
+  }
+  
+  .about-section {
+    padding: 48px var(--h-pad);
+  }
+
   .footer-title {
     font-size: 32px;
   }
@@ -4877,3 +4906,111 @@ nav {
 
 /* Badge */
 .badge { position: fixed; bottom: 20px; right: 20px; z-index: 999; background: var(--black); color: var(--yellow); font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; padding: 8px 14px; border-radius: 100px; }
+
+/* ===== NEW CASE STUDY RESPONSIVENESS ===== */
+@media (max-width: 1024px) {
+  .hero {
+    padding: 60px 40px 0 0;
+  }
+  .meta-strip {
+    grid-template-columns: 1fr 1fr;
+    row-gap: 24px;
+  }
+  .meta-col + .meta-col {
+    padding-left: 0;
+    border-left: none;
+  }
+  .meta-col:nth-child(even) {
+    padding-left: 20px;
+    border-left: 1px solid var(--border);
+  }
+  .meta-col:nth-child(odd) {
+    padding-right: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --px: 24px;
+  }
+  
+  .hero {
+    padding: 40px 0 0 0;
+  }
+  
+  .hero-title {
+    font-size: 40px;
+    margin-bottom: 24px;
+  }
+  
+  .sh {
+    font-size: 28px;
+    margin-bottom: 16px;
+  }
+  
+  .pull-text {
+    font-size: 22px;
+  }
+  
+  .meta-strip {
+    grid-template-columns: 1fr;
+    row-gap: 20px;
+  }
+  
+  .meta-col:nth-child(n) {
+    padding-left: 0;
+    padding-right: 0;
+    border-left: none;
+    border-right: none;
+  }
+  
+  .meta-col + .meta-col {
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+  }
+
+  .grid3, .approach-grid, .users-grid, .journey, .feat-grid, .phase-grid, .out-grid, .tk-grid, .next-grid, 
+  [style*="grid-template-columns: 1fr 1fr"], 
+  [style*="grid-template-columns:1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  .dd, .insight {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .js {
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+    padding: 24px 0;
+  }
+  .js:last-child {
+    border-bottom: none;
+  }
+  
+  .metrics {
+    grid-template-columns: 1fr 1fr;
+  }
+  .metric {
+    padding: 24px 16px;
+    border-bottom: 1px solid var(--border);
+  }
+  .metric:nth-child(3), .metric:nth-child(4) {
+    border-bottom: none;
+  }
+  .metric:nth-child(even) {
+    border-right: none;
+  }
+  
+  .s {
+    padding: 48px 0;
+  }
+  .pull-wrap {
+    padding: 48px 0;
+  }
+  
+  .footer {
+    padding: 28px var(--px);
+  }
+}
