@@ -9,7 +9,8 @@
     content="UX/UI Designer creating meaningful digital experiences through design and research. Explore my portfolio of case studies.">
   <link rel="stylesheet" href="css/styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" rel="stylesheet" />
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32.png">
+  <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@100..700&family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Cookie&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Google+Sans+Flex:opsz,wght@6..144,1..1000&family=Instrument+Serif:ital@0;1&family=Kablammo&family=Libertinus+Sans:ital,wght@0,400;0,700;1,400&family=Lobster&family=Nata+Sans:wght@100..900&family=Parisienne&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Sirivennela&family=Sofia&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="./assets/images/favicon.png">
 
 </head>
 
@@ -18,7 +19,7 @@
   <nav class="top-nav" id="top-nav">
     <div class="top-nav-inner">
       <!-- Logo -->
-      <a href="index.html" class="top-nav-logo">D.</a>
+      <a href="index.html" class="top-nav-logo">Daniela.</a>
 
       <!-- Center: Case study links -->
       <div class="top-nav-links">
@@ -67,73 +68,79 @@
   <div class="page-wrapper">
     <!-- Main Content -->
     <main class="main-content" id="welcome-main">
-      <div class="cs-hero">
-        <!-- Gradient ellipses -->
-        <div class="gradient-ellipse gradient-ellipse-1"></div>
-        <div class="gradient-ellipse gradient-ellipse-2"></div>
-
-        <div class="cs-hero-content">
-          <div class="cs-hero-title-col">
-            <!-- Editorial label with line prefix -->
-            <div class="welcome-label-row" data-reveal data-reveal-delay="0">
-              <span class="welcome-label-line"></span>
-              <span class="welcome-label" data-i18n="welcome_label">HI, I AM DANIELA :)</span>
-            </div>
-            <!-- Hero title -->
-            <h1 class="heading-hero" data-reveal data-reveal-delay="100"> <span data-i18n="welcome_hero_h1">I design digital experiences driven by </span><span class="hero-accent" data-i18n="welcome_hero_h12">strategy, business and human needs.</span></h1>
-
-            <!-- CTA group -->
-            <div class="welcome-cta-group" data-reveal data-reveal-delay="200">
-              <p class="text-body" data-i18n="welcome_cta_text">Product Designer with 6+ years shaping complex B2B and fintech products — from AI-powered investment tools to operational dashboards used under real-time pressure. Bridging business strategy, user needs, and technical feasibility through close collaboration with PMs and engineers.</p>
-              <div class="hero-scroll-link-container">
-                <a href="#case-studies" class="hero-scroll-link">
-                  <span data-i18n="welcome_scroll_link">See Case Studies</span>
-                  <span class="material-symbols-rounded arrow-bounce">arrow_downward</span>
-                </a>
-              </div>
-            </div>
+      <div class="new-hero">
+        <div class="new-hero-inner" id="hero-parallax">
+          <div class="hero-badge-row" data-reveal data-reveal-delay="0">
+            <span class="hero-badge-dot"></span>
+            <span class="hero-badge-text" data-i18n="hero_badge">Available for work</span>
           </div>
-          <div class="cs-hero-meta-col" data-reveal data-reveal-delay="300">
-            <div class="cs-hero-meta-section">
-              <p class="cs-hero-meta-label" data-i18n="welcome_skills">SKILLS</p>
-              <ul class="cs-hero-meta-list">
-                <li>
-                  <span class="skill-title" data-i18n="welcome_skill1_title">Product</span>
-                  <span class="skill-desc" data-i18n="welcome_skill1">Figma, Design Systems, Wireframing, Prototyping, Information Architecture, Accessibility</span>
-                </li>
-                <li>
-                  <span class="skill-title" data-i18n="welcome_skill2_title">Research</span>
-                  <span class="skill-desc" data-i18n="welcome_skill2">User Interviews, Usability Testing, Journey Mapping, Sitemaps, User Flows</span>
-                </li>
-                <li>
-                  <span class="skill-title" data-i18n="welcome_skill3_title">Technical</span>
-                  <span class="skill-desc" data-i18n="welcome_skill3">HTML, CSS, JavaScript</span>
-                </li>
-                <li>
-                  <span class="skill-title" data-i18n="welcome_skill4_title">AI</span>
-                  <span class="skill-desc" data-i18n="welcome_skill4">ChatGPT, Claude, Lovable</span>
-                </li>
-
-              </ul>
-            </div>
-            <div class="cs-hero-meta-section">
-              <p data-i18n="welcome_languages" class="cs-hero-meta-label">LANGUAGES</p>
-              <p data-i18n="welcome_language1" class="cs-hero-meta-text">Spanish - Native</p>
-              <p data-i18n="welcome_language2" class="cs-hero-meta-text">English - Professional</p>
-            </div>
-          </div>
+          <h1 class="hero-greeting" data-reveal data-reveal-delay="100" data-i18n="welcome_greeting">Hello, I am Daniela
+          </h1>
+          <p class="hero-tagline" data-reveal data-reveal-delay="200" data-i18n="hero_tagline">Product Designer · 6+
+            years · Fintech &amp; B2B SaaS</p>
         </div>
       </div>
 
+      <section class="intro-cover" data-reveal>
+        <div class="intro-inner">
+          <h2 class="intro-heading"><span data-i18n="welcome_hero_h1">I design digital experiences driven by
+            </span><span class="hero-accent" data-i18n="welcome_hero_h12">strategy, business and human needs.</span>
+          </h2>
+          <p class="text-body" data-i18n="welcome_cta_text">Product Designer with 6+ years shaping complex B2B and
+            fintech products — from AI-powered investment tools to operational dashboards used under real-time pressure.
+            Bridging business strategy, user needs, and technical feasibility through close collaboration with PMs and
+            engineers.</p>
+          <div class="hero-scroll-link-container">
+            <a href="#case-studies" class="hero-scroll-link">
+              <span data-i18n="welcome_scroll_link">See Case Studies</span>
+              <span class="material-symbols-rounded arrow-bounce">arrow_downward</span>
+            </a>
+          </div>
+        </div>
+        <div class="marquee-wrap">
+          <div class="marquee-fade left"></div>
+          <div class="marquee-fade right"></div>
+          <div class="marquee-track">
+            <span class="marquee-chip">Prototyping</span>
+            <span class="marquee-chip">Information Architecture</span>
+            <span class="marquee-chip">Accessibility</span>
+            <span class="marquee-chip">User Research</span>
+            <span class="marquee-chip">Journey Mapping</span>
+            <span class="marquee-chip">Design Tokens</span>
+            <span class="marquee-chip">Usability Testing</span>
+            <span class="marquee-chip">Figma</span>
+            <span class="marquee-chip">Design Systems</span>
+            <span class="marquee-chip" aria-hidden="true">Prototyping</span>
+            <span class="marquee-chip" aria-hidden="true">Information Architecture</span>
+            <span class="marquee-chip" aria-hidden="true">Accessibility</span>
+            <span class="marquee-chip" aria-hidden="true">User Research</span>
+            <span class="marquee-chip" aria-hidden="true">Journey Mapping</span>
+            <span class="marquee-chip" aria-hidden="true">Design Tokens</span>
+            <span class="marquee-chip" aria-hidden="true">Usability Testing</span>
+            <span class="marquee-chip" aria-hidden="true">Figma</span>
+            <span class="marquee-chip" aria-hidden="true">Design Systems</span>
+          </div>
+        </div>
+      </section>
+
       <!-- CASE STUDIES SECTION -->
       <section id="case-studies" class="case-studies-section">
-        
+
+        <!-- Sticky number rail — lights up the active case study on scroll -->
+        <div class="work-nums-fixed">
+          <div class="work-nums-inner">
+            <div class="work-num" data-idx="0">01</div>
+            <div class="work-num" data-idx="1">02</div>
+            <div class="work-num" data-idx="2">03</div>
+          </div>
+        </div>
+
         <!-- Case Study 1 -->
         <a href="case-study-1.html" class="case-study-card" data-reveal>
           <div class="case-study-content">
             <div class="cs-label-row">
               <span class="cs-label-line"></span>
-              <span class="cs-label" data-i18n="cs1_label">Case study</span>
+              <span class="cs-label"><span data-i18n="cs1_label">Case study</span> 01</span>
             </div>
             <h2 class="heading-h2" data-i18n="cs1_title">Reimagining Digital Investing with AI-Powered Guidance</h2>
             <div class="case-study-tags">
@@ -142,7 +149,6 @@
               <span class="tag-role">AI-powered</span>
               <span class="tag-role">Strategy</span>
             </div>
-            <p class="text-body" data-i18n-html="cs1_desc">Embedding AI-powered guidance into BMO InvestorLine's self-directed investing platform — helping users move from uncertainty to confident action.<br><br>A 5-month concept engagement that shaped a phased roadmap for AI-assisted investing.</p>
             <div class="cs-btn-container">
               <span class="cs-text-link">
                 <span data-i18n="cs_btn_explore">Explore Case Study</span>
@@ -160,7 +166,7 @@
           <div class="case-study-content">
             <div class="cs-label-row">
               <span class="cs-label-line"></span>
-              <span class="cs-label" data-i18n="cs2_label">Case study</span>
+              <span class="cs-label"><span data-i18n="cs2_label">Case study</span> 02</span>
             </div>
             <h2 class="heading-h2" data-i18n="cs2_title">Improving Efficiency in a Customer Support Operations Tool</h2>
             <div class="case-study-tags">
@@ -170,7 +176,6 @@
               <span class="tag-role">End-to-End design</span>
               <span class="tag-role">Design systems</span>
             </div>
-            <p class="text-body" data-i18n-html="cs2_desc">End-to-end redesign of an internal customer support tool at Form3, improving search efficiency and reducing resolution time for payment incidents.<br><br>Reduced search time and decreased the support team's dependency on engineers for issue resolution.</p>
             <div class="cs-btn-container">
               <span class="cs-text-link">
                 <span data-i18n="cs_btn_explore">Explore Case Study</span>
@@ -188,9 +193,10 @@
           <div class="case-study-content">
             <div class="cs-label-row">
               <span class="cs-label-line"></span>
-              <span class="cs-label" data-i18n="cs3_label">Case study</span>
+              <span class="cs-label"><span data-i18n="cs3_label">Case study</span> 03</span>
             </div>
-            <h2 class="heading-h2" data-i18n="cs3_title">Optimizing Restaurant Operations with a Reservation Management System</h2>
+            <h2 class="heading-h2" data-i18n="cs3_title">Optimizing Restaurant Operations with a Reservation Management
+              System</h2>
             <div class="case-study-tags">
               <span class="tag-role">B2B</span>
               <span class="tag-role">SaaS</span>
@@ -198,7 +204,6 @@
               <span class="tag-role">Ops design</span>
               <span class="tag-role">Design systems</span>
             </div>
-            <p class="text-body" data-i18n="cs3_desc">End-to-end design of a reservation management system for a hospitality client, streamlining table management, booking flows, and staff operations.</p>
             <div class="cs-btn-container">
               <span class="cs-text-link">
                 <span data-i18n="cs_btn_explore">Explore Case Study</span>
@@ -207,7 +212,7 @@
             </div>
           </div>
           <div class="case-study-image-wrapper">
-            <img src="./assets/images/case3-9.svg" alt="Reservation Management System" class="case-study-image">
+            <img src="./assets/images/case3-plane.svg" alt="Reservation Management System" class="case-study-image">
           </div>
         </a>
 
@@ -216,18 +221,52 @@
       <!-- ABOUT SECTION -->
       <section id="about" class="about-section" data-reveal>
         <div class="about-content">
-                  <div class="welcome-label-row" data-reveal data-reveal-delay="0">
-              <span class="welcome-label-line"></span>
-              <span class="welcome-label" data-i18n="about_label">ABOUT ME</span>
-            </div>
+          <div class="welcome-label-row" data-reveal data-reveal-delay="0">
+            <span class="welcome-label-line"></span>
+            <span class="welcome-label" data-i18n="about_label">ABOUT ME</span>
+          </div>
 
-          <h2 class="heading-h2 about-title" data-i18n="about_title">I’m Daniela</h2>
-          <p class="text-xl about-subtitle" data-i18n="about_subtitle">a Product Designer with 6+ years shaping complex digital products in fintech and B2B SaaS.</p>
-          <p class="text-body" data-i18n="about_desc1">I'm passionate about solving problems that sit at the intersection of business strategy, user needs, and technical constraints — partnering closely with PMs and engineers to ship experiences that are both usable and technically sound.</p>
-          <p class="text-body" data-i18n="about_desc2">Based between Colombia and Spain. I prefer remote opportunities, but I’m also open to hybrid roles for the right team and location.</p>
+          <h2 class="heading-h2 about-title" data-i18n="about_title">A designer who speaks both design and business.
+          </h2>
+          <p class="text-body" data-i18n="about_subtitle">Six years designing digital experiences in fintech and B2B
+            SaaS — working at the intersection of user needs, business goals, and technical constraints.</p>
+          <p class="text-body" data-i18n="about_desc1">From discovery research and information architecture to
+            high-fidelity prototypes and design systems that scale. Based between Colombia and Spain, open to remote or
+            hybrid roles.</p>
         </div>
-        <div class="about-image-wrapper">
-          <img src="./assets/images/contact-1.png" alt="Daniela" class="about-image">
+        <div class="cs-hero-meta-col" data-reveal data-reveal-delay="100">
+          <div class="cs-hero-meta-section">
+            <ul class="cs-hero-meta-list">
+              <li>
+                <span class="skill-title" data-i18n="welcome_skill1_title">Product</span>
+                <span class="skill-desc" data-i18n="welcome_skill1">Design Systems, Prototyping, Information
+                  Architecture, Accessibility, Design Tokens</span>
+              </li>
+              <li>
+                <span class="skill-title" data-i18n="welcome_skill2_title">Research</span>
+                <span class="skill-desc" data-i18n="welcome_skill2">User Interviews, Usability Testing, Journey Mapping,
+                  User Flows</span>
+              </li>
+              <li>
+                <span class="skill-title" data-i18n="welcome_skill3_title">Technical</span>
+                <span class="skill-desc" data-i18n="welcome_skill3">HTML, CSS, JavaScript</span>
+              </li>
+              <li>
+                <span class="skill-title" data-i18n="welcome_skill4_title">AI</span>
+                <span class="skill-desc" data-i18n="welcome_skill4">Cursor, Claude, Lovable</span>
+              </li>
+            </ul>
+            <!-- .skill-desc text is split into chip spans by renderSkillChips() in main.js
+                 on load and on every language switch — the i18n strings above stay the
+                 single source of truth, untouched; only the rendering changes. -->
+          </div>
+          <div class="cs-hero-meta-section">
+            <p data-i18n="welcome_languages" class="cs-hero-meta-label">LANGUAGES</p>
+            <div class="lang-chip-row">
+              <span class="skill-chip" data-i18n="welcome_language1">Spanish - Native</span>
+              <span class="skill-chip" data-i18n="welcome_language2">English - Professional</span>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -236,13 +275,18 @@
     <!-- FOOTER SECTION -->
     <footer class="main-footer">
       <div class="footer-content" data-reveal>
-        <h2 class="heading-h2 footer-title" data-i18n="footer_title">Let's build products people actually want to use.</h2>
-        <p class="text-body footer-subtitle" data-i18n="footer_subtitle">I'm always interested in discussing product design, fintech, SaaS, AI, and new opportunities.</p>
+        <img src="./assets/images/contact-1.png" alt="Daniela" class="footer-photo">
+        <h2 class="heading-h2 footer-title" data-i18n="footer_title">Let's build products people actually want to use.
+        </h2>
+        <p class="text-body footer-subtitle" data-i18n="footer_subtitle">I'm always interested in discussing product
+          design, fintech, SaaS, AI, and new opportunities.</p>
         <div class="footer-links">
           <a href="mailto:daniela.sanchez.rojas.4@gmail.com" class="footer-link">daniela.sanchez.rojas.4@gmail.com</a>
-          <a href="https://www.linkedin.com/in/kelly-daniela-sanchez-rojas/?locale=es" target="_blank" rel="noopener noreferrer" class="footer-icon-link">
+          <a href="https://www.linkedin.com/in/kelly-daniela-sanchez-rojas/?locale=es" target="_blank"
+            rel="noopener noreferrer" class="footer-icon-link">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+              <path
+                d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
             </svg>
           </a>
         </div>

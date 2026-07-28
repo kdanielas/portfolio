@@ -103,7 +103,18 @@ document.addEventListener('DOMContentLoaded', () => {
   if (topNav) {
     let lastScrollY = window.scrollY;
     let ticking = false;
-    const SCROLL_THRESHOLD = 80; // px before hiding starts
+    const SCROLL_THRESHOLD = 80; // px before hide-on-scroll-down starts
+    const SOLIDIFY_THRESHOLD = 20; // px before nav solidifies — matches the
+    // Claude Design NavBar reference component (scrollY > 20)
+
+    function updateNavScrolled(y) {
+      // Also flips document.body so the mobile hamburger (fixed, outside
+      // .top-nav) can switch from light to dark bars in step with the nav.
+      const isScrolled = y > SOLIDIFY_THRESHOLD;
+      topNav.classList.toggle('scrolled', isScrolled);
+      document.body.classList.toggle('nav-scrolled', isScrolled);
+    }
+    updateNavScrolled(lastScrollY);
 
     window.addEventListener('scroll', () => {
       if (!ticking) {
@@ -120,6 +131,8 @@ document.addEventListener('DOMContentLoaded', () => {
             // Scrolling up → show
             topNav.classList.remove('nav-hidden');
           }
+
+          updateNavScrolled(currentScrollY);
 
           lastScrollY = currentScrollY;
           ticking = false;
@@ -150,6 +163,19 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     document.documentElement.lang = lang;
+
+    renderSkillChips();
+  }
+
+  // ─── Skills as chips ─────────────────────────────────────────
+  // .skill-desc holds the same comma-separated i18n string it always did;
+  // this just re-renders it as individual pill chips instead of plain text.
+  // Runs after every setLanguage() call so it survives language switches.
+  function renderSkillChips() {
+    document.querySelectorAll('.skill-desc').forEach(el => {
+      const parts = el.textContent.split(',').map(s => s.trim()).filter(Boolean);
+      el.innerHTML = parts.map(p => `<span class="skill-chip">${p}</span>`).join('');
+    });
   }
 
   // ─── Contact page ellipse animation ──────────────────────────
@@ -269,5 +295,47 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Run once on load
     updateActiveSolLink();
+  }
+
+  // ─── Home page: sticky case-study number rail (01/02/03) ──────
+  // Matches the Claude Design reference's work-nums-fixed behavior — the
+  // number for whichever case-study block is currently in view lights up.
+  const workNums = document.querySelectorAll('.work-num');
+  const workBlocks = document.querySelectorAll('.case-studies-section .case-study-card');
+  const workNumsWrap = document.querySelector('.work-nums-fixed');
+
+  if (workNums.length && workBlocks.length && workNumsWrap) {
+    // Scroll-position based, same approach as the solution-sidebar spy
+    // above: a card only counts as active once the viewport's TOP edge is
+    // actually inside it (rect.top <= 0 and rect.bottom > 0) — i.e. the
+    // card's own color is genuinely what's filling the screen, not just
+    // "50% of the card has scrolled by somewhere below the fold" (which
+    // could still leave the previous section's cream visible on screen).
+    // Also resets opacity to 0 if you scroll back above card 1 or past
+    // card 3, instead of staying visible forever once first triggered.
+    let workTicking = false;
+    function updateWorkNums() {
+      let activeIdx = -1;
+      workBlocks.forEach((block, i) => {
+        const rect = block.getBoundingClientRect();
+        if (rect.top <= 0 && rect.bottom > 0) {
+          activeIdx = i;
+        }
+      });
+      if (activeIdx === -1) {
+        workNumsWrap.style.opacity = '0';
+      } else {
+        workNumsWrap.style.opacity = '1';
+        workNums.forEach((n, i) => n.classList.toggle('active', i === activeIdx));
+      }
+      workTicking = false;
+    }
+    window.addEventListener('scroll', () => {
+      if (!workTicking) {
+        window.requestAnimationFrame(updateWorkNums);
+        workTicking = true;
+      }
+    }, { passive: true });
+    updateWorkNums();
   }
 });

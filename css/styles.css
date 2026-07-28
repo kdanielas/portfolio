@@ -1,26 +1,69 @@
 /* ===== IMPORTS ===== */
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@6..144,200..800&family=Inter:wght@300;400;500;600;700&display=swap');
 
 /* ===== DESIGN TOKENS ===== */
 :root {
-  --blue: #6366F1;
-  --purple: #6366F1;
+  /* --blue kept as the variable name across ~70 existing rules (nav, buttons, links, quote bars)
+     to avoid touching every call site — it now holds the new terracotta brand accent, not indigo. */
+  --blue: #8C4633;
+  --purple: #4F8387;
   --black: #0C0C10;
   --text-dark: #0C0C10;
   --grey: #64748B;
-  --light: #F8F7F4;
-  --bg-alt: #EFEDE8;
-  --yellow: #FDE68A;
-  --blue-bg:   rgba(99, 102, 241, 0.06);
-  --blue-bd:   rgba(99, 102, 241, 0.16);
+  --light: #F5F1EB;
+  --bg-alt: #f8f6f4;
+  /* --yellow: small tag/label color shown on dark backgrounds (closing sections, badges).
+     Repointed from bright yellow to a muted warm gold so it reads premium, not candy. */
+  --yellow: #FFE37F;
+  --blue-bg:   rgba(140, 70, 51, 0.06);
+  --blue-bd:   rgba(140, 70, 51, 0.16);
   --ink:       #1D2023;
   --muted:     #6B7280;
-  --border:    #E5E7EB;
-  --surface:   #F7F8FA;
+  --border:    #e9e6e0;
+  /* Sage green used for the About/skills chips — matches the Claude Design
+     reference (ui_kits/portfolio/index.html) exactly, not repurposed from
+     any other token. */
+  --green:     #4A7A5E;
+  --green-bg:  rgba(74, 122, 94, 0.07);
+  --green-bd:  rgba(74, 122, 94, 0.35);
+  /* Was a cool blue-grey (#F7F8FA), left over from the pre-rebrand indigo
+     theme — clashed with the warm cream/terracotta palette everywhere it
+     showed up as a section/icon background. Repointed warm to match. */
+  --surface:   #F4F1EC;
   --max:       960px;
   --px:        48px;
 
-  --gradient-blue: linear-gradient(135deg, #6366F1, #4F46E5);
+  /* Display typeface for headings/quotes — body text stays on Inter. */
+  --font-display: "Instrument Sans", sans-serif;
+
+  /* Type scale — kept deliberately small so sizes stay consistent instead of
+     drifting to a new one-off value per component. Sans (Inter) sizes cover
+     everything from tiny uppercase tags up through emphasis text; display
+     (Bricolage Grotesque) is reserved for the three big "display" moments. */
+  --fs-mini-label: 10px;  /* small uppercase tags/eyebrows inside cards */
+  --fs-label:      12px;  /* section-level uppercase eyebrows, chips */
+  --fs-sm:         14px;  /* secondary/supporting text */
+  --fs-body:       16px;  /* standard paragraph text */
+  --fs-large:      20px;  /* emphasis text, card callouts */
+  --fs-h1:         64px;  /* serif, page-level h1 */
+  --fs-h2:         42px;  /* serif, section-level h2 */
+  --fs-quote:      32px;  /* serif, pull quotes */
+
+  /* Per-case-study accent colors — each case study's hero + highlighted words
+     use its own tone instead of the single site-wide accent. "-tint" is the
+     light version used for text/emphasis when sitting on that case's own colored hero. */
+  --cs1: #4F8387;       /* 01 — Investing. Lighter than cs2/cs3, so the small text on it
+                           (desc/labels/tags, not the big title) is switched to dark ink
+                           instead of cream — see the .cs1-specific overrides below. */
+  --cs1-tint: #F3D9CC;  /* used as the case-1 tint elsewhere; the hero-title emphasis word
+                           uses solid white instead — see .hero-band.cs1 .hero-title .blue,
+                           since F3D9CC only just clears 3:1 on #B46D43 */
+  --cs2: #3F5245;       /* 02 — Support (darkened from an earlier #5E7466 for the same contrast reason) */
+  --cs2-tint: #DCE6DF;
+  --cs3: #2B3553;       /* 03 — Hospitality */
+  --cs3-tint: #C7CEDC;
+
+  --gradient-blue: linear-gradient(135deg, #8C4633, #723824);
 
   --topnav-height: 64px;
   --content-max: 1120px;
@@ -90,7 +133,7 @@ content: "";
     z-index: 9999;
     background-image: url(noise.png);
     background-size: 100px 100px;
-    opacity: 0.1;
+    opacity: 0.03;
     mix-blend-mode: overlay;
 }
 
@@ -111,22 +154,57 @@ img {
 
 /* ===== LAYOUT ===== */
 /* ===== TOP NAVIGATION ===== */
+/* Default: transparent over the page's own hero, light text. Once scrolled
+   past the hero (.scrolled, toggled in main.js) or on pages with no hero
+   directly underneath (.nav-solid, e.g. contact.html), it solidifies to the
+   original cream bar with dark text. */
 .top-nav {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 200;
-  background-color: rgba(248, 247, 244, 0.9);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  background-color: transparent;
+  border-bottom: 1px solid transparent;
   height: var(--topnav-height);
   display: flex;
   align-items: center;
   transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-    opacity 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    opacity 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    background-color 0.35s ease, border-color 0.35s ease;
   will-change: transform;
+}
+
+.top-nav.scrolled,
+.top-nav.nav-solid {
+  background-color: rgba(248, 247, 244, 0.9);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+/* Contact page only: the nav sits directly on the page's own brown
+   background (no hero underneath it), so it keeps the light/transparent
+   text treatment instead of the usual solid-cream/dark-text swap — logo
+   and the Contact pill are already dark enough to read fine as-is. */
+body.nav-solid-page .top-nav.nav-solid {
+  background-color: var(--blue);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+body.nav-solid-page .top-nav.nav-solid .top-nav-link,
+body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-btn {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+body.nav-solid-page .top-nav.nav-solid .top-nav-link:hover,
+body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-btn.active,
+body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-btn:hover {
+  color: #FFFFFF;
+}
+
+body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-divider {
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .top-nav.nav-hidden {
@@ -146,14 +224,22 @@ img {
 
 /* Left: Logo */
 .top-nav-logo {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-weight: 800;
+  /* Typography rule: the serif display face is reserved for true h1/h2
+     headings only — everything smaller (including this wordmark) reads
+     better on Inter at a heavier weight instead. */
+  font-family: 'Instrument sans', sans-serif;
+  font-weight: 500;
   font-size: 24px;
-  color: var(--black);
+  color: #FFFFFF;
   letter-spacing: -0.5px;
   text-decoration: none;
   line-height: 1;
   white-space: nowrap;
+  transition: color 0.35s ease;
+}
+
+.top-nav.scrolled .top-nav-logo{
+  color: var(--black);
 }
 
 /* Center: Case study links */
@@ -167,15 +253,21 @@ img {
 .top-nav-link {
   font-family: 'Inter', sans-serif;
   font-size: 12px;
-  font-weight: 500;
+  font-weight: 300;
   letter-spacing: 1.6px;
   text-transform: uppercase;
-  color: var(--grey);
+  color: var(--light);
   text-decoration: none;
   padding: 4px 0;
   position: relative;
   transition: color 0.3s var(--ease-smooth);
   white-space: nowrap;
+  opacity: 0.7;
+}
+
+.top-nav.scrolled .top-nav-link,
+.top-nav.nav-solid .top-nav-link {
+  color: var(--black);
 }
 
 .top-nav-link::after {
@@ -185,11 +277,24 @@ img {
   left: 50%;
   width: 0;
   height: 1px;
-  background: var(--blue);
+  /* White by default — this sits over each case study's own dark hero color
+     (cs1/cs2/cs3), where terracotta reads as a muddy red instead of an accent.
+     Switches to terracotta once the nav solidifies to the cream bar below. */
+  background: #FFFFFF;
   transition: width 0.35s var(--ease-out-expo), left 0.35s var(--ease-out-expo);
 }
 
+.top-nav.scrolled .top-nav-link::after,
+.top-nav.nav-solid .top-nav-link::after {
+  background: var(--blue);
+}
+
 .top-nav-link:hover {
+  color: #FFFFFF;
+}
+
+.top-nav.scrolled .top-nav-link:hover,
+.top-nav.nav-solid .top-nav-link:hover {
   color: var(--text-dark);
 }
 
@@ -199,12 +304,9 @@ img {
 }
 
 .top-nav-link.active {
-  color: var(--blue);
-}
-
-.top-nav-link.active::after {
-  width: 100%;
-  left: 0;
+  color: var(--light);
+  font-weight: 500;
+  opacity: 1;
 }
 
 /* Right: lang + contact */
@@ -227,7 +329,7 @@ img {
   font-weight: 500;
   letter-spacing: 2.6px;
   text-transform: uppercase;
-  color: var(--grey);
+  color: rgba(255, 255, 255, 0.9);
   background: none;
   border: none;
   cursor: pointer;
@@ -235,11 +337,20 @@ img {
   transition: color 0.2s ease;
 }
 
-.top-nav-lang .lang-btn.active {
-  color: var(--text-dark);
+.top-nav-lang .lang-btn.active,
+.top-nav-lang .lang-btn:hover {
+  color: #FFFFFF;
 }
 
-.top-nav-lang .lang-btn:hover {
+.top-nav.scrolled .top-nav-lang .lang-btn,
+.top-nav.nav-solid .top-nav-lang .lang-btn {
+  color: var(--grey);
+}
+
+.top-nav.scrolled .top-nav-lang .lang-btn.active,
+.top-nav.scrolled .top-nav-lang .lang-btn:hover,
+.top-nav.nav-solid .top-nav-lang .lang-btn.active,
+.top-nav.nav-solid .top-nav-lang .lang-btn:hover {
   color: var(--text-dark);
 }
 
@@ -248,6 +359,13 @@ img {
   font-size: 12px;
   font-weight: 400;
   letter-spacing: 0;
+  color: rgba(255, 255, 255, 0.65);
+  transition: color 0.3s ease;
+}
+
+.top-nav.scrolled .top-nav-lang .lang-divider,
+.top-nav.nav-solid .top-nav-lang .lang-divider {
+  color: var(--grey);
 }
 
 .top-nav-contact {
@@ -291,14 +409,16 @@ img {
 .main-content {
   min-height: 100vh;
   position: relative;
-  padding-top: var(--topnav-height);
   width: 100%;
 }
-
+.image-container{
+  background-color:#f0eee9;
+  border-radius: 16px;
+}
 /* ===== SIDEBAR ===== */
 .sidebar-logo {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-weight: 800;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
   font-size: 28px;
   color: var(--black);
   letter-spacing: -0.5px;
@@ -416,8 +536,8 @@ img {
 
 .lang-btn:not(.active) {
   font-weight: 400;
-  color: var(--black);
-  opacity: 0.4;
+  color: var(--light);
+  opacity: 0.7;
 }
 
 .lang-divider {
@@ -430,8 +550,8 @@ img {
 
 /* ===== TYPOGRAPHY ===== */
 .heading-hero {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-weight: 800;
+  font-family: var(--font-display);
+  font-weight: 500;
   font-size: 86px;
   color: var(--text-dark);
   letter-spacing: -3px;
@@ -439,13 +559,16 @@ img {
 }
 
 .hero-accent {
+  /* Italic + colored serif emphasis inside a headline is the exact
+     "Claude marketing" tell — dropping the italic keeps the color accent
+     (which is a much more generic, widely-used convention) without reading
+     as a lift from Anthropic's own homepage pattern. */
   color: var(--blue);
-  font-style: italic;
 }
 
 .heading-h1 {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-weight: 800;
+  font-family: var(--font-display);
+  font-weight: 500;
   font-size: 48px;
   color: var(--black);
   letter-spacing: -1.5px;
@@ -453,17 +576,17 @@ img {
 }
 
 .heading-h2 {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-weight: 800;
-  font-size: 48px;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: var(--fs-h2);
   color: var(--black);
   letter-spacing: -1.5px;
   line-height: 1.1;
 }
 
 .heading-h3 {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-weight: 700;
+  font-family: var(--font-display);
+  font-weight: 500;
   font-size: 36px;
   color: var(--black);
   letter-spacing: -0.8px;
@@ -471,8 +594,8 @@ img {
 }
 
 .heading-h4 {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-weight: 700;
+  font-family: var(--font-display);
+  font-weight: 500;
   font-size: 22px;
   color: var(--black);
   letter-spacing: -0.4px;
@@ -604,8 +727,8 @@ img {
 }
 
 .purple-card .card-text {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-weight: 700;
+  font-family: var(--font-display);
+  font-weight: 500;
   font-size: 24px;
   color: #FFFFFF;
   letter-spacing: -0.6px;
@@ -634,7 +757,7 @@ img {
 
 /* ===== HERO META COLUMN (MY ROLE / TEAM) ===== */
 .cs-hero-meta-col {
-  width: 260px;
+  width: 460px;
   flex-shrink: 0;
   padding-top: 8px;
   display: flex;
@@ -668,36 +791,54 @@ img {
 
 .cs-hero-meta-list li {
   display: flex;
+  flex-direction: column;
   align-items: flex-start;
-  gap: 12px;
-  padding: 9px 0;
+  gap: 14px;
+  padding: 20px 0;
   border-bottom: 1px solid rgba(107, 114, 128, 0.12);
-  font-family: 'Inter', sans-serif;
-  font-size: 14px;
-  font-weight: 300;
-  color: var(--black);
-  line-height: 1.55;
 }
 
-.cs-hero-meta-list li::before {
-  content: '•';
-  color: var(--blue);
-  font-size: 8px;
-  flex-shrink: 0;
-  margin-top: 5px;
+.cs-hero-meta-list li:first-child {
+  padding-top: 0;
 }
 
 .skill-title {
-  flex-shrink: 0;
-  width: 82px;
-  font-weight: 400;
-  color: var(--black);
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--grey);
 }
 
 .skill-desc {
-  flex: 1;
-  font-weight: 300;
-  color: var(--black);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* Languages, same chip treatment as skills — separate class from .skill-desc
+   so main.js's comma-splitter (built for the skills list) doesn't touch it. */
+.lang-chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skill-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 7px 16px;
+  background: var(--green-bg);
+  border: 1px solid var(--green-bd);
+  border-radius: 999px;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: var(--green);
+  white-space: nowrap;
 }
 
 
@@ -736,15 +877,15 @@ img {
 .cs-hero-title-col .cs-label {
   font-family: 'Inter', sans-serif;
   font-weight: 600;
-  font-size: 14px;
+  font-size: var(--fs-label);
   color: var(--blue);
   letter-spacing: 1.5px;
   text-transform: uppercase;
 }
 
 .cs-hero-title-col .cs-title {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-weight: 800;
+  font-family: var(--font-display);
+  font-weight: 500;
   font-size: 72px;
   color: var(--blue);
   letter-spacing: -2.5px;
@@ -988,8 +1129,8 @@ img {
 }
 
 .user-group .user-name {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-weight: 700;
+  font-family: var(--font-display);
+  font-weight: 500;
   font-size: 20px;
   color: var(--black);
   letter-spacing: -0.1px;
@@ -1357,8 +1498,8 @@ img {
 }
 
 .cs-roadmap .roadmap-phase h3.heading-h4 {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-weight: 800;
+  font-family: var(--font-display);
+  font-weight: 500;
   font-size: 28px;
   color: var(--blue);
   letter-spacing: -0.8px;
@@ -1775,7 +1916,7 @@ img {
 .welcome-label {
   font-family: 'Inter', sans-serif;
   font-weight: 600;
-  font-size: 14px;
+  font-size: var(--fs-label);
   color: var(--blue);
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -1807,120 +1948,91 @@ img {
   position: relative;
   min-height: 100vh;
   display: flex;
-  align-items: center;
   overflow: hidden;
+  background: var(--blue);
 }
 
-/* Ambient glow orbs */
-.contact-glow {
-  position: absolute;
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 0;
+/* The old indigo/amber ambient glow orbs don't fit the new flat
+   brown/cream two-tone design — hidden, not deleted (JS in main.js still
+   targets the class harmlessly if it's reused elsewhere later). */
+.contact-page-v2 .gradient-ellipse {
+  display: none;
 }
 
-.contact-glow-1 {
-  width: 640px;
-  height: 640px;
-  background: radial-gradient(circle, rgba(99, 102, 241, 0.1) 0%, rgba(248, 247, 244, 0) 70%);
-  top: -80px;
-  right: -60px;
-  mix-blend-mode: normal;
-}
-
-.contact-glow-2 {
-  width: 480px;
-  height: 480px;
-  background: radial-gradient(circle, rgba(251, 191, 36, 0.12) 0%, rgba(248, 247, 244, 0) 70%);
-  bottom: 40px;
-  right: 120px;
-  mix-blend-mode: normal;
-}
-
-/* Two-column wrapper */
+/* Two-column wrapper — full width/height, no centering. The left column
+   stays solid case-accent brown edge to edge; the right column holds the
+   cream panel inset from the top only (see .contact-card below), so the
+   brown shows through above it, unbroken with the nav bar. */
 .contact-two-col {
   display: flex;
-  align-items: center;
-  gap: 80px;
+  align-items: stretch;
   width: 100%;
-  padding: 120px var(--h-pad) 80px;
+  padding-top: var(--topnav-height);
   position: relative;
   z-index: 1;
 }
 
 /* LEFT column */
 .contact-left {
-  flex: 1;
+  flex: 1 1 50%;
   min-width: 0;
   display: flex;
   flex-direction: column;
-  gap: 0;
+  justify-content: center;
+  /* Left edge uses the site's true outer page margin (--h-pad); the right
+     edge is a fixed gutter facing the cream panel, not a screen-edge margin,
+     so it stays a sane width even on ultra-wide viewports. */
+  padding: 48px 80px 48px var(--h-pad);
 }
 
+/* "Let's connect" eyebrow isn't part of this layout — the availability
+   badge below takes that top slot instead. Hidden, not deleted, so the
+   copy/translation key stays available if needed elsewhere. */
 .contact-eyebrow-row {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  margin-bottom: 28px;
-}
-
-.contact-eyebrow-line {
-  display: block;
-  width: 28px;
-  height: 1.5px;
-  background-color: var(--blue);
-  flex-shrink: 0;
-}
-
-.contact-eyebrow {
-  font-family: 'Inter', sans-serif;
-  font-weight: 600;
-  font-size: 11px;
-  color: var(--blue);
-  letter-spacing: 2.2px;
-  text-transform: uppercase;
+  display: none;
 }
 
 .contact-big-heading {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 72px;
-  font-weight: 800;
-  color: var(--text-dark);
+  font-family: var(--font-display);
+  font-size: var(--fs-h1);
+  font-weight: 500;
+  color: #FFFFFF;
   line-height: 1.0;
   letter-spacing: -2.5px;
-  margin-bottom: 28px;
+  margin-bottom: 24px;
 }
 
 .contact-intro-text {
   font-family: 'Inter', sans-serif;
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 300;
-  color: var(--grey);
+  color: rgba(255, 255, 255, 0.72);
   line-height: 1.75;
   max-width: 400px;
-  margin-bottom: 36px;
-  font-style: italic;
+  font-style: normal;
 }
 
-/* Availability badge */
+/* Availability badge — now the first element in the left column, styled
+   for the dark brown background instead of the previous light-page tint. */
 .contact-availability {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  background: rgba(120, 200, 80, 0.08);
-  border: 1px solid rgba(120, 200, 80, 0.22);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 100px;
   padding: 8px 16px;
   width: fit-content;
+  margin-bottom: 32px;
 }
 
 .contact-availability-dot {
-  width: 7px;
-  height: 7px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
-  background: #78c850;
+  background: #D9E85C;
   flex-shrink: 0;
-  box-shadow: 0 0 0 3px rgba(120, 200, 80, 0.2);
+  box-shadow: 0 0 0 3px rgba(217, 232, 92, 0.25);
   animation: contact-pulse 2.4s ease-in-out infinite;
 }
 
@@ -1928,67 +2040,72 @@ img {
 
   0%,
   100% {
-    box-shadow: 0 0 0 3px rgba(120, 200, 80, 0.2);
+    box-shadow: 0 0 0 3px rgba(217, 232, 92, 0.25);
   }
 
   50% {
-    box-shadow: 0 0 0 6px rgba(120, 200, 80, 0.08);
+    box-shadow: 0 0 0 6px rgba(217, 232, 92, 0.1);
   }
 }
 
 .contact-availability-text {
   font-family: 'Inter', sans-serif;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 500;
-  color: #4a8a30;
+  color: rgba(255, 255, 255, 0.92);
   letter-spacing: 0.3px;
 }
 
 /* RIGHT column */
 .contact-right {
-  flex-shrink: 0;
-  width: 400px;
+  flex: 1 1 50%;
+  position: relative;
 }
 
-/* Card */
+/* Card — the cream panel itself now fills the whole right column, inset
+   from the top only, rounded on the top-left corner where it meets the
+   brown behind it. No longer a floating card with its own border/shadow. */
 .contact-card {
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(107, 114, 128, 0.12);
-  border-radius: 20px;
-  padding: 32px;
-  box-shadow:
-    0 1px 3px rgba(0, 0, 0, 0.04),
-    0 8px 24px rgba(0, 0, 0, 0.06),
-    0 24px 48px rgba(0, 0, 0, 0.04);
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  position: absolute;
+  top: 88px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: var(--surface);
+  border: none;
+  border-top-left-radius: 40px;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  /* Right edge uses the site's true outer page margin; left edge is a
+     fixed gutter facing the brown column, same reasoning as .contact-left. */
+  padding: 72px var(--h-pad) 56px 72px;
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
 }
 
 .contact-card:hover {
-  box-shadow:
-    0 2px 6px rgba(0, 0, 0, 0.05),
-    0 12px 32px rgba(0, 0, 0, 0.08),
-    0 32px 64px rgba(0, 0, 0, 0.05);
-  transform: translateY(-2px);
+  box-shadow: none;
+  transform: none;
 }
 
 /* Card header: photo + name */
 .contact-card-header {
   display: flex;
   align-items: center;
-  gap: 16px;
-  margin-bottom: 28px;
+  gap: 20px;
+  margin-bottom: 44px;
 }
 
 .contact-card-photo {
-  width: 68px;
-  height: 68px;
+  width: 64px;
+  height: 64px;
   border-radius: 50%;
   overflow: hidden;
   flex-shrink: 0;
-  border: 2px solid rgba(107, 114, 128, 0.1);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: none;
+  box-shadow: none;
 }
 
 .contact-card-photo img {
@@ -2004,89 +2121,67 @@ img {
 }
 
 .contact-card-name {
-  font-family: 'Inter', sans-serif;
-  font-size: 16px;
-  font-weight: 600;
+  font-family: var(--font-display);
+  font-size: 40px;
+  font-weight: 500;
   color: var(--text-dark);
-  letter-spacing: -0.2px;
+  letter-spacing: -1px;
+  line-height: 1;
 }
 
+/* Role subtitle isn't part of this layout — hidden, not deleted. */
 .contact-card-role {
-  font-family: 'Inter', sans-serif;
-  font-size: 12px;
-  font-weight: 400;
-  color: var(--grey);
-  letter-spacing: 0.2px;
+  display: none;
 }
 
-/* Divider */
+/* Divider — hidden; generous row spacing does the separating instead */
 .contact-card-divider {
-  height: 1px;
-  background: rgba(107, 114, 128, 0.12);
-  margin-bottom: 8px;
+  display: none;
 }
 
 /* Info rows */
 .contact-card-rows {
   display: flex;
   flex-direction: column;
+  gap: 40px;
 }
 
 .contact-card-row {
   display: flex;
   flex-direction: column;
-  gap: 4px;
-  padding: 20px 0;
-  border-bottom: 1px solid rgba(107, 114, 128, 0.1);
-}
-
-.contact-card-row:last-child {
+  gap: 8px;
+  padding: 0;
   border-bottom: none;
-  padding-bottom: 0;
 }
 
 .contact-card-row-label {
   font-family: 'Inter', sans-serif;
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 1.8px;
-  text-transform: uppercase;
-  color: var(--grey);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  text-transform: none;
+  color: var(--text-dark);
 }
 
 .contact-card-row-value {
   font-family: 'Inter', sans-serif;
-  font-size: 14px;
+  font-size: 19px;
   font-weight: 400;
-  color: var(--text-dark);
+  color: var(--blue);
   letter-spacing: 0.1px;
   line-height: 1.5;
 }
 
 .contact-card-row-value a {
-  color: var(--text-dark);
-  text-decoration: none;
+  color: var(--blue);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: rgba(140, 70, 51, 0.45);
   transition: color 0.2s ease;
-  position: relative;
-}
-
-.contact-card-row-value a::after {
-  content: '';
-  position: absolute;
-  bottom: -1px;
-  left: 0;
-  width: 0;
-  height: 1px;
-  background: var(--blue);
-  transition: width 0.25s ease;
 }
 
 .contact-card-row-value a:hover {
-  color: var(--blue);
-}
-
-.contact-card-row-value a:hover::after {
-  width: 100%;
+  color: var(--text-dark);
 }
 
 
@@ -2097,6 +2192,10 @@ img {
 }
 
 /* ===== MOBILE HAMBURGER MENU ===== */
+/* Carries its own dark, blurred backdrop chip instead of switching bar color
+   per page/scroll state — what sits behind it varies too much (flat hero
+   color, cream nav, photos) for a color swap to reliably stay legible, so
+   the bars just stay white always and the chip guarantees contrast. */
 .hamburger {
   display: none;
   position: fixed;
@@ -2105,29 +2204,31 @@ img {
   z-index: 300;
   width: 36px;
   height: 36px;
-  background: transparent;
+  background: rgba(23, 17, 13, 0.35);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   cursor: pointer;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   gap: 5px;
   padding: 0;
-  transition: opacity 0.2s ease;
+  transition: background 0.2s ease;
 }
 
 .hamburger:hover {
-  background: rgba(249, 250, 251, 1);
+  background: rgba(23, 17, 13, 0.5);
 }
 
 .hamburger span {
   display: block;
   width: 20px;
   height: 2px;
-  background: var(--blue);
+  background: #FFFFFF;
   border-radius: 2px;
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .hamburger.active span:nth-child(1) {
@@ -2216,6 +2317,33 @@ img {
   margin-top: 40px;
   padding-top: 24px;
   border-top: 1px solid rgba(107, 114, 128, 0.15);
+}
+
+/* .top-nav-link and .lang-btn are reused here but their base colors (var(--light),
+   meant for sitting on a dark/transparent hero) are invisible against the
+   mobile-menu's own cream background — override to dark equivalents. */
+.mobile-menu .top-nav-link {
+  color: var(--ink);
+  opacity: 1;
+}
+
+.mobile-menu .top-nav-link:hover {
+  color: var(--blue);
+}
+
+.mobile-menu .lang-btn:not(.active) {
+  color: var(--muted);
+  opacity: 1;
+}
+
+/* Contact reused .nav-item's own grey (meant for the desktop sidebar) — make
+   it match the same dark ink as the case-study links above it. */
+.mobile-menu .nav-item {
+  color: var(--ink);
+}
+
+.mobile-menu .nav-item:hover {
+  color: var(--blue);
 }
 
 .cs-card-section .section-content {
@@ -2446,17 +2574,27 @@ img {
     margin-left: 0 !important;
   }
 
-  /* Contact v2 */
+  /* Contact v2 — stacks; the cream card drops out of absolute positioning
+     and flows normally beneath the brown left column. */
   .contact-two-col {
     flex-direction: column;
-    align-items: flex-start;
-    gap: 48px;
-    padding-top: 100px;
-    padding-bottom: 64px;
+    align-items: stretch;
+    padding-top: calc(var(--topnav-height) + 32px);
+  }
+
+  .contact-left {
+    padding: 32px var(--h-pad) 48px;
   }
 
   .contact-right {
+    flex: none;
     width: 100%;
+  }
+
+  .contact-card {
+    position: static;
+    border-radius: 32px 32px 0 0;
+    padding: 48px var(--h-pad) 56px;
   }
 
   .contact-big-heading {
@@ -2496,9 +2634,7 @@ img {
 
   /* Contact v2 mobile */
   .contact-two-col {
-    padding-top: 88px;
-    padding-bottom: 48px;
-    gap: 36px;
+    padding-top: calc(var(--topnav-height) + 24px);
   }
 
   .contact-big-heading {
@@ -2507,7 +2643,8 @@ img {
   }
 
   .contact-card {
-    padding: 24px;
+    padding: 40px 24px 48px;
+    border-radius: 24px 24px 0 0;
   }
 
   /* Typography – further scale-down */
@@ -2595,10 +2732,6 @@ img {
 
   .cs-label-line {
     width: 20px;
-  }
-
-  .cs-hero-title-col .cs-label {
-    font-size: 11px;
   }
 
   .cs-hero-title-col .cs-title {
@@ -3025,9 +3158,9 @@ img {
 }
 
 .cs-closing-dark .closing-title {
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: var(--font-display);
   font-size: 44px;
-  font-weight: 800;
+  font-weight: 500;
   color: #FFFFFF;
   line-height: 1.1;
   margin-bottom: 24px;
@@ -3088,9 +3221,9 @@ img {
 .takeaway-card h3,
 .takeaway-card .heading-h3,
 .takeaway-card .takeaway-heading {
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: var(--font-display);
   font-size: 22px;
-  font-weight: 700;
+  font-weight: 500;
   color: #FFFFFF !important;
   line-height: 1.3;
   letter-spacing: -0.2px;
@@ -3325,9 +3458,9 @@ img {
 }
 
 .cs-whatnext-left .whatnext-title {
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: var(--font-display);
   font-size: 36px;
-  font-weight: 700;
+  font-weight: 500;
   color: var(--text-dark);
   line-height: 1.2;
   letter-spacing: -0.3px;
@@ -3467,9 +3600,9 @@ img {
 }
 
 .contact-editorial-left .contact-heading {
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: var(--font-display);
   font-size: 64px;
-  font-weight: 700;
+  font-weight: 500;
   color: var(--text-dark);
   line-height: 1.05;
   letter-spacing: -1px;
@@ -3662,9 +3795,9 @@ img {
 }
 
 .cs-closing-dark .closing-dark-quote {
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: var(--font-display);
   font-size: 40px;
-  font-weight: 700;
+  font-weight: 500;
   color: #FFFFFF;
   line-height: 1.2;
   margin: 0 0 24px;
@@ -3817,59 +3950,68 @@ img {
   display: block;
 }
 
-/* Sidebar nav */
+/* Sidebar nav — numbered circle badge + sentence-case label (per your
+   "option 1" reference), not the old uppercase/left-border-wipe treatment. */
 .cs-solution-nav {
   display: flex;
   flex-direction: column;
-  gap: 0;
+  gap: 8px;
 }
 
 .cs-sol-link {
   display: flex;
-  align-items: baseline;
-  gap: 10px;
-  padding: 11px 0;
+  align-items: center;
+  gap: 16px;
+  padding: 8px 0;
   text-decoration: none;
-  border-left: 2px solid transparent;
-  padding-left: 14px;
-  margin-left: -14px;
-  transition: border-color 0.2s ease, color 0.2s ease;
+  transition: color 0.2s ease;
 }
 
 .cs-sol-link-num {
-  font-family: 'Inter', sans-serif;
-  font-size: 10px;
-  font-weight: 500;
-  letter-spacing: 1.2px;
-  color: var(--grey);
-  transition: color 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1.5px solid var(--border);
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0;
+  color: var(--grey);
+  transition: border-color 0.25s ease, color 0.25s ease;
 }
 
 .cs-sol-link-text {
   font-family: 'Inter', sans-serif;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 400;
-  letter-spacing: 2.3px;
+  letter-spacing: 0;
   color: var(--grey);
-  transition: color 0.2s ease;
-  line-height: 1.4;
-  text-transform: uppercase;
+  transition: color 0.25s ease;
+  line-height: 1.25;
+  text-transform: none;
 }
 
-.cs-sol-link:hover .cs-sol-link-text,
 .cs-sol-link:hover .cs-sol-link-num {
+  border-color: var(--grey);
   color: var(--black);
 }
 
-.cs-sol-link.active {
-  border-left-color: var(--blue);
+.cs-sol-link:hover .cs-sol-link-text {
+  color: var(--black);
 }
 
-.cs-sol-link.active .cs-sol-link-num,
+.cs-sol-link.active .cs-sol-link-num {
+  border-color: var(--blue);
+  color: var(--blue);
+}
+
 .cs-sol-link.active .cs-sol-link-text {
   color: var(--blue);
-  font-weight: 600;
+  font-weight: 500;
 }
 
 /* ── Features column ── */
@@ -3921,18 +4063,134 @@ img {
   border-radius: 10px;
 }
 
-.cs-sol-why {
-  background-color: var(--bg-alt);
-  border-radius: 20px;
-  padding: 32px 40px;
-  margin-top: 48px;
+/* Case study 2 only: single column, image above text (overrides the shared
+   side-by-side layout used on case studies 1 and 3). */
+body.cs2-page .cs-sol-feature-inner,
+body.cs2-page .cs-sol-feature-inner--reverse {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 40px;
+}
+
+body.cs2-page .cs-sol-feature-image {
+  order: -1;
   width: 100%;
+}
+
+body.cs2-page .cs-sol-feature-image img {
+  width: 100%;
+}
+
+/* Feature 04 (Status Visibility & Color Coding) only: restore the
+   side-by-side layout — image in column 1, text in column 2 — overriding
+   the page-wide single-column treatment above for just this one feature. */
+body.cs2-page #sol-f4 .cs-sol-feature-inner,
+body.cs2-page #sol-f4 .cs-sol-feature-inner--reverse {
+  flex-direction: row-reverse;
+  align-items: center;
+  gap: 56px;
+}
+
+body.cs2-page #sol-f4 .cs-sol-feature-image {
+  order: 0;
+  width: 380px;
+  flex-shrink: 0;
+}
+
+body.cs2-page #sol-f4 .cs-sol-feature-image img {
+  width: auto;
+  max-width: 100%;
+}
+
+/* Single-column, image-above-text treatment — applied per feature based on
+   each image's actual aspect ratio, not per-screenshot guesswork. A wide/
+   landscape image gets squeezed and hard to read in the default 380px side
+   column, so it gets the full-width stacked layout instead; a tall/portrait
+   image is the one case that genuinely suits the narrow side column, so it
+   keeps the default two-column layout.
+   Measured ratios (width/height): cs1-f3 1.28, cs1-f4 1.14, cs1-f5 1.51,
+   cs3-f1 2.36, cs3-f3 1.24, cs3-f4 2.62, cs3-f5 1.17, cs3-f6 1.61 — all
+   landscape, all stacked below. cs3-f2 is 0.82 (portrait) — left at the
+   default two-column layout. cs1-f2 keeps its own explicit two-column
+   treatment (image left / text right / design decision pulled full-width
+   below) from your earlier specific instruction, so it's not included here
+   even though its image is technically landscape. Case study 2's features
+   are all landscape too, which is why the page-wide rule above already
+   covers every one of them. */
+#cs1-f3 .cs-sol-feature-inner,
+#cs1-f3 .cs-sol-feature-inner--reverse,
+#cs1-f4 .cs-sol-feature-inner,
+#cs1-f4 .cs-sol-feature-inner--reverse,
+#cs1-f5 .cs-sol-feature-inner,
+#cs1-f5 .cs-sol-feature-inner--reverse,
+#cs3-f1 .cs-sol-feature-inner,
+#cs3-f1 .cs-sol-feature-inner--reverse,
+#cs3-f3 .cs-sol-feature-inner,
+#cs3-f3 .cs-sol-feature-inner--reverse,
+#cs3-f4 .cs-sol-feature-inner,
+#cs3-f4 .cs-sol-feature-inner--reverse,
+#cs3-f5 .cs-sol-feature-inner,
+#cs3-f5 .cs-sol-feature-inner--reverse,
+#cs3-f6 .cs-sol-feature-inner,
+#cs3-f6 .cs-sol-feature-inner--reverse {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 40px;
+}
+
+#cs1-f3 .cs-sol-feature-image,
+#cs1-f4 .cs-sol-feature-image,
+#cs1-f5 .cs-sol-feature-image,
+#cs3-f1 .cs-sol-feature-image,
+#cs3-f3 .cs-sol-feature-image,
+#cs3-f4 .cs-sol-feature-image,
+#cs3-f5 .cs-sol-feature-image,
+#cs3-f6 .cs-sol-feature-image {
+  order: -1;
+  width: 100%;
+}
+
+#cs1-f3 .cs-sol-feature-image img,
+#cs1-f4 .cs-sol-feature-image img,
+#cs1-f5 .cs-sol-feature-image img,
+#cs3-f1 .cs-sol-feature-image img,
+#cs3-f3 .cs-sol-feature-image img,
+#cs3-f4 .cs-sol-feature-image img,
+#cs3-f5 .cs-sol-feature-image img,
+#cs3-f6 .cs-sol-feature-image img {
+  width: 100%;
+}
+
+.cs-sol-why {
+  background-color: var(--blue-bg);
+  border: 1px solid var(--blue-bd);
+  border-radius: 20px;
+  padding: 18px 22px;
+  margin-top: 24px;
+  width: 100%;
+}
+
+/* Feature 02 (Embedded AI Assistant): design decision box lives outside the
+   text column now, as a full-width row below the image+text pair — scoped to
+   this one feature only, not the shared .cs-sol-feature-text nesting. */
+#cs1-f2 .cs-sol-why {
+  margin-top: 40px;
+}
+
+/* Tighten the feature block's own internal rhythm (title → description →
+   impact line → design decision) — the shared .ssub rule's 40px
+   margin-bottom is meant for section subheadings elsewhere on the page,
+   too loose here since flex children don't collapse margins. */
+.cs-sol-feature-text .ssub {
+  margin-bottom: 16px;
 }
 
 .cs-sol-why h4 {
   font-family: 'Inter', sans-serif;
   font-weight: 700;
-  font-size: 16px;
+  font-size: var(--fs-label);
+  text-transform: uppercase;
+  letter-spacing: .1em;
   color: var(--blue);
   margin-bottom: 12px;
 }
@@ -3940,7 +4198,7 @@ img {
 .cs-sol-why p {
   font-family: 'Inter', sans-serif;
   font-weight: 300;
-  font-size: 16px;
+  font-size: 14px;
   color: var(--black);
   line-height: 1.6;
 }
@@ -4003,6 +4261,16 @@ img {
   }
 
   .cs-sol-feature-image {
+    width: 100%;
+  }
+
+  /* #sol-f4's desktop-only override (fixed width:380px, flex-shrink:0, to force
+     a 2-col layout for just this one feature) has higher specificity than the
+     generic ".cs-sol-feature-image { width:100% }" rule above, so it kept
+     winning even after the row stacks to a column on mobile — the image div
+     stayed pinned at 380px, wider than the viewport, and forced the whole
+     page to scroll horizontally. Matching the specificity here to reset it. */
+  body.cs2-page #sol-f4 .cs-sol-feature-image {
     width: 100%;
   }
 
@@ -4103,20 +4371,6 @@ img {
 
 .insight-card:hover {
   box-shadow: 0 4px 16px rgba(99, 102, 241, 0.08);
-}
-
-/* Contact card — refined lift */
-.contact-card {
-  transition: box-shadow 0.5s var(--ease-out-expo),
-              transform 0.5s var(--ease-out-expo);
-}
-
-.contact-card:hover {
-  box-shadow:
-    0 2px 6px rgba(0, 0, 0, 0.04),
-    0 12px 36px rgba(0, 0, 0, 0.08),
-    0 32px 64px rgba(0, 0, 0, 0.04);
-  transform: translateY(-4px);
 }
 
 /* Whatnext pills — subtle lift */
@@ -4250,10 +4504,63 @@ img {
 
 /* ===== CASE STUDIES SECTION ===== */
 .case-studies-section {
-  padding: 64px var(--h-pad) 80px;
+  padding: 64px 0 80px;
+  /* Plain block flow, not flex — the case-study cards are already
+     block-level and stack fine on their own. position:relative anchors
+     the absolutely-positioned .work-nums-fixed rail below. */
+  position: relative;
+}
+
+/* Sticky 01/02/03 rail — pinned to vertical center of the viewport while
+   scrolling through the section, lighting up whichever case study is in
+   view. float+sticky was leaving reserved layout space (a visible gap)
+   before the first card even after taking the parent off flex — so this
+   uses the standard sticky-rail pattern instead: the outer wrapper is
+   absolutely positioned (zero footprint, can't ever push other content
+   down), spanning the full height of the section; the inner wrapper does
+   the actual sticky centering within that. */
+.work-nums-fixed {
+  position: absolute;
+  top: 0;
+  right: 32px;
+  height: 100%;
+  z-index: 5;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.work-nums-inner {
+  position: sticky;
+  top: 50%;
+  transform: translateY(-50%);
   display: flex;
   flex-direction: column;
-  gap: 80px;
+  gap: 24px;
+  pointer-events: auto;
+}
+
+.work-num {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  border: none;
+  color: rgba(255, 255, 255, 0.55);
+  background: transparent;
+  flex-shrink: 0;
+  transition: background 0.3s ease, color 0.3s ease, transform 0.4s var(--ease-out-back);
+}
+
+.work-num.active {
+  background: var(--light);
+  color: var(--black);
+  transform: scale(1.1);
 }
 
 .case-study-card {
@@ -4277,6 +4584,46 @@ img {
   box-shadow: 0 20px 60px rgba(16, 18, 23, 0.08), 0 4px 16px rgba(16, 18, 23, 0.04);
 }
 
+/* Homepage cards go full-color per case study — same accent colors as each
+   case study's own hero band, so the color is a consistent signal sitewide.
+   All text below gets a light-cream override since the card is no longer white.
+   Full-bleed edge-to-edge: the section above dropped its horizontal padding,
+   so the card itself carries --h-pad as inner padding instead — background
+   spans the full viewport width, content stays aligned to the site grid. */
+.case-studies-section .case-study-card {
+  border: none;
+  border-radius: 0;
+  width: 100%;
+  /* Matches the Claude Design reference's work-block padding (120px) — the
+     old 64px read too compact/card-like next to the reference's full,
+     tall per-project sections. */
+  padding: 150px var(--h-pad);
+}
+.case-studies-section .case-study-card:nth-of-type(1) { background: var(--cs1); }
+.case-studies-section .case-study-card:nth-of-type(2) { background: var(--cs2); }
+.case-studies-section .case-study-card:nth-of-type(3) { background: var(--cs3); }
+
+.case-studies-section .case-study-card .case-study-content .cs-label {
+  color: rgba(251,238,233,.85);
+}
+.case-studies-section .case-study-card .case-study-content .cs-label-line {
+  background-color: rgba(251,238,233,.5);
+}
+.case-studies-section .case-study-card .heading-h2 {
+  color: #FBEEE9;
+}
+.case-studies-section .case-study-card .tag-role {
+  color: #FBEEE9;
+  border-color: rgba(251,238,233,.4);
+}
+.case-studies-section .case-study-card .cs-text-link {
+  color: rgba(251,238,233,.9);
+}
+.case-studies-section .case-study-card .cs-text-link:hover {
+  color: #FFFFFF;
+}
+
+
 .case-study-content {
   display: flex;
   flex-direction: column;
@@ -4293,7 +4640,7 @@ img {
   font-weight: 600;
   letter-spacing: 2px;
   text-transform: uppercase;
-      font-size: 14px;
+      font-size: 10px;
 }
 
 .case-study-content .cs-label-line {
@@ -4333,7 +4680,7 @@ img {
 }
 
 .cs-text-link:hover {
-  color: #4F46E5;
+  color: var(--blue);
 }
 
 .cs-text-link .arrow-icon {
@@ -4366,16 +4713,24 @@ img {
 /* ===== ABOUT SECTION ===== */
 .about-section {
   padding: 80px var(--h-pad);
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-wrap: wrap;
   gap: 64px;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .about-content {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  flex: 1 1 380px;
+}
+
+/* SKILLS/LANGUAGES block, relocated here from the old hero — same markup,
+   same data-i18n content, just a new home next to the About copy. */
+.about-meta-col {
+  flex: 1 1 260px;
+  padding-top: 8px;
 }
 
 .about-title {
@@ -4383,28 +4738,133 @@ img {
   margin-bottom: 24px;
 }
 
-.about-subtitle {
-  margin-bottom: 32px;
-  color: var(--black);
-}
-
 .about-content .text-body {
   margin-bottom: 24px;
 }
 
-.about-image-wrapper {
+/* ===== NEW HOME HERO — full-bleed accent + parallax + curtain reveal ===== */
+.new-hero {
+  min-height: 480px;
+  /* Short enough that the intro-cover's rounded top + first lines of its
+     heading are already visible on load, instead of requiring a scroll to
+     discover the value-prop line. */
+  height: 76vh;
+  background: var(--blue);
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  padding: 0 32px;
+  overflow: hidden;
+  position: relative;
+}
+.new-hero-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.hero-badge-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 100px;
+  padding: 8px 16px;
+  width: fit-content;
+  margin-bottom: 28px;
+}
+.hero-badge-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #D9E85C;
+  flex-shrink: 0;
+  box-shadow: 0 0 0 3px rgba(217, 232, 92, 0.25);
+  animation: contact-pulse 2.4s ease-in-out infinite;
+}
+.hero-badge-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.92);
+  letter-spacing: 0.3px;
+}
+.hero-greeting {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: var(--fs-h1);
+  color: #F7EFE9;
+  margin: 0;
+  line-height: 1.05;
+}
+.hero-tagline {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: rgba(247,239,233,.85);
+  margin-top: 16px;
 }
 
-.about-image {
-  width: 100%;
-  max-width: 360px;
-  border-radius: 50%;
-  object-fit: cover;
-  aspect-ratio: 1/1;
-  box-shadow: 0 16px 48px rgba(16, 18, 23, 0.08);
+/* Intro section slides up and rounds over the hero's bottom edge as you scroll —
+   paired with the JS scroll-drift+fade on #hero-parallax for the parallax feel. */
+.intro-cover {
+  background: var(--light);
+  padding: 80px var(--h-pad) 96px;
+  position: relative;
+  z-index: 2;
+  border-radius: 52px 52px 0 0;
+  margin-top: -40px;
+}
+.intro-inner {
+  max-width: 820px;
+  margin: 0 auto;
+  text-align: center;
+}
+.intro-eyebrow {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px; font-weight: 600; letter-spacing: 1px;
+  color: var(--blue);
+  margin-bottom: 20px;
+}
+.intro-heading {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: var(--fs-h2);
+  color: var(--black);
+  line-height: 1.25;
+  margin: 0 0 24px;
+}
+.intro-heading .hero-accent { color: var(--blue); }
+.intro-inner .text-body { max-width: 700px; margin: 0 auto; }
+.intro-inner .hero-scroll-link-container { display: flex; justify-content: center; margin-top: 32px; }
+
+/* Skills marquee */
+.marquee-wrap {
+  position: relative;
+  margin-top: 56px;
+  padding: 28px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  overflow: hidden;
+}
+.marquee-fade {
+  position: absolute; top: 0; bottom: 0; width: 100px; pointer-events: none; z-index: 2;
+}
+.marquee-fade.left { left: 0; background: linear-gradient(90deg, var(--light), transparent); }
+.marquee-fade.right { right: 0; background: linear-gradient(270deg, var(--light), transparent); }
+.marquee-track {
+  display: flex; gap: 56px; width: max-content;
+  animation: marquee-scroll 22s linear infinite;
+}
+.marquee-wrap:hover .marquee-track { animation-play-state: paused; }
+@keyframes marquee-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.marquee-chip {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px; font-weight: 500; color: var(--grey);
+  white-space: nowrap;
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track { animation: none; }
 }
 
 /* ===== MAIN FOOTER ===== */
@@ -4421,6 +4881,15 @@ img {
   text-align: center;
   max-width: 800px;
   margin: 0 auto;
+}
+
+.footer-photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 32px;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.35);
 }
 
 .footer-title {
@@ -4470,16 +4939,12 @@ img {
   .case-study-card {
     grid-template-columns: 1fr;
     gap: 40px;
-    padding: 48px;
+    padding: 48px var(--h-pad);
   }
   
   .about-section {
     grid-template-columns: 1fr;
     gap: 48px;
-  }
-  
-  .about-image-wrapper {
-    order: -1;
   }
 
   .cs-hero-content {
@@ -4518,12 +4983,12 @@ img {
   }
 
   .case-studies-section {
-    padding: 48px var(--h-pad) 64px;
-    gap: 48px;
+    padding: 48px 0 64px;
+    gap: 0;
   }
 
   .case-study-card {
-    padding: 32px;
+    padding: 32px var(--h-pad);
     gap: 32px;
   }
   
@@ -4589,12 +5054,12 @@ nav {
   display: flex; align-items: center; justify-content: space-between;
 }
 .nav-logo {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 20px; font-weight: 800;
+  font-family: var(--font-display);
+  font-size: 20px; font-weight: 500;
   letter-spacing: -.03em; color: var(--black);
 }
 .nav-right { display: flex; align-items: center; gap: 24px; }
-.nav-back { font-size: 13px; color: var(--muted); display: flex; align-items: center; gap: 6px; }
+.nav-back { font-size: var(--fs-sm); color: var(--muted); display: flex; align-items: center; gap: 6px; }
 .nav-cta {
   font-size: 12px; font-weight: 600; letter-spacing: .03em;
   color: #fff; background: var(--black);
@@ -4606,14 +5071,14 @@ nav {
 
 .chips { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 32px; }
 .chip {
-  font-size: 11px; font-weight: 500;
+  font-size: var(--fs-label); font-weight: 500;
   letter-spacing: .06em; text-transform: uppercase; color: var(--muted);
   padding: 5px 14px; border: 1px solid var(--border); border-radius: 100px;
 }
 
 .hero-title {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-weight: 800; font-size: 68px;
+  font-family: var(--font-display);
+  font-weight: 500; font-size: var(--fs-h1);
   line-height: 1.04; letter-spacing: -.035em;
   color: var(--black); max-width: 780px; margin-bottom: 28px;
 }
@@ -4634,7 +5099,79 @@ nav {
 .meta-col { padding-right: 20px; }
 .meta-col + .meta-col { padding-left: 20px; border-left: 1px solid var(--border); }
 .mk { font-size: 10px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 7px; }
-.mv { font-size: 13px; font-weight: 400; color: var(--ink); line-height: 1.5; }
+.mv { font-size: var(--fs-sm); font-weight: 400; color: var(--ink); line-height: 1.5; }
+
+/* ─── Per-case hero band ───
+   Wraps the existing .page > .hero on each case-study page so the hero
+   reads full-bleed in that case's signature color. Text/chip/meta colors
+   are overridden here only — the base .hero-title/.chip/.mk/.mv rules
+   above stay untouched for any other context. */
+.hero-band { width: 100%; }
+.hero-band .page { padding-top: 56px; padding-bottom: 56px; }
+.hero-band .chip { color: rgba(255,255,255,.85); border-color: rgba(255,255,255,.35); }
+.hero-band .hero-title { color: #FBEEE9; }
+.hero-band .hero-desc { color: rgba(251,238,233,.85); }
+.hero-band .meta-strip { border-color: rgba(255,255,255,.18); }
+.hero-band .meta-col + .meta-col { border-left-color: rgba(255,255,255,.18); }
+.hero-band .mk { color: rgba(255,255,255,.78); }
+.hero-band .mv { color: #FBEEE9; }
+
+.hero-band.cs1 { background: var(--cs1); }
+.hero-band.cs1 .hero-title .blue { color: #ffe37f; }
+/* Kept light per your call. Heads-up, not a change I'm making unilaterally:
+   #B46D43 is light enough that hero-desc/mk/chip in cream fall short of
+   WCAG AA for normal-size text (~3.5:1 vs. the 4.5:1 target) even at full
+   opacity — the big title is fine since large text only needs 3:1. Say the
+   word if you want that tightened later; leaving it as-is for now. */
+.hero-band.cs2 { background: var(--cs2); }
+.hero-band.cs2 .hero-title .blue { color: var(--cs2-tint); }
+.hero-band.cs3 { background: var(--cs3); }
+.hero-band.cs3 .hero-title .blue { color: var(--cs3-tint); }
+
+/* First post-hero screenshot on each case study — floats up over the hero
+   band (negative margin + z-index) instead of sitting in a flat tinted
+   box below it. Matches the Claude Design reference (case-study.html
+   .shot-frame/.shot) exactly. */
+.cs-shot-frame {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+  margin-top: -60px;
+  padding: 0 32px;
+}
+
+/* Soft "mat" behind the screenshot instead of a hard border — the
+   screenshot content already has plenty of its own borders/lines. */
+.cs-shot-mat {
+  background: var(--surface);
+  border-radius: 24px;
+  padding: 20px;
+  width: 100%;
+  max-width: 860px;
+  display: flex;
+  justify-content: center;
+}
+
+.cs-shot {
+  width: 100%;
+  max-width: 820px;
+  border-radius: 14px;
+  box-shadow: 0 20px 50px rgba(35, 43, 58, 0.12);
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .cs-shot-frame {
+    margin-top: -28px;
+    padding: 0 20px;
+  }
+
+  .cs-shot-mat {
+    padding: 12px;
+    border-radius: 18px;
+  }
+}
 
 /* Cover placeholder */
 .cover {
@@ -4644,7 +5181,7 @@ nav {
   display: flex; flex-direction: column;
   align-items: center; justify-content: center; gap: 6px;
 }
-.cover-hint { font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--border); }
+.cover-hint { font-size: var(--fs-mini-label); font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--border); }
 
 /* ─── Section shell ─── */
 .s { padding: 88px var(--px); max-width: var(--max); margin: 0 auto; }
@@ -4656,19 +5193,19 @@ nav {
 
 /* Section label */
 .slabel {
-  font-size: 10px; font-weight: 700;
+  font-size: var(--fs-label); font-weight: 700;
   letter-spacing: .14em; text-transform: uppercase;
   color: var(--muted); margin-bottom: 20px;
   display: flex; align-items: center; gap: 10px;
 }
-.slabel::before { content: ''; width: 16px; height: 1px; background: var(--border); }
-.slabel.light { color: rgba(255,255,255,.3); }
+.slabel::before { content: ''; width: 16px; height: 1px; background: var(--muted); }
+.slabel.light { color: var(--yellow); }
 .slabel.light::before { background: rgba(255,255,255,.15); }
 
 /* Section heading — standalone, full-width */
 .sh {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-weight: 700; font-size: 40px;
+  font-family: var(--font-display);
+  font-weight: 500; font-size: var(--fs-h2);
   line-height: 1.12; letter-spacing: -.025em;
   color: var(--black); max-width: 640px; margin-bottom: 16px;
 }
@@ -4678,7 +5215,7 @@ nav {
 
 /* Section subtext */
 .ssub {
-  font-size: 15px; font-weight: 400;
+  font-size: var(--fs-body); font-weight: 400;
   line-height: 1.8; color: var(--muted);
   max-width: 540px; margin-bottom: 40px;
 }
@@ -4693,10 +5230,10 @@ nav {
 }
 .pain-item:first-child { border-top: 1px solid var(--border); }
 .pn {
-  font-size: 11px; font-weight: 700;
+  font-size: var(--fs-label); font-weight: 700;
   color: var(--blue); letter-spacing: .04em;
 }
-.pt { font-size: 15px; font-weight: 400; color: var(--ink); line-height: 1.65; }
+.pt { font-size: var(--fs-sm); font-weight: 400; color: var(--ink); line-height: 1.65; }
 
 /* ─── Pull quote ─── */
 .pull-wrap {
@@ -4707,9 +5244,9 @@ nav {
 .pull-inner { max-width: var(--max); margin: 0 auto; display: flex; gap: 28px; align-items: flex-start; }
 .pull-bar { width: 3px; min-height: 60px; background: var(--blue); border-radius: 2px; flex-shrink: 0; margin-top: 6px; }
 .pull-text {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-style: italic; font-weight: 600;
-  font-size: 26px; line-height: 1.4;
+  font-family: var(--font-display);
+  font-style: italic; font-weight: 500;
+  font-size: var(--fs-quote); line-height: 1.4;
   letter-spacing: -.015em; color: var(--black);
   max-width: 620px;
 }
@@ -4717,23 +5254,29 @@ nav {
 
 /* ─── Card ─── */
 .card {
-  background: #fff; border: 1px solid var(--border);
+      background: var(--bg-alt);
+    border: 1px solid  var(--border);
+ 
   border-radius: 12px; padding: 28px;
 }
 .card-dark { background: var(--black); border-radius: 12px; padding: 32px; }
 .card-blue { background: var(--blue-bg); border: 1px solid var(--blue-bd); border-radius: 12px; padding: 24px; }
 
+/* Tension/tradeoff card pair — label + body, one consistent size for both (fs-sm) */
+.tension-title { font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--blue); margin-bottom: 8px; }
+.tension-body { font-size: var(--fs-sm); color: var(--muted); line-height: 1.65; }
+
 /* ─── Focus cards (3-col) ─── */
 .grid3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; margin-top: 40px; }
 .fc { padding: 28px; }
-.fc-n { font-size: 11px; font-weight: 700; letter-spacing: .08em; color: var(--blue); margin-bottom: 14px; display: block; }
+.fc-n { font-size: var(--fs-mini-label); font-weight: 700; letter-spacing: .08em; color: var(--blue); margin-bottom: 14px; display: block; }
 .fc-title {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 17px; font-weight: 700;
+  font-family: 'Inter', sans-serif;
+  font-size: var(--fs-body); font-weight: 700;
   color: var(--black); line-height: 1.3;
   letter-spacing: -.01em; margin-bottom: 10px;
 }
-.fc-body { font-size: 13px; font-weight: 400; color: var(--muted); line-height: 1.7; }
+.fc-body { font-size: var(--fs-sm); font-weight: 400; color: var(--muted); line-height: 1.7; }
 
 /* ─── Approach: steps + card ─── */
 .approach-grid { display: grid; grid-template-columns: 3fr 2fr; gap: 48px; margin-top: 40px; align-items: start; }
@@ -4746,12 +5289,12 @@ nav {
   background: var(--surface); border: 1px solid var(--border);
   border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 15px;
 }
-.sn { font-size: 14px; font-weight: 500; color: var(--ink); margin-bottom: 3px; }
-.sd { font-size: 13px; font-weight: 400; color: var(--muted); line-height: 1.55; }
-.callout-tag { font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--yellow); margin-bottom: 14px; display: block; }
+.sn { font-size: var(--fs-sm); font-weight: 500; color: var(--ink); margin-bottom: 3px; }
+.sd { font-size: var(--fs-sm); font-weight: 400; color: var(--muted); line-height: 1.55; }
+.callout-tag { font-size: var(--fs-mini-label); font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--yellow); margin-bottom: 14px; display: block; }
 .callout-body {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 18px; font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  font-size: var(--fs-large); font-weight: 600;
   color: #fff; line-height: 1.5; letter-spacing: -.01em;
 }
 
@@ -4762,37 +5305,40 @@ nav {
   width: 40px; height: 40px; border-radius: 50%;
   background: var(--surface); border: 1px solid var(--border);
   display: flex; align-items: center; justify-content: center;
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 14px; font-weight: 700; color: var(--black);
   margin-bottom: 16px;
 }
-.p-type { font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--blue); margin-bottom: 4px; }
-.p-name { font-size: 15px; font-weight: 600; color: var(--black); margin-bottom: 4px; }
-.p-sub { font-size: 12px; color: var(--muted); font-style: italic; margin-bottom: 18px; line-height: 1.5; }
-.p-label { font-size: 10px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-top: 16px; margin-bottom: 8px; }
+.p-type { font-size: var(--fs-mini-label); font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--blue); margin-bottom: 4px; }
+.p-name { font-size: var(--fs-body); font-weight: 600; color: var(--black); margin-bottom: 4px; }
+.p-sub { font-size: var(--fs-sm); color: var(--muted); font-style: italic; margin-bottom: 18px; line-height: 1.5; }
+.p-label { font-size: var(--fs-mini-label); font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-top: 16px; margin-bottom: 8px; }
 .dlist { display: flex; flex-direction: column; gap: 8px; }
-.di { font-size: 13px; color: var(--ink); line-height: 1.55; padding-left: 14px; position: relative; }
+.di { font-size: var(--fs-sm); color: var(--ink); line-height: 1.55; padding-left: 14px; position: relative; }
 .di::before { content: ''; position: absolute; left: 0; top: 8px; width: 4px; height: 4px; border-radius: 50%; background: var(--blue); }
 
-/* Insight row */
+/* Insight / design-decision card — label stacked on top of its text, not
+   side-by-side, so it reads the same as .cs-sol-why's h4+p pattern. */
 .insight {
-  display: flex; gap: 14px; align-items: flex-start;
+  display: block;
   background: var(--blue-bg); border: 1px solid var(--blue-bd);
   border-radius: 10px; padding: 18px 22px; margin-top: 14px;
 }
-.ins-tag { font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--blue); white-space: nowrap; padding-top: 2px; flex-shrink: 0; }
-.ins-text { font-size: 14px; color: var(--ink); line-height: 1.7; }
+.ins-tag { display: block; font-size: var(--fs-label); font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--blue); margin-bottom: 10px; }
+.ins-text { display: block; font-size: var(--fs-sm); color: var(--ink); line-height: 1.7; }
 
 /* Shared need */
 .shared-need {
   margin-top: 32px; padding-top: 28px;
   border-top: 1px solid var(--border);
 }
-.sn-label { font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
+.sn-label { font-size: var(--fs-mini-label); font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
 .sn-quote {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-style: italic; font-weight: 600;
-  font-size: 20px; line-height: 1.45;
+  /* Quotes are one of the three serif "display" moments in the scale, same
+     as .pull-text — moved back off Inter. */
+  font-family: var(--font-display);
+  font-style: italic; font-weight: 500;
+  font-size: var(--fs-quote); line-height: 1.3;
   letter-spacing: -.01em; color: var(--black); max-width: 580px;
 }
 
@@ -4801,6 +5347,7 @@ nav {
   display: grid; grid-template-columns: repeat(5,1fr);
   border: 1px solid var(--border); border-radius: 12px;
   overflow: hidden; margin-top: 40px;
+  background: var(--bg-alt);
 }
 .js {
   padding: 24px 16px; border-right: 1px solid var(--border);
@@ -4808,34 +5355,34 @@ nav {
 }
 .js:last-child { border-right: none; }
 .je { font-size: 24px; margin-bottom: 10px; }
-.jst { font-size: 9px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
-.jl { font-size: 13px; font-weight: 600; color: var(--black); margin-bottom: 8px; line-height: 1.3; }
-.jq { font-size: 11px; color: var(--muted); line-height: 1.55; font-style: italic; }
+.jst { font-size: var(--fs-mini-label); font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+.jl { font-size: var(--fs-sm); font-weight: 600; color: var(--black); margin-bottom: 8px; line-height: 1.3; }
+.jq { font-size: var(--fs-sm); color: var(--muted); line-height: 1.55; font-style: italic; }
 
 /* ─── Feature grid 2×2 ─── */
 .feat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 40px; }
 .feat { padding: 28px; }
-.feat-n { font-size: 10px; font-weight: 700; letter-spacing: .1em; color: var(--blue); margin-bottom: 10px; }
-.feat-title { font-size: 15px; font-weight: 600; color: var(--black); margin-bottom: 4px; }
-.feat-goal { font-size: 12px; color: var(--muted); font-style: italic; margin-bottom: 20px; }
+.feat-n { font-size: var(--fs-sm); font-weight: 700; letter-spacing: .1em; color: var(--blue); margin-bottom: 10px; }
+.feat-title { font-size: var(--fs-large); font-weight: 600; color: var(--black); margin-bottom: 4px; }
+.feat-goal { font-size: var(--fs-sm); color: var(--muted); font-style: italic; margin-bottom: 20px; }
 .feat-img {
   width: 100%; height: 120px;
   background: var(--surface); border: 1px solid var(--border);
   border-radius: 8px; display: flex;
   align-items: center; justify-content: center;
-  font-size: 10px; font-weight: 600;
+  font-size: var(--fs-mini-label); font-weight: 600;
   letter-spacing: .08em; text-transform: uppercase;
   color: var(--border); margin-bottom: 18px;
 }
 
-/* ─── Design decision ─── */
+/* ─── Design decision (dark variant) ─── */
 .dd {
-  display: flex; gap: 20px; align-items: flex-start;
+  display: block;
   background: var(--black); border-radius: 12px;
   padding: 32px; margin-top: 14px;
 }
-.dd-tag { font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--yellow); white-space: nowrap; flex-shrink: 0; padding-top: 3px; }
-.dd-body { font-size: 14px; color: rgba(255,255,255,.65); line-height: 1.8; }
+.dd-tag { display: block; font-size: var(--fs-label); font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--yellow); margin-bottom: 12px; }
+.dd-body { font-size: var(--fs-sm); color: rgba(255,255,255,.65); line-height: 1.8; }
 .dd-body strong { color: #fff; font-weight: 500; }
 
 /* ─── Roadmap ─── */
@@ -4843,10 +5390,10 @@ nav {
 .ph { padding: 28px; }
 .ph-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--border); margin-bottom: 20px; }
 .ph-dot.on { background: var(--blue); }
-.ph-n { font-size: 10px; font-weight: 700; letter-spacing: .1em; color: var(--blue); margin-bottom: 6px; }
-.ph-title { font-size: 15px; font-weight: 600; color: var(--black); margin-bottom: 4px; }
-.ph-focus { font-size: 12px; color: var(--muted); font-style: italic; margin-bottom: 16px; line-height: 1.5; }
-.ph-outcome { font-size: 12px; color: var(--muted); line-height: 1.6; padding-top: 14px; border-top: 1px solid var(--border); margin-top: 14px; }
+.ph-n { font-size: var(--fs-mini-label); font-weight: 700; letter-spacing: .1em; color: var(--blue); margin-bottom: 6px; }
+.ph-title { font-size: var(--fs-body); font-weight: 600; color: var(--black); margin-bottom: 4px; }
+.ph-focus { font-size: var(--fs-sm); color: var(--muted); font-style: italic; margin-bottom: 16px; line-height: 1.5; }
+.ph-outcome { font-size: var(--fs-sm); color: var(--muted); line-height: 1.6; padding-top: 14px; border-top: 1px solid var(--border); margin-top: 14px; }
 .ph-outcome strong { color: var(--black); font-weight: 500; }
 
 /* ─── Metrics ─── */
@@ -4859,36 +5406,38 @@ nav {
 .metric { padding: 44px 28px; border-right: 1px solid var(--border); text-align: center; }
 .metric:last-child { border-right: none; }
 .m-n {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 56px; font-weight: 800;
+  font-family: var(--font-display);
+  font-size: 56px; font-weight: 500;
   letter-spacing: -.04em; line-height: 1;
   color: var(--black); margin-bottom: 10px;
 }
-.m-label { font-size: 12px; color: var(--muted); line-height: 1.55; }
+.m-label { font-size: var(--fs-label); color: var(--muted); line-height: 1.55; }
 
 /* ─── Outcome tiles ─── */
 .out-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 36px; }
 .out-tile { display: flex; gap: 12px; align-items: flex-start; padding: 18px; border: 1px solid var(--border); border-radius: 10px; }
 .chk { width: 18px; height: 18px; border-radius: 4px; background: var(--blue-bg); display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; color: var(--blue); flex-shrink: 0; margin-top: 1px; }
-.out-t { font-size: 13px; color: var(--ink); line-height: 1.65; }
+.out-t { font-size: var(--fs-sm); color: var(--ink); line-height: 1.65; }
 .out-t strong { font-weight: 500; color: var(--black); }
 
 /* ─── Takeaways ─── */
 .tk-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; margin-top: 40px; }
 .tk { padding: 32px 28px; }
 .tk-n {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 60px; font-weight: 800;
+  font-family: var(--font-display);
+  font-size: 60px; font-weight: 500;
   letter-spacing: -.05em; line-height: 1;
-  color: rgba(36,87,255,.07); margin-bottom: 18px;
+  /* Was a leftover indigo watermark from the pre-rebrand palette — repointed
+     to the terracotta accent to match everywhere else. */
+  color: rgba(140,70,51,.07); margin-bottom: 18px;
 }
-.tk-title { font-size: 15px; font-weight: 600; color: var(--black); margin-bottom: 10px; line-height: 1.4; }
-.tk-body { font-size: 13px; color: var(--muted); line-height: 1.7; }
+.tk-title { font-size: var(--fs-body); font-weight: 600; color: var(--black); margin-bottom: 10px; line-height: 1.4; }
+.tk-body { font-size: var(--fs-sm); color: var(--muted); line-height: 1.7; }
 
 /* ─── Pills ─── */
 .pills { display: flex; flex-direction: column; gap: 10px; margin-top: 36px; max-width: 560px; }
-.pill { display: flex; align-items: center; gap: 14px; padding: 14px 18px; border: 1px solid var(--border); border-radius: 100px; }
-.pa { width: 24px; height: 24px; background: var(--black); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 11px; flex-shrink: 0; }
+.pill { display: flex; align-items: center; gap: 14px; padding: 14px 18px; border: 1px solid var(--border); border-radius: 100px; background: var(--bg-alt); }
+.pa { width: 24px; height: 24px; background: var(--blue); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 11px; flex-shrink: 0; }
 .pt { font-size: 14px; color: var(--ink); line-height: 1.5; }
 
 /* ─── What next: 2-col ─── */
@@ -4896,13 +5445,32 @@ nav {
 
 /* ─── Closing ─── */
 .closing-wrap { background: var(--black); border-top: 1px solid rgba(255,255,255,.06); }
-.closing-sub { font-size: 16px; color: rgba(255,255,255,.4); line-height: 1.75; margin-top: 16px; max-width: 440px; }
+.closing-sub { font-size: 16px; color: rgba(255,255,255,.7); line-height: 1.75; margin-top: 16px; max-width: 440px; }
+
+/* Per-case-study background on the closing section, matching each case's
+   hero-band color instead of the generic black — with the highlighted word
+   re-solved for contrast on each background, mirroring the exact
+   .hero-band.cs1/cs2/cs3 .hero-title .blue pattern already established. */
+.closing-wrap.cs1 { background: var(--cs1); }
+.closing-wrap.cs1 .sh.white .blue { color: #FFFFFF; }
+.closing-wrap.cs2 { background: var(--cs2); }
+.closing-wrap.cs2 .sh.white .blue { color: var(--cs2-tint); }
+.closing-wrap.cs3 { background: var(--cs3); }
+.closing-wrap.cs3 .sh.white .blue { color: var(--cs3-tint); }
 
 /* ─── Footer ─── */
-.footer { border-top: 1px solid var(--border); padding: 28px var(--px); max-width: var(--max); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
-.f-link { font-size: 13px; color: var(--muted); display: flex; align-items: center; gap: 10px; }
-.f-logo { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 18px; font-weight: 800; letter-spacing: -.03em; }
-.arr { width: 30px; height: 30px; border-radius: 50%; background: var(--black); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 12px; }
+/* Prev/next pagination bar: a darker, warm-neutral tone — a step down from
+   the closing section's case color above, a step up from the solid-black
+   main footer below, so the three bands read as an intentional gradient
+   rather than a hard cut. */
+/* Background spans full viewport width (matching the closing section above
+   and the main footer below); .page reused for the centered/constrained
+   content row, same wrapper convention already used inside .closing-wrap. */
+.footer { background: #0c0c10; border-top: 1px solid rgba(255,255,255,.08); padding: 28px 0; }
+.footer .page { display: flex; align-items: center; justify-content: space-between; }
+.f-link { font-size: var(--fs-sm); color: rgba(255,255,255,.55); display: flex; align-items: center; gap: 10px; }
+.f-logo { font-family: 'Inter', sans-serif; font-size: 18px; font-weight: 700; letter-spacing: -.03em; color: rgba(255,255,255,.9); }
+.arr { width: 30px; height: 30px; border-radius: 50%; background:#3d2828; color: #ffffffd1; display: flex; align-items: center; justify-content: center; font-size: 12px; }
 
 /* Badge */
 .badge { position: fixed; bottom: 20px; right: 20px; z-index: 999; background: var(--black); color: var(--yellow); font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; padding: 8px 14px; border-radius: 100px; }
@@ -4942,12 +5510,24 @@ nav {
     font-size: 40px;
     margin-bottom: 24px;
   }
-  
+
+  /* Home hero ("Hello, I am Daniela") — same treatment as .hero-title above,
+     it's just a different component for the same job. Desktop size (var(--fs-h1))
+     wraps huge and cramped on phones otherwise. */
+  .hero-greeting {
+    font-size: 40px;
+  }
+
   .sh {
     font-size: 28px;
     margin-bottom: 16px;
   }
-  
+
+  /* "I design digital experiences" intro panel heading — same fix as .sh. */
+  .intro-heading {
+    font-size: 28px;
+  }
+
   .pull-text {
     font-size: 22px;
   }
@@ -4975,11 +5555,6 @@ nav {
     grid-template-columns: 1fr !important;
   }
 
-  .dd, .insight {
-    flex-direction: column;
-    gap: 12px;
-  }
-  
   .js {
     border-right: none;
     border-bottom: 1px solid var(--border);
@@ -5008,9 +5583,5 @@ nav {
   }
   .pull-wrap {
     padding: 48px 0;
-  }
-  
-  .footer {
-    padding: 28px var(--px);
   }
 }

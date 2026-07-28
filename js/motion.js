@@ -129,6 +129,28 @@
     animate();
   }
 
+  // ─── 4b. Home hero parallax (drift + fade as the Intro section covers it) ───
+  function initHeroParallax() {
+    const layer = document.getElementById('hero-parallax');
+    if (!layer) return;
+    if (prefersReducedMotion) return;
+
+    let ticking = false;
+    function update() {
+      const y = window.scrollY;
+      layer.style.transform = 'translateY(' + (y * 0.35) + 'px)';
+      layer.style.opacity = Math.max(0, 1 - y / 400);
+      ticking = false;
+    }
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        window.requestAnimationFrame(update);
+        ticking = true;
+      }
+    }, { passive: true });
+    update();
+  }
+
   // ─── 4. Magnetic Hover Effect on CTA Buttons ──────────────────
   function initMagneticHover() {
     // Skip on touch devices
@@ -199,6 +221,7 @@
   document.addEventListener('DOMContentLoaded', () => {
     initScrollReveals();
     initBackgroundMotion();
+    initHeroParallax();
     initMagneticHover();
   });
 })();
