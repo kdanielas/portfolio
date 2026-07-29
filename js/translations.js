@@ -46,7 +46,7 @@ const translations = {
 
     // Case Study 1 - BMO
     cs1_label: "Case study",
-    cs1_title: "Reimagining Digital Investing with AI-Powered Guidance",
+    cs1_title: "Reframing Self-Directed Investing Through AI",
     cs1_desc: "Embedding AI-powered guidance into BMO InvestorLine's self-directed investing platform — helping users move from uncertainty to confident action.<br><br>A 5-month concept engagement that shaped a phased roadmap for AI-assisted investing.",
     cs2_desc: "End-to-end redesign of an internal customer support tool at Form3, improving search efficiency and reducing resolution time for payment incidents.<br><br>Reduced search time and decreased the support team's dependency on engineers for issue resolution.",
     cs1_desc_p1: "BMO InvestorLine gives investors full control — no advisor required. But control without guidance creates friction at the moments that matter most. I joined a 5-month engagement to redesign how self-directed investors understand their portfolio and act with confidence.",
@@ -146,7 +146,7 @@ const translations = {
 
     // Feature 01 — Portfolio Understanding
     cs1_feature0_title: "Portfolio Understanding",
-    cs1_feature0_goal: "Turn confusion into clarity.",
+    cs1_feature0_goal: "From raw data to actionable feedback.",
     cs1_feature0_p1: "Users frequently check their portfolio but struggle to interpret what they see. Raw numbers don't answer the question they're actually asking: \"Why did my portfolio move?\"",
     cs1_feature0_p2: "We introduced AI-generated explanations that answer it directly — summarizing portfolio performance in plain language, highlighting key drivers like market trends, specific holdings, and recent events, and letting users drill down from summary to detail at their own pace. Instead of raw data, the platform delivers narrative insight — helping users learn while they invest.",
     cs1_feature0_p3: "We extended this into benchmarking: users can compare their portfolio against a BMO model portfolio matched to their risk profile, and immediately see what's different and why. The platform then invites, never instructs: \"Would you like to see what applying this model would look like?\"",
@@ -168,7 +168,7 @@ const translations = {
     cs1_after_decision_body: "A threshold warning tells users what's wrong. A contextual alert tells users what it means — and gives them a path forward. Removing the separate advice panel and embedding goal-linked alerts directly into the portfolio experience was the core design transformation of Journey 2.",
 
     // Feature 02 — Embedded AI Assistant
-    cs1_feature5_title: "Embedded AI Assistant",
+    cs1_feature5_title: "Embedded assistance",
     cs1_feature5_goal: "Goal: Always available, never intrusive.",
     cs1_feature5_p1: "In early concepts, we designed a dedicated AI hub — a separate screen where users could go to ask questions and get guidance. It made logical sense on paper. In usability testing, users ignored it. They weren't looking for a separate destination; they expected help to appear exactly where they were making a decision. The hub required them to context-switch at the worst possible moment.",
     cs1_feature5_p2: "So we moved guidance inline. Instead of a screen users had to seek out, AI became part of the experience itself — explaining decisions in plain language, answering questions in context, surfacing what's most relevant to each user's specific portfolio. The reasoning behind every insight is visible, not hidden. That transparency is what makes it feel trustworthy rather than prescriptive.",
@@ -177,7 +177,7 @@ const translations = {
     cs1_feature5_why_text: "Moving guidance inline — to the exact moment a decision is being made — is what made it feel useful. A dedicated AI screen gets ignored. Context matters more than capability.",
 
     // Feature 03 — Pre-Trade Intelligence
-    cs1_feature3_title: "Pre-Trade Intelligence",
+    cs1_feature3_title: "Impact preview",
     cs1_feature3_goal: "Goal: Help users act with confidence.",
     cs1_feature3_p1: "Executing a trade is the highest-stakes moment in the experience — and the moment most platforms abandon the user. The standard flow gets you to a confirmation screen with a ticker, a quantity, and a price. What it doesn't tell you: what this does to your risk level, your diversification, your goals.",
     cs1_feature3_p2: "We designed one step earlier. Before the user commits, the platform surfaces the things that matter: how this trade shifts their risk exposure, what it does to diversification, whether it moves them toward or away from their goals. If they want to go deeper, they can ask — \"How will this affect my portfolio balance?\" or \"What should I consider before making this trade?\" — and get a contextual answer tied to their specific situation, not a generic article.",
@@ -638,7 +638,7 @@ const translations = {
     // Footer nav
     footer_prev_cs1: "01 — Investing",
     footer_next_cs2: "Improving Efficiency in a Customer Support Operations Tool",
-    footer_prev_cs2: "Reimagining Digital Investing with AI-Powered Guidance",
+    footer_prev_cs2: "Reframing Self-Directed Investing Through AI",
     footer_next_cs3: "Optimizing Restaurant Operations with a Reservation Management System",
     footer_prev_cs3: "Improving Efficiency in a Customer Support Operations Tool",
     footer_next_contact: "Contact",
@@ -669,8 +669,8 @@ const translations = {
 
     // Welcome page hero
     welcome_label: "HI, I AM DANIELA :)",
-    welcome_hero_h1: "I design digital experiences driven by ",
-    welcome_hero_h12: "strategy, business and human needs.",
+    welcome_hero_h1: "I transform complex systems into ",
+    welcome_hero_h12: "intuitive product experiences.",
 
 
     // CS2 hero team
@@ -844,7 +844,7 @@ const translations = {
     cs1_chip_proto: "Prototyping",
     cs1_challenge_h2_1: "The real problem wasn't friction.",
     cs1_challenge_h2_2: "It was fear.",
-    cs1_pull_quote: "How might we help users make better financial decisions — without taking control away from them?",
+    cs1_pull_quote: "How might we guide investors <span>while preserving their autonomy?</span>",
     cs1_opp_card1_title: "Surface the right insight at the right moment",
     cs1_opp_card1_body: "Contextual guidance woven into the workflow — not buried in a help section",
     cs1_opp_card2_title: "Make consequences visible before users commit",
@@ -1021,7 +1021,7 @@ const translations = {
     cs2_closing_sub: "And sometimes, what you build for your team turns out to be exactly what your customers needed too.",
 
   // ── CS1 i18n wiring (new keys) ────────────────────────────
-  cs1_hero_title: "Redesigning Self-Directed Investing<br>with <span class='blue'>Guided Decision-Making</span>",
+  cs1_hero_title: "Reframing Self-Directed Investing<br><span class='blue'>Through AI</span>",
   cs1_hero_desc1: "BMO InvestorLine gives investors full control — no advisor required. But control without guidance creates friction at the moments that matter most. Over 7 months, I owned Journey 2 (Portfolio Understanding) end-to-end — discovery synthesis, flows, and high-fidelity prototypes — collaborating across all three journeys to keep the experience aligned.",
   cs1_hero_desc2: "Work was divided by journey: UX Designer → Onboarding (J1) · me → Portfolio Understanding (J2) · Lead Designer → Trade (J3). Key J2 concepts were also applied to the empty state — designed for pre-account users to explore the platform before committing.",
   cs1_meta_team_val: "Lead Designer · UX Designer<br>· me (UX Designer)",
@@ -1236,7 +1236,7 @@ const translations = {
 
     // Case Study 1 - BMO
     cs1_label: "Caso de estudio",
-    cs1_title: "Redefiniendo la inversión digital con ayuda de la inteligencia artificial",
+    cs1_title: "Replanteando la Inversión Autogestionada a través de IA",
     cs1_desc_p1: "BMO InvestorLine les da a los inversores control total, sin necesidad de un asesor. Pero el control sin orientación genera fricción justo en los momentos que más importan. Me uní a un proyecto de 5 meses para rediseñar cómo los inversores autogestionados entienden su cartera y actúan con confianza.",
     cs1_desc_p2: "Lideré el diseño del Journey 2 — ¿Cómo va mi cartera? — y colaboré en el onboarding y la gestión de cartera para mantener alineados los tres journeys. Mi trabajo incluyó síntesis de discovery, user flows, wireframes y prototipos de alta fidelidad validados mediante pruebas con usuarios.",
     cs1_role_title: "Mi rol",
@@ -1333,7 +1333,7 @@ const translations = {
 
     // Feature 01 — Comprensión del portafolio
     cs1_feature0_title: "Comprensión del portafolio",
-    cs1_feature0_goal: "Convertir la confusión en claridad.",
+    cs1_feature0_goal: "De datos en bruto a información accionable.",
     cs1_feature0_p1: "Los usuarios revisan su portafolio con frecuencia pero tienen dificultades para interpretar lo que ven. Los números sin procesar no responden la pregunta que realmente están haciendo: \"¿Por qué se movió mi portafolio?\"",
     cs1_feature0_p2: "Introdujimos explicaciones generadas por IA que responden directamente — resumiendo el rendimiento del portafolio en lenguaje claro, destacando los impulsores clave como tendencias del mercado, posiciones específicas y eventos recientes, y permitiendo a los usuarios profundizar desde el resumen hasta el detalle a su propio ritmo. En lugar de datos brutos, la plataforma entrega insight narrativo — ayudando a los usuarios a aprender mientras invierten.",
     cs1_feature0_p3: "Extendimos esto al benchmarking: los usuarios pueden comparar su portafolio contra un portafolio modelo de BMO ajustado a su perfil de riesgo, y ver inmediatamente qué es diferente y por qué. La plataforma invita, nunca instruye: \"¿Te gustaría ver cómo se vería aplicar este modelo?\"",
@@ -1355,7 +1355,7 @@ const translations = {
     cs1_after_decision_body: "Una advertencia de umbral le dice a los usuarios qué está mal. Una alerta contextual les dice qué significa — y les da un camino a seguir. Eliminar el panel separado e integrar alertas orientadas a metas directamente en la experiencia del portafolio fue la transformación central de diseño del Journey 2.",
 
     // Feature 02 — Asistente de IA integrado
-    cs1_feature5_title: "Asistente de IA integrado",
+    cs1_feature5_title: "Asistencia integrada",
     cs1_feature5_goal: "Objetivo: Siempre disponible, nunca intrusivo.",
     cs1_feature5_p1: "En los conceptos iniciales, diseñamos un hub de IA dedicado — una pantalla separada donde los usuarios podían ir a hacer preguntas y obtener orientación. Tenía sentido en papel. En las pruebas de usabilidad, los usuarios lo ignoraron. No buscaban un destino separado; esperaban que la ayuda apareciera exactamente donde estaban tomando una decisión. El hub les exigía cambiar de contexto en el peor momento posible.",
     cs1_feature5_p2: "Así que movimos la orientación inline. En lugar de una pantalla que los usuarios tenían que buscar, la IA se convirtió en parte de la experiencia misma — explicando decisiones en lenguaje claro, respondiendo preguntas en contexto, destacando lo más relevante para el portafolio específico de cada usuario. El razonamiento detrás de cada insight es visible, no oculto. Esa transparencia es lo que lo hace sentir confiable en lugar de prescriptivo.",
@@ -1364,7 +1364,7 @@ const translations = {
     cs1_feature5_why_text: "Integrar la orientación directamente — en el momento exacto en que se toma una decisión — fue lo que la hizo sentir útil. Una pantalla dedicada a IA se ignora. El contexto importa más que la capacidad.",
 
     // Feature 03 — Inteligencia pre-trade
-    cs1_feature3_title: "Inteligencia pre-trade",
+    cs1_feature3_title: "Vista previa de impacto",
     cs1_feature3_goal: "Objetivo: Ayudar a los usuarios a actuar con confianza.",
     cs1_feature3_p1: "Ejecutar un trade es el momento de mayor riesgo en la experiencia — y el momento en que la mayoría de plataformas abandonan al usuario. El flujo estándar te lleva a una pantalla de confirmación con un ticker, una cantidad y un precio. Lo que no te dice: qué hace esto a tu nivel de riesgo, tu diversificación, tus metas.",
     cs1_feature3_p2: "Diseñamos un paso antes. Antes de que el usuario se comprometa, la plataforma muestra lo que importa: cómo este trade afecta su exposición al riesgo, qué hace a la diversificación, si lo acerca o aleja de sus objetivos. Si quiere profundizar, puede preguntar — \"¿Cómo afectará esto a mi balance?\" o \"¿Qué debo considerar antes de hacer este trade?\" — y obtener una respuesta contextual vinculada a su situación específica, no un artículo genérico.",
@@ -1474,7 +1474,7 @@ const translations = {
     cs1_chip_proto: "Prototipado",
     cs1_challenge_h2_1: "El problema real no era la fricción.",
     cs1_challenge_h2_2: "Era el miedo.",
-    cs1_pull_quote: "¿Cómo podemos ayudar a los usuarios a tomar mejores decisiones financieras — sin quitarles el control?",
+    cs1_pull_quote: "¿Cómo podemos guiar a los inversores <span>preservando su autonomía?</span>",
     cs1_opp_card1_title: "Mostrar el insight correcto en el momento correcto",
     cs1_opp_card1_body: "Orientación contextual integrada en el flujo — no enterrada en una sección de ayuda",
     cs1_opp_card2_title: "Hacer visibles las consecuencias antes de comprometerse",
@@ -1909,7 +1909,7 @@ const translations = {
     // Footer
     footer_prev_cs1: "Fintech",
     footer_next_cs2: "Optimizando la eficiencia en las operaciones de soporte al cliente",
-    footer_prev_cs2: "Redefiniendo la inversión digital con ayuda de la inteligencia artificial",
+    footer_prev_cs2: "Replanteando la Inversión Autogestionada a través de IA",
     footer_next_cs3: "Optimización de las operaciones de restaurante con un sistema de gestión de reservas",
     footer_prev_cs3: "Optimizando la eficiencia en las operaciones de soporte al cliente",
     footer_next_contact: "Contacto",
@@ -1940,8 +1940,8 @@ const translations = {
 
     // Welcome page hero
     welcome_label: "HOLA, SOY DANIELA :)",
-    welcome_hero_h1: "Diseño experiencias digitales que conectan ",
-    welcome_hero_h12: "estrategia, negocio y necesidades humanas.",
+    welcome_hero_h1: "Transformo sistemas complejos en ",
+    welcome_hero_h12: "experiencias de producto intuitivas.",
 
 
     // CS2 hero team
@@ -2221,7 +2221,7 @@ const translations = {
   cs3_closing_sub: "Diseñar para entornos operacionales me enseñó que la claridad y la velocidad no son objetivos de diseño. Son requisitos de negocio. Y la documentación del equipo de soporte es la prueba de usabilidad más honesta que puedes tener.",
 
   // ── CS1 i18n wiring (new keys) ────────────────────────────
-  cs1_hero_title: "Rediseño de la Inversión Autogestionada<br>con <span class='blue'>Toma de Decisiones Guiada</span>",
+  cs1_hero_title: "Replanteando la Inversión Autogestionada<br><span class='blue'>a través de IA</span>",
   cs1_hero_desc1: "BMO InvestorLine da a los inversores control total — sin asesor. Pero control sin orientación genera fricción en los momentos que más importan. Durante 7 meses, lideré el Journey 2 (Comprensión del portafolio) de principio a fin — síntesis de discovery, flujos y prototipos de alta fidelidad — colaborando con los tres journeys para mantener la experiencia alineada.",
   cs1_hero_desc2: "El trabajo se dividió por journey: Diseñadora UX → Onboarding (J1) · yo → Comprensión del portafolio (J2) · Diseñadora Líder → Trading (J3). Los conceptos clave del J2 también se aplicaron al empty state — diseñado para usuarios sin cuenta que quieren explorar la plataforma antes de comprometerse.",
   cs1_meta_team_val: "Diseñadora Líder · Diseñadora UX<br>· yo (Diseñadora UX)",

@@ -712,7 +712,7 @@ body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-divider {
   padding: 48px 36px;
   overflow: hidden;
   width: 100%;
-  border-radius: 4px;
+  border-radius: 16px;
 }
 
 .purple-card .card-label {
@@ -1794,7 +1794,7 @@ body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-divider {
 /* ===== INSIGHT CARD (reusable: Shared Need, Pre-Trade quotes, roadmap note) ===== */
 .insight-card {
   background-color: rgba(99, 102, 241, 0.06);
-  border-radius: 14px;
+  border-radius: 16px;
   padding: 20px 24px;
   display: flex;
   align-items: center;
@@ -1822,7 +1822,7 @@ body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-divider {
 /* Legacy alias */
 .cs-shared-insight {
   background-color: rgba(99, 102, 241, 0.06);
-  border-radius: 14px;
+  border-radius: 16px;
   padding: 20px 24px;
   display: flex;
   align-items: center;
@@ -2885,7 +2885,7 @@ body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-divider {
   /* Shift v2 mobile */
   .cs-shift-v2 .shift-v2-item {
     padding: 12px 16px;
-    border-radius: 12px;
+    border-radius: 16px;
   }
 
   .cs-shift-v2 .shift-v2-prefix,
@@ -3338,7 +3338,7 @@ body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-divider {
 
   .cs-closing-dark {
     padding: 40px 28px;
-    border-radius: 14px;
+    border-radius: 16px;
   }
 
   .cs-closing-dark .closing-title {
@@ -3628,7 +3628,7 @@ body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-divider {
 .contact-editorial-photo {
   width: 100px;
   height: 128px;
-  border-radius: 8px;
+  border-radius: 16px;
   overflow: hidden;
   margin-bottom: 48px;
 }
@@ -3919,7 +3919,7 @@ body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-divider {
 
 .cs-solution-header-img img {
   max-width: 100%;
-  border-radius: 12px;
+  border-radius: 16px;
 }
 
 /* ── Body: sticky sidebar + features column ── */
@@ -5257,10 +5257,10 @@ nav {
       background: var(--bg-alt);
     border: 1px solid  var(--border);
  
-  border-radius: 12px; padding: 28px;
+  border-radius: 16px; padding: 28px;
 }
-.card-dark { background: var(--black); border-radius: 12px; padding: 32px; }
-.card-blue { background: var(--blue-bg); border: 1px solid var(--blue-bd); border-radius: 12px; padding: 24px; }
+.card-dark { background: var(--black); border-radius: 16px; padding: 32px; }
+.card-blue { background: var(--blue-bg); border: 1px solid var(--blue-bd); border-radius: 16px; padding: 24px; }
 
 /* Tension/tradeoff card pair — label + body, one consistent size for both (fs-sm) */
 .tension-title { font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--blue); margin-bottom: 8px; }
@@ -5322,7 +5322,7 @@ nav {
 .insight {
   display: block;
   background: var(--blue-bg); border: 1px solid var(--blue-bd);
-  border-radius: 10px; padding: 18px 22px; margin-top: 14px;
+  border-radius: 16px; padding: 18px 22px; margin-top: 14px;
 }
 .ins-tag { display: block; font-size: var(--fs-label); font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--blue); margin-bottom: 10px; }
 .ins-text { display: block; font-size: var(--fs-sm); color: var(--ink); line-height: 1.7; }
@@ -5345,7 +5345,7 @@ nav {
 /* ─── Journey ─── */
 .journey {
   display: grid; grid-template-columns: repeat(5,1fr);
-  border: 1px solid var(--border); border-radius: 12px;
+  border: 1px solid var(--border); border-radius: 16px;
   overflow: hidden; margin-top: 40px;
   background: var(--bg-alt);
 }
@@ -5368,7 +5368,7 @@ nav {
 .feat-img {
   width: 100%; height: 120px;
   background: var(--surface); border: 1px solid var(--border);
-  border-radius: 8px; display: flex;
+  border-radius: 16px; display: flex;
   align-items: center; justify-content: center;
   font-size: var(--fs-mini-label); font-weight: 600;
   letter-spacing: .08em; text-transform: uppercase;
@@ -5378,7 +5378,7 @@ nav {
 /* ─── Design decision (dark variant) ─── */
 .dd {
   display: block;
-  background: var(--black); border-radius: 12px;
+  background: var(--black); border-radius: 16px;
   padding: 32px; margin-top: 14px;
 }
 .dd-tag { display: block; font-size: var(--fs-label); font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--yellow); margin-bottom: 12px; }
@@ -5415,8 +5415,9 @@ nav {
 
 /* ─── Outcome tiles ─── */
 .out-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 36px; }
-.out-tile { display: flex; gap: 12px; align-items: flex-start; padding: 18px; border: 1px solid var(--border); border-radius: 10px; }
-.chk { width: 18px; height: 18px; border-radius: 4px; background: var(--blue-bg); display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; color: var(--blue); flex-shrink: 0; margin-top: 1px; }
+.out-tile { display: flex; gap: 12px; align-items: flex-start; padding: 18px; border: 1px solid var(--border); border-radius: 16px; }
+.chk { width: 18px; height: 18px; border-radius: 4px; background: var(--blue-bg); display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; color: var(--blue); flex-shrink: 0; margin-top: 1px; }
+.chk .material-symbols-rounded { font-size: 14px; }
 .out-t { font-size: var(--fs-sm); color: var(--ink); line-height: 1.65; }
 .out-t strong { font-weight: 500; color: var(--black); }
 
