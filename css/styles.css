@@ -1,24 +1,24 @@
 /* ===== IMPORTS ===== */
-@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@6..144,200..800&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@6..144,200..800&family=Inter:wght@300;400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
 
 /* ===== DESIGN TOKENS ===== */
 :root {
   /* --blue kept as the variable name across ~70 existing rules (nav, buttons, links, quote bars)
-     to avoid touching every call site — it now holds the new terracotta brand accent, not indigo. */
-  --blue: #8C4633;
+     to avoid touching every call site — it now holds the orange brand accent (matches index +
+     case-study-1), not terracotta/indigo. */
+  --blue: #EE4423;
   --purple: #4F8387;
-  --black: #0C0C10;
-  --text-dark: #0C0C10;
-  --grey: #64748B;
-  --light: #F5F1EB;
-  --bg-alt: #f8f6f4;
-  /* --yellow: small tag/label color shown on dark backgrounds (closing sections, badges).
-     Repointed from bright yellow to a muted warm gold so it reads premium, not candy. */
-  --yellow: #FFE37F;
-  --blue-bg:   rgba(140, 70, 51, 0.06);
-  --blue-bd:   rgba(140, 70, 51, 0.16);
-  --ink:       #1D2023;
-  --muted:     #6B7280;
+  --black: #120007;
+  --text-dark: #120007;
+  --grey: rgba(18, 0, 7, 0.5);
+  --light: #F1F3EC;
+  --bg-alt: #F1F3EC;
+  /* --yellow: small tag/label color shown on dark backgrounds (closing sections, badges). */
+  --yellow: #EE4423;
+  --blue-bg:   rgba(238, 68, 35, 0.06);
+  --blue-bd:   rgba(238, 68, 35, 0.2);
+  --ink:       #120007;
+  --muted:     rgba(18, 0, 7, 0.7);
   --border:    #e9e6e0;
   /* Sage green used for the About/skills chips — matches the Claude Design
      reference (ui_kits/portfolio/index.html) exactly, not repurposed from
@@ -26,27 +26,51 @@
   --green:     #4A7A5E;
   --green-bg:  rgba(74, 122, 94, 0.07);
   --green-bd:  rgba(74, 122, 94, 0.35);
-  /* Was a cool blue-grey (#F7F8FA), left over from the pre-rebrand indigo
-     theme — clashed with the warm cream/terracotta palette everywhere it
-     showed up as a section/icon background. Repointed warm to match. */
-  --surface:   #F4F1EC;
+  --surface:   #F1F3EC;
   --max:       960px;
   --px:        48px;
 
-  /* Display typeface for headings/quotes — body text stays on Inter. */
-  --font-display: "Instrument Sans", sans-serif;
+  /* Display typeface for headings/quotes — body text stays on Inter.
+     Alt-design branch: swapped to Manrope sitewide (see Figma
+     "portfolio-projects" node 5035-80623) to match the new type system. */
+  --font-display: "Manrope", sans-serif;
+
+  /* ── Alt design tokens ──
+     Homepage-only palette. First pass matched Figma "portfolio-projects"
+     node 5035-80623 (light alternating case-study cards); superseded by
+     a second pass matching Figma "portfolio" node 15-24099 (fully dark
+     homepage, real product screenshots, #ee4423 accent). --alt-surface-1/2/3
+     are unused by the current pass but left defined. --blue/--black/--muted/
+     --surface now match these alt-* values too, so the palette is shared
+     sitewide (index + all three case studies) rather than index-only. */
+  --alt-bg-dark:    #120007;
+  --alt-cream:      #CEDEA5;
+  --alt-cream-70:   rgba(206, 222, 165, 0.7);
+  --alt-cream-50:   rgba(206, 222, 165, 0.5);
+  --alt-sage-text:  rgba(206, 222, 165, 0.7);
+  --alt-accent:     #EE4423;
+  --alt-sage-btn:   #CEDEA5;
+  --alt-surface-1:  #F8F9F6;
+  --alt-surface-2:  #E9EEE0;
+  --alt-surface-3:  #CACDC4;
+  --alt-surface-4:  #F1F3EC;
+  --alt-ink:        #120007;
+  --alt-ink-70:     rgba(18, 0, 7, 0.7);
+  --alt-ink-40:     rgba(18, 0, 7, 0.4);
+  --alt-muted:      #4E4B49;
+  --alt-line:       rgba(32, 41, 10, 0.12);
 
   /* Type scale — kept deliberately small so sizes stay consistent instead of
-     drifting to a new one-off value per component. Sans (Inter) sizes cover
-     everything from tiny uppercase tags up through emphasis text; display
-     (Bricolage Grotesque) is reserved for the three big "display" moments. */
-  --fs-mini-label: 10px;  /* small uppercase tags/eyebrows inside cards */
+     drifting to a new one-off value per component. Manrope is the only
+     typeface sitewide (both body copy and display headings). */
+  --fs-mini-label: 12px;  /* small uppercase tags/eyebrows inside cards */
   --fs-label:      12px;  /* section-level uppercase eyebrows, chips */
-  --fs-sm:         14px;  /* secondary/supporting text */
-  --fs-body:       16px;  /* standard paragraph text */
+  --fs-sm:         16px;  /* secondary/supporting text */
+  --fs-body:       18px;  /* standard paragraph text */
   --fs-large:      20px;  /* emphasis text, card callouts */
-  --fs-h1:         64px;  /* serif, page-level h1 */
-  --fs-h2:         42px;  /* serif, section-level h2 */
+  --fs-h1:         72px;  /* serif, page-level h1 */
+  --fs-h2:         44px;  /* serif, section-level h2 */
+  --fs-h3:         32px;  /* card/feature-level title */
   --fs-quote:      32px;  /* serif, pull quotes */
 
   /* Per-case-study accent colors — each case study's hero + highlighted words
@@ -88,6 +112,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 /* ─── Responsive horizontal padding ─────────────────────────────────────────
@@ -114,11 +139,18 @@ html {
 }
 
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Manrope', sans-serif;
   background-color: var(--light);
   color: var(--text-dark);
   overflow-x: hidden;
   min-height: 100vh;
+}
+
+/* Homepage-only: matches the page's own dark sections so overscroll/bounce
+   at the top or bottom edge reveals #120007 instead of the sitewide cream
+   body color. */
+body.home-dark {
+  background-color: var(--alt-bg-dark);
 }
 
 /* Figma Noise Effect Overlay */
@@ -227,11 +259,11 @@ body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-divider {
   /* Typography rule: the serif display face is reserved for true h1/h2
      headings only — everything smaller (including this wordmark) reads
      better on Inter at a heavier weight instead. */
-  font-family: 'Instrument sans', sans-serif;
-  font-weight: 500;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 600;
   font-size: 24px;
-  color: #FFFFFF;
-  letter-spacing: -0.5px;
+  color: var(--alt-cream-70);
+  letter-spacing: 1.5px;
   text-decoration: none;
   line-height: 1;
   white-space: nowrap;
@@ -251,18 +283,18 @@ body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-divider {
 }
 
 .top-nav-link {
-  font-family: 'Inter', sans-serif;
-  font-size: 12px;
-  font-weight: 300;
-  letter-spacing: 1.6px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 1px;
   text-transform: uppercase;
-  color: var(--light);
+  color: var(--alt-cream-70);
   text-decoration: none;
   padding: 4px 0;
   position: relative;
   transition: color 0.3s var(--ease-smooth);
   white-space: nowrap;
-  opacity: 0.7;
+  opacity: 1;
 }
 
 .top-nav.scrolled .top-nav-link,
@@ -313,7 +345,7 @@ body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-divider {
 .top-nav-right {
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: 16px;
   justify-content: flex-end;
 }
 
@@ -324,7 +356,7 @@ body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-divider {
 }
 
 .top-nav-lang .lang-btn {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Manrope', sans-serif;
   font-size: 12px;
   font-weight: 500;
   letter-spacing: 2.6px;
@@ -355,7 +387,7 @@ body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-divider {
 }
 
 .top-nav-lang .lang-divider {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Manrope', sans-serif;
   font-size: 12px;
   font-weight: 400;
   letter-spacing: 0;
@@ -368,31 +400,47 @@ body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-divider {
   color: var(--grey);
 }
 
-.top-nav-contact {
-  font-family: 'Inter', sans-serif;
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 1.4px;
-  text-transform: uppercase;
-  color: var(--light);
-  background: var(--black);
-  border: none;
-  border-radius: 100px;
-  padding: 9px 20px;
-  cursor: pointer;
-  text-decoration: none;
-  transition: background 0.3s var(--ease-smooth),
-    transform 0.4s var(--ease-out-back),
-    box-shadow 0.3s var(--ease-smooth);
-  display: inline-block;
-  white-space: nowrap;
+/* Nav social icons — LinkedIn + email, replacing the old Contact button
+   now that the standalone contact page is gone. */
+.top-nav-social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--alt-cream-70);
+  flex-shrink: 0;
+  transition: background 0.3s var(--ease-smooth), color 0.3s var(--ease-smooth), transform 0.3s var(--ease-out-back);
 }
 
-.top-nav-contact:hover {
-  background: #1c1f27;
-  transform: scale(1.03);
-  box-shadow: 0 4px 20px rgba(16, 18, 23, 0.2);
-  color: var(--light);
+.top-nav-social svg {
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+
+.top-nav-social:hover {
+  background: rgba(255, 255, 255, 0.18);
+  transform: scale(1.06);
+}
+
+/* Scrolled/solid nav sits on a light background — icons read as the
+   paragraph-muted color instead of cream, same as the nav links. */
+.top-nav.scrolled .top-nav-social,
+.top-nav.nav-solid .top-nav-social {
+  color: var(--muted);
+}
+
+/* Mobile sidebar has a light background — the circles need the dark-on-
+   light version instead of the white-on-dark one used in the top nav. */
+.mobile-menu .top-nav-social {
+  background: rgba(18, 0, 7, 0.08);
+  color: var(--muted);
+}
+.mobile-menu .top-nav-social:hover {
+  background: rgba(18, 0, 7, 0.14);
 }
 
 /* ===== LAYOUT ===== */
@@ -412,12 +460,11 @@ body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-divider {
   width: 100%;
 }
 .image-container{
-  background-color:#f0eee9;
   border-radius: 16px;
 }
 /* ===== SIDEBAR ===== */
 .sidebar-logo {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Manrope', sans-serif;
   font-weight: 700;
   font-size: 28px;
   color: var(--black);
@@ -430,6 +477,10 @@ body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-divider {
   color: var(--black);
 }
 
+.sidebar-logo .logo-dot {
+  color: var(--alt-accent);
+}
+
 .sidebar-nav {
   display: flex;
   flex-direction: column;
@@ -440,7 +491,7 @@ body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-divider {
   display: flex;
   align-items: center;
   padding: 10px 0 10px 12px;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Manrope', sans-serif;
   font-weight: 500;
   font-size: 12px;
   color: var(--grey);
@@ -467,7 +518,7 @@ body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-divider {
   align-items: center;
   padding-top: 12px;
   padding-bottom: 12px;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Manrope', sans-serif;
   font-weight: 500;
   font-size: 11px;
   color: var(--grey);
@@ -486,7 +537,7 @@ body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-divider {
   display: flex;
   align-items: center;
   padding: 10px 0 10px 20px;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Manrope', sans-serif;
   font-weight: 500;
   font-size: 12px;
   color: var(--grey);
@@ -517,7 +568,7 @@ body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-divider {
 }
 
 .lang-btn {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Manrope', sans-serif;
   font-size: 14px;
   letter-spacing: 0.5px;
   padding: 4px 12px;
@@ -541,7 +592,7 @@ body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-divider {
 }
 
 .lang-divider {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Manrope', sans-serif;
   font-size: 14px;
   color: var(--black);
   opacity: 0.4;
@@ -577,7 +628,7 @@ body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-divider {
 
 .heading-h2 {
   font-family: var(--font-display);
-  font-weight: 500;
+  font-weight: 600;
   font-size: var(--fs-h2);
   color: var(--black);
   letter-spacing: -1.5px;
@@ -603,7 +654,7 @@ body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-divider {
 }
 
 .text-xl {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Manrope', sans-serif;
   font-weight: 400;
   font-size: 20px;
   color: var(--text-dark);
@@ -612,16 +663,16 @@ body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-divider {
 }
 
 .text-body {
-  font-family: 'Inter', sans-serif;
-  font-weight: 300;
-  font-size: 16px;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 500;
+  font-size: var(--fs-body);
   color: var(--black);
   letter-spacing: 0.1px;
   line-height: 28px;
 }
 
 .text-small {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Manrope', sans-serif;
   font-weight: 400;
   font-size: 14px;
   color: var(-grey);
@@ -637,7 +688,7 @@ body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-divider {
   padding: 8px 14px;
   border: 1px solid rgba(107, 114, 128, 0.25);
   border-radius: 34px;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Manrope', sans-serif;
   font-weight: 500;
   font-size: 13px;
   color: var(--text-dark);
@@ -653,7 +704,7 @@ body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-divider {
   background-color: transparent;
   border: 1px solid rgba(107, 114, 128, 0.33);
   border-radius: 34px;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Manrope', sans-serif;
   font-weight: 400;
   font-size: 13px;
   color: var(--text-dark);
@@ -671,7 +722,7 @@ body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-divider {
   border-radius: 42px;
   border: none;
   cursor: pointer;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Manrope', sans-serif;
   font-weight: 500;
   font-size: 15px;
   color: #fff;
@@ -716,7 +767,7 @@ body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-divider {
 }
 
 .purple-card .card-label {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Manrope', sans-serif;
   font-weight: 600;
   font-size: 11px;
   color: rgba(253, 230, 138, 0.9);
@@ -772,12 +823,12 @@ body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-divider {
 }
 
 .cs-hero-meta-label {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Manrope', sans-serif;
   font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 2.5px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
   text-transform: uppercase;
-  color: var(--grey);
+  color: var(--alt-ink-40);
   margin-bottom: 14px;
 }
 
@@ -795,7 +846,7 @@ body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-divider {
   align-items: flex-start;
   gap: 14px;
   padding: 20px 0;
-  border-bottom: 1px solid rgba(107, 114, 128, 0.12);
+  border-bottom: none;
 }
 
 .cs-hero-meta-list li:first-child {
@@ -803,12 +854,12 @@ body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-divider {
 }
 
 .skill-title {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Manrope', sans-serif;
   font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 1.5px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
   text-transform: uppercase;
-  color: var(--grey);
+  color: var(--alt-ink-40);
 }
 
 .skill-desc {
@@ -825,26 +876,32 @@ body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-divider {
   gap: 10px;
 }
 
+/* Plain-text tag treatment (Figma: about-me-section, node 5035-81103) —
+   no pill background/border, just tracked text, closer to the reference's
+   "Design Systems · Prototyping · ..." rows than the old chip style. */
 .skill-chip {
   display: inline-flex;
   align-items: center;
-  padding: 7px 16px;
-  background: var(--green-bg);
-  border: 1px solid var(--green-bd);
-  border-radius: 999px;
-  font-family: 'Inter', sans-serif;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.6px;
-  text-transform: uppercase;
-  color: var(--green);
+  padding: 0;
+  background: none;
+  border: none;
+  font-family: 'Manrope', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: none;
+  color: var(--alt-ink);
   white-space: nowrap;
+}
+.skill-chip:not(:last-child)::after {
+  content: '·';
+  margin-left: 10px;
 }
 
 
 
 .cs-hero-meta-text {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Manrope', sans-serif;
   font-size: 14px;
   font-weight: 300;
   color: var(--black);
@@ -875,7 +932,7 @@ body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-divider {
 }
 
 .cs-hero-title-col .cs-label {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Manrope', sans-serif;
   font-weight: 600;
   font-size: var(--fs-label);
   color: var(--blue);
@@ -902,7 +959,7 @@ body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-divider {
 
 .cs-hero-title-col .cs-desc,
 .cs-hero-desc-block p.cs-desc {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Manrope', sans-serif;
   font-weight: 300;
   font-size: 16px;
   color: var(--black);
@@ -927,7 +984,7 @@ body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-divider {
 }
 
 .cs-activity-list-label {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Manrope', sans-serif;
   font-size: 14px;
   font-weight: 600;
   letter-spacing: 1.8px;
@@ -942,7 +999,7 @@ body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-divider {
   gap: 16px;
   padding: 13px 0;
   border-bottom: 1px solid rgba(107, 114, 128, 0.12);
-  font-family: 'Inter', sans-serif;
+  font-family: 'Manrope', sans-serif;
   font-size: 14px;
   font-weight: 300;
   color: var(--text-dark);
@@ -1151,7 +1208,7 @@ body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-divider {
   gap: 12px;
   padding: 10px 0;
   border-bottom: 1px solid rgba(107, 114, 128, 0.1);
-  font-family: 'Inter', sans-serif;
+  font-family: 'Manrope', sans-serif;
   font-weight: 300;
   font-size: 13px;
   color: var(--black);
@@ -1220,7 +1277,7 @@ body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-divider {
 }
 
 .problem-item-label {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Manrope', sans-serif;
   font-size: 14px;
   font-weight: 500;
   letter-spacing: 1.6px;
@@ -1251,7 +1308,7 @@ body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-divider {
 }
 
 .problem-item-text {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Manrope', sans-serif;
   font-size: 16px;
   font-weight: 300;
   color: var(--grey);
@@ -1365,7 +1422,7 @@ body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-divider {
 }
 
 .cs-shift-v2 .shift-v2-label {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Manrope', sans-serif;
   font-weight: 600;
   font-size: 11px;
   color: var(--blue);
@@ -1392,7 +1449,7 @@ body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-divider {
 }
 
 .cs-shift-v2 .shift-v2-prefix {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Manrope', sans-serif;
   font-weight: 700;
   font-size: 14px;
   color: var(--blue);
@@ -1401,7 +1458,7 @@ body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-divider {
 }
 
 .cs-shift-v2 .shift-v2-value {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Manrope', sans-serif;
   font-weight: 300;
   font-size: 16px;
   color: var(--black);
@@ -1450,7 +1507,7 @@ body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-divider {
 }
 
 .cs-roadmap .roadmap-phase .phase-label {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Manrope', sans-serif;
   font-weight: 600;
   font-size: 14px;
   color: var(--);
@@ -1475,7 +1532,7 @@ body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-divider {
 .cs-roadmap .roadmap-phase .phase-focus .phase-focus-label,
 .cs-roadmap .roadmap-phase .phase-outcome .phase-outcome-label {
   font-weight: 500;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Manrope', sans-serif;
   font-size: 11px;
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -1507,7 +1564,7 @@ body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-divider {
 }
 
 .cs-roadmap .roadmap-phase .phase-label {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Manrope', sans-serif;
   font-weight: 500;
   font-size: 14px;
   color: var(--blue);
@@ -1525,7 +1582,7 @@ body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-divider {
 }
 
 .cs-roadmap .roadmap-insight p {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Manrope', sans-serif;
   font-weight: 300;
   font-size: 16px;
   color: var(--black);
@@ -1802,7 +1859,7 @@ body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-divider {
 }
 
 .insight-card .insight-label {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Manrope', sans-serif;
   font-weight: 700;
   font-size: 13px;
   color: var(--blue);
@@ -1812,7 +1869,7 @@ body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-divider {
 }
 
 .insight-card .insight-body {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Manrope', sans-serif;
   font-weight: 300;
   font-size: 15px;
   color: var(--blue);
@@ -1832,7 +1889,7 @@ body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-divider {
 
 .text-body.insight-key,
 .cs-shared-insight p .insight-key {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Manrope', sans-serif;
   font-weight: 400;
   font-size: 14px;
   color: var(--blue);
@@ -1882,7 +1939,7 @@ body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-divider {
 }
 
 .welcome-greeting {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Manrope', sans-serif;
   font-weight: 400;
   font-size: 20px;
   color: var(--grey);
@@ -1914,7 +1971,7 @@ body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-divider {
 }
 
 .welcome-label {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Manrope', sans-serif;
   font-weight: 600;
   font-size: var(--fs-label);
   color: var(--blue);
@@ -2003,7 +2060,7 @@ body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-divider {
 }
 
 .contact-intro-text {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Manrope', sans-serif;
   font-size: 17px;
   font-weight: 300;
   color: rgba(255, 255, 255, 0.72);
@@ -2049,7 +2106,7 @@ body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-divider {
 }
 
 .contact-availability-text {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Manrope', sans-serif;
   font-size: 13px;
   font-weight: 500;
   color: rgba(255, 255, 255, 0.92);
@@ -2155,7 +2212,7 @@ body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-divider {
 }
 
 .contact-card-row-label {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Manrope', sans-serif;
   font-size: 14px;
   font-weight: 500;
   letter-spacing: 0.2px;
@@ -2164,7 +2221,7 @@ body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-divider {
 }
 
 .contact-card-row-value {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Manrope', sans-serif;
   font-size: 19px;
   font-weight: 400;
   color: var(--blue);
@@ -3046,7 +3103,7 @@ body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-divider {
 }
 
 .cs-split-section .split-left .section-label {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Manrope', sans-serif;
   font-size: 11px;
   font-weight: 600;
   color: var(--blue);
@@ -3057,7 +3114,7 @@ body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-divider {
 }
 
 .split-num-label {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Manrope', sans-serif;
   font-size: 14px;
   font-weight: 600;
   color: var(--blue);
@@ -3092,7 +3149,7 @@ body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-divider {
 }
 
 .cs-split-section .split-right ul li {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Manrope', sans-serif;
   font-weight: 300;
   font-size: 14px;
   line-height: 28px;
@@ -3147,7 +3204,7 @@ body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-divider {
 }
 
 .cs-closing-dark .closing-label {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Manrope', sans-serif;
   font-size: 11px;
   font-weight: 600;
   color: rgba(253, 230, 138, 0.85);
@@ -3169,7 +3226,7 @@ body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-divider {
 }
 
 .cs-closing-dark .closing-subtitle {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Manrope', sans-serif;
   font-size: 16px;
   color: rgba(255, 255, 255, 0.45);
   line-height: 28px;
@@ -3182,7 +3239,7 @@ body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-divider {
 }
 
 .cs-takeaways-section-label {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Manrope', sans-serif;
   font-size: 11px;
   font-weight: 600;
   color: var(--blue);
@@ -3211,7 +3268,7 @@ body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-divider {
 /* ===== PHASE FOCUS BOLD GREY ===== */
 
 .takeaway-card-num {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Manrope', sans-serif;
   font-size: 14px;
   font-weight: 600;
   color: #FFFFFF;
@@ -3232,7 +3289,7 @@ body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-divider {
 .takeaway-card p,
 .takeaway-card .takeaway-body,
 .takeaway-card .text-body {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Manrope', sans-serif;
   font-size: 16px;
   color: rgba(255, 255, 255, 0.9) !important;
   line-height: 24px;
@@ -3448,7 +3505,7 @@ body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-divider {
 
 .cs-whatnext-left .whatnext-label {
   display: block;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Manrope', sans-serif;
   font-size: 11px;
   font-weight: 600;
   color: var(--blue);
@@ -3480,7 +3537,7 @@ body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-divider {
   gap: 18px;
   padding: 16px 0;
   border-bottom: 1px solid rgba(107, 114, 128, 0.12);
-  font-family: 'Inter', sans-serif;
+  font-family: 'Manrope', sans-serif;
   font-size: 15px;
   font-weight: 300;
   color: var(--dark);
@@ -3505,7 +3562,7 @@ body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-divider {
 /* ===== FEATURE SECTION LABELS/TAGS ===== */
 .feature-section-label {
   display: inline-block;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Manrope', sans-serif;
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 2px;
@@ -3516,7 +3573,7 @@ body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-divider {
 
 .feature-section-sublabel {
   display: block;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Manrope', sans-serif;
   font-size: 10px;
   font-weight: 600;
   letter-spacing: 1.8px;
@@ -3528,7 +3585,7 @@ body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-divider {
 
 /* ===== GOAL / ITALIC BLUE TEXT ===== */
 .cs-goal-text {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Manrope', sans-serif;
   font-size: 15px;
   font-style: italic;
   font-weight: 400;
@@ -3544,7 +3601,7 @@ body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-divider {
   border-radius: 16px;
   padding: 16px 20px;
   margin-top: 20px;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Manrope', sans-serif;
   font-size: 14px;
   font-style: italic;
   color: var(--blue);
@@ -3591,7 +3648,7 @@ body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-divider {
 }
 
 .contact-editorial-left .contact-label {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Manrope', sans-serif;
   font-weight: 600;
   font-size: 11px;
   color: var(--blue);
@@ -3610,7 +3667,7 @@ body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-divider {
 }
 
 .contact-editorial-left .contact-subheading {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Manrope', sans-serif;
   font-size: 15px;
   font-weight: 300;
   color: var(--grey);
@@ -3657,7 +3714,7 @@ body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-divider {
 }
 
 .contact-info-row-label {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Manrope', sans-serif;
   font-size: 10px;
   font-weight: 600;
   letter-spacing: 1.8px;
@@ -3666,7 +3723,7 @@ body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-divider {
 }
 
 .contact-info-row-value {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Manrope', sans-serif;
   font-size: 16px;
   font-weight: 400;
   color: var(--text-dark);
@@ -3784,7 +3841,7 @@ body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-divider {
 }
 
 .cs-closing-dark .closing-dark-label {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Manrope', sans-serif;
   font-size: 11px;
   font-weight: 600;
   color: rgba(253, 230, 138, 0.85);
@@ -3809,7 +3866,7 @@ body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-divider {
 }
 
 .cs-closing-dark .closing-dark-body {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Manrope', sans-serif;
   font-size: 16px;
   color: rgba(255, 255, 255, 0.45);
   line-height: 28px;
@@ -3865,7 +3922,7 @@ body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-divider {
   gap: 20px;
   padding: 18px 0;
   border-bottom: 1px solid rgba(107, 114, 128, 0.12);
-  font-family: 'Inter', sans-serif;
+  font-family: 'Manrope', sans-serif;
   font-size: 16px;
   font-weight: 300;
   color: var(--text-dark);
@@ -3940,12 +3997,12 @@ body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-divider {
 }
 
 .cs-solution-sidebar-label {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Manrope', sans-serif;
   font-size: 12px;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: var(--grey);
+  color: rgba(18, 0, 7, 0.5);
   margin-bottom: 28px;
   display: block;
 }
@@ -3976,7 +4033,7 @@ body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-divider {
   height: 36px;
   border-radius: 50%;
   border: 1.5px solid var(--border);
-  font-family: 'Inter', sans-serif;
+  font-family: 'Manrope', sans-serif;
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0;
@@ -3985,9 +4042,9 @@ body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-divider {
 }
 
 .cs-sol-link-text {
-  font-family: 'Inter', sans-serif;
-  font-size: 14px;
-  font-weight: 400;
+  font-family: 'Manrope', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
   letter-spacing: 0;
   color: var(--grey);
   transition: color 0.25s ease;
@@ -4049,6 +4106,12 @@ body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-divider {
   display: flex;
   flex-direction: column;
 }
+.cs-sol-feature-text p {
+  font-size: var(--fs-body);
+  font-weight: 500;
+  color: var(--muted);
+  line-height: 1.75;
+}
 
 .cs-sol-feature-image {
   width: 380px;
@@ -4102,35 +4165,75 @@ body.cs2-page #sol-f4 .cs-sol-feature-image img {
   max-width: 100%;
 }
 
+/* Challenge — Usage/Efficiency/Decision as a plain Q&A list (title +
+   question, divider between rows) instead of three boxed cards. */
+body.cs2-page .challenge-qa-list {
+  display: flex;
+  flex-direction: column;
+}
+body.cs2-page .challenge-qa-row {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 24px;
+  padding: 28px 0;
+  border-bottom: 1px solid var(--border);
+}
+body.cs2-page .challenge-qa-row:first-child {
+  padding-top: 0;
+}
+body.cs2-page .challenge-qa-title {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--blue);
+}
+body.cs2-page .challenge-qa-body {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1.5;
+}
+
+/* Users — two profile columns split by a divider, matching cs1's
+   Profile 01/02 treatment instead of two boxed cards. */
+body.cs2-page .users-grid {
+  gap: 64px;
+}
+body.cs2-page .users-col-divider {
+  border-left: 1px solid var(--border);
+  padding-left: 64px;
+}
+
 /* Single-column, image-above-text treatment — applied per feature based on
    each image's actual aspect ratio, not per-screenshot guesswork. A wide/
    landscape image gets squeezed and hard to read in the default 380px side
    column, so it gets the full-width stacked layout instead; a tall/portrait
    image is the one case that genuinely suits the narrow side column, so it
    keeps the default two-column layout.
-   Measured ratios (width/height): cs1-f3 1.28, cs1-f4 1.14, cs1-f5 1.51,
-   cs3-f1 2.36, cs3-f3 1.24, cs3-f4 2.62, cs3-f5 1.17, cs3-f6 1.61 — all
+   Measured ratios (width/height): cs1-f3 1.28, cs1-f4 1.14,
+   cs3-f1 2.36, cs3-f3 1.24, cs3-f4 2.62, cs3-f6 1.61 — all
    landscape, all stacked below. cs3-f2 is 0.82 (portrait) — left at the
    default two-column layout. cs1-f2 keeps its own explicit two-column
    treatment (image left / text right / design decision pulled full-width
    below) from your earlier specific instruction, so it's not included here
-   even though its image is technically landscape. Case study 2's features
-   are all landscape too, which is why the page-wide rule above already
-   covers every one of them. */
+   even though its image is technically landscape. cs1-f5 (Scenario
+   Exploration) is landscape too (1.51) but was explicitly requested as
+   image-left/text-right, so it's excluded and uses the page-wide reverse
+   rule instead. cs3-f5 (Design System) is landscape (1.17) too but was
+   explicitly requested as text-left/image-right, so it's excluded the same
+   way and keeps the default two-column layout. Case study 2's features are
+   all landscape too, which is why the page-wide rule above already covers
+   every one of them. */
 #cs1-f3 .cs-sol-feature-inner,
 #cs1-f3 .cs-sol-feature-inner--reverse,
 #cs1-f4 .cs-sol-feature-inner,
 #cs1-f4 .cs-sol-feature-inner--reverse,
-#cs1-f5 .cs-sol-feature-inner,
-#cs1-f5 .cs-sol-feature-inner--reverse,
 #cs3-f1 .cs-sol-feature-inner,
 #cs3-f1 .cs-sol-feature-inner--reverse,
 #cs3-f3 .cs-sol-feature-inner,
 #cs3-f3 .cs-sol-feature-inner--reverse,
 #cs3-f4 .cs-sol-feature-inner,
 #cs3-f4 .cs-sol-feature-inner--reverse,
-#cs3-f5 .cs-sol-feature-inner,
-#cs3-f5 .cs-sol-feature-inner--reverse,
 #cs3-f6 .cs-sol-feature-inner,
 #cs3-f6 .cs-sol-feature-inner--reverse {
   flex-direction: column;
@@ -4140,11 +4243,9 @@ body.cs2-page #sol-f4 .cs-sol-feature-image img {
 
 #cs1-f3 .cs-sol-feature-image,
 #cs1-f4 .cs-sol-feature-image,
-#cs1-f5 .cs-sol-feature-image,
 #cs3-f1 .cs-sol-feature-image,
 #cs3-f3 .cs-sol-feature-image,
 #cs3-f4 .cs-sol-feature-image,
-#cs3-f5 .cs-sol-feature-image,
 #cs3-f6 .cs-sol-feature-image {
   order: -1;
   width: 100%;
@@ -4152,11 +4253,9 @@ body.cs2-page #sol-f4 .cs-sol-feature-image img {
 
 #cs1-f3 .cs-sol-feature-image img,
 #cs1-f4 .cs-sol-feature-image img,
-#cs1-f5 .cs-sol-feature-image img,
 #cs3-f1 .cs-sol-feature-image img,
 #cs3-f3 .cs-sol-feature-image img,
 #cs3-f4 .cs-sol-feature-image img,
-#cs3-f5 .cs-sol-feature-image img,
 #cs3-f6 .cs-sol-feature-image img {
   width: 100%;
 }
@@ -4186,7 +4285,7 @@ body.cs2-page #sol-f4 .cs-sol-feature-image img {
 }
 
 .cs-sol-why h4 {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Manrope', sans-serif;
   font-weight: 700;
   font-size: var(--fs-label);
   text-transform: uppercase;
@@ -4196,9 +4295,9 @@ body.cs2-page #sol-f4 .cs-sol-feature-image img {
 }
 
 .cs-sol-why p {
-  font-family: 'Inter', sans-serif;
-  font-weight: 300;
-  font-size: 14px;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
   color: var(--black);
   line-height: 1.6;
 }
@@ -4456,6 +4555,10 @@ body.cs2-page #sol-f4 .cs-sol-feature-image img {
   opacity: 0.7;
 }
 
+.top-nav-logo .logo-dot {
+  color: var(--alt-accent);
+}
+
 /* Lang buttons — smooth transition */
 .top-nav-lang .lang-btn {
   transition: color 0.3s var(--ease-smooth),
@@ -4475,7 +4578,7 @@ body.cs2-page #sol-f4 .cs-sol-feature-image img {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Manrope', sans-serif;
   font-weight: 500;
   font-size: 14px;
   color: var(--blue);
@@ -4547,19 +4650,21 @@ body.cs2-page #sol-f4 .cs-sol-feature-image img {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Manrope', sans-serif;
   font-size: 12px;
   font-weight: 600;
   border: none;
-  color: rgba(255, 255, 255, 0.55);
+  /* Cards are near-white/sage now (not saturated dark), so the rail needs
+     dark-on-light contrast instead of the old white-on-color treatment. */
+  color: var(--alt-ink-40);
   background: transparent;
   flex-shrink: 0;
   transition: background 0.3s ease, color 0.3s ease, transform 0.4s var(--ease-out-back);
 }
 
 .work-num.active {
-  background: var(--light);
-  color: var(--black);
+  background: var(--alt-ink);
+  color: var(--alt-surface-1);
   transform: scale(1.1);
 }
 
@@ -4584,43 +4689,88 @@ body.cs2-page #sol-f4 .cs-sol-feature-image img {
   box-shadow: 0 20px 60px rgba(16, 18, 23, 0.08), 0 4px 16px rgba(16, 18, 23, 0.04);
 }
 
-/* Homepage cards go full-color per case study — same accent colors as each
-   case study's own hero band, so the color is a consistent signal sitewide.
-   All text below gets a light-cream override since the card is no longer white.
-   Full-bleed edge-to-edge: the section above dropped its horizontal padding,
-   so the card itself carries --h-pad as inner padding instead — background
-   spans the full viewport width, content stays aligned to the site grid. */
+/* Homepage cards go full-color per case study — near-white/sage neutrals
+   (Figma: portfolio-projects node 5035-80623) instead of each case study's
+   own saturated hero color, so the section reads as one calm, editorial
+   strip. Full-bleed edge-to-edge: the section above dropped its horizontal
+   padding, so the card itself carries --h-pad as inner padding instead —
+   background spans the full viewport width, content stays aligned to the
+   site grid. */
 .case-studies-section .case-study-card {
   border: none;
   border-radius: 0;
   width: 100%;
-  /* Matches the Claude Design reference's work-block padding (120px) — the
-     old 64px read too compact/card-like next to the reference's full,
-     tall per-project sections. */
-  padding: 150px var(--h-pad);
+  padding: 96px var(--h-pad);
 }
-.case-studies-section .case-study-card:nth-of-type(1) { background: var(--cs1); }
-.case-studies-section .case-study-card:nth-of-type(2) { background: var(--cs2); }
-.case-studies-section .case-study-card:nth-of-type(3) { background: var(--cs3); }
+/* Second pass (Figma: portfolio, node 15-24099) — one continuous dark
+   canvas instead of alternating light cards, real product screenshots
+   instead of placeholder blocks. Card 1: image left / text right.
+   Card 2: text left / image right (the grid's own default order).
+   Card 3 (last): image on top, text centered below. */
+.case-studies-section .case-study-card:nth-of-type(1),
+.case-studies-section .case-study-card:nth-of-type(2),
+.case-studies-section .case-study-card:nth-of-type(3) {
+  background: var(--alt-bg-dark);
+}
+
+.case-studies-section .case-study-card:nth-of-type(1) .case-study-content {
+  order: 2;
+}
+.case-studies-section .case-study-card:nth-of-type(1) .case-study-image-wrapper {
+  order: 1;
+}
+
+.case-studies-section .case-study-card:nth-of-type(3) {
+  grid-template-columns: 1fr;
+  justify-items: center;
+  text-align: center;
+  gap: 40px;
+}
+.case-studies-section .case-study-card:nth-of-type(3) .case-study-content {
+  align-items: center;
+  max-width: 680px;
+}
+.case-studies-section .case-study-card:nth-of-type(3) .case-study-image-wrapper {
+  order: -1;
+  width: 100%;
+  max-width: 900px;
+}
+.case-studies-section .case-study-card:nth-of-type(3) .case-study-tags {
+  justify-content: center;
+}
 
 .case-studies-section .case-study-card .case-study-content .cs-label {
-  color: rgba(251,238,233,.85);
+  color: var(--alt-cream-70);
+  font-weight: 500;
 }
 .case-studies-section .case-study-card .case-study-content .cs-label-line {
-  background-color: rgba(251,238,233,.5);
+  display: none;
 }
 .case-studies-section .case-study-card .heading-h2 {
-  color: #FBEEE9;
+  color: var(--alt-cream);
+  font-weight: 600;
 }
-.case-studies-section .case-study-card .tag-role {
-  color: #FBEEE9;
-  border-color: rgba(251,238,233,.4);
+.case-studies-section .case-study-card .tag-role,
+.hero .case-study-tags .tag-role {
+  color: var(--alt-cream-70);
+  border: none;
+  padding: 4px 0;
+  font-size: 16px;
+  font-weight: 500;
+}
+.case-studies-section .case-study-card .tag-role:not(:last-child)::after,
+.hero .case-study-tags .tag-role:not(:last-child)::after {
+  content: '·';
+  margin-left: 12px;
+  color: var(--alt-cream-50);
 }
 .case-studies-section .case-study-card .cs-text-link {
-  color: rgba(251,238,233,.9);
+  color: var(--alt-accent);
+  text-transform: uppercase;
+  font-size: 16px;
 }
 .case-studies-section .case-study-card .cs-text-link:hover {
-  color: #FFFFFF;
+  color: var(--alt-accent);
 }
 
 
@@ -4649,15 +4799,15 @@ body.cs2-page #sol-f4 .cs-sol-feature-image img {
 
 /* Typography Hierarchy */
 .case-study-content .heading-h2 {
-  font-size: 40px;
+  font-size: 44px;
   margin-bottom: 24px;
-  line-height: 1.1;
+  line-height: 1.15;
 }
 
 .case-study-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 12px;
   margin: 0 0 24px 0;
 }
 
@@ -4671,7 +4821,7 @@ body.cs2-page #sol-f4 .cs-sol-feature-image img {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Manrope', sans-serif;
   font-weight: 600;
   font-size: 15px;
   color: var(--blue);
@@ -4694,8 +4844,9 @@ body.cs2-page #sol-f4 .cs-sol-feature-image img {
 
 .case-study-image-wrapper {
   overflow: hidden;
-  border-radius: 32px;
-  box-shadow: 0 16px 48px rgba(16, 18, 23, 0.06);
+  border-radius: 16px;
+  border: 0;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.4);
 }
 
 .case-study-image {
@@ -4711,12 +4862,31 @@ body.cs2-page #sol-f4 .cs-sol-feature-image img {
 }
 
 /* ===== ABOUT SECTION ===== */
+/* Second pass (Figma: portfolio, node 15-24099) is a fully dark homepage —
+   no Figma frame covers About specifically, but a light band here would
+   break the unbroken dark canvas that design establishes, so it follows
+   the same #120007/cream treatment as the hero, cards and footer. */
 .about-section {
-  padding: 80px var(--h-pad);
+  background: var(--alt-bg-dark);
+  padding: 96px var(--h-pad);
   display: flex;
   flex-wrap: wrap;
   gap: 64px;
   align-items: flex-start;
+}
+.about-section .heading-h2,
+.about-section .about-content .text-body {
+  color: var(--alt-cream);
+}
+.about-section .about-content .text-body {
+  color: var(--alt-cream-70);
+}
+.about-section .skill-title,
+.about-section .cs-hero-meta-label {
+  color: var(--alt-cream-50);
+}
+.about-section .skill-chip {
+  color: var(--alt-cream);
 }
 
 .about-content {
@@ -4724,6 +4894,29 @@ body.cs2-page #sol-f4 .cs-sol-feature-image img {
   flex-direction: column;
   align-items: flex-start;
   flex: 1 1 380px;
+}
+
+.about-photo-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.about-photo {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.about-label {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  color: var(--alt-accent);
+  letter-spacing: normal;
+  text-transform: none;
 }
 
 /* SKILLS/LANGUAGES block, relocated here from the old hero — same markup,
@@ -4742,35 +4935,13 @@ body.cs2-page #sol-f4 .cs-sol-feature-image img {
   margin-bottom: 24px;
 }
 
-/* ===== NEW HOME HERO — full-bleed accent + parallax + curtain reveal ===== */
-.new-hero {
-  min-height: 480px;
-  /* Short enough that the intro-cover's rounded top + first lines of its
-     heading are already visible on load, instead of requiring a scroll to
-     discover the value-prop line. */
-  height: 76vh;
-  background: var(--blue);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 32px;
-  overflow: hidden;
-  position: relative;
-}
-.new-hero-inner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
 .hero-badge-row {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 100px;
-  padding: 8px 16px;
+  background: none;
+  border: none;
+  padding: 0;
   width: fit-content;
   margin-bottom: 28px;
 }
@@ -4784,84 +4955,127 @@ body.cs2-page #sol-f4 .cs-sol-feature-image img {
   animation: contact-pulse 2.4s ease-in-out infinite;
 }
 .hero-badge-text {
-  font-family: 'Inter', sans-serif;
-  font-size: 13px;
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.92);
-  letter-spacing: 0.3px;
-}
-.hero-greeting {
-  font-family: var(--font-display);
-  font-weight: 500;
-  font-size: var(--fs-h1);
-  color: #F7EFE9;
-  margin: 0;
-  line-height: 1.05;
+  font-family: 'Manrope', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--alt-cream);
+  letter-spacing: 0.2px;
 }
 .hero-tagline {
-  font-family: 'Inter', sans-serif;
-  font-size: 14px;
-  color: rgba(247,239,233,.85);
+  font-family: 'Manrope', sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  color: var(--alt-sage-text);
   margin-top: 16px;
+  letter-spacing: 0.4px;
+  order: 2;
 }
 
-/* Intro section slides up and rounds over the hero's bottom edge as you scroll —
-   paired with the JS scroll-drift+fade on #hero-parallax for the parallax feel. */
+/* Sole hero section now — badge, headline+CTA and tagline are all one
+   vertically-centered block (Figma: portfolio, node 15-24099,
+   hero-greeting-block), instead of a near-empty dark band above it. The
+   skills marquee (a sibling of .intro-inner) stays pinned below that
+   centered block rather than centering itself. */
 .intro-cover {
-  background: var(--light);
-  padding: 80px var(--h-pad) 96px;
+  background: var(--alt-bg-dark);
+  padding: calc(var(--topnav-height) + 32px) var(--h-pad) 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   position: relative;
   z-index: 2;
-  border-radius: 52px 52px 0 0;
-  margin-top: -40px;
 }
 .intro-inner {
-  max-width: 820px;
+  max-width: 900px;
+  width: 100%;
   margin: 0 auto;
   text-align: center;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 48px;
 }
 .intro-eyebrow {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Manrope', sans-serif;
   font-size: 13px; font-weight: 600; letter-spacing: 1px;
-  color: var(--blue);
+  color: var(--alt-cream);
   margin-bottom: 20px;
 }
 .intro-heading {
-  font-family: var(--font-display);
-  font-weight: 500;
-  font-size: var(--fs-h2);
-  color: var(--black);
-  line-height: 1.25;
-  margin: 0 0 24px;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 600;
+  font-size: var(--fs-h1);
+  color: var(--alt-cream);
+  line-height: 1.3;
+  margin: 0 0 20px;
+  letter-spacing: 0.5px;
+  order: 1;
 }
-.intro-heading .hero-accent { color: var(--blue); }
-.intro-inner .text-body { max-width: 700px; margin: 0 auto; }
-.intro-inner .hero-scroll-link-container { display: flex; justify-content: center; margin-top: 32px; }
+.intro-heading .hero-accent { color: var(--alt-cream); }
+
+/* "Get in touch →" — same scale as the heading it closes, wraps onto its
+   own line naturally (Figma: portfolio, node 15-24099, hero-greeting-block:
+   the CTA lives inline in the headline, not as a separate small link). */
+.hero-cta-inline {
+  display: block;
+  font: inherit;
+  font-weight: 600;
+  color: var(--alt-accent);
+  text-decoration: none;
+  margin-top: 8px;
+  transition: opacity 0.3s var(--ease-smooth);
+}
+.hero-cta-inline:hover {
+  opacity: 0.8;
+}
+.hero-cta-arrow {
+  display: inline-block;
+  width: 56px;
+  height: 56px;
+  vertical-align: middle;
+  margin-left: 2px;
+}
+
+/* Superseded by .hero-cta-inline above — kept in the DOM for the in-page
+   anchor but no longer shown, so it doesn't compete with the new CTA. */
+.intro-inner .hero-scroll-link-container { display: none; }
+
+/* Superseded by .hero-tagline below the CTA — the long paragraph doesn't
+   appear in this design (Figma: portfolio, node 15-24099), kept in the DOM
+   rather than deleted. */
+.intro-inner .text-body { display: none; }
 
 /* Skills marquee */
 .marquee-wrap {
   position: relative;
-  margin-top: 56px;
-  padding: 28px 0;
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
+  margin-top: 8px;
+  padding: 16px 0 40px;
+  border-top: none;
+  border-bottom: none;
   overflow: hidden;
 }
 .marquee-fade {
   position: absolute; top: 0; bottom: 0; width: 100px; pointer-events: none; z-index: 2;
 }
-.marquee-fade.left { left: 0; background: linear-gradient(90deg, var(--light), transparent); }
-.marquee-fade.right { right: 0; background: linear-gradient(270deg, var(--light), transparent); }
+.marquee-fade.left { left: 0; background: linear-gradient(90deg, var(--alt-bg-dark), transparent); }
+.marquee-fade.right { right: 0; background: linear-gradient(270deg, var(--alt-bg-dark), transparent); }
 .marquee-track {
-  display: flex; gap: 56px; width: max-content;
+  display: flex; gap: 16px; width: max-content;
   animation: marquee-scroll 22s linear infinite;
 }
 .marquee-wrap:hover .marquee-track { animation-play-state: paused; }
 @keyframes marquee-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 .marquee-chip {
-  font-family: 'Inter', sans-serif;
-  font-size: 14px; font-weight: 500; color: var(--grey);
+  font-family: 'Manrope', sans-serif;
+  font-size: 13px; font-weight: 600; color: var(--alt-cream-50);
   white-space: nowrap;
+  border: none;
+}
+.marquee-chip:not(:first-child)::before {
+  content: '·';
+  margin-right: 16px;
 }
 @media (prefers-reduced-motion: reduce) {
   .marquee-track { animation: none; }
@@ -4869,9 +5083,9 @@ body.cs2-page #sol-f4 .cs-sol-feature-image img {
 
 /* ===== MAIN FOOTER ===== */
 .main-footer {
-  background-color: var(--black);
-  padding: 80px var(--h-pad);
-  color: var(--light);
+  background-color: var(--alt-bg-dark);
+  padding: 96px var(--h-pad);
+  color: var(--alt-cream);
 }
 
 .footer-content {
@@ -4884,21 +5098,22 @@ body.cs2-page #sol-f4 .cs-sol-feature-image img {
 }
 
 .footer-photo {
-  width: 120px;
-  height: 120px;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
   object-fit: cover;
   margin-bottom: 32px;
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.35);
+  border: 2px solid var(--alt-cream);
+  box-shadow: none;
 }
 
 .footer-title {
-  color: var(--light);
-  margin-bottom: 24px;
+  color: var(--alt-cream);
+  margin-bottom: 16px;
 }
 
 .footer-subtitle {
-  color: rgba(249, 250, 251, 0.7);
+  color: var(--alt-cream-70);
   margin-bottom: 48px;
 }
 
@@ -4909,20 +5124,20 @@ body.cs2-page #sol-f4 .cs-sol-feature-image img {
 }
 
 .footer-link {
-  color: var(--light);
-  font-family: 'Inter', sans-serif;
+  color: var(--alt-accent);
+  font-family: 'Manrope', sans-serif;
   font-weight: 500;
   font-size: 16px;
-  text-decoration: none;
+  text-decoration: underline;
   transition: color 0.3s ease;
 }
 
 .footer-link:hover {
-  color: var(--blue);
+  color: var(--alt-accent);
 }
 
 .footer-icon-link {
-  color: var(--light);
+  color: var(--alt-cream);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -4930,7 +5145,7 @@ body.cs2-page #sol-f4 .cs-sol-feature-image img {
 }
 
 .footer-icon-link:hover {
-  color: var(--blue);
+  color: var(--alt-accent);
   transform: translateY(-2px);
 }
 
@@ -4941,7 +5156,13 @@ body.cs2-page #sol-f4 .cs-sol-feature-image img {
     gap: 40px;
     padding: 48px var(--h-pad);
   }
-  
+
+  /* Card 2 is text-first at desktop width (side-by-side); stacked at
+     this width, the image should still lead. */
+  .case-studies-section .case-study-card:nth-of-type(2) .case-study-image-wrapper {
+    order: -1;
+  }
+
   .about-section {
     grid-template-columns: 1fr;
     gap: 48px;
@@ -5032,7 +5253,7 @@ body.cs2-page #sol-f4 .cs-sol-feature-image img {
   .problem-item,
   .cs-activity-item,
   .btn-primary,
-  .top-nav-contact,
+  .top-nav-social,
   .contact-card,
   .arrow-footer {
     transition: none !important;
@@ -5078,14 +5299,14 @@ nav {
 
 .hero-title {
   font-family: var(--font-display);
-  font-weight: 500; font-size: var(--fs-h1);
+  font-weight: 600; font-size: var(--fs-h1);
   line-height: 1.04; letter-spacing: -.035em;
   color: var(--black); max-width: 780px; margin-bottom: 28px;
 }
 .hero-title .blue { color: var(--blue); }
 
 .hero-desc {
-  font-size: 16px; font-weight: 400;
+  font-size: 18px; font-weight: 500;
   line-height: 1.8; color: var(--muted);
  margin-bottom: 48px;
 }
@@ -5099,7 +5320,7 @@ nav {
 .meta-col { padding-right: 20px; }
 .meta-col + .meta-col { padding-left: 20px; border-left: 1px solid var(--border); }
 .mk { font-size: 10px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 7px; }
-.mv { font-size: var(--fs-sm); font-weight: 400; color: var(--ink); line-height: 1.5; }
+.mv { font-size: var(--fs-sm); font-weight: 500; color: var(--ink); line-height: 1.5; }
 
 /* ─── Per-case hero band ───
    Wraps the existing .page > .hero on each case-study page so the hero
@@ -5107,26 +5328,382 @@ nav {
    are overridden here only — the base .hero-title/.chip/.mk/.mv rules
    above stay untouched for any other context. */
 .hero-band { width: 100%; }
-.hero-band .page { padding-top: 56px; padding-bottom: 56px; }
+.hero-band .page { padding-top: 56px; padding-bottom: 400px; }
 .hero-band .chip { color: rgba(255,255,255,.85); border-color: rgba(255,255,255,.35); }
-.hero-band .hero-title { color: #FBEEE9; }
-.hero-band .hero-desc { color: rgba(251,238,233,.85); }
+.hero-band .hero-title { color: var(--alt-cream); }
+.hero-band .hero-desc { color: var(--alt-cream-70); }
 .hero-band .meta-strip { border-color: rgba(255,255,255,.18); }
 .hero-band .meta-col + .meta-col { border-left-color: rgba(255,255,255,.18); }
 .hero-band .mk { color: rgba(255,255,255,.78); }
-.hero-band .mv { color: #FBEEE9; }
+.hero-band .mv { color: var(--alt-cream); }
 
-.hero-band.cs1 { background: var(--cs1); }
-.hero-band.cs1 .hero-title .blue { color: #ffe37f; }
-/* Kept light per your call. Heads-up, not a change I'm making unilaterally:
-   #B46D43 is light enough that hero-desc/mk/chip in cream fall short of
-   WCAG AA for normal-size text (~3.5:1 vs. the 4.5:1 target) even at full
-   opacity — the big title is fine since large text only needs 3:1. Say the
-   word if you want that tightened later; leaving it as-is for now. */
-.hero-band.cs2 { background: var(--cs2); }
-.hero-band.cs2 .hero-title .blue { color: var(--cs2-tint); }
-.hero-band.cs3 { background: var(--cs3); }
-.hero-band.cs3 .hero-title .blue { color: var(--cs3-tint); }
+/* All three case-study heroes share one dark treatment (was a distinct
+   teal/green/navy per case — unified to the site's dark-wine + orange
+   palette, same as the rest of the page). */
+.hero-band.cs1, .hero-band.cs2, .hero-band.cs3 { background: var(--alt-bg-dark); }
+.hero-band.cs1 .chip, .hero-band.cs2 .chip, .hero-band.cs3 .chip {
+  font-family: 'Manrope', sans-serif;
+  color: var(--alt-cream-70);
+  border-color: rgba(237, 249, 207, 0.25);
+}
+.hero-band.cs1 .hero-title, .hero-band.cs2 .hero-title, .hero-band.cs3 .hero-title {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 600;
+  color: var(--alt-cream);
+}
+.hero-band.cs1 .hero-title .blue,
+.hero-band.cs2 .hero-title .blue,
+.hero-band.cs3 .hero-title .blue { color: var(--alt-accent); }
+.hero-band.cs1 .hero-desc, .hero-band.cs2 .hero-desc, .hero-band.cs3 .hero-desc {
+  font-family: 'Manrope', sans-serif;
+  color: var(--alt-cream-70);
+}
+.hero-band.cs1 .meta-strip, .hero-band.cs2 .meta-strip, .hero-band.cs3 .meta-strip { border-color: rgba(237, 249, 207, 0.15); }
+.hero-band.cs1 .meta-col + .meta-col, .hero-band.cs2 .meta-col + .meta-col, .hero-band.cs3 .meta-col + .meta-col { border-left-color: rgba(237, 249, 207, 0.15); }
+.hero-band.cs1 .mk, .hero-band.cs2 .mk, .hero-band.cs3 .mk { font-family: 'Manrope', sans-serif; color: var(--alt-cream-50); }
+.hero-band.cs1 .mv, .hero-band.cs2 .mv, .hero-band.cs3 .mv { font-family: 'Manrope', sans-serif; color: var(--alt-cream); }
+
+/* Screenshot straddles the hero/page boundary — dark behind its top half,
+   light behind its bottom half (Figma shows it floating across the seam,
+   not sitting in a flat colored mat). Same overlap and same width as the
+   content column on all three case studies. */
+.hero-band.cs1 + .cs-shot-frame,
+.hero-band.cs2 + .cs-shot-frame,
+.hero-band.cs3 + .cs-shot-frame {
+  margin-top: -300px;
+}
+.hero-band.cs1 + .cs-shot-frame .cs-shot {
+  border: 1px solid rgba(237, 249, 207, 0.15);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+}
+
+/* ═══ Case study 1 — body redesign (Figma: portfolio, node 24-30321) ═══
+   Colors and type scale are now sitewide defaults (see :root) — cs2/cs3
+   pick them up automatically since they read the same tokens. What's left
+   scoped to this page is layout: content width, and which specific
+   sections/cards use the structural treatments below. */
+
+/* Content column widens to 1120px (from the sitewide 960px) once there's
+   room for it — .page/.s/.hero/.pull-inner all read width off --max.
+   Same width on all three case studies, matching cs1. */
+@media (min-width: 1440px) {
+  body.cs1-page,
+  body.cs2-page,
+  body.cs3-page {
+    --max: 1120px;
+  }
+}
+
+/* Pull quote (HMW) — solid accent band, not a light surface tint. */
+body.cs1-page .pull-wrap { background: var(--alt-cream); border: none; padding: 220px var(--px); }
+body.cs1-page .pull-inner { justify-content: center; text-align: center; }
+body.cs1-page .pull-text { color: #120007; font-style: normal; }
+body.cs1-page .pull-text span { color: var(--alt-accent); font-style: normal; }
+
+/* Dark callouts (approach insight, CIRO constraint) pick up --black/--yellow
+   from the token repoint above; just lift their body copy onto cream. */
+body.cs1-page .dd-body,
+body.cs1-page .callout-body { color: var(--alt-cream-70); }
+body.cs1-page .dd-body strong,
+body.cs1-page .callout-body strong { color: var(--alt-cream); }
+
+/* Journey strip — light bordered strip, icon in an accent-outlined
+   circle; no fill/background on the strip itself. */
+body.cs1-page .journey {
+  background: #FDFFF7;
+  border: 1px solid var(--border);
+  gap: 0;
+  padding: 0;
+}
+body.cs1-page .js {
+  background: none;
+  border-radius: 0;
+  border-right: 1px solid var(--border);
+}
+body.cs1-page .js:last-child { border-right: none; }
+body.cs1-page .je {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  color: var(--blue);
+  font-size: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 10px;
+}
+
+/* Features sidebar — no numbered circle; the active item gets a left
+   accent bar instead. Shared across all three case studies. */
+.cs-sol-link-num { display: none; }
+.cs-sol-link {
+  gap: 0;
+  padding: 10px 0 10px 16px;
+  border-left: 2px solid transparent;
+}
+.cs-sol-link-text {
+  color: rgba(18, 0, 7, 0.5);
+}
+.cs-sol-link.active { border-left-color: var(--blue); }
+.cs-sol-link.active .cs-sol-link-text,
+.cs-sol-link:hover .cs-sol-link-text { color: #120007; }
+
+/* Roadmap phases — plain text columns split by a divider line, not boxed
+   cards (matches the Opportunity section's 3-col treatment). */
+body.cs1-page .phase-grid .card.ph {
+  background: none;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+}
+body.cs1-page .phase-grid .card.ph + .card.ph {
+  border-left: 1px solid var(--border);
+  padding-left: 32px;
+}
+body.cs1-page .ph-n {
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: rgba(18, 0, 7, 0.5);
+}
+body.cs1-page .ph-title { font-size: var(--fs-h3); font-weight: 600; margin-bottom: 8px; }
+body.cs1-page .ph-focus {
+  font-size: 16px;
+  font-style: normal;
+  color: var(--blue);
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--border);
+}
+body.cs1-page .di { padding-left: 0; }
+body.cs1-page .di::before { display: none; }
+
+/* Learnings — a single vertical list next to the heading, not a 3-col
+   grid of boxed cards. */
+body.cs1-page .tk-grid {
+  grid-template-columns: 1fr;
+  gap: 0;
+  margin-top: 0;
+  border-bottom: 1px solid var(--border);
+}
+body.cs1-page .tk {
+  padding: 24px 0;
+  border-top: 1px solid var(--border);
+}
+body.cs1-page .card.tk { background: none; border-left: none; border-right: none; border-radius: 0; }
+body.cs1-page .tk-title { font-size: var(--fs-h3); font-weight: 600; margin-bottom: 8px; }
+
+/* What I'd improve next — dark band, plain divided rows instead of light
+   pill chips, with a large plain arrow instead of a small icon badge. */
+body.cs1-page .bg:has(.next-grid),
+body.cs1-page .bg:has(.next-grid) .s,
+body.cs2-page .bg:has(.next-grid),
+body.cs2-page .bg:has(.next-grid) .s,
+body.cs3-page .bg:has(.next-grid),
+body.cs3-page .bg:has(.next-grid) .s { background: var(--alt-bg-dark); }
+body.cs1-page .bg:has(.next-grid) .slabel,
+body.cs2-page .bg:has(.next-grid) .slabel { color: var(--alt-cream-50); }
+body.cs1-page .bg:has(.next-grid) .sh,
+body.cs2-page .bg:has(.next-grid) .sh,
+body.cs3-page .bg:has(.next-grid) .sh { color: var(--alt-cream); }
+body.cs3-page .next-grid { align-items: center; }
+body.cs1-page .pills,
+body.cs2-page .pills,
+body.cs3-page .pills { gap: 0; max-width: none; border-top: 1px solid rgba(237, 249, 207, 0.15); }
+body.cs1-page .pill,
+body.cs2-page .pill,
+body.cs3-page .pill {
+  background: none;
+  border: none;
+  border-bottom: 1px solid rgba(237, 249, 207, 0.15);
+  border-radius: 0;
+  padding: 24px 0;
+  gap: 24px;
+}
+body.cs1-page .pa,
+body.cs2-page .pa,
+body.cs3-page .pa {
+  width: auto;
+  height: auto;
+  background: none;
+  color: var(--blue);
+  font-size: 32px;
+}
+body.cs1-page .pill .pt,
+body.cs2-page .pill .pt,
+body.cs3-page .pill .pt { color: var(--alt-cream); font-size: 24px; }
+
+/* Feature paragraph spacing — first paragraph sits closer to the goal
+   line above it than the second paragraph sits to the first. */
+body.cs1-page .cs-sol-feature-text .ssub + p { margin-top: 14px; }
+body.cs1-page .cs-sol-feature-text p + p { margin-top: 10px; }
+
+/* Approach cards — the only place font-weight still needs a page-local
+   bump, since .approach-grid is a cs1-only layout (not a shared class). */
+body.cs1-page .approach-grid .card > p { font-weight: 500; }
+
+/* Takeaway numerals — a solid accent numeral, not a faint watermark
+   (everywhere else keeps the faint version). */
+body.cs1-page .tk-n { color: var(--alt-accent); opacity: 1; }
+
+/* Outcomes — the only light .bg band that goes dark (Figma shows the
+   metrics/results strip on the same #120007 as the hero/footer); flip its
+   text onto cream since .slabel/.sh/.ssub/.m-label/.out-t assume light-on-
+   dark's opposite by default. */
+body.cs1-page .bg:has(.metrics),
+body.cs1-page .bg:has(.metrics) .s,
+body.cs2-page .bg:has(.metrics),
+body.cs2-page .bg:has(.metrics) .s { background: var(--alt-bg-dark); }
+body.cs1-page .bg:has(.metrics) .slabel,
+body.cs2-page .bg:has(.metrics) .slabel { color: var(--alt-cream-50); }
+body.cs1-page .bg:has(.metrics) .sh,
+body.cs2-page .bg:has(.metrics) .sh { color: var(--alt-cream); }
+body.cs1-page .bg:has(.metrics) .ssub,
+body.cs1-page .bg:has(.metrics) .m-label,
+body.cs1-page .bg:has(.metrics) .out-t,
+body.cs2-page .bg:has(.metrics) .ssub,
+body.cs2-page .bg:has(.metrics) .m-label,
+body.cs2-page .bg:has(.metrics) .out-t { color: var(--alt-cream-70); }
+body.cs1-page .bg:has(.metrics) .out-t strong,
+body.cs2-page .bg:has(.metrics) .out-t strong { color: var(--alt-cream); }
+body.cs1-page .bg:has(.metrics) .m-n,
+body.cs2-page .bg:has(.metrics) .m-n { color: var(--alt-accent); }
+body.cs1-page .bg:has(.metrics) .out-tile,
+body.cs2-page .bg:has(.metrics) .out-tile { border-color: rgba(237, 249, 207, 0.15); }
+body.cs1-page .bg:has(.metrics) .metric,
+body.cs1-page .bg:has(.metrics) .metrics,
+body.cs2-page .bg:has(.metrics) .metric,
+body.cs2-page .bg:has(.metrics) .metrics { border-color: rgba(237, 249, 207, 0.15); }
+
+/* Outcomes summary — labeled highlights replacing the numbered
+   checklist, two columns, no card/border. */
+body.cs1-page .out-summary-grid,
+body.cs2-page .out-summary-grid,
+body.cs3-page .out-summary-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px 64px;
+  margin-top: 40px;
+}
+body.cs1-page .out-summary-title,
+body.cs2-page .out-summary-title,
+body.cs3-page .out-summary-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--alt-accent);
+  margin-bottom: 8px;
+}
+body.cs1-page .out-summary-title,
+body.cs3-page .out-summary-title { color: var(--alt-cream); }
+body.cs1-page .out-summary-body,
+body.cs2-page .out-summary-body,
+body.cs3-page .out-summary-body {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--alt-cream-70);
+  line-height: 1.6;
+}
+
+/* cs3 Outcomes — dark band (hook: presence of .out-summary-grid, cs3's
+   equivalent of cs1/cs2's .metrics hook), header centered per reference. */
+body.cs3-page .bg:has(.out-summary-grid),
+body.cs3-page .bg:has(.out-summary-grid) .s {
+  background: var(--alt-bg-dark);
+}
+body.cs3-page .bg:has(.out-summary-grid) .slabel {
+  color: var(--alt-cream-50);
+  justify-content: center;
+}
+body.cs3-page .bg:has(.out-summary-grid) .sh {
+  color: var(--alt-cream);
+  max-width: 800px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+body.cs3-page .bg:has(.out-summary-grid) .ssub {
+  color: var(--alt-cream-70);
+  max-width: 620px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* cs2/cs3 hero screenshot — same content-width straddle as cs1, just
+   without the floating card border/shadow. */
+body.cs2-page .cs-shot,
+body.cs3-page .cs-shot {
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* Learnings — label + h2 on the left, a plain divided list of findings
+   on the right (title + body, no numeral, no card). */
+body.cs2-page .learn-list,
+body.cs3-page .learn-list {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--border);
+}
+body.cs2-page .learn-item,
+body.cs3-page .learn-item {
+  padding: 24px 0;
+  border-bottom: 1px solid var(--border);
+}
+body.cs2-page .learn-title,
+body.cs3-page .learn-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+body.cs2-page .learn-body,
+body.cs3-page .learn-body {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1.5;
+}
+
+/* Opportunity's 3 principles (cs1) and Research's Survey/Interviews (cs2)
+   — plain text columns split by a divider line, not boxed cards. */
+body.cs1-page .grid3 .fc,
+body.cs2-page .grid3 .fc,
+body.cs3-page .grid3 .fc {
+  background: none;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+}
+body.cs1-page .grid3 .fc + .fc,
+body.cs2-page .grid3 .fc + .fc,
+body.cs3-page .grid3 .fc + .fc {
+  border-left: 1px solid var(--border);
+  padding-left: 32px;
+}
+body.cs1-page .fc-n { display: none; }
+body.cs1-page .fc-title { font-size: var(--fs-h3); font-weight: 600; }
+
+/* Framing the Opportunity (cs3) — red divider lines instead of the
+   sitewide neutral one, this instance only. */
+#opportunity-grid .fc + .fc { border-left-color: rgba(238, 68, 35, 0.15); }
+
+/* Approach — sticky-notes image sits beside the insight cards + steps
+   list instead of stacked full-width above them. */
+body.cs1-page .approach-grid { grid-template-columns: 2fr 3fr; }
+body.cs1-page .approach-grid .card {
+  background: none;
+  border: 1px solid rgba(238, 68, 35, 0.12);
+  border-radius: 8px;
+  padding: 16px;
+}
+body.cs1-page .approach-grid .card > div:first-child { font-size: 12px; }
+body.cs1-page .approach-grid .card > p { font-size: 16px; }
+
+/* Users — profile name reads as a small heading, sub-line isn't a quote. */
+body.cs1-page .p-name { font-size: 26px; margin-bottom: 8px; }
+body.cs1-page .p-sub { font-style: normal; margin-bottom: 0; }
 
 /* First post-hero screenshot on each case study — floats up over the hero
    band (negative margin + z-index) instead of sitting in a flat tinted
@@ -5138,25 +5715,20 @@ nav {
   position: relative;
   z-index: 2;
   margin-top: -60px;
-  padding: 0 32px;
+  padding: 0 var(--px);
 }
 
-/* Soft "mat" behind the screenshot instead of a hard border — the
-   screenshot content already has plenty of its own borders/lines. */
 .cs-shot-mat {
-  background: var(--surface);
   border-radius: 24px;
-  padding: 20px;
   width: 100%;
-  max-width: 860px;
+  max-width: var(--max);
   display: flex;
   justify-content: center;
 }
 
 .cs-shot {
   width: 100%;
-  max-width: 820px;
-  border-radius: 14px;
+  max-width: var(--max);
   box-shadow: 0 20px 50px rgba(35, 43, 58, 0.12);
   display: block;
 }
@@ -5198,24 +5770,23 @@ nav {
   color: var(--muted); margin-bottom: 20px;
   display: flex; align-items: center; gap: 10px;
 }
-.slabel::before { content: ''; width: 16px; height: 1px; background: var(--muted); }
+.slabel::before { display: none; }
 .slabel.light { color: var(--yellow); }
-.slabel.light::before { background: rgba(255,255,255,.15); }
 
 /* Section heading — standalone, full-width */
 .sh {
   font-family: var(--font-display);
-  font-weight: 500; font-size: var(--fs-h2);
+  font-weight: 600; font-size: var(--fs-h2);
   line-height: 1.12; letter-spacing: -.025em;
   color: var(--black); max-width: 640px; margin-bottom: 16px;
 }
 .sh .blue { color: var(--blue); }
-.sh.white { color: #fff; }
+.sh.white { color: var(--black); }
 .sh.white .blue { color: var(--yellow); }
 
 /* Section subtext */
 .ssub {
-  font-size: var(--fs-body); font-weight: 400;
+  font-size: var(--fs-body); font-weight: 500;
   line-height: 1.8; color: var(--muted);
   max-width: 540px; margin-bottom: 40px;
 }
@@ -5235,6 +5806,8 @@ nav {
 }
 .pt { font-size: var(--fs-sm); font-weight: 400; color: var(--ink); line-height: 1.65; }
 
+#challenge-pain-list .pn { color: var(--grey); font-weight: 500; }
+
 /* ─── Pull quote ─── */
 .pull-wrap {
   border-top: 1px solid var(--border);
@@ -5242,7 +5815,7 @@ nav {
   background: var(--surface); padding: 72px var(--px);
 }
 .pull-inner { max-width: var(--max); margin: 0 auto; display: flex; gap: 28px; align-items: flex-start; }
-.pull-bar { width: 3px; min-height: 60px; background: var(--blue); border-radius: 2px; flex-shrink: 0; margin-top: 6px; }
+.pull-bar { display: none; }
 .pull-text {
   font-family: var(--font-display);
   font-style: italic; font-weight: 500;
@@ -5271,12 +5844,13 @@ nav {
 .fc { padding: 28px; }
 .fc-n { font-size: var(--fs-mini-label); font-weight: 700; letter-spacing: .08em; color: var(--blue); margin-bottom: 14px; display: block; }
 .fc-title {
-  font-family: 'Inter', sans-serif;
-  font-size: var(--fs-body); font-weight: 700;
+  font-family: 'Manrope', sans-serif;
+  font-size: var(--fs-h3); font-weight: 600;
   color: var(--black); line-height: 1.3;
   letter-spacing: -.01em; margin-bottom: 10px;
 }
-.fc-body { font-size: var(--fs-sm); font-weight: 400; color: var(--muted); line-height: 1.7; }
+.fc-body { font-size: var(--fs-sm); font-weight: 500; color: var(--muted); line-height: 1.7; }
+.fc-metric { font-size: 18px; font-weight: 600; color: var(--blue); margin: 4px 0 12px; display: block; }
 
 /* ─── Approach: steps + card ─── */
 .approach-grid { display: grid; grid-template-columns: 3fr 2fr; gap: 48px; margin-top: 40px; align-items: start; }
@@ -5290,10 +5864,10 @@ nav {
   border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 15px;
 }
 .sn { font-size: var(--fs-sm); font-weight: 500; color: var(--ink); margin-bottom: 3px; }
-.sd { font-size: var(--fs-sm); font-weight: 400; color: var(--muted); line-height: 1.55; }
+.sd { font-size: var(--fs-sm); font-weight: 500; color: var(--muted); line-height: 1.55; }
 .callout-tag { font-size: var(--fs-mini-label); font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--yellow); margin-bottom: 14px; display: block; }
 .callout-body {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Manrope', sans-serif;
   font-size: var(--fs-large); font-weight: 600;
   color: #fff; line-height: 1.5; letter-spacing: -.01em;
 }
@@ -5305,16 +5879,16 @@ nav {
   width: 40px; height: 40px; border-radius: 50%;
   background: var(--surface); border: 1px solid var(--border);
   display: flex; align-items: center; justify-content: center;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Manrope', sans-serif;
   font-size: 14px; font-weight: 700; color: var(--black);
   margin-bottom: 16px;
 }
 .p-type { font-size: var(--fs-mini-label); font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--blue); margin-bottom: 4px; }
 .p-name { font-size: var(--fs-body); font-weight: 600; color: var(--black); margin-bottom: 4px; }
-.p-sub { font-size: var(--fs-sm); color: var(--muted); font-style: italic; margin-bottom: 18px; line-height: 1.5; }
+.p-sub { font-size: var(--fs-sm); font-weight: 500; color: var(--muted); font-style: italic; margin-bottom: 18px; line-height: 1.5; }
 .p-label { font-size: var(--fs-mini-label); font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-top: 16px; margin-bottom: 8px; }
 .dlist { display: flex; flex-direction: column; gap: 8px; }
-.di { font-size: var(--fs-sm); color: var(--ink); line-height: 1.55; padding-left: 14px; position: relative; }
+.di { font-size: var(--fs-sm); font-weight: 500; color: var(--ink); line-height: 1.55; padding-left: 14px; position: relative; }
 .di::before { content: ''; position: absolute; left: 0; top: 8px; width: 4px; height: 4px; border-radius: 50%; background: var(--blue); }
 
 /* Insight / design-decision card — label stacked on top of its text, not
@@ -5326,6 +5900,16 @@ nav {
 }
 .ins-tag { display: block; font-size: var(--fs-label); font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--blue); margin-bottom: 10px; }
 .ins-text { display: block; font-size: var(--fs-sm); color: var(--ink); line-height: 1.7; }
+
+/* Dark variant — insight card called out against the page's light
+   background instead of the usual light accent tint. */
+.insight-dark {
+  background: var(--alt-bg-dark);
+  border: none;
+  padding: 28px;
+}
+.insight-dark .ins-tag { color: var(--alt-accent); }
+.insight-dark .ins-text { color: var(--alt-cream); }
 
 /* Shared need */
 .shared-need {
@@ -5357,14 +5941,14 @@ nav {
 .je { font-size: 24px; margin-bottom: 10px; }
 .jst { font-size: var(--fs-mini-label); font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
 .jl { font-size: var(--fs-sm); font-weight: 600; color: var(--black); margin-bottom: 8px; line-height: 1.3; }
-.jq { font-size: var(--fs-sm); color: var(--muted); line-height: 1.55; font-style: italic; }
+.jq { font-size: var(--fs-sm); font-weight: 500; color: var(--muted); line-height: 1.55; font-style: italic; }
 
 /* ─── Feature grid 2×2 ─── */
 .feat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 40px; }
 .feat { padding: 28px; }
-.feat-n { font-size: var(--fs-sm); font-weight: 700; letter-spacing: .1em; color: var(--blue); margin-bottom: 10px; }
-.feat-title { font-size: var(--fs-large); font-weight: 600; color: var(--black); margin-bottom: 4px; }
-.feat-goal { font-size: var(--fs-sm); color: var(--muted); font-style: italic; margin-bottom: 20px; }
+.feat-n { display: none; }
+.feat-title { font-size: var(--fs-h3); font-weight: 600; color: var(--black); margin-bottom: 4px; }
+.feat-goal { font-size: var(--fs-sm); font-weight: 500; color: var(--muted); font-style: italic; margin-bottom: 20px; }
 .feat-img {
   width: 100%; height: 120px;
   background: var(--surface); border: 1px solid var(--border);
@@ -5382,8 +5966,8 @@ nav {
   padding: 32px; margin-top: 14px;
 }
 .dd-tag { display: block; font-size: var(--fs-label); font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--yellow); margin-bottom: 12px; }
-.dd-body { font-size: var(--fs-sm); color: rgba(255,255,255,.65); line-height: 1.8; }
-.dd-body strong { color: #fff; font-weight: 500; }
+.dd-body { font-size: var(--fs-sm); font-weight: 500; color: var(--alt-cream-70); line-height: 1.8; }
+.dd-body strong { color: var(--alt-cream); font-weight: 500; }
 
 /* ─── Roadmap ─── */
 .phase-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; margin-top: 40px; }
@@ -5391,8 +5975,8 @@ nav {
 .ph-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--border); margin-bottom: 20px; }
 .ph-dot.on { background: var(--blue); }
 .ph-n { font-size: var(--fs-mini-label); font-weight: 700; letter-spacing: .1em; color: var(--blue); margin-bottom: 6px; }
-.ph-title { font-size: var(--fs-body); font-weight: 600; color: var(--black); margin-bottom: 4px; }
-.ph-focus { font-size: var(--fs-sm); color: var(--muted); font-style: italic; margin-bottom: 16px; line-height: 1.5; }
+.ph-title { font-size: var(--fs-h3); font-weight: 600; color: var(--black); margin-bottom: 4px; }
+.ph-focus { font-size: var(--fs-sm); font-weight: 500; color: var(--muted); font-style: italic; margin-bottom: 16px; line-height: 1.5; }
 .ph-outcome { font-size: var(--fs-sm); color: var(--muted); line-height: 1.6; padding-top: 14px; border-top: 1px solid var(--border); margin-top: 14px; }
 .ph-outcome strong { color: var(--black); font-weight: 500; }
 
@@ -5416,9 +6000,9 @@ nav {
 /* ─── Outcome tiles ─── */
 .out-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 36px; }
 .out-tile { display: flex; gap: 12px; align-items: flex-start; padding: 18px; border: 1px solid var(--border); border-radius: 16px; }
-.chk { width: 18px; height: 18px; border-radius: 4px; background: var(--blue-bg); display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; color: var(--blue); flex-shrink: 0; margin-top: 1px; }
-.chk .material-symbols-rounded { font-size: 14px; }
-.out-t { font-size: var(--fs-sm); color: var(--ink); line-height: 1.65; }
+.chk { width: 18px; height: 18px; border-radius: 4px; background: var(--blue-bg); display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 700; color: var(--blue); flex-shrink: 0; margin-top: 1px; }
+.chk .material-symbols-rounded { font-size: 16px; }
+.out-t { font-size: var(--fs-sm); font-weight: 500; color: var(--ink); line-height: 1.65; }
 .out-t strong { font-weight: 500; color: var(--black); }
 
 /* ─── Takeaways ─── */
@@ -5428,36 +6012,31 @@ nav {
   font-family: var(--font-display);
   font-size: 60px; font-weight: 500;
   letter-spacing: -.05em; line-height: 1;
-  /* Was a leftover indigo watermark from the pre-rebrand palette — repointed
-     to the terracotta accent to match everywhere else. */
-  color: rgba(140,70,51,.07); margin-bottom: 18px;
+  color: rgba(238,68,35,.07); margin-bottom: 18px;
 }
-.tk-title { font-size: var(--fs-body); font-weight: 600; color: var(--black); margin-bottom: 10px; line-height: 1.4; }
-.tk-body { font-size: var(--fs-sm); color: var(--muted); line-height: 1.7; }
+.tk-title { font-size: var(--fs-h3); font-weight: 600; color: var(--black); margin-bottom: 10px; line-height: 1.4; }
+.tk-body { font-size: var(--fs-sm); font-weight: 500; color: var(--muted); line-height: 1.7; }
 
 /* ─── Pills ─── */
 .pills { display: flex; flex-direction: column; gap: 10px; margin-top: 36px; max-width: 560px; }
 .pill { display: flex; align-items: center; gap: 14px; padding: 14px 18px; border: 1px solid var(--border); border-radius: 100px; background: var(--bg-alt); }
 .pa { width: 24px; height: 24px; background: var(--blue); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 11px; flex-shrink: 0; }
-.pt { font-size: 14px; color: var(--ink); line-height: 1.5; }
+.pt { font-size: 16px; font-weight: 500; color: var(--ink); line-height: 1.5; }
 
 /* ─── What next: 2-col ─── */
 .next-grid { display: grid; grid-template-columns: 2fr 3fr; gap: 64px; margin-top: 0; align-items: start; }
 
 /* ─── Closing ─── */
-.closing-wrap { background: var(--black); border-top: 1px solid rgba(255,255,255,.06); }
-.closing-sub { font-size: 16px; color: rgba(255,255,255,.7); line-height: 1.75; margin-top: 16px; max-width: 440px; }
+.closing-wrap { background: var(--alt-cream); border-top: 1px solid rgba(238, 68, 35, 0.15); }
+.closing-wrap .s { padding-top: 160px; padding-bottom: 160px; }
+.closing-sub { font-size: 18px; font-weight: 500; color: var(--muted); line-height: 1.75; margin-top: 16px; max-width: 440px; }
 
-/* Per-case-study background on the closing section, matching each case's
-   hero-band color instead of the generic black — with the highlighted word
-   re-solved for contrast on each background, mirroring the exact
-   .hero-band.cs1/cs2/cs3 .hero-title .blue pattern already established. */
-.closing-wrap.cs1 { background: var(--cs1); }
-.closing-wrap.cs1 .sh.white .blue { color: #FFFFFF; }
-.closing-wrap.cs2 { background: var(--cs2); }
-.closing-wrap.cs2 .sh.white .blue { color: var(--cs2-tint); }
-.closing-wrap.cs3 { background: var(--cs3); }
-.closing-wrap.cs3 .sh.white .blue { color: var(--cs3-tint); }
+/* All three closing sections share the one dark background now (was a
+   per-case teal/green/navy) — the highlighted word reads as the accent
+   on all of them instead of a per-case tint. */
+.closing-wrap.cs1 .sh.white .blue,
+.closing-wrap.cs2 .sh.white .blue,
+.closing-wrap.cs3 .sh.white .blue { color: var(--alt-accent); }
 
 /* ─── Footer ─── */
 /* Prev/next pagination bar: a darker, warm-neutral tone — a step down from
@@ -5467,11 +6046,12 @@ nav {
 /* Background spans full viewport width (matching the closing section above
    and the main footer below); .page reused for the centered/constrained
    content row, same wrapper convention already used inside .closing-wrap. */
-.footer { background: #0c0c10; border-top: 1px solid rgba(255,255,255,.08); padding: 28px 0; }
+.footer { background: var(--alt-bg-dark); border-top: 1px solid rgba(255,255,255,.08); padding: 56px 0; }
 .footer .page { display: flex; align-items: center; justify-content: space-between; }
-.f-link { font-size: var(--fs-sm); color: rgba(255,255,255,.55); display: flex; align-items: center; gap: 10px; }
-.f-logo { font-family: 'Inter', sans-serif; font-size: 18px; font-weight: 700; letter-spacing: -.03em; color: rgba(255,255,255,.9); }
-.arr { width: 30px; height: 30px; border-radius: 50%; background:#3d2828; color: #ffffffd1; display: flex; align-items: center; justify-content: center; font-size: 12px; }
+.footer .page .f-link:only-child { margin-left: auto; }
+.f-link { font-size: 32px; font-weight: 600; color: var(--alt-accent); display: flex; align-items: center; gap: 16px; }
+.f-logo { font-family: 'Manrope', sans-serif; font-size: 18px; font-weight: 700; letter-spacing: -.03em; color: rgba(255,255,255,.9); }
+.arr { width: 32px; height: 32px; display: block; }
 
 /* Badge */
 .badge { position: fixed; bottom: 20px; right: 20px; z-index: 999; background: var(--black); color: var(--yellow); font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; padding: 8px 14px; border-radius: 100px; }
@@ -5512,11 +6092,10 @@ nav {
     margin-bottom: 24px;
   }
 
-  /* Home hero ("Hello, I am Daniela") — same treatment as .hero-title above,
-     it's just a different component for the same job. Desktop size (var(--fs-h1))
-     wraps huge and cramped on phones otherwise. */
+  /* Home hero ("Hello, I am Daniela") is a small label line in the alt
+     design (see .hero-greeting base rule), already sized for mobile. */
   .hero-greeting {
-    font-size: 40px;
+    font-size: 18px;
   }
 
   .sh {
@@ -5524,9 +6103,10 @@ nav {
     margin-bottom: 16px;
   }
 
-  /* "I design digital experiences" intro panel heading — same fix as .sh. */
+  /* "I transform complex systems..." is now the big statement — keep it
+     large-ish on phones without wrapping awkwardly. */
   .intro-heading {
-    font-size: 28px;
+    font-size: 32px;
   }
 
   .pull-text {
@@ -5550,10 +6130,25 @@ nav {
     border-top: 1px solid var(--border);
   }
 
-  .grid3, .approach-grid, .users-grid, .journey, .feat-grid, .phase-grid, .out-grid, .tk-grid, .next-grid, 
-  [style*="grid-template-columns: 1fr 1fr"], 
-  [style*="grid-template-columns:1fr 1fr"] {
+  .grid3, .approach-grid, .users-grid, .journey, .feat-grid, .phase-grid, .out-grid, .tk-grid, .next-grid,
+  .out-summary-grid,
+  [style*="grid-template-columns"] {
     grid-template-columns: 1fr !important;
+  }
+
+  /* Any two-link case-study switcher (prev + next) stacks instead of
+     crowding into the same row. */
+  .footer .page {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+
+  /* Meta-strip divider on a dark hero: match the hero's own muted cream
+     dividers instead of the sitewide light --border, which reads as a
+     stray white line against the dark background. */
+  .hero-band .meta-col + .meta-col {
+    border-top-color: rgba(237, 249, 207, 0.15);
   }
 
   .js {

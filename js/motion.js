@@ -13,7 +13,30 @@
   function lerp(a, b, n) { return a + (b - a) * n; }
 
   // ─── 1. Scroll-Triggered Reveal System ────────────────────────
+  // Case-study pages mark whole sections with data-reveal, but the
+  // individual items inside them (feature cards, list rows, pills,
+  // metrics...) had no reveal of their own. Auto-tag the common repeating
+  // "item" classes here instead of hand-editing every case-study file, and
+  // stagger siblings so lists/grids cascade in rather than popping together.
+  const AUTO_REVEAL_SELECTOR = [
+    '.pain-item', '.pill', '.grid3 > .card', '.out-summary-grid > div',
+    '.learn-item', '.metric', '.cs-sol-feature', '.tk-grid > .card', '.step'
+  ].join(',');
+
+  function autoTagRevealItems() {
+    const groups = new Map();
+    document.querySelectorAll(AUTO_REVEAL_SELECTOR).forEach(el => {
+      if (el.hasAttribute('data-reveal')) return;
+      el.setAttribute('data-reveal', '');
+      const parent = el.parentElement;
+      const i = groups.get(parent) || 0;
+      el.setAttribute('data-reveal-delay', String(Math.min(i, 5) * 80));
+      groups.set(parent, i + 1);
+    });
+  }
+
   function initScrollReveals() {
+    autoTagRevealItems();
     const revealEls = document.querySelectorAll('[data-reveal]');
     if (!revealEls.length) return;
 
