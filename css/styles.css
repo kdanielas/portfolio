@@ -4590,7 +4590,7 @@ body.cs2-page .users-col-divider {
   font-family: 'Manrope', sans-serif;
   font-weight: 600;
   font-size: 13px;
-  color: var(--alt-cream);
+  color: var(--alt-cream-70);
   letter-spacing: 2px;
   text-transform: uppercase;
   text-decoration: none;
@@ -4974,7 +4974,7 @@ body.cs2-page .users-col-divider {
   font-family: 'Manrope', sans-serif;
   font-weight: 500;
   font-size: 20px;
-  color: var(--alt-sage-text);
+  color: var(--alt-cream-50);
   letter-spacing: 0.4px;
   order: 2;
 }
@@ -5019,6 +5019,7 @@ body.cs2-page .users-col-divider {
   color: var(--alt-cream);
   line-height: 1.3;
   margin: 0;
+  max-width: 760px;
   letter-spacing: 0.5px;
   order: 1;
 }
@@ -5027,11 +5028,12 @@ body.cs2-page .users-col-divider {
 /* "Get in touch →" — same scale as the heading it closes, sits inline
    right after the preceding text instead of dropping to its own line. */
 .hero-cta-inline {
-  display: inline;
+  display: block;
   font: inherit;
   font-weight: 600;
   color: var(--alt-accent);
   text-decoration: none;
+  margin-top: 8px;
   transition: opacity 0.3s var(--ease-smooth);
 }
 .hero-cta-inline:hover {

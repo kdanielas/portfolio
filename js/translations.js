@@ -678,7 +678,7 @@ const translations = {
     // Welcome page hero
     welcome_label: "HI, I AM DANIELA :)",
     welcome_hero_h1: "I turn complex ",
-    welcome_hero_h12: "Fintech and B2B SaaS",
+    welcome_hero_h12: "Fintech & B2B SaaS",
     welcome_hero_h13: " products into intuitive experiences.",
 
 
