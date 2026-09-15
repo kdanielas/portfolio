@@ -260,9 +260,9 @@ body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-divider {
      headings only — everything smaller (including this wordmark) reads
      better on Inter at a heavier weight instead. */
   font-family: 'Manrope', sans-serif;
-  font-weight: 600;
-  font-size: 24px;
-  color: var(--alt-cream-70);
+  font-weight: 500;
+  font-size: 20px;
+  color: var(--alt-cream);
   letter-spacing: 1.5px;
   text-decoration: none;
   line-height: 1;
@@ -288,7 +288,7 @@ body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-divider {
   font-weight: 500;
   letter-spacing: 1px;
   text-transform: uppercase;
-  color: var(--alt-cream-70);
+  color: var(--alt-cream-50);
   text-decoration: none;
   padding: 4px 0;
   position: relative;
@@ -309,10 +309,10 @@ body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-divider {
   left: 50%;
   width: 0;
   height: 1px;
-  /* White by default — this sits over each case study's own dark hero color
-     (cs1/cs2/cs3), where terracotta reads as a muddy red instead of an accent.
-     Switches to terracotta once the nav solidifies to the cream bar below. */
-  background: #FFFFFF;
+  /* Cream by default — this sits over each case study's own dark hero color
+     (cs1/cs2/cs3). Switches to terracotta once the nav solidifies to the
+     cream bar below. */
+  background: var(--alt-cream);
   transition: width 0.35s var(--ease-out-expo), left 0.35s var(--ease-out-expo);
 }
 
@@ -322,7 +322,7 @@ body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-divider {
 }
 
 .top-nav-link:hover {
-  color: #FFFFFF;
+  color: var(--alt-cream);
 }
 
 .top-nav.scrolled .top-nav-link:hover,
@@ -336,7 +336,7 @@ body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-divider {
 }
 
 .top-nav-link.active {
-  color: var(--light);
+  color: var(--alt-cream);
   font-weight: 500;
   opacity: 1;
 }
@@ -361,7 +361,7 @@ body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-divider {
   font-weight: 500;
   letter-spacing: 2.6px;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--alt-cream-50);
   background: none;
   border: none;
   cursor: pointer;
@@ -369,9 +369,14 @@ body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-divider {
   transition: color 0.2s ease;
 }
 
+.top-nav-lang .lang-btn:not(.active) {
+  color: var(--alt-cream-50);
+  opacity: 1;
+}
+
 .top-nav-lang .lang-btn.active,
 .top-nav-lang .lang-btn:hover {
-  color: #FFFFFF;
+  color: var(--alt-cream);
 }
 
 .top-nav.scrolled .top-nav-lang .lang-btn,
@@ -391,7 +396,7 @@ body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-divider {
   font-size: 12px;
   font-weight: 400;
   letter-spacing: 0;
-  color: rgba(255, 255, 255, 0.65);
+  color: var(--alt-cream-50);
   transition: color 0.3s ease;
 }
 
@@ -406,11 +411,11 @@ body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-divider {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 32px;
-  height: 32px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.1);
-  color: var(--alt-cream-70);
+  color: var(--alt-cream);
   flex-shrink: 0;
   transition: background 0.3s var(--ease-smooth), color 0.3s var(--ease-smooth), transform 0.3s var(--ease-out-back);
 }
@@ -4571,18 +4576,23 @@ body.cs2-page .users-col-divider {
 
 /* ===== HERO SCROLL LINK ===== */
 .hero-scroll-link-container {
-  margin-top: 16px;
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .hero-scroll-link {
   display: inline-flex;
+  flex-direction: column;
   align-items: center;
   gap: 8px;
   font-family: 'Manrope', sans-serif;
-  font-weight: 500;
-  font-size: 14px;
-  color: var(--blue);
-  letter-spacing: 0.5px;
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--alt-cream);
+  letter-spacing: 2px;
+  text-transform: uppercase;
   text-decoration: none;
   transition: opacity 0.3s var(--ease-smooth);
 }
@@ -4943,7 +4953,6 @@ body.cs2-page .users-col-divider {
   border: none;
   padding: 0;
   width: fit-content;
-  margin-bottom: 28px;
 }
 .hero-badge-dot {
   width: 8px;
@@ -4956,7 +4965,7 @@ body.cs2-page .users-col-divider {
 }
 .hero-badge-text {
   font-family: 'Manrope', sans-serif;
-  font-size: 16px;
+  font-size: 24px;
   font-weight: 600;
   color: var(--alt-cream);
   letter-spacing: 0.2px;
@@ -4966,7 +4975,6 @@ body.cs2-page .users-col-divider {
   font-weight: 500;
   font-size: 20px;
   color: var(--alt-sage-text);
-  margin-top: 16px;
   letter-spacing: 0.4px;
   order: 2;
 }
@@ -4995,6 +5003,7 @@ body.cs2-page .users-col-divider {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 40px;
   padding-bottom: 48px;
 }
 .intro-eyebrow {
@@ -5006,25 +5015,23 @@ body.cs2-page .users-col-divider {
 .intro-heading {
   font-family: 'Manrope', sans-serif;
   font-weight: 600;
-  font-size: var(--fs-h1);
+  font-size: 56px;
   color: var(--alt-cream);
   line-height: 1.3;
-  margin: 0 0 20px;
+  margin: 0;
   letter-spacing: 0.5px;
   order: 1;
 }
 .intro-heading .hero-accent { color: var(--alt-cream); }
 
-/* "Get in touch →" — same scale as the heading it closes, wraps onto its
-   own line naturally (Figma: portfolio, node 15-24099, hero-greeting-block:
-   the CTA lives inline in the headline, not as a separate small link). */
+/* "Get in touch →" — same scale as the heading it closes, sits inline
+   right after the preceding text instead of dropping to its own line. */
 .hero-cta-inline {
-  display: block;
+  display: inline;
   font: inherit;
   font-weight: 600;
   color: var(--alt-accent);
   text-decoration: none;
-  margin-top: 8px;
   transition: opacity 0.3s var(--ease-smooth);
 }
 .hero-cta-inline:hover {
@@ -5037,10 +5044,6 @@ body.cs2-page .users-col-divider {
   vertical-align: middle;
   margin-left: 2px;
 }
-
-/* Superseded by .hero-cta-inline above — kept in the DOM for the in-page
-   anchor but no longer shown, so it doesn't compete with the new CTA. */
-.intro-inner .hero-scroll-link-container { display: none; }
 
 /* Superseded by .hero-tagline below the CTA — the long paragraph doesn't
    appear in this design (Figma: portfolio, node 15-24099), kept in the DOM
@@ -5594,6 +5597,7 @@ body.cs3-page .out-summary-title {
   margin-bottom: 8px;
 }
 body.cs1-page .out-summary-title,
+body.cs2-page .out-summary-title,
 body.cs3-page .out-summary-title { color: var(--alt-cream); }
 body.cs1-page .out-summary-body,
 body.cs2-page .out-summary-body,

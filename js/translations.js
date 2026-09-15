@@ -677,8 +677,9 @@ const translations = {
 
     // Welcome page hero
     welcome_label: "HI, I AM DANIELA :)",
-    welcome_hero_h1: "I transform complex systems into ",
-    welcome_hero_h12: "intuitive product experiences",
+    welcome_hero_h1: "I turn complex ",
+    welcome_hero_h12: "Fintech and B2B SaaS",
+    welcome_hero_h13: " products into intuitive experiences.",
 
 
     // CS2 hero team
@@ -1049,7 +1050,7 @@ const translations = {
     cs2_closing_sub: "And sometimes, what you build for your team turns out to be exactly what your customers needed too.",
 
   // ── CS1 i18n wiring (new keys) ────────────────────────────
-  cs1_hero_title: "Reframing Self-Directed Investing<br><span class='blue'>Through AI</span>",
+  cs1_hero_title: "Reframing Self-Directed Investing <span class='blue'>Through AI</span>",
   cs1_hero_desc1: "BMO InvestorLine gives investors full control — no advisor required. But control without guidance creates friction at the moments that matter most. Over 7 months, I owned Journey 2 (Portfolio Understanding) end-to-end — discovery synthesis, flows, and high-fidelity prototypes — collaborating across all three journeys to keep the experience aligned.",
   cs1_hero_desc2: "Work was divided by journey: UX Designer → Onboarding (J1) · me → Portfolio Understanding (J2) · Lead Designer → Trade (J3). Key J2 concepts were also applied to the empty state — designed for pre-account users to explore the platform before committing.",
   cs1_meta_team_val: "Lead Designer · UX Designer<br>· me (UX Designer)",
@@ -1262,7 +1263,7 @@ const translations = {
     footer_subtitle: "Siempre estoy interesada en conversar sobre diseño de producto, fintech, SaaS, IA y nuevas oportunidades.",
 
     // Hero scroll link + case study button
-    welcome_scroll_link: "Ver casos de estudio",
+    welcome_scroll_link: "Trabajos",
     cs_btn_explore: "Ver caso de estudio",
 
     // Homepage case study cards
@@ -1994,8 +1995,9 @@ const translations = {
 
     // Welcome page hero
     welcome_label: "HOLA, SOY DANIELA :)",
-    welcome_hero_h1: "Transformo sistemas complejos en ",
-    welcome_hero_h12: "experiencias de producto intuitivas",
+    welcome_hero_h1: "Transformo sistemas complejos de ",
+    welcome_hero_h12: "Fintech y B2B SaaS",
+    welcome_hero_h13: " en experiencias intuitivas.",
 
 
     // CS2 hero team
@@ -2296,7 +2298,7 @@ const translations = {
   cs3_closing_sub: "Diseñar para entornos operacionales me enseñó que la claridad y la velocidad no son objetivos de diseño. Son requisitos de negocio. Y la documentación del equipo de soporte es la prueba de usabilidad más honesta que puedes tener.",
 
   // ── CS1 i18n wiring (new keys) ────────────────────────────
-  cs1_hero_title: "Replanteando la Inversión Autogestionada<br><span class='blue'>a través de IA</span>",
+  cs1_hero_title: "Replanteando la Inversión Autogestionada <span class='blue'>a través de IA</span>",
   cs1_hero_desc1: "BMO InvestorLine da a los inversores control total — sin asesor. Pero control sin orientación genera fricción en los momentos que más importan. Durante 7 meses, lideré el Journey 2 (Comprensión del portafolio) de principio a fin — síntesis de discovery, flujos y prototipos de alta fidelidad — colaborando con los tres journeys para mantener la experiencia alineada.",
   cs1_hero_desc2: "El trabajo se dividió por journey: Diseñadora UX → Onboarding (J1) · yo → Comprensión del portafolio (J2) · Diseñadora Líder → Trading (J3). Los conceptos clave del J2 también se aplicaron al empty state — diseñado para usuarios sin cuenta que quieren explorar la plataforma antes de comprometerse.",
   cs1_meta_team_val: "Diseñadora Líder · Diseñadora UX<br>· yo (Diseñadora UX)",
