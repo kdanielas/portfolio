@@ -1,12 +1,12 @@
 /* ===== IMPORTS ===== */
-@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@6..144,200..800&family=Inter:wght@300;400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@6..144,200..800&family=Inter:wght@300;400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 
 /* ===== DESIGN TOKENS ===== */
 :root {
   /* --blue kept as the variable name across ~70 existing rules (nav, buttons, links, quote bars)
      to avoid touching every call site — it now holds the orange brand accent (matches index +
      case-study-1), not terracotta/indigo. */
-  --blue: #EE4423;
+  --blue: #FD4D2B;
   --purple: #4F8387;
   --black: #120007;
   --text-dark: #120007;
@@ -14,7 +14,7 @@
   --light: #F1F3EC;
   --bg-alt: #F1F3EC;
   /* --yellow: small tag/label color shown on dark backgrounds (closing sections, badges). */
-  --yellow: #EE4423;
+  --yellow: #FD4D2B;
   --blue-bg:   rgba(238, 68, 35, 0.06);
   --blue-bd:   rgba(238, 68, 35, 0.2);
   --ink:       #120007;
@@ -33,23 +33,23 @@
   /* Display typeface for headings/quotes — body text stays on Inter.
      Alt-design branch: swapped to Manrope sitewide (see Figma
      "portfolio-projects" node 5035-80623) to match the new type system. */
-  --font-display: "Manrope", sans-serif;
+  --font-display: "Plus Jakarta Sans", sans-serif;
 
   /* ── Alt design tokens ──
      Homepage-only palette. First pass matched Figma "portfolio-projects"
      node 5035-80623 (light alternating case-study cards); superseded by
      a second pass matching Figma "portfolio" node 15-24099 (fully dark
-     homepage, real product screenshots, #ee4423 accent). --alt-surface-1/2/3
+     homepage, real product screenshots, #FD4D2B accent). --alt-surface-1/2/3
      are unused by the current pass but left defined. --blue/--black/--muted/
      --surface now match these alt-* values too, so the palette is shared
      sitewide (index + all three case studies) rather than index-only. */
   --alt-bg-dark:    #120007;
-  --alt-cream:      #CEDEA5;
-  --alt-cream-70:   rgba(206, 222, 165, 0.7);
-  --alt-cream-50:   rgba(206, 222, 165, 0.5);
-  --alt-sage-text:  rgba(206, 222, 165, 0.7);
-  --alt-accent:     #EE4423;
-  --alt-sage-btn:   #CEDEA5;
+  --alt-cream:      #D8E5B7;
+  --alt-cream-70:   rgba(216, 229, 183, 0.7);
+  --alt-cream-50:   rgba(216, 229, 183, 0.5);
+  --alt-sage-text:  rgba(216, 229, 183, 0.7);
+  --alt-accent:     #FD4D2B;
+  --alt-sage-btn:   #D8E5B7;
   --alt-surface-1:  #F8F9F6;
   --alt-surface-2:  #E9EEE0;
   --alt-surface-3:  #CACDC4;
@@ -142,7 +142,13 @@ body {
   font-family: 'Manrope', sans-serif;
   background-color: var(--light);
   color: var(--text-dark);
-  overflow-x: hidden;
+  /* No overflow-x here (html's own overflow-x:hidden above already stops
+     horizontal scroll site-wide) — setting it on body too forces the
+     UA to also compute its overflow-y as "auto" (spec: if one axis is
+     non-visible, the other can't stay "visible"), making body a second
+     scroll container. That silently breaks position:sticky for anything
+     inside it, since sticky sticks to the nearest scrolling ancestor —
+     which becomes body instead of the real one (html/window). */
   min-height: 100vh;
 }
 
@@ -215,6 +221,49 @@ img {
   border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 }
 
+/* Home + case-study pages all keep the same dark hero theme even once
+   .scrolled/.nav-solid would normally solidify the bar to a light cream
+   background — same dark bg + cream text as the unscrolled state, no
+   light-bar swap. Shared via body.nav-dark on all 4 pages. */
+body.nav-dark .top-nav.scrolled,
+body.nav-dark .top-nav.nav-solid {
+  background-color: rgba(18, 0, 7, 0.85);
+  border-bottom: 1px solid rgba(216, 229, 183, 0.1);
+}
+body.nav-dark .top-nav.scrolled .top-nav-logo {
+  color: var(--alt-cream);
+}
+body.nav-dark .top-nav.scrolled .top-nav-link,
+body.nav-dark .top-nav.nav-solid .top-nav-link {
+  color: var(--alt-cream-50);
+}
+body.nav-dark .top-nav.scrolled .top-nav-link:hover,
+body.nav-dark .top-nav.nav-solid .top-nav-link:hover {
+  color: var(--alt-cream);
+}
+body.nav-dark .top-nav.scrolled .top-nav-link::after,
+body.nav-dark .top-nav.nav-solid .top-nav-link::after {
+  background: var(--alt-cream);
+}
+body.nav-dark .top-nav.scrolled .top-nav-lang .lang-btn,
+body.nav-dark .top-nav.nav-solid .top-nav-lang .lang-btn {
+  color: var(--alt-cream-50);
+}
+body.nav-dark .top-nav.scrolled .top-nav-lang .lang-btn.active,
+body.nav-dark .top-nav.scrolled .top-nav-lang .lang-btn:hover,
+body.nav-dark .top-nav.nav-solid .top-nav-lang .lang-btn.active,
+body.nav-dark .top-nav.nav-solid .top-nav-lang .lang-btn:hover {
+  color: var(--alt-cream);
+}
+body.nav-dark .top-nav.scrolled .top-nav-lang .lang-divider,
+body.nav-dark .top-nav.nav-solid .top-nav-lang .lang-divider {
+  color: var(--alt-cream-50);
+}
+body.nav-dark .top-nav.scrolled .top-nav-social,
+body.nav-dark .top-nav.nav-solid .top-nav-social {
+  color: var(--alt-cream);
+}
+
 /* Contact page only: the nav sits directly on the page's own brown
    background (no hero underneath it), so it keeps the light/transparent
    text treatment instead of the usual solid-cream/dark-text swap — logo
@@ -245,25 +294,24 @@ body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-divider {
 }
 
 .top-nav-inner {
-  max-width: var(--content-max);
   width: 100%;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  margin: 0;
+  /* Right padding leaves room for the fixed hamburger (right:80px, 36px
+     wide) plus a 32px gap, so the social icons never sit underneath it. */
+  padding: 0 148px 0 80px;
+  display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 32px;
 }
 
 /* Left: Logo */
 .top-nav-logo {
-  /* Typography rule: the serif display face is reserved for true h1/h2
-     headings only — everything smaller (including this wordmark) reads
-     better on Inter at a heavier weight instead. */
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--font-display);
   font-weight: 500;
-  font-size: 20px;
+  font-size: 18px;
   color: var(--alt-cream);
-  letter-spacing: 1.5px;
+  letter-spacing: 0px;
   text-decoration: none;
   line-height: 1;
   white-space: nowrap;
@@ -276,10 +324,7 @@ body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-divider {
 
 /* Center: Case study links */
 .top-nav-links {
-  display: flex;
-  align-items: center;
-  gap: 40px;
-  justify-content: center;
+  display: none;
 }
 
 .top-nav-link {
@@ -2259,63 +2304,74 @@ body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-divider {
    color, cream nav, photos) for a color swap to reliably stay legible, so
    the bars just stay white always and the chip guarantees contrast. */
 .hamburger {
-  display: none;
+  display: flex;
   position: fixed;
   top: 14px;
-  right: 24px;
+  right: 80px;
   z-index: 300;
   width: 36px;
   height: 36px;
-  background: rgba(23, 17, 13, 0.35);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
+  background: none;
   border: none;
   border-radius: 10px;
   cursor: pointer;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
-  gap: 5px;
   padding: 0;
-  transition: background 0.2s ease;
 }
 
-.hamburger:hover {
-  background: rgba(23, 17, 13, 0.5);
+.hamburger:focus,
+.hamburger:focus-visible {
+  outline: 2px solid var(--alt-bg-dark);
+  outline-offset: 2px;
 }
+
 
 .hamburger span {
+  position: absolute;
   display: block;
-  width: 20px;
+  width: 26px;
   height: 2px;
-  background: #FFFFFF;
+  background: var(--alt-cream);
   border-radius: 2px;
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  transition: transform 0.3s ease, top 0.3s ease, background 0.2s ease;
+}
+
+/* Toggled by initHamburgerContrast() in motion.js when the section
+   currently scrolled under the fixed icon has a light background. */
+.hamburger.on-light span {
+  background: #120007;
+}
+
+.hamburger span:nth-child(1) {
+  top: 13px;
+}
+
+.hamburger span:nth-child(2) {
+  top: 21px;
 }
 
 .hamburger.active span:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
+  top: 17px;
+  transform: rotate(45deg);
 }
 
 .hamburger.active span:nth-child(2) {
-  opacity: 0;
-}
-
-.hamburger.active span:nth-child(3) {
-  transform: rotate(-45deg) translate(5px, -5px);
+  top: 17px;
+  transform: rotate(-45deg);
 }
 
 /* Mobile overlay menu */
 .mobile-overlay {
-  display: none;
+  display: block;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(22, 36, 64, 0.4);
+  background: rgba(18, 0, 7, 0.5);
   backdrop-filter: blur(4px);
-  z-index: 150;
+  z-index: 210;
   opacity: 0;
   transition: opacity 0.3s ease;
   pointer-events: none;
@@ -2327,7 +2383,7 @@ body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-divider {
 }
 
 .mobile-menu {
-  display: none;
+  display: flex;
   position: fixed;
   top: 0;
   left: 0;
@@ -2335,7 +2391,7 @@ body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-divider {
   max-width: 85vw;
   height: 100vh;
   background: var(--light);
-  z-index: 160;
+  z-index: 220;
   flex-direction: column;
   justify-content: space-between;
   padding: 32px 24px;
@@ -2346,6 +2402,114 @@ body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-divider {
 
 .mobile-menu.active {
   transform: translateX(0);
+}
+
+/* All 4 pages' mobile menu is the same full-screen "case studies" index,
+   shared via body.nav-dark. */
+.nav-dark .mobile-menu {
+  width: 100%;
+  max-width: none;
+  background: var(--alt-bg-dark);
+  padding: 32px 24px 24px;
+  justify-content: flex-start;
+}
+
+/* On desktop the hamburger is an extra nav option alongside the visible
+   nav bar, not the only way in — a full-screen takeover is overkill, so
+   it opens as a quarter-width panel instead, anchored to the right and
+   sliding in from that edge so its content lines up with the fixed
+   hamburger/close button above it. */
+@media (min-width: 1025px) {
+  .nav-dark .mobile-menu {
+    left: auto;
+    right: 0;
+    width: 25vw;
+    min-width: 340px;
+    max-width: 480px;
+    padding: 32px 80px 24px 32px;
+    transform: translateX(100%);
+  }
+
+  .nav-dark .mobile-menu.active {
+    transform: translateX(0);
+  }
+}
+
+.mobile-menu-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+.mobile-menu-label {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--alt-cream);
+}
+
+.mobile-cs-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.mobile-cs-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 28px 0;
+  border-bottom: 1px solid rgba(216, 229, 183, 0.15);
+  text-decoration: none;
+}
+
+.mobile-cs-item:first-child {
+  padding-top: 0;
+}
+
+.mobile-cs-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.3;
+  color: var(--alt-cream);
+  margin: 0 0 10px;
+}
+
+.mobile-cs-title .hero-accent {
+  color: #CCF36A;
+}
+
+.mobile-cs-tags {
+  margin: 0;
+}
+
+.mobile-cs-tags .tag-role {
+  display: inline;
+  padding: 0;
+  border: none;
+  background: none;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--alt-cream-50);
+}
+
+.mobile-cs-tags .tag-role:not(:last-child)::after {
+  content: '·';
+  margin: 0 8px;
+  color: var(--alt-cream-50);
+}
+
+.mobile-cs-arrow {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
 }
 
 .mobile-menu .sidebar-logo {
@@ -2419,7 +2583,7 @@ body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-divider {
 @media (max-width: 1024px) {
 
   .top-nav-inner {
-    margin: 0 32px;
+    padding: 0 32px;
   }
 
   /* Hide center nav links and right items, show hamburger */
@@ -3419,6 +3583,17 @@ body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-divider {
   animation: pageEnter 0.55s cubic-bezier(.22, 1, .36, 1) both;
 }
 
+/* A held (fill-mode:both) transform animation keeps creating a containing
+   block for descendant position:fixed elements even once it's visually
+   settled at its end state — breaking things like .cs-solution-sidebar.
+   main.js adds this once the entrance animation actually finishes
+   (animationend), clearing it so descendants can be fixed to the
+   viewport again. */
+.page-wrapper.page-entered,
+.main-content.page-entered {
+  animation: none;
+}
+
 @keyframes pageEnter {
   from {
     opacity: 0;
@@ -3427,7 +3602,7 @@ body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-divider {
 
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: none;
   }
 }
 
@@ -3991,7 +4166,7 @@ body.nav-solid-page .top-nav.nav-solid .top-nav-lang .lang-divider {
   padding: 0 var(--h-pad);
 }
 
-/* ── Sticky sidebar ── */
+/* ── Fixed sidebar ── */
 .cs-solution-sidebar {
   width: 180px;
   flex-shrink: 0;
@@ -4400,6 +4575,38 @@ body.cs2-page .users-col-divider {
   transform: translateY(0);
 }
 
+/* Directional variants — element slides in from the opposite side of
+   where it rests (image from the left, text from the right), instead of
+   the default up-fade. */
+[data-reveal].reveal-from-left {
+  transform: translateX(-48px);
+}
+[data-reveal].reveal-from-left.is-visible {
+  transform: translateX(0);
+}
+[data-reveal].reveal-from-right {
+  transform: translateX(48px);
+}
+[data-reveal].reveal-from-right.is-visible {
+  transform: translateX(0);
+}
+
+/* Hero intro sequence — badge types out, then title/subtitle/CTA/Works
+   fade in one after another in JS (initHeroIntroSequence in motion.js),
+   not the scroll-triggered observer above (the hero is always in view on
+   load, so that system would just reveal everything at once). */
+.hero-sequence-item {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.8s var(--ease-out-expo),
+              transform 0.8s var(--ease-out-expo);
+}
+
+.hero-sequence-item.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* Variant: scale-up reveal (cards, images) */
 [data-reveal="scale"] {
   transform: translateY(24px) scale(0.97);
@@ -4578,19 +4785,25 @@ body.cs2-page .users-col-divider {
 .hero-scroll-link-container {
   position: absolute;
   bottom: 32px;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 80px;
+}
+
+/* Match the logo's mobile inset so "Works" lines up with "Daniela." above it. */
+@media (max-width: 1024px) {
+  .hero-scroll-link-container {
+    left: 32px;
+  }
 }
 
 .hero-scroll-link {
   display: inline-flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   gap: 8px;
   font-family: 'Manrope', sans-serif;
   font-weight: 600;
   font-size: 13px;
-  color: var(--alt-cream-70);
+  color: var(--alt-cream);
   letter-spacing: 2px;
   text-transform: uppercase;
   text-decoration: none;
@@ -4618,64 +4831,6 @@ body.cs2-page .users-col-divider {
 /* ===== CASE STUDIES SECTION ===== */
 .case-studies-section {
   padding: 64px 0 80px;
-  /* Plain block flow, not flex — the case-study cards are already
-     block-level and stack fine on their own. position:relative anchors
-     the absolutely-positioned .work-nums-fixed rail below. */
-  position: relative;
-}
-
-/* Sticky 01/02/03 rail — pinned to vertical center of the viewport while
-   scrolling through the section, lighting up whichever case study is in
-   view. float+sticky was leaving reserved layout space (a visible gap)
-   before the first card even after taking the parent off flex — so this
-   uses the standard sticky-rail pattern instead: the outer wrapper is
-   absolutely positioned (zero footprint, can't ever push other content
-   down), spanning the full height of the section; the inner wrapper does
-   the actual sticky centering within that. */
-.work-nums-fixed {
-  position: absolute;
-  top: 0;
-  right: 32px;
-  height: 100%;
-  z-index: 5;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  pointer-events: none;
-}
-
-.work-nums-inner {
-  position: sticky;
-  top: 50%;
-  transform: translateY(-50%);
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  pointer-events: auto;
-}
-
-.work-num {
-  width: 26px;
-  height: 26px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: 'Manrope', sans-serif;
-  font-size: 12px;
-  font-weight: 600;
-  border: none;
-  /* Cards are near-white/sage now (not saturated dark), so the rail needs
-     dark-on-light contrast instead of the old white-on-color treatment. */
-  color: var(--alt-ink-40);
-  background: transparent;
-  flex-shrink: 0;
-  transition: background 0.3s ease, color 0.3s ease, transform 0.4s var(--ease-out-back);
-}
-
-.work-num.active {
-  background: var(--alt-ink);
-  color: var(--alt-surface-1);
-  transform: scale(1.1);
 }
 
 .case-study-card {
@@ -4689,14 +4844,8 @@ body.cs2-page .users-col-divider {
   border-radius: 20px;
   padding: 64px;
   transition: transform 0.45s var(--ease-out-expo), box-shadow 0.45s var(--ease-smooth);
-  cursor: pointer;
   border: 1px solid rgba(16, 18, 23, 0.06);
   box-shadow: 0 2px 12px rgba(16, 18, 23, 0.03);
-}
-
-.case-study-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 60px rgba(16, 18, 23, 0.08), 0 4px 16px rgba(16, 18, 23, 0.04);
 }
 
 /* Homepage cards go full-color per case study — near-white/sage neutrals
@@ -4749,13 +4898,6 @@ body.cs2-page .users-col-divider {
   justify-content: center;
 }
 
-.case-studies-section .case-study-card .case-study-content .cs-label {
-  color: var(--alt-cream-70);
-  font-weight: 500;
-}
-.case-studies-section .case-study-card .case-study-content .cs-label-line {
-  display: none;
-}
 .case-studies-section .case-study-card .heading-h2 {
   color: var(--alt-cream);
   font-weight: 600;
@@ -4767,6 +4909,8 @@ body.cs2-page .users-col-divider {
   padding: 4px 0;
   font-size: 16px;
   font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 .case-studies-section .case-study-card .tag-role:not(:last-child)::after,
 .hero .case-study-tags .tag-role:not(:last-child)::after {
@@ -4775,12 +4919,12 @@ body.cs2-page .users-col-divider {
   color: var(--alt-cream-50);
 }
 .case-studies-section .case-study-card .cs-text-link {
-  color: var(--alt-accent);
+  color: var(--alt-bg-dark);
   text-transform: uppercase;
-  font-size: 16px;
+  font-size: 14px;
 }
 .case-studies-section .case-study-card .cs-text-link:hover {
-  color: var(--alt-accent);
+  color: var(--alt-bg-dark);
 }
 
 
@@ -4788,23 +4932,6 @@ body.cs2-page .users-col-divider {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-}
-
-/* Adjust label */
-.case-study-content .cs-label-row {
-  margin-bottom: 24px;
-}
-
-.case-study-content .cs-label {
-  color: #596374;
-  font-weight: 600;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-      font-size: 10px;
-}
-
-.case-study-content .cs-label-line {
-  background-color: #596374;
 }
 
 /* Typography Hierarchy */
@@ -4831,16 +4958,21 @@ body.cs2-page .users-col-divider {
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  background: var(--alt-accent);
+  border-radius: 100px;
+  padding: 4px 12px;
   font-family: 'Manrope', sans-serif;
   font-weight: 600;
-  font-size: 15px;
-  color: var(--blue);
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--alt-bg-dark);
   text-decoration: none;
-  transition: color 0.3s var(--ease-smooth);
+  transition: opacity 0.3s var(--ease-smooth);
 }
 
 .cs-text-link:hover {
-  color: var(--blue);
+  opacity: 0.85;
 }
 
 .cs-text-link .arrow-icon {
@@ -4924,7 +5056,7 @@ body.cs2-page .users-col-divider {
   font-family: 'Manrope', sans-serif;
   font-weight: 500;
   font-size: 20px;
-  color: var(--alt-accent);
+  color: #CCF36A;
   letter-spacing: normal;
   text-transform: none;
 }
@@ -4966,16 +5098,17 @@ body.cs2-page .users-col-divider {
 .hero-badge-text {
   font-family: 'Manrope', sans-serif;
   font-size: 24px;
-  font-weight: 600;
+  font-weight: 500;
   color: var(--alt-cream);
   letter-spacing: 0.2px;
 }
 .hero-tagline {
   font-family: 'Manrope', sans-serif;
   font-weight: 500;
-  font-size: 20px;
-  color: var(--alt-cream-50);
-  letter-spacing: 0.4px;
+  font-size: 16px;
+  color: var(--alt-cream-70);
+  letter-spacing: 2px;
+  text-transform: uppercase;
   order: 2;
 }
 
@@ -5013,9 +5146,9 @@ body.cs2-page .users-col-divider {
   margin-bottom: 20px;
 }
 .intro-heading {
-  font-family: 'Manrope', sans-serif;
-  font-weight: 600;
-  font-size: 56px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 64px;
   color: var(--alt-cream);
   line-height: 1.3;
   margin: 0;
@@ -5023,17 +5156,27 @@ body.cs2-page .users-col-divider {
   letter-spacing: 0.5px;
   order: 1;
 }
-.intro-heading .hero-accent { color: var(--alt-cream); }
+.intro-heading .hero-accent,
+.heading-h2 .hero-accent { color: #CCF36A; }
 
 /* "Get in touch →" — same scale as the heading it closes, sits inline
    right after the preceding text instead of dropping to its own line. */
 .hero-cta-inline {
-  display: block;
-  font: inherit;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--alt-accent);
+  border-radius: 100px;
+  padding: 4px 12px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 16px;
   font-weight: 600;
-  color: var(--alt-accent);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--alt-bg-dark);
   text-decoration: none;
-  margin-top: 8px;
+  margin-top: 16px;
+  order: 3;
   transition: opacity 0.3s var(--ease-smooth);
 }
 .hero-cta-inline:hover {
@@ -5041,10 +5184,10 @@ body.cs2-page .users-col-divider {
 }
 .hero-cta-arrow {
   display: inline-block;
-  width: 56px;
-  height: 56px;
+  width: 16px;
+  height: 16px;
   vertical-align: middle;
-  margin-left: 2px;
+  filter: brightness(0);
 }
 
 /* Superseded by .hero-tagline below the CTA — the long paragraph doesn't
@@ -5229,10 +5372,6 @@ body.cs2-page .users-col-divider {
   .footer-title {
     font-size: 32px;
   }
-  
-  .footer-links {
-    flex-direction: column;
-  }
 }
 
 /* ============================================================
@@ -5352,13 +5491,13 @@ nav {
   border-color: rgba(237, 249, 207, 0.25);
 }
 .hero-band.cs1 .hero-title, .hero-band.cs2 .hero-title, .hero-band.cs3 .hero-title {
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--font-display);
   font-weight: 600;
   color: var(--alt-cream);
 }
 .hero-band.cs1 .hero-title .blue,
 .hero-band.cs2 .hero-title .blue,
-.hero-band.cs3 .hero-title .blue { color: var(--alt-accent); }
+.hero-band.cs3 .hero-title .blue { color: #CCF36A; }
 .hero-band.cs1 .hero-desc, .hero-band.cs2 .hero-desc, .hero-band.cs3 .hero-desc {
   font-family: 'Manrope', sans-serif;
   color: var(--alt-cream-70);
@@ -5400,10 +5539,10 @@ nav {
 }
 
 /* Pull quote (HMW) — solid accent band, not a light surface tint. */
-body.cs1-page .pull-wrap { background: var(--alt-cream); border: none; padding: 220px var(--px); }
+body.cs1-page .pull-wrap { background: var(--alt-bg-dark); border: none; padding: 220px var(--px); }
 body.cs1-page .pull-inner { justify-content: center; text-align: center; }
-body.cs1-page .pull-text { color: #120007; font-style: normal; }
-body.cs1-page .pull-text span { color: var(--alt-accent); font-style: normal; }
+body.cs1-page .pull-text { color: var(--alt-cream); font-style: normal; }
+body.cs1-page .pull-text span { color: #CCF36A; font-style: normal; }
 
 /* Dark callouts (approach insight, CIRO constraint) pick up --black/--yellow
    from the token repoint above; just lift their body copy onto cream. */
@@ -5531,7 +5670,7 @@ body.cs3-page .pa {
   width: auto;
   height: auto;
   background: none;
-  color: var(--blue);
+  color: #CCF36A;
   font-size: 32px;
 }
 body.cs1-page .pill .pt,
@@ -5563,6 +5702,8 @@ body.cs1-page .bg:has(.metrics) .slabel,
 body.cs2-page .bg:has(.metrics) .slabel { color: var(--alt-cream-50); }
 body.cs1-page .bg:has(.metrics) .sh,
 body.cs2-page .bg:has(.metrics) .sh { color: var(--alt-cream); }
+body.cs1-page .bg:has(.metrics) .sh .blue,
+body.cs2-page .bg:has(.metrics) .sh .blue { color: #CCF36A; }
 body.cs1-page .bg:has(.metrics) .ssub,
 body.cs1-page .bg:has(.metrics) .m-label,
 body.cs1-page .bg:has(.metrics) .out-t,
@@ -5812,8 +5953,6 @@ body.cs1-page .p-sub { font-style: normal; margin-bottom: 0; }
 }
 .pt { font-size: var(--fs-sm); font-weight: 400; color: var(--ink); line-height: 1.65; }
 
-#challenge-pain-list .pn { color: var(--grey); font-weight: 500; }
-
 /* ─── Pull quote ─── */
 .pull-wrap {
   border-top: 1px solid var(--border);
@@ -5850,7 +5989,7 @@ body.cs1-page .p-sub { font-style: normal; margin-bottom: 0; }
 .fc { padding: 28px; }
 .fc-n { font-size: var(--fs-mini-label); font-weight: 700; letter-spacing: .08em; color: var(--blue); margin-bottom: 14px; display: block; }
 .fc-title {
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--font-display);
   font-size: var(--fs-h3); font-weight: 600;
   color: var(--black); line-height: 1.3;
   letter-spacing: -.01em; margin-bottom: 10px;
@@ -5891,6 +6030,16 @@ body.cs1-page .p-sub { font-style: normal; margin-bottom: 0; }
 }
 .p-type { font-size: var(--fs-mini-label); font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--blue); margin-bottom: 4px; }
 .p-name { font-size: var(--fs-body); font-weight: 600; color: var(--black); margin-bottom: 4px; }
+
+/* Titles that don't already inherit --font-display from a parent rule —
+   card/section/summary titles across the case-study components. */
+.out-summary-title,
+.learn-title,
+.tk-title,
+.ph-title,
+.p-name {
+  font-family: var(--font-display);
+}
 .p-sub { font-size: var(--fs-sm); font-weight: 500; color: var(--muted); font-style: italic; margin-bottom: 18px; line-height: 1.5; }
 .p-label { font-size: var(--fs-mini-label); font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-top: 16px; margin-bottom: 8px; }
 .dlist { display: flex; flex-direction: column; gap: 8px; }
@@ -5914,7 +6063,7 @@ body.cs1-page .p-sub { font-style: normal; margin-bottom: 0; }
   border: none;
   padding: 28px;
 }
-.insight-dark .ins-tag { color: var(--alt-accent); }
+.insight-dark .ins-tag { color: #CCF36A; }
 .insight-dark .ins-text { color: var(--alt-cream); }
 
 /* Shared need */
@@ -6033,7 +6182,7 @@ body.cs1-page .p-sub { font-style: normal; margin-bottom: 0; }
 .next-grid { display: grid; grid-template-columns: 2fr 3fr; gap: 64px; margin-top: 0; align-items: start; }
 
 /* ─── Closing ─── */
-.closing-wrap { background: var(--alt-cream); border-top: 1px solid rgba(238, 68, 35, 0.15); }
+.closing-wrap { background: var(--light); border-top: 1px solid rgba(238, 68, 35, 0.15); }
 .closing-wrap .s { padding-top: 160px; padding-bottom: 160px; }
 .closing-sub { font-size: 18px; font-weight: 500; color: var(--muted); line-height: 1.75; margin-top: 16px; max-width: 440px; }
 
@@ -6053,11 +6202,70 @@ body.cs1-page .p-sub { font-style: normal; margin-bottom: 0; }
    and the main footer below); .page reused for the centered/constrained
    content row, same wrapper convention already used inside .closing-wrap. */
 .footer { background: var(--alt-bg-dark); border-top: 1px solid rgba(255,255,255,.08); padding: 56px 0; }
-.footer .page { display: flex; align-items: center; justify-content: space-between; }
+.footer .page { display: flex; align-items: flex-start; justify-content: space-between; gap: 48px; }
 .footer .page .f-link:only-child { margin-left: auto; }
 .f-link { font-size: 32px; font-weight: 600; color: var(--alt-accent); display: flex; align-items: center; gap: 16px; }
 .f-logo { font-family: 'Manrope', sans-serif; font-size: 18px; font-weight: 700; letter-spacing: -.03em; color: rgba(255,255,255,.9); }
 .arr { width: 32px; height: 32px; display: block; }
+
+/* Prev/next project nav — real title (with its usual green-accent phrase)
+   and tags per side, red arrow pointing the way; .prev mirrors the arrow
+   and right-aligns so it reads toward the center like the reference. */
+.footer-nav-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  flex: 1;
+  text-decoration: none;
+  transition: opacity 0.3s var(--ease-smooth);
+}
+.footer-nav-item:hover {
+  opacity: 0.8;
+}
+.footer-nav-item.next {
+  justify-content: flex-end;
+  text-align: right;
+}
+.footer-nav-arrow {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+.footer-nav-item.prev .footer-nav-arrow {
+  transform: scaleX(-1);
+}
+.footer-nav-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.3;
+  color: var(--alt-cream);
+  margin: 0 0 10px;
+}
+.footer-nav-title .hero-accent {
+  color: #CCF36A;
+}
+.footer-nav-tags {
+  margin: 0;
+}
+.footer-nav-tags .tag-role {
+  display: inline;
+  padding: 0;
+  border: none;
+  background: none;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--alt-cream-50);
+}
+.footer-nav-tags .tag-role:not(:last-child)::after {
+  content: '·';
+  margin: 0 8px;
+  color: var(--alt-cream-50);
+}
 
 /* Badge */
 .badge { position: fixed; bottom: 20px; right: 20px; z-index: 999; background: var(--black); color: var(--yellow); font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; padding: 8px 14px; border-radius: 100px; }
@@ -6186,4 +6394,43 @@ body.cs1-page .p-sub { font-style: normal; margin-bottom: 0; }
   .pull-wrap {
     padding: 48px 0;
   }
+}
+
+/* ===== CUSTOM INVERTING CURSOR ===== */
+/* A small light dot tracks the pointer with mix-blend-mode: difference,
+   so it visually inverts whatever color it sits over. Grows when
+   hovering anything with cursor:pointer (see js/motion.js). */
+body.has-custom-cursor {
+  cursor: none;
+}
+body.has-custom-cursor a,
+body.has-custom-cursor button,
+body.has-custom-cursor [role="button"],
+body.has-custom-cursor input,
+body.has-custom-cursor textarea,
+body.has-custom-cursor select,
+body.has-custom-cursor label,
+body.has-custom-cursor summary,
+body.has-custom-cursor .lang-btn,
+body.has-custom-cursor .hamburger,
+body.has-custom-cursor .top-nav-social {
+  cursor: none;
+}
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  background: #CCF36A;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0;
+  transition: width 0.25s var(--ease-out-back), height 0.25s var(--ease-out-back), opacity 0.2s ease;
+  will-change: transform, width, height;
+}
+.custom-cursor.is-hover {
+  width: 44px;
+  height: 44px;
 }

@@ -1,4 +1,27 @@
 document.addEventListener('DOMContentLoaded', () => {
+  // ─── Page-enter animation cleanup ──────────────────────────────
+  // .page-wrapper/.main-content run a one-shot entrance animation held in
+  // place by fill-mode:both — while it's "running" (even just holding its
+  // end state), it keeps creating a containing block for any
+  // position:fixed descendant (e.g. .cs-solution-sidebar), pinning them
+  // to this element instead of the viewport. Clear it once it's actually
+  // done so descendants can be fixed again. Using Animation.finished
+  // (not the animationend event) because the entrance animation can start
+  // — and finish — before this DOMContentLoaded handler even runs, so the
+  // event itself may already have fired and be unobservable by the time
+  // we'd listen for it; the promise resolves immediately in that case.
+  ['.page-wrapper', '.main-content'].forEach(sel => {
+    const el = document.querySelector(sel);
+    if (!el) return;
+    const markEntered = () => el.classList.add('page-entered');
+    const anims = el.getAnimations().filter(a => a.animationName === 'pageEnter');
+    if (anims.length) {
+      Promise.all(anims.map(a => a.finished)).then(markEntered).catch(markEntered);
+    } else {
+      markEntered();
+    }
+  });
+
   // ─── Language switcher ───────────────────────────────────────
   const savedLang = localStorage.getItem('portfolio-lang') || 'en';
   setLanguage(savedLang);
@@ -295,47 +318,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Run once on load
     updateActiveSolLink();
-  }
-
-  // ─── Home page: sticky case-study number rail (01/02/03) ──────
-  // Matches the Claude Design reference's work-nums-fixed behavior — the
-  // number for whichever case-study block is currently in view lights up.
-  const workNums = document.querySelectorAll('.work-num');
-  const workBlocks = document.querySelectorAll('.case-studies-section .case-study-card');
-  const workNumsWrap = document.querySelector('.work-nums-fixed');
-
-  if (workNums.length && workBlocks.length && workNumsWrap) {
-    // Scroll-position based, same approach as the solution-sidebar spy
-    // above: a card only counts as active once the viewport's TOP edge is
-    // actually inside it (rect.top <= 0 and rect.bottom > 0) — i.e. the
-    // card's own color is genuinely what's filling the screen, not just
-    // "50% of the card has scrolled by somewhere below the fold" (which
-    // could still leave the previous section's cream visible on screen).
-    // Also resets opacity to 0 if you scroll back above card 1 or past
-    // card 3, instead of staying visible forever once first triggered.
-    let workTicking = false;
-    function updateWorkNums() {
-      let activeIdx = -1;
-      workBlocks.forEach((block, i) => {
-        const rect = block.getBoundingClientRect();
-        if (rect.top <= 0 && rect.bottom > 0) {
-          activeIdx = i;
-        }
-      });
-      if (activeIdx === -1) {
-        workNumsWrap.style.opacity = '0';
-      } else {
-        workNumsWrap.style.opacity = '1';
-        workNums.forEach((n, i) => n.classList.toggle('active', i === activeIdx));
-      }
-      workTicking = false;
-    }
-    window.addEventListener('scroll', () => {
-      if (!workTicking) {
-        window.requestAnimationFrame(updateWorkNums);
-        workTicking = true;
-      }
-    }, { passive: true });
-    updateWorkNums();
   }
 });

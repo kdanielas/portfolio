@@ -6,12 +6,12 @@
 <title>Admin UI Redesign | Daniela.</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@6..144,200..800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@6..144,200..800&family=Inter:wght@300;400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" rel="stylesheet" />
-<link rel="stylesheet" href="css/styles.css?v=48">
+<link rel="stylesheet" href="css/styles.css?v=113">
 <link rel="icon" type="image/png" href="./assets/images/favicon-cara.png">
 </head>
-<body class="cs2-page">
+<body class="cs2-page nav-dark">
 
 <!-- TOP NAV -->
   <nav class="top-nav" id="top-nav">
@@ -36,29 +36,48 @@
 
   <!-- Mobile hamburger -->
   <button class="hamburger" id="hamburger" aria-label="Open menu">
-    <span></span><span></span><span></span>
+    <span></span><span></span>
   </button>
   <div class="mobile-overlay" id="mobile-overlay"></div>
   <nav class="mobile-menu" id="mobile-menu">
-    <div>
-      <div class="sidebar-logo"><a href="index.html">Daniela<span class="logo-dot">.</span></a></div>
-      <div class="sidebar-nav">
-        <a href="case-study-1.html" class="top-nav-link" style="padding:14px 0;font-size:13px;display:block;"
-          data-i18n="nav_link_cs1">01 — Investing</a>
-        <a href="case-study-2.html" class="top-nav-link" style="padding:14px 0;font-size:13px;display:block;"
-          data-i18n="nav_link_cs2">02 — Support</a>
-        <a href="case-study-3.html" class="top-nav-link" style="padding:14px 0;font-size:13px;display:block;"
-          data-i18n="nav_link_cs3">03 — Hospitality</a>
-        <div style="display:flex;gap:16px;margin-top:16px;">
-          <a href="https://www.linkedin.com/in/kelly-daniela-sanchez-rojas/" target="_blank" rel="noopener noreferrer" class="top-nav-social" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 18 18" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12.7489 5.41502C12.762 5.41471 12.7753 5.41452 12.7885 5.41445C13.6878 5.40824 14.734 5.60658 15.3933 6.21566C16.4785 7.21803 16.4988 8.86753 16.499 10.2008L16.499 11.3589L16.4999 14.9966C16.1142 15.0032 15.7105 14.9978 15.3237 14.9979L13.3898 14.9969L13.3907 12.1875L13.3908 10.8328C13.3907 9.88297 13.5256 8.29415 12.2365 8.01951C11.8722 7.94188 11.3872 7.96853 11.0373 8.08263C10.5867 8.22954 10.3478 8.49118 10.1529 8.88538C9.90997 9.40428 9.91605 10.0696 9.91597 10.6257V11.656L9.91605 14.9976L6.80811 14.9972L6.80869 5.64521L9.79106 5.64551C9.79072 6.07145 9.78222 6.52309 9.79389 6.94649C9.8773 6.87043 9.93672 6.76557 10.0012 6.67346C10.0671 6.57816 10.1418 6.48848 10.2245 6.40545C10.9198 5.71326 11.7566 5.44532 12.7489 5.41502Z"/><path d="M1.75029 5.64502L4.85795 5.6456L4.85834 14.9972C4.5136 15.002 4.15535 14.9979 3.80955 14.998L1.74951 14.9977L1.75029 5.64502Z"/><path d="M3.23675 1.00107C4.23066 0.968271 5.06468 1.69548 5.09932 2.62507C5.13396 3.55466 4.35608 4.33439 3.36215 4.36639C2.36881 4.39837 1.53573 3.67137 1.50111 2.74234C1.4665 1.81332 2.24345 1.03384 3.23675 1.00107Z"/></svg></a>
-          <a href="mailto:daniela.sanchez.rojas.4@gmail.com" class="top-nav-social" aria-label="Email"><svg width="16" height="16" viewBox="0 0 18 18" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M3 15C2.5875 15 2.23125 14.8563 1.93125 14.5688C1.64375 14.2688 1.5 13.9125 1.5 13.5V4.5C1.5 4.0875 1.64375 3.7375 1.93125 3.45C2.23125 3.15 2.5875 3 3 3H15C15.4125 3 15.7625 3.15 16.05 3.45C16.35 3.7375 16.5 4.0875 16.5 4.5V13.5C16.5 13.9125 16.35 14.2688 16.05 14.5688C15.7625 14.8563 15.4125 15 15 15H3ZM9 9.75L15 6V4.5L9 8.25L3 4.5V6L9 9.75Z"/></svg></a>
-        </div>
-      </div>
+    <div class="mobile-menu-header">
+      <span class="mobile-menu-label" data-i18n="mobile_menu_label">Case Studies</span>
     </div>
-    <div class="lang-switcher">
-      <button class="lang-btn active" data-lang="en">EN</button>
-      <span class="lang-divider">/</span>
-      <button class="lang-btn" data-lang="es">ES</button>
+    <div class="mobile-cs-list">
+      <a href="case-study-1.html" class="mobile-cs-item">
+        <div class="mobile-cs-item-text">
+          <h3 class="mobile-cs-title" data-i18n-html="cs1_title_html">Reframing Self-Directed Investing <span class="hero-accent">Through AI</span></h3>
+          <p class="mobile-cs-tags">
+            <span class="tag-role">Fintech</span>
+            <span class="tag-role">B2C</span>
+            <span class="tag-role">AI-Powered</span>
+          </p>
+        </div>
+        <img src="assets/images/arrow.svg" alt="" class="mobile-cs-arrow">
+      </a>
+      <a href="case-study-2.html" class="mobile-cs-item">
+        <div class="mobile-cs-item-text">
+          <h3 class="mobile-cs-title" data-i18n-html="cs2_title_html"><span class="hero-accent">Redesigning an Internal Support Tool</span> — and Discovering a Product Worth Selling</h3>
+          <p class="mobile-cs-tags">
+            <span class="tag-role">Fintech</span>
+            <span class="tag-role">B2B</span>
+            <span class="tag-role">Design System</span>
+          </p>
+        </div>
+        <img src="assets/images/arrow.svg" alt="" class="mobile-cs-arrow">
+      </a>
+      <a href="case-study-3.html" class="mobile-cs-item">
+        <div class="mobile-cs-item-text">
+          <h3 class="mobile-cs-title" data-i18n-html="cs3_title_html"><span class="hero-accent">Optimizing Restaurant Operations</span> with a Reservation Management System</h3>
+          <p class="mobile-cs-tags">
+            <span class="tag-role">Hospitality</span>
+            <span class="tag-role">SaaS</span>
+            <span class="tag-role">B2B</span>
+            <span class="tag-role">Design System</span>
+          </p>
+        </div>
+        <img src="assets/images/arrow.svg" alt="" class="mobile-cs-arrow">
+      </a>
     </div>
   </nav>
 
@@ -115,7 +134,7 @@
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:end;">
       <div>
         <div class="slabel" data-i18n="section_label_challenge">The Challenge</div>
-        <h2 class="sh" style="max-width:none;" data-i18n-html="cs2_challenge_h2"><span style="color:var(--muted);font-weight:500;">A tool built in 2018. No data collected since.</span> Engineers doing work that wasn't theirs.</h2>
+        <h2 class="sh" style="max-width:none;" data-i18n-html="cs2_challenge_h2">A tool built in 2018. No data collected since. <span style="color:#FD4D2B;">Engineers doing work that wasn't theirs.</span></h2>
         <p class="ssub" style="max-width:none;margin-top:24px;" data-i18n="cs2_challenge_sub">The Admin UI was the backbone of customer support operations — used to look up payments, investigate errors, and resolve user queries. It had been built in 2018 and never formally evaluated.</p>
         <p class="ssub" style="max-width:none;margin-top:16px;margin-bottom:0;" data-i18n-html="cs2_challenge_ins"><strong>By 2024, 50% of customer queries required engineering involvement.</strong> Most weren't technically complex — they were information problems. Support couldn't find what they needed, so they called an engineer.</p>
       </div>
@@ -172,7 +191,7 @@
   <div class="page">
     <div class="s">
       <div class="slabel" data-i18n="cs2_users_label_new">Users</div>
-      <h2 class="sh" style="max-width:none;" data-i18n-html="cs2_users_h2">Two teams. Opposite needs. <span style="color:var(--muted);font-weight:500;">One rigid tool that served neither.</span></h2>
+      <h2 class="sh" style="max-width:none;" data-i18n-html="cs2_users_h2"><span style="color:#FD4D2B;">Two teams. Opposite needs.</span> One rigid tool that served neither.</h2>
       <p class="ssub" style="max-width:none;" data-i18n="cs2_research_sub">Before designing anything, we needed to understand what was actually happening. This was the first time anyone had formally studied how the tool was used.</p>
       <div class="users-grid" style="margin-top:40px;">
         <div>
@@ -301,7 +320,7 @@
           <div class="cs-sol-feature-text">
             <div class="feat-n">02</div>
             <div class="feat-title" data-i18n="cs2_f2_title">Optimized Layout for Speed</div>
-            <p class="ssub" style="margin-top:12px;color:#EE4423;" data-i18n="cs2_f2_goal">Reducing visual noise to surface the information support needed most.</p>
+            <p class="ssub" style="margin-top:12px;color:#FD4D2B;" data-i18n="cs2_f2_goal">Reducing visual noise to surface the information support needed most.</p>
             <p data-i18n="cs2_f2_p1">Key fields were buried in visual noise. We introduced a collapsible sidebar, increased table visibility, and reorganized the hierarchy around the 30-second scan repeated throughout the day.</p>
             <p style="margin-top:14px;" data-i18n-html="cs2_f2_p2"><strong>The layout prioritized speed and workflow over completeness.</strong></p>
             <p class="ssub" style="margin-top:12px;" data-i18n="cs2_f2_dd">Optimized for one workflow — not for completeness.</p>
@@ -319,7 +338,7 @@
             <div class="feat-n">03</div>
             <div class="feat-title" data-i18n="cs2_f3_title">Flexible Data Views</div>
             <p data-i18n="cs2_f3_p1">Support needed payment status, amount, and date. Engineers needed error codes and API responses. We enabled users to add, remove, and reorder columns based on their workflow.</p>
-            <p style="margin-top:14px;color:#EE4423;" data-i18n-html="cs2_f3_p2"><strong>Two teams, different workflows. A customizable table gave each team the information they needed.</strong></p>
+            <p style="margin-top:14px;color:#FD4D2B;" data-i18n-html="cs2_f3_p2"><strong>Two teams, different workflows. A customizable table gave each team the information they needed.</strong></p>
             <p class="ssub" style="margin-top:12px;" data-i18n="cs2_f3_dd">One rigid view for two teams with opposite needs works for neither. Customization was the only honest solution.</p>
           </div>
           <div class="cs-sol-feature-image">
@@ -474,8 +493,29 @@
 <!-- FOOTER -->
 <div class="footer">
   <div class="page">
-    <a class="f-link" href="case-study-1.html"><img src="assets/images/arrow.svg" class="arr" style="transform:scaleX(-1);" alt="">01 — Investing</a>
-    <a class="f-link" href="case-study-3.html">03 — Hospitality <img src="assets/images/arrow.svg" class="arr" alt=""></a>
+    <a class="footer-nav-item prev" href="case-study-1.html">
+      <img src="assets/images/arrow.svg" class="footer-nav-arrow" alt="">
+      <div>
+        <h3 class="footer-nav-title">Reframing Self-Directed Investing <span class="hero-accent">Through AI</span></h3>
+        <p class="footer-nav-tags">
+          <span class="tag-role">Fintech</span>
+          <span class="tag-role">B2C</span>
+          <span class="tag-role">AI-Powered</span>
+        </p>
+      </div>
+    </a>
+    <a class="footer-nav-item next" href="case-study-3.html">
+      <div>
+        <h3 class="footer-nav-title"><span class="hero-accent">Optimizing Restaurant Operations</span> with a Reservation Management System</h3>
+        <p class="footer-nav-tags">
+          <span class="tag-role">Hospitality</span>
+          <span class="tag-role">SaaS</span>
+          <span class="tag-role">B2B</span>
+          <span class="tag-role">Design System</span>
+        </p>
+      </div>
+      <img src="assets/images/arrow.svg" class="footer-nav-arrow" alt="">
+    </a>
   </div>
 </div>
 
@@ -490,11 +530,11 @@
   </div>
 </footer>
 
-<script src="js/translations.js?v=13"></script>
-<script src="js/main.js"></script>
+<script src="js/translations.js?v=23"></script>
+<script src="js/main.js?v=1"></script>
 
 </main>
 </div>
-<script src="js/motion.js?v=1"></script>
+<script src="js/motion.js?v=13"></script>
 </body>
 </html>

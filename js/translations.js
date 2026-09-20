@@ -15,7 +15,7 @@ const translations = {
     welcome_greeting: "Hello, I am Daniela",
     welcome_hero: "I design digital experiences driven by strategy and user needs.",
     hero_badge: "👋 Hey there, I am Daniela",
-    hero_tagline: "Product Designer · 6+ years · Fintech & B2B SaaS",
+    hero_tagline: "Product Designer · 6+ years of experience",
     welcome_get_in_touch: "Get in touch",
     welcome_skills: "SKILLS",
     welcome_skill1_title: "Product",
@@ -45,9 +45,14 @@ const translations = {
     contact_location_label: "Location",
     contact_location: "Tenerife, Spain",
 
+    // Hero scroll link + case study button
+    cs_btn_explore: "View Case Study",
+    mobile_menu_label: "Case Studies",
+
     // Case Study 1 - BMO
     cs1_label: "Case study",
     cs1_title: "Reframing Self-Directed Investing Through AI",
+    cs1_title_html: "Reframing Self-Directed Investing <span class='hero-accent'>Through AI</span>",
     cs1_desc: "Embedding AI-powered guidance into BMO InvestorLine's self-directed investing platform — helping users move from uncertainty to confident action.<br><br>A 5-month concept engagement that shaped a phased roadmap for AI-assisted investing.",
     cs2_desc: "End-to-end redesign of an internal customer support tool at Form3, improving search efficiency and reducing resolution time for payment incidents.<br><br>Reduced search time and decreased the support team's dependency on engineers for issue resolution.",
     cs1_desc_p1: "BMO InvestorLine gives investors full control — no advisor required. But control without guidance creates friction at the moments that matter most. I joined a 5-month engagement to redesign how self-directed investors understand their portfolio and act with confidence.",
@@ -483,6 +488,7 @@ const translations = {
     // Case Study 3 - Cover
     cs3_label: "Case study",
     cs3_title: "Optimizing Restaurant Operations with a Reservation Management System",
+    cs3_title_html: "<span class='hero-accent'>Optimizing Restaurant Operations</span> with a Reservation Management System",
     cs3_hero_title: "<span class='blue'>Optimizing Restaurant Operations</span> with a Reservation Management System",
     cs3_desc_p1: "This project focused on improving the usability and efficiency of a restaurant management platform used to handle reservations, table allocation, and service flow.",
     cs3_desc_p2: "The goal was to streamline operations, reduce friction for staff, and improve real-time decision-making in high-pressure environments.",
@@ -927,6 +933,7 @@ const translations = {
 
     // ── CS2 rewrite (2024–2025) ──────────────────────────────────────────
     cs2_title: "Redesigning an Internal Support Tool — and Discovering a Product Worth Selling",
+    cs2_title_html: "<span class=\"hero-accent\">Redesigning an Internal Support Tool</span> — and Discovering a Product Worth Selling",
     cs2_hero_title: "<span class=\"blue\">Redesigning an Internal Support Tool</span> — and Discovering a Product Worth Selling",
     cs2_desc_p1: "A fintech company's customer support team ran on an admin tool built in 2018. No one had ever measured how well it worked — until we did. Over the course of a year, I led research and redesigned the core workflows end-to-end.",
     cs2_desc_p2: "The research uncovered a problem nobody had named: support agents weren't escalating to engineers because queries were technically complex. They were escalating because the tool didn't surface what they needed. And by the time we finished, stakeholders were asking a different question: could we sell this?",
@@ -936,7 +943,7 @@ const translations = {
     cs2_duration_val: "1 year (part-time)",
     cs2_deliverables_label: "Deliverables",
     cs2_deliverables_val: "Research · UX · UI · Strategic Rec.",
-    cs2_challenge_h2: "<span style=\"color:var(--muted);font-weight:500;\">A tool built in 2018. No data collected since.</span> Engineers doing work that wasn't theirs.",
+    cs2_challenge_h2: "A tool built in 2018. No data collected since. <span style=\"color:#FD4D2B;\">Engineers doing work that wasn't theirs.</span>",
     cs2_challenge_sub: "The Admin UI was the backbone of customer support operations — used to look up payments, investigate errors, and resolve user queries. It had been built in 2018 and never formally evaluated.",
     cs2_challenge_ins_tag: "The signal",
     cs2_challenge_ins: "<strong>By 2024, 50% of customer queries required engineering involvement.</strong> Most weren't technically complex — they were information problems. Support couldn't find what they needed, so they called an engineer.",
@@ -960,7 +967,7 @@ const translations = {
     cs2_research_ins_tag: "Key finding",
     cs2_research_ins: "The support team wasn't escalating to engineers because problems were hard. They were escalating because the tool didn't show them what they needed. Engineers were solving visibility problems — not technical ones.",
     cs2_users_label_new: "Users",
-    cs2_users_h2: "Two teams. Opposite needs. <span style=\"color:var(--muted);font-weight:500;\">One rigid tool that served neither.</span>",
+    cs2_users_h2: "<span style=\"color:#FD4D2B;\">Two teams. Opposite needs.</span> One rigid tool that served neither.",
     cs2_u1_profile: "Profile 01",
     cs2_u1_title: "Customer Support Team",
     cs2_u1_context: "6 interviewed · Daily users handling payment queries and onboarding issues.",
@@ -1224,7 +1231,7 @@ const translations = {
     welcome_greeting: "Hola, soy Daniela",
     welcome_hero: "Diseño experiencias digitales que conectan estrategia, negocio y necesidades humanas.",
     hero_badge: "👋 Hola, soy Daniela",
-    hero_tagline: "Product Designer · 6+ años · Fintech & B2B SaaS",
+    hero_tagline: "Product Designer · 6+ años de experiencia",
     welcome_get_in_touch: "Hablemos",
     welcome_tag1: "Investigación UX 🔍",
     welcome_tag2: "Diseño de producto ✏️",
@@ -1265,6 +1272,7 @@ const translations = {
     // Hero scroll link + case study button
     welcome_scroll_link: "Trabajos",
     cs_btn_explore: "Ver caso de estudio",
+    mobile_menu_label: "Casos de estudio",
 
     // Homepage case study cards
     cs1_desc: "Integrando orientación con IA en la plataforma de inversión autogestionada de BMO InvestorLine — ayudando a los usuarios a pasar de la incertidumbre a la acción con confianza.<br><br>Un proyecto conceptual de 5 meses que dio forma a un roadmap por fases para la inversión asistida por IA.",
@@ -1287,6 +1295,7 @@ const translations = {
     // Case Study 1 - BMO
     cs1_label: "Caso de estudio",
     cs1_title: "Replanteando la Inversión Autogestionada a través de IA",
+    cs1_title_html: "Replanteando la Inversión Autogestionada <span class='hero-accent'>a través de IA</span>",
     cs1_desc_p1: "BMO InvestorLine les da a los inversores control total, sin necesidad de un asesor. Pero el control sin orientación genera fricción justo en los momentos que más importan. Me uní a un proyecto de 5 meses para rediseñar cómo los inversores autogestionados entienden su cartera y actúan con confianza.",
     cs1_desc_p2: "Lideré el diseño del Journey 2 — ¿Cómo va mi cartera? — y colaboré en el onboarding y la gestión de cartera para mantener alineados los tres journeys. Mi trabajo incluyó síntesis de discovery, user flows, wireframes y prototipos de alta fidelidad validados mediante pruebas con usuarios.",
     cs1_role_title: "Mi rol",
@@ -1795,6 +1804,7 @@ const translations = {
     // Case Study 3
     cs3_label: "Caso de estudio",
     cs3_title: "Optimización de las operaciones de restaurante con un sistema de gestión de reservas",
+    cs3_title_html: "<span class='hero-accent'>Optimización de las operaciones de restaurante</span> con un sistema de gestión de reservas",
     cs3_desc_p1: "Este proyecto se centró en mejorar la usabilidad y eficiencia de una plataforma de gestión para restaurantes, utilizada para manejar reservas, asignación de mesas y el flujo de servicio.",
     cs3_desc_p2: "El objetivo fue optimizar las operaciones, reducir la fricción para el personal y mejorar la toma de decisiones en tiempo real en entornos de alta presión.",
     cs3_role_title: "Mi rol",
@@ -2060,6 +2070,7 @@ const translations = {
 
     // ── CS2 rewrite (2024–2025) ──────────────────────────────────────────
     cs2_title: "Rediseñando una herramienta de soporte interno — y descubriendo un producto que vale la pena vender",
+    cs2_title_html: "<span class=\"hero-accent\">Rediseñando una herramienta de soporte interno</span> — y descubriendo un producto que vale la pena vender",
     cs2_hero_title: "<span class=\"blue\">Rediseñando una herramienta de soporte interno</span> — y descubriendo un producto que vale la pena vender",
     cs2_desc_p1: "El equipo de soporte al cliente de una fintech operaba con una herramienta administrativa construida en 2018. Nadie había medido qué tan bien funcionaba — hasta que lo hicimos nosotros. Durante un año, lideré la investigación y rediseñé los flujos de trabajo principales de principio a fin.",
     cs2_desc_p2: "La investigación reveló un problema que nadie había nombrado: los agentes de soporte no escalaban a los ingenieros porque las consultas eran técnicamente complejas. Escalaban porque la herramienta no mostraba lo que necesitaban. Y para cuando terminamos, los stakeholders estaban haciendo una pregunta diferente: ¿podríamos vender esto?",
@@ -2069,7 +2080,7 @@ const translations = {
     cs2_duration_val: "1 año (en paralelo con otros proyectos)",
     cs2_deliverables_label: "Entregables",
     cs2_deliverables_val: "Investigación · UX · UI · Rec. estratégica",
-    cs2_challenge_h2: "<span style=\"color:var(--muted);font-weight:500;\">Una herramienta construida en 2018. Sin datos desde entonces.</span> Ingenieros haciendo trabajo que no les correspondía.",
+    cs2_challenge_h2: "Una herramienta construida en 2018. Sin datos desde entonces. <span style=\"color:#FD4D2B;\">Ingenieros haciendo trabajo que no les correspondía.</span>",
     cs2_challenge_sub: "El Admin UI era la columna vertebral de las operaciones de soporte — usado para buscar pagos, investigar errores y resolver consultas. Fue construido en 2018 y nunca evaluado formalmente.",
     cs2_challenge_ins_tag: "La señal",
     cs2_challenge_ins: "<strong>Para 2024, el 50% de las consultas requerían la intervención de ingeniería.</strong> La mayoría no eran técnicamente complejas — eran problemas de información. Soporte no encontraba lo que necesitaba, así que llamaba a un ingeniero.",
@@ -2093,7 +2104,7 @@ const translations = {
     cs2_research_ins_tag: "Hallazgo clave",
     cs2_research_ins: "El equipo de soporte no escalaba a los ingenieros porque los problemas eran difíciles. Escalaba porque la herramienta no les mostraba lo que necesitaban. Los ingenieros resolvían problemas de visibilidad — no problemas técnicos.",
     cs2_users_label_new: "Usuarios",
-    cs2_users_h2: "Dos equipos. Necesidades opuestas. <span style=\"color:var(--muted);font-weight:500;\">Una herramienta rígida que no servía bien a ninguno.</span>",
+    cs2_users_h2: "<span style=\"color:#FD4D2B;\">Dos equipos. Necesidades opuestas.</span> Una herramienta rígida que no servía bien a ninguno.",
     cs2_u1_profile: "Perfil 01",
     cs2_u1_title: "Equipo de soporte al cliente",
     cs2_u1_context: "6 entrevistados · Usuarios diarios que manejan consultas de pagos y problemas de onboarding.",

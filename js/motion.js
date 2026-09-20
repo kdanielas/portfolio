@@ -240,11 +240,210 @@
     });
   }
 
+  // ─── 5. Custom Inverting Cursor ────────────────────────────────
+  // A small light dot that follows the pointer with mix-blend-mode:
+  // difference, so it reads as a color-inverting circle over any
+  // background. Grows over anything with cursor:pointer.
+  function initCustomCursor() {
+    if ('ontouchstart' in window) return;
+    if (window.matchMedia('(hover: none), (pointer: coarse)').matches) return;
+
+    const cursor = document.createElement('div');
+    cursor.className = 'custom-cursor';
+    document.body.appendChild(cursor);
+    document.body.classList.add('has-custom-cursor');
+
+    let mouseX = window.innerWidth / 2;
+    let mouseY = window.innerHeight / 2;
+    let cx = mouseX;
+    let cy = mouseY;
+    let active = false;
+
+    window.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      if (!active) {
+        active = true;
+        cursor.style.opacity = '1';
+      }
+    }, { passive: true });
+
+    document.addEventListener('mouseleave', () => {
+      cursor.style.opacity = '0';
+      active = false;
+    });
+
+    // cursor:none is applied to interactive elements below (to hide the
+    // native pointer under the custom one), so their own computed cursor
+    // can't be used to detect "clickable" — match by selector instead.
+    const CLICKABLE = 'a, button, [role="button"], input, textarea, select, label, summary, .lang-btn, .hamburger, .top-nav-social, .work-num';
+    document.addEventListener('mouseover', (e) => {
+      if (e.target.closest(CLICKABLE)) {
+        cursor.classList.add('is-hover');
+      }
+    });
+    document.addEventListener('mouseout', (e) => {
+      if (e.target.closest(CLICKABLE)) {
+        cursor.classList.remove('is-hover');
+      }
+    });
+
+    function animate() {
+      const ease = prefersReducedMotion ? 1 : 0.2;
+      cx = lerp(cx, mouseX, ease);
+      cy = lerp(cy, mouseY, ease);
+      cursor.style.transform = `translate3d(${cx}px, ${cy}px, 0) translate(-50%, -50%)`;
+      requestAnimationFrame(animate);
+    }
+    animate();
+  }
+
+  // ─── 6. Hero Intro Sequence ────────────────────────────────────
+  // Home hero only: the badge types itself out character by character,
+  // then the title, subtitle, CTA and "Works" link fade in one after
+  // another. Runs once on load — the hero is always in view, so the
+  // scroll-triggered observer above isn't the right tool for staging this.
+  function initHeroIntroSequence() {
+    const badge = document.querySelector('.hero-badge-text');
+    const sequenceEls = Array.from(document.querySelectorAll('.hero-sequence-item'));
+    if (!badge || !sequenceEls.length) return;
+
+    if (prefersReducedMotion) {
+      sequenceEls.forEach(el => el.classList.add('is-visible'));
+      return;
+    }
+
+    const TYPE_SPEED = 70;   // ms per character
+    const STAGGER = 250;     // ms between each subsequent reveal
+
+    const chars = Array.from(badge.textContent);
+    badge.textContent = '';
+
+    let i = 0;
+    function typeNext() {
+      if (i < chars.length) {
+        badge.textContent += chars[i];
+        i++;
+        setTimeout(typeNext, TYPE_SPEED);
+      } else {
+        sequenceEls.forEach((el, idx) => {
+          setTimeout(() => el.classList.add('is-visible'), STAGGER * (idx + 1));
+        });
+      }
+    }
+    typeNext();
+  }
+
+  // ─── 7. Fast Scroll-To (Works link) ────────────────────────────
+  // The "Works" scroll cue should snap down to the first project quickly
+  // instead of the page's default (slower, linear-ish) CSS smooth-scroll —
+  // a short duration with a hard ease-out reads as a quick pull toward the
+  // section rather than a leisurely glide.
+  function initFastScrollLinks() {
+    if (prefersReducedMotion) return;
+    document.querySelectorAll('.hero-scroll-link[href^="#"]').forEach(link => {
+      link.addEventListener('click', (e) => {
+        const target = document.getElementById(link.getAttribute('href').slice(1));
+        if (!target) return;
+        e.preventDefault();
+
+        const startY = window.scrollY;
+        const targetY = target.getBoundingClientRect().top + startY;
+        const distance = targetY - startY;
+        const duration = 900;
+        const easeOutExpo = t => (t === 1 ? 1 : 1 - Math.pow(2, -10 * t));
+        let startTime = null;
+
+        function step(timestamp) {
+          if (!startTime) startTime = timestamp;
+          const progress = Math.min((timestamp - startTime) / duration, 1);
+          window.scrollTo(0, startY + distance * easeOutExpo(progress));
+          if (progress < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+      });
+    });
+  }
+
+  // ─── 8. Hamburger Auto-Contrast ────────────────────────────────
+  // The hamburger is fixed in place while the page scrolls underneath it,
+  // crossing both dark and light section backgrounds — mix-blend-mode
+  // turned out unreliable against this page's actual stacking contexts, so
+  // this samples the real element under the icon instead and flips a class
+  // based on that background's luminance.
+  function initHamburgerContrast() {
+    const hamburger = document.getElementById('hamburger');
+    if (!hamburger) return;
+
+    function luminance(rgbStr) {
+      const m = rgbStr.match(/[\d.]+/g);
+      if (!m) return 0;
+      const [r, g, b] = m.map(Number);
+      return (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+    }
+
+    // The hamburger sits inside the fixed .top-nav bar's own footprint.
+    // When the bar has its own real background (solidified on scroll —
+    // .scrolled/.nav-solid), THAT'S what's actually painted there and
+    // should win. Only when it's transparent (showing the hero straight
+    // through it) do we need to punch through it and the hamburger itself
+    // so elementFromPoint can reach the real content behind both —
+    // hero-band is a sibling of .top-nav, not a DOM ancestor, so walking
+    // up from a hit inside the transparent nav would otherwise miss it.
+    const topNav = document.getElementById('top-nav');
+    function bgAt(x, y) {
+      if (topNav) {
+        const navBg = getComputedStyle(topNav).backgroundColor;
+        if (navBg && navBg !== 'transparent' && navBg !== 'rgba(0, 0, 0, 0)') return navBg;
+      }
+      const restores = [hamburger, topNav].filter(Boolean).map(el => [el, el.style.pointerEvents]);
+      restores.forEach(([el]) => { el.style.pointerEvents = 'none'; });
+      let el = document.elementFromPoint(x, y);
+      restores.forEach(([el, prev]) => { el.style.pointerEvents = prev; });
+      while (el) {
+        const bg = getComputedStyle(el).backgroundColor;
+        if (bg && bg !== 'transparent' && bg !== 'rgba(0, 0, 0, 0)') return bg;
+        el = el.parentElement;
+      }
+      return getComputedStyle(document.body).backgroundColor;
+    }
+
+    function update() {
+      const rect = hamburger.getBoundingClientRect();
+      const x = rect.left + rect.width / 2;
+      const y = rect.top + rect.height / 2;
+      const isLight = luminance(bgAt(x, y)) > 0.6;
+      hamburger.classList.toggle('on-light', isLight);
+    }
+
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(() => { update(); ticking = false; });
+        ticking = true;
+      }
+    }, { passive: true });
+    window.addEventListener('resize', update);
+    update();
+    // The very first call can land before layout/paint has fully settled,
+    // sampling the wrong point and falling through to body's own light
+    // background — re-check at a few more points so it settles correctly
+    // regardless of how long that takes.
+    window.addEventListener('load', update);
+    requestAnimationFrame(() => requestAnimationFrame(update));
+    setTimeout(update, 300);
+    setTimeout(update, 1000);
+  }
+
   // ─── Initialize ───────────────────────────────────────────────
   document.addEventListener('DOMContentLoaded', () => {
     initScrollReveals();
     initBackgroundMotion();
     initHeroParallax();
     initMagneticHover();
+    initCustomCursor();
+    initHeroIntroSequence();
+    initHamburgerContrast();
+    initFastScrollLinks();
   });
 })();
