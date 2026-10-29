@@ -683,9 +683,9 @@ const translations = {
 
     // Welcome page hero
     welcome_label: "HI, I AM DANIELA :)",
-    welcome_hero_h1: "I turn complex ",
-    welcome_hero_h12: "Fintech & B2B SaaS",
-    welcome_hero_h13: " products into intuitive experiences.",
+    welcome_hero_h1: "I design intuitive user experiences for ",
+    welcome_hero_h12: "Fintech and B2B SaaS",
+    welcome_hero_h13: " products.",
 
 
     // CS2 hero team
@@ -2005,9 +2005,9 @@ const translations = {
 
     // Welcome page hero
     welcome_label: "HOLA, SOY DANIELA :)",
-    welcome_hero_h1: "Transformo sistemas complejos de ",
+    welcome_hero_h1: "Diseño experiencias de usuario intuitivas para productos de ",
     welcome_hero_h12: "Fintech y B2B SaaS",
-    welcome_hero_h13: " en experiencias intuitivas.",
+    welcome_hero_h13: ".",
 
 
     // CS2 hero team
